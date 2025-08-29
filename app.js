@@ -427,55 +427,48 @@ function renderCards() {
 }
 
 function showPopup(teamName) {
-  const team = sportsData[currentSport].find(t => t.name === teamName);
-  if (!team) return;
+  console.log('🔥 showPopup called with:', teamName);
   
-  const exact = team.founded !== team.leagueJoined;
-  const stateInfo = stateData[team.state];
-  const teamInfo = getDayInfo(team.founded);
-  const cityInfo = getDayInfo(team.cityFounded);
-  const charterInfo = getDayInfo(team.cityCharter);
-  const venueInfo = getDayInfo(team.stadiumOpened || team.arenaOpened);
-  const stateFoundedInfo = stateInfo ? getDayInfo(stateInfo.founded) : { dayOfYear: '—', daysLeft: '—' };
-  
-  const config = sportConfig[currentSport];
-  const venueName = team.stadium || team.arena;
-  const venueOpened = team.stadiumOpened || team.arenaOpened;
-  
-  let html = `<div class="popup-header"><h2>${team.name}</h2>`;
-  if (team.division) html += `<p class="popup-division">${team.division}</p>`;
-  html += `</div><div class="popup-content">`;
-  
-  html += `<div class="info-section"><h3>Team History</h3><div class="info-grid">`;
-  html += `<div class="info-item"><label>Founded:</label><span class="${exact ? 'exact-date' : 'nfl-date'}">${team.founded}</span>`;
-  html += `<small>Day ${teamInfo.dayOfYear} • ${teamInfo.daysLeft} days left</small></div>`;
-  html += `<div class="info-item"><label>${config.leagueJoinedLabel}:</label><span>${team.leagueJoined}</span></div>`;
-  html += `<div class="info-item"><label>${config.conferenceLabel}:</label><span>${team.conference}</span></div>`;
-  if (team.division) html += `<div class="info-item"><label>${config.divisionLabel}:</label><span>${team.division}</span></div>`;
-  html += `</div></div>`;
-  
-  html += `<div class="info-section"><h3>Location Details</h3><div class="info-grid">`;
-  html += `<div class="info-item"><label>City:</label><span>${team.city}</span></div>`;
-  html += `<div class="info-item"><label>State:</label><span>${team.state}${stateInfo ? ' • ' + stateInfo.order + getOrdinal(stateInfo.order) + ' State' : ''}</span></div>`;
-  html += `<div class="info-item"><label>City Founded:</label><span>${team.cityFounded || 'Not available'}</span>`;
-  if (team.cityFounded) html += `<small>Day ${cityInfo.dayOfYear} • ${cityInfo.daysLeft} days left</small>`;
-  html += `</div>`;
-  html += `<div class="info-item"><label>City Chartered:</label><span>${team.cityCharter || 'Not available'}</span>`;
-  if (team.cityCharter) html += `<small>Day ${charterInfo.dayOfYear} • ${charterInfo.daysLeft} days left</small>`;
-  html += `</div>`;
-  if (stateInfo) {
-    html += `<div class="info-item"><label>State Founded:</label><span>${stateInfo.founded}</span>`;
-    html += `<small>Day ${stateFoundedInfo.dayOfYear} • ${stateFoundedInfo.daysLeft} days left</small></div>`;
+  // Check if modal exists
+  let modal = document.getElementById('team-modal');
+  if (!modal) {
+    console.log('Creating modal...');
+    modal = document.createElement('div');
+    modal.id = 'team-modal';
+    modal.className = 'modal';
+    modal.innerHTML = `
+      <div class="modal-content">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <div id="modal-body"></div>
+      </div>
+    `;
+    document.body.appendChild(modal);
   }
-  html += `</div></div>`;
   
-  html += `<div class="info-section"><h3>${config.venueLabel} Information</h3><div class="info-grid">`;
-  html += `<div class="info-item"><label>${config.venueLabel}:</label><span>${venueName}</span></div>`;
-  html += `<div class="info-item"><label>${config.venueLabel} Opened:</label><span>${venueOpened}</span>`;
-  html += `<small>Day ${venueInfo.dayOfYear} • ${venueInfo.daysLeft} days left</small></div></div></div></div>`;
+  const team = sportsData[currentSport].find(t => t.name === teamName);
+  if (!team) {
+    console.error('❌ Team not found:', teamName);
+    return;
+  }
   
-  document.getElementById('modal-body').innerHTML = html;
-  document.getElementById('team-modal').style.display = 'block';
+  console.log('✅ Team found:', team.name);
+  
+  // Simple popup content for testing
+  document.getElementById('modal-body').innerHTML = `
+    <div style="padding: 2rem; color: white;">
+      <h2>${team.name}</h2>
+      <p>Founded: ${team.founded}</p>
+      <p>City: ${team.city}, ${team.state}</p>
+      <p>Stadium: ${team.stadium || team.arena}</p>
+    </div>
+  `;
+  
+  modal.style.display = 'block';
+  console.log('✅ Modal should be visible');
+}
+
+function closePopup() {
+  document.getElementById('team-modal').style.display = 'none';
 }
 
 // Initialize app
