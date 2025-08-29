@@ -245,3 +245,127 @@ body {
 
 .team-card.exact-founding {
   border-left: 4px solid #48
+    
+/* Modal Styles - FIXED POSITIONING */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10000; /* Very high z-index */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(4px);
+}
+
+.modal-content {
+  background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+  margin: 5% auto;
+  padding: 0;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 700px;
+  max-height: 80vh;
+  overflow-y: auto;
+  border: 1px solid #4a5568;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  color: #a0aec0;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10001;
+  transition: color 0.2s;
+}
+
+.close:hover {
+  color: #e53e3e;
+}
+
+.popup-header {
+  padding: 2rem;
+  text-align: center;
+  background: linear-gradient(135deg, #2d3748 0%, #374151 100%);
+  border-bottom: 1px solid #4a5568;
+}
+
+.popup-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.popup-division {
+  color: #63b3ed;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.popup-content {
+  padding: 2rem;
+}
+
+.info-section {
+  margin-bottom: 2rem;
+}
+
+.info-section h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #63b3ed;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #374151;
+  padding-bottom: 0.5rem;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background-color: rgba(45, 55, 72, 0.5);
+  border-radius: 8px;
+  border: 1px solid #4a5568;
+}
+
+.info-item label {
+  font-size: 0.75rem;
+  color: #a0aec0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.info-item span {
+  color: #ffffff;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.info-item small {
+  color: #718096;
+  font-size: 0.7rem;
+  font-style: italic;
+}
+
+.exact-date {
+  color: #48bb78 !important;
+}
+
+.nfl-date {
+  color: #ed8936 !important;
+}
