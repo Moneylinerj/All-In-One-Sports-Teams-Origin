@@ -380,7 +380,7 @@ function renderCards() {
       }
       html += `<div class="teams-grid">`;
       
-      grouped[conf][div].forEach((team, index) => {
+      grouped[conf][div].forEach(team => {
         const exact = team.founded !== team.leagueJoined;
         const foundedClass = exact ? 'exact-founding' : 'nfl-founding';
         const foundedText = exact ? team.founded : sportConfig[currentSport].leagueJoinedLabel + ': ' + team.leagueJoined;
@@ -408,38 +408,16 @@ function renderCards() {
   });
   html += '</div>';
   
+  // Only set the teams content, NOT the modal
   container.innerHTML = html;
   
-  // MOVE MODAL TO BODY LEVEL (not inside container)
-  let existingModal = document.getElementById('team-modal');
-  if (existingModal) {
-    existingModal.remove();
-  }
-  
-  const modalHTML = `
-    <div id="team-modal" class="modal">
-      <div class="modal-content">
-        <span class="close" id="close-modal">&times;</span>
-        <div id="modal-body"></div>
-      </div>
-    </div>
-  `;
-  
-  document.body.insertAdjacentHTML('beforeend', modalHTML);
-  
-  // Add event listeners after HTML is inserted
+  // Add event listeners to team cards
   document.querySelectorAll('.team-card').forEach(card => {
     card.addEventListener('click', function() {
       const teamName = this.getAttribute('data-team-name');
       showPopup(teamName);
     });
   });
-  
-  // Add close modal listener
-  const closeBtn = document.getElementById('close-modal');
-  if (closeBtn) {
-    closeBtn.addEventListener('click', closePopup);
-  }
 }
 
 function showPopup(teamName) {
