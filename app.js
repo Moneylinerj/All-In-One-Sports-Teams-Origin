@@ -416,3 +416,153 @@ const nflTeams = [
     stadiumOpened: "September 14, 1997"
   }
 ];
+
+// Global variables for filtering
+let filteredTeams = [...nflTeams];
+let currentTab = 'all';
+
+// Initialize the app
+document.addEventListener('DOMContentLoaded', function() {
+  initializeFilters();
+  initializeTabs();
+  renderTable();
+});
+
+function initializeFilters() {
+  // Populate division dropdown
+  const divisions = [...new Set(nflTeams.map(team => team.division))].sort();
+  const divisionSelect = document.getElementById('division-filter');
+  divisions.forEach(division => {
+    const option = document.createElement('option');
+    option.value = division;
+    option.textContent = division;
+    divisionSelect.appendChild(option);
+  });
+
+  // Add event listeners
+  document.getElementById('search').addEventListener('input', handleSearch);
+  document.getElementById('conference-filter').addEventListener('change', handleFilter);
+  document.getElementById('division-filter').addEventListener('change', handleFilter);
+  document.getElementById('date-type').addEventListener('change', handleFilter);
+}
+
+function initializeTabs() {
+  const tabs = document.querySelectorAll('.tab-btn');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', function() {
+      tabs.forEach(t => t.classList.remove('active'));
+      this.classList.add('active');
+      currentTab = this.dataset.tab;
+      renderTable();
+    });
+  });
+}
+
+function handleSearch() {
+  filterAndRender();
+}
+
+function handleFilter() {
+  filterAndRender();
+}
+
+function filterAndRender() {
+  filteredTeams = [...nflTeams];
+
+  // Search filter
+  const searchTerm = document.getElementById('search').value.toLowerCase();
+  if (searchTerm) {
+    filteredTeams = filteredTeams.filter(team =>
+      team.name.toLowerCase().includes(searchTerm) ||
+      team.city.toLowerCase().includes(searchTerm) ||
+      team.state.toLowerCase().includes(searchTerm) ||
+      team.stadium.toLowerCase().includes(searchTerm)
+    );
+  }
+
+  // Conference filter
+  const conference = document.getElementById('conference-filter').value;
+  if (conference) {
+    filteredTeams = filteredTeams.filter(team => team.conference === conference);
+  }
+
+  // Division filter
+  const division = document.getElementById('division-filter').value;
+  if (division) {
+    filteredTeams = filteredTeams.filter(team => team.division === division);
+  }
+
+  // Date type filter
+  const dateType = document.getElementById('date-type').value;
+  if (dateType === 'exact') {
+    filteredTeams = filteredTeams.filter(team => team.founded !== team.nflJoined);
+  } else if (dateType === 'nfl') {
+    filteredTeams = filteredTeams.filter(team => team.founded === team.nflJoined);
+  }
+
+  renderTable();
+}
+
+function renderTable() {
+  const container = document.getElementById('data-table');
+  
+  let html = `
+    <table>
+      <thead>
+        <tr>
+          <th onclick="sortTable('name')">Team Name ↕</th>
+          <th onclick="sortTable('division')">Division ↕</th>
+          <th onclick="sortTable('founded')">Founded/Joined ↕</th>
+          <th onclick="sortTable('city')">City ↕</th>
+          <th onclick="sortTable('state')">State ↕</th>
+          <th onclick="sortTable('cityFounded')">City Founded ↕</th>
+          <th onclick="sortTable('cityCharter')">City Charter ↕</th>
+          <th onclick="sortTable('stadium')">Stadium ↕</th>
+          <th onclick="sortTable('stadiumOpened')">Stadium Opened ↕</th>
+        </tr>
+      </thead>
+      <tbody>
+  `;
+
+  filteredTeams.forEach(team => {
+    const hasExactFounding = team.founded && team.founded !== team.nflJoined;
+    const foundedClass = hasExactFounding ? 'founded-date' : 'nfl-date';
+    const foundedText = hasExactFounding ? team.founded : `NFL: ${team.nflJoined}`;
+
+    html += `
+      <tr>
+        <td class="team-name">${team.name}</td>
+        <td class="division">${team.division}</td>
+        <td class="${foundedClass}">${foundedText}</td>
+        <td>${team.city}</td>
+        <td>${team.state}</td>
+        <td>${team.cityFounded || '—'}</td>
+        <td>${team.cityCharter || '—'}</td>
+        <td>${team.stadium}</td>
+        <td>${team.stadiumOpened}</td>
+      </tr>
+    `;
+  });
+
+  html += `
+      </tbody>
+    </table>
+  `;
+
+  container.innerHTML = html;
+}
+
+function sortTable(column) {
+  filteredTeams.sort((a, b) => {
+    let aVal = a[column] || '';
+    let bVal = b[column] || '';
+    
+    if (typeof aVal === 'string') {
+      return aVal.localeCompare(bVal);
+    }
+    return aVal - bVal;
+  });
+  
+  renderTable();
+}
+
