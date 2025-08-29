@@ -410,22 +410,20 @@ const nflTeams = [
     nflJoined: "1932",
     city: "Landover",
     state: "MD",
-    cityFounded: "",
+    cityFounded: "July 16, 1790",
     cityCharter: "",
     stadium: "Commanders Field",
     stadiumOpened: "September 14, 1997"
   }
 ];
 
-// Global variables for filtering
+// Global variables
 let filteredTeams = [...nflTeams];
-let currentTab = 'all';
 
 // Initialize the app
 document.addEventListener('DOMContentLoaded', function() {
   initializeFilters();
-  initializeTabs();
-  renderTable();
+  renderTeamCards();
 });
 
 function initializeFilters() {
@@ -444,18 +442,6 @@ function initializeFilters() {
   document.getElementById('conference-filter').addEventListener('change', handleFilter);
   document.getElementById('division-filter').addEventListener('change', handleFilter);
   document.getElementById('date-type').addEventListener('change', handleFilter);
-}
-
-function initializeTabs() {
-  const tabs = document.querySelectorAll('.tab-btn');
-  tabs.forEach(tab => {
-    tab.addEventListener('click', function() {
-      tabs.forEach(t => t.classList.remove('active'));
-      this.classList.add('active');
-      currentTab = this.dataset.tab;
-      renderTable();
-    });
-  });
 }
 
 function handleSearch() {
@@ -500,69 +486,163 @@ function filterAndRender() {
     filteredTeams = filteredTeams.filter(team => team.founded === team.nflJoined);
   }
 
-  renderTable();
+  renderTeamCards();
 }
 
-function renderTable() {
+function renderTeamCards() {
   const container = document.getElementById('data-table');
   
-  let html = `
-    <table>
-      <thead>
-        <tr>
-          <th onclick="sortTable('name')">Team Name ↕</th>
-          <th onclick="sortTable('division')">Division ↕</th>
-          <th onclick="sortTable('founded')">Founded/Joined ↕</th>
-          <th onclick="sortTable('city')">City ↕</th>
-          <th onclick="sortTable('state')">State ↕</th>
-          <th onclick="sortTable('cityFounded')">City Founded ↕</th>
-          <th onclick="sortTable('cityCharter')">City Charter ↕</th>
-          <th onclick="sortTable('stadium')">Stadium ↕</th>
-          <th onclick="sortTable('stadiumOpened')">Stadium Opened ↕</th>
-        </tr>
-      </thead>
-      <tbody>
-  `;
-
+  // Group teams by conference and division
+  const groupedTeams = {};
+  
   filteredTeams.forEach(team => {
-    const hasExactFounding = team.founded && team.founded !== team.nflJoined;
-    const foundedClass = hasExactFounding ? 'founded-date' : 'nfl-date';
-    const foundedText = hasExactFounding ? team.founded : `NFL: ${team.nflJoined}`;
-
-    html += `
-      <tr>
-        <td class="team-name">${team.name}</td>
-        <td class="division">${team.division}</td>
-        <td class="${foundedClass}">${foundedText}</td>
-        <td>${team.city}</td>
-        <td>${team.state}</td>
-        <td>${team.cityFounded || '—'}</td>
-        <td>${team.cityCharter || '—'}</td>
-        <td>${team.stadium}</td>
-        <td>${team.stadiumOpened}</td>
-      </tr>
-    `;
+    if (!groupedTeams[team.conference]) {
+      groupedTeams[team.conference] = {};
+    }
+    if (!groupedTeams[team.conference][team.division]) {
+      groupedTeams[team.conference][team.division] = [];
+    }
+    groupedTeams[team.conference][team.division].push(team);
   });
 
+  let html = '<div class="teams-container">';
+
+  // Sort conferences (AFC first, then NFC)
+  const conferences = Object.keys(groupedTeams).sort();
+  
+  conferences.forEach(conference => {
+    html += `<div class="conference-section">`;
+    html += `<h2 class="conference-title">${conference}</h2>`;
+    
+    const divisions = Object.keys(groupedTeams[conference]).sort();
+    
+    divisions.forEach(division => {
+      html += `<div class="division-section">`;
+      html += `<h3 class="division-title">${division}</h3>`;
+      html += `<div class="teams-grid">`;
+      
+      groupedTeams[conference][division].forEach(team => {
+        const hasExactFounding = team.founded && team.founded !== team.nflJoined;
+        const foundedClass = hasExactFounding ? 'exact-founding' : 'nfl-founding';
+        const foundedText = hasExactFounding ? team.founded : `NFL: ${team.nflJoined}`;
+        
+        html += `
+          <div class="team-card ${foundedClass}" onclick="showTeamPopup('${team.name}')">
+            <div class="team-card-content">
+              <h4 class="team-name">${team.name}</h4>
+              <p class="team-location">${team.city}, ${team.state}</p>
+              <p class="team-founded">${foundedText}</p>
+            </div>
+          </div>
+        `;
+      });
+      
+      html += `</div></div>`;
+    });
+    
+    html += `</div>`;
+  });
+
+  html += '</div>';
+
+  // Add modal HTML
   html += `
-      </tbody>
-    </table>
+    <div id="team-modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeTeamPopup()">&times;</span>
+        <div id="modal-body"></div>
+      </div>
+    </div>
   `;
 
   container.innerHTML = html;
 }
 
-function sortTable(column) {
-  filteredTeams.sort((a, b) => {
-    let aVal = a[column] || '';
-    let bVal = b[column] || '';
-    
-    if (typeof aVal === 'string') {
-      return aVal.localeCompare(bVal);
-    }
-    return aVal - bVal;
-  });
+function showTeamPopup(teamName) {
+  const team = nflTeams.find(t => t.name === teamName);
+  if (!team) return;
+
+  const hasExactFounding = team.founded && team.founded !== team.nflJoined;
   
-  renderTable();
+  const modalBody = document.getElementById('modal-body');
+  modalBody.innerHTML = `
+    <div class="popup-header">
+      <h2>${team.name}</h2>
+      <p class="popup-division">${team.division}</p>
+    </div>
+    
+    <div class="popup-content">
+      <div class="info-section">
+        <h3>Team History</h3>
+        <div class="info-grid">
+          <div class="info-item">
+            <label>Founded:</label>
+            <span class="${hasExactFounding ? 'exact-date' : 'nfl-date'}">${team.founded}</span>
+          </div>
+          <div class="info-item">
+            <label>Joined NFL:</label>
+            <span>${team.nflJoined}</span>
+          </div>
+          <div class="info-item">
+            <label>Conference:</label>
+            <span>${team.conference}</span>
+          </div>
+          <div class="info-item">
+            <label>Division:</label>
+            <span>${team.division}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-section">
+        <h3>Location Details</h3>
+        <div class="info-grid">
+          <div class="info-item">
+            <label>City:</label>
+            <span>${team.city}</span>
+          </div>
+          <div class="info-item">
+            <label>State:</label>
+            <span>${team.state}</span>
+          </div>
+          <div class="info-item">
+            <label>City Founded:</label>
+            <span>${team.cityFounded || 'Not available'}</span>
+          </div>
+          <div class="info-item">
+            <label>City Chartered:</label>
+            <span>${team.cityCharter || 'Not available'}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-section">
+        <h3>Stadium Information</h3>
+        <div class="info-grid">
+          <div class="info-item">
+            <label>Stadium:</label>
+            <span>${team.stadium}</span>
+          </div>
+          <div class="info-item">
+            <label>Stadium Opened:</label>
+            <span>${team.stadiumOpened}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  document.getElementById('team-modal').style.display = 'block';
 }
 
+function closeTeamPopup() {
+  document.getElementById('team-modal').style.display = 'none';
+}
+
+// Close modal when clicking outside of it
+window.onclick = function(event) {
+  const modal = document.getElementById('team-modal');
+  if (event.target === modal) {
+    modal.style.display = 'none';
+  }
+}
