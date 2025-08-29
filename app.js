@@ -388,7 +388,7 @@ function renderCards() {
         const stateText = stateInfo ? team.state + ' • ' + stateInfo.order + getOrdinal(stateInfo.order) + ' State' : team.state;
         
         html += `
-          <div class="team-card ${foundedClass}" data-team-name="${team.name}">
+          <div class="team-card ${foundedClass}" data-team-name="${team.name}" style="cursor: pointer;">
             <div class="team-card-content">
               <h4 class="team-name">${team.name}</h4>
               <p class="team-location">${team.city}, ${stateText}</p>
@@ -408,14 +408,20 @@ function renderCards() {
   });
   html += '</div>';
   
-  // Only set the teams content, NOT the modal
   container.innerHTML = html;
   
-  // Add event listeners to team cards
-  document.querySelectorAll('.team-card').forEach(card => {
-    card.addEventListener('click', function() {
+  // Add event listeners with error checking
+  console.log('Adding click listeners to', document.querySelectorAll('.team-card').length, 'cards');
+  
+  document.querySelectorAll('.team-card').forEach((card, index) => {
+    card.addEventListener('click', function(e) {
+      console.log('Card clicked:', this.getAttribute('data-team-name'));
       const teamName = this.getAttribute('data-team-name');
-      showPopup(teamName);
+      if (typeof showPopup === 'function') {
+        showPopup(teamName);
+      } else {
+        console.error('showPopup function not found');
+      }
     });
   });
 }
