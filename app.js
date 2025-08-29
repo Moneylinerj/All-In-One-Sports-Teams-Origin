@@ -574,6 +574,14 @@ function getDayInfo(dateStr) {
 function switchSport(sportKey) {
   currentSport = sportKey;
   
+  // Hide/show division dropdown based on sport
+  const divisionFilterGroup = document.getElementById('division-filter-group');
+  if (sport === 'collegefootball' || sport === 'collegebasketball') {
+    divisionFilterGroup.style.display = 'none';
+  } else {
+    divisionFilterGroup.style.display = 'block';
+  }
+  
   if (sportKey === 'gematria') {
     showGematriaCalculator();
     return;
