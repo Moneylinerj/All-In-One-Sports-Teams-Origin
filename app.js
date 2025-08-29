@@ -380,15 +380,16 @@ function renderCards() {
       }
       html += `<div class="teams-grid">`;
       
-      grouped[conf][div].forEach(team => {
+      grouped[conf][div].forEach((team, index) => {
         const exact = team.founded !== team.leagueJoined;
         const foundedClass = exact ? 'exact-founding' : 'nfl-founding';
         const foundedText = exact ? team.founded : sportConfig[currentSport].leagueJoinedLabel + ': ' + team.leagueJoined;
         const stateInfo = stateData[team.state];
         const stateText = stateInfo ? team.state + ' • ' + stateInfo.order + getOrdinal(stateInfo.order) + ' State' : team.state;
         
+        // Use data attributes instead of onclick
         html += `
-          <div class="team-card ${foundedClass}" onclick="showPopup('${team.name.replace(/'/g, "\\'")}')">
+          <div class="team-card ${foundedClass}" data-team-name="${team.name}">
             <div class="team-card-content">
               <h4 class="team-name">${team.name}</h4>
               <p class="team-location">${team.city}, ${stateText}</p>
@@ -411,14 +412,29 @@ function renderCards() {
   html += `
     <div id="team-modal" class="modal">
       <div class="modal-content">
-        <span class="close" onclick="closePopup()">&times;</span>
+        <span class="close" id="close-modal">&times;</span>
         <div id="modal-body"></div>
       </div>
     </div>
   `;
   
   container.innerHTML = html;
+  
+  // Add event listeners after HTML is inserted
+  document.querySelectorAll('.team-card').forEach(card => {
+    card.addEventListener('click', function() {
+      const teamName = this.getAttribute('data-team-name');
+      showPopup(teamName);
+    });
+  });
+  
+  // Add close modal listener
+  const closeBtn = document.getElementById('close-modal');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closePopup);
+  }
 }
+
 
 function showPopup(teamName) {
   const team = sportsData[currentSport].find(t => t.name === teamName);
