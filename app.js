@@ -63,33 +63,13 @@ const sportsData = {
     { name: "Washington Commanders", division: "NFC East", conference: "NFC", founded: "July 9, 1932", leagueJoined: "1932", city: "Landover", state: "MD", cityFounded: "July 16, 1790 (D.C.)", cityCharter: "", stadium: "Commanders Field", stadiumOpened: "September 14, 1997" }
   ],
 
-  nba: [
-    // NBA teams ready for your data
-  ],
-
-  mlb: [
-    // MLB teams ready for your data
-  ],
-
-  nhl: [
-    // NHL teams ready for your data
-  ],
-
-  wnba: [
-    // WNBA teams ready for your data
-  ],
-
-  mls: [
-    // MLS teams ready for your data
-  ],
-
-  "college-football": [
-    // College Football ready for your data
-  ],
-
-  "college-basketball": [
-    // College Basketball ready for your data
-  ]
+  nba: [],
+  mlb: [],
+  nhl: [],
+  wnba: [],
+  mls: [],
+  "college-football": [],
+  "college-basketball": []
 };
 
 // Current sport and filtered data
@@ -98,65 +78,17 @@ let filtered = [];
 
 // Sport configurations for different leagues
 const sportConfig = {
-  nfl: { 
-    title: 'NFL Teams', 
-    venueLabel: 'Stadium', 
-    conferenceLabel: 'Conference',
-    divisionLabel: 'Division',
-    leagueJoinedLabel: 'Joined NFL'
-  },
-  nba: { 
-    title: 'NBA Teams', 
-    venueLabel: 'Arena', 
-    conferenceLabel: 'Conference',
-    divisionLabel: 'Division',
-    leagueJoinedLabel: 'Joined NBA'
-  },
-  mlb: { 
-    title: 'MLB Teams', 
-    venueLabel: 'Stadium', 
-    conferenceLabel: 'League',
-    divisionLabel: 'Division',
-    leagueJoinedLabel: 'Joined MLB'
-  },
-  nhl: { 
-    title: 'NHL Teams', 
-    venueLabel: 'Arena', 
-    conferenceLabel: 'Conference',
-    divisionLabel: 'Division',
-    leagueJoinedLabel: 'Joined NHL'
-  },
-  wnba: { 
-    title: 'WNBA Teams', 
-    venueLabel: 'Arena', 
-    conferenceLabel: 'Conference',
-    divisionLabel: 'Division',
-    leagueJoinedLabel: 'Joined WNBA'
-  },
-  mls: { 
-    title: 'MLS Teams', 
-    venueLabel: 'Stadium', 
-    conferenceLabel: 'Conference',
-    divisionLabel: 'Division',
-    leagueJoinedLabel: 'Joined MLS'
-  },
-  'college-football': { 
-    title: 'College Football (D1)', 
-    venueLabel: 'Stadium', 
-    conferenceLabel: 'Conference',
-    divisionLabel: 'Division',
-    leagueJoinedLabel: 'Joined Conference'
-  },
-  'college-basketball': { 
-    title: 'College Basketball (D1)', 
-    venueLabel: 'Arena', 
-    conferenceLabel: 'Conference',
-    divisionLabel: 'Division',
-    leagueJoinedLabel: 'Joined Conference'
-  }
+  nfl: { title: 'NFL Teams', venueLabel: 'Stadium', conferenceLabel: 'Conference', divisionLabel: 'Division', leagueJoinedLabel: 'Joined NFL' },
+  nba: { title: 'NBA Teams', venueLabel: 'Arena', conferenceLabel: 'Conference', divisionLabel: 'Division', leagueJoinedLabel: 'Joined NBA' },
+  mlb: { title: 'MLB Teams', venueLabel: 'Stadium', conferenceLabel: 'League', divisionLabel: 'Division', leagueJoinedLabel: 'Joined MLB' },
+  nhl: { title: 'NHL Teams', venueLabel: 'Arena', conferenceLabel: 'Conference', divisionLabel: 'Division', leagueJoinedLabel: 'Joined NHL' },
+  wnba: { title: 'WNBA Teams', venueLabel: 'Arena', conferenceLabel: 'Conference', divisionLabel: 'Division', leagueJoinedLabel: 'Joined WNBA' },
+  mls: { title: 'MLS Teams', venueLabel: 'Stadium', conferenceLabel: 'Conference', divisionLabel: 'Division', leagueJoinedLabel: 'Joined MLS' },
+  'college-football': { title: 'College Football (D1)', venueLabel: 'Stadium', conferenceLabel: 'Conference', divisionLabel: 'Division', leagueJoinedLabel: 'Joined Conference' },
+  'college-basketball': { title: 'College Basketball (D1)', venueLabel: 'Arena', conferenceLabel: 'Conference', divisionLabel: 'Division', leagueJoinedLabel: 'Joined Conference' }
 };
 
-// Your utility functions (fixed syntax error in getDayInfo)
+// Your utility functions
 function getOrdinal(n) {
   const s = n.toString();
   const last = s[s.length - 1];
@@ -189,7 +121,6 @@ function getDayInfo(dateStr) {
 function switchSport(sportKey) {
   currentSport = sportKey;
   
-  // Handle special sections
   if (sportKey === 'gematria') {
     showGematriaCalculator();
     return;
@@ -200,29 +131,24 @@ function switchSport(sportKey) {
     return;
   }
   
-  // Update UI for sport sections
   document.getElementById('controls-section').style.display = 'block';
   document.getElementById('data-table').style.display = 'block';
   document.getElementById('gematria-calculator').style.display = 'none';
   document.getElementById('numerology-tools').style.display = 'none';
   
-  // Check if data exists for this sport
   if (!sportsData[sportKey] || sportsData[sportKey].length === 0) {
     showComingSoon(sportKey);
     return;
   }
   
-  // Update navigation
   document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
   document.querySelector(`[data-sport="${sportKey}"]`).classList.add('active');
   
-  // Update labels
   const config = sportConfig[sportKey];
   document.getElementById('conference-label').textContent = config.conferenceLabel;
   document.getElementById('division-label').textContent = config.divisionLabel;
   document.getElementById('search-title').textContent = `Search & Filter - ${config.title}`;
   
-  // Reset and render
   filtered = [...sportsData[sportKey]];
   initFilters();
   renderCards();
@@ -285,7 +211,7 @@ function showNumerologyTools() {
   `;
 }
 
-// Your render functions (adapted for multi-sport)
+// FIXED RENDER CARDS FUNCTION - This was the issue!
 function renderCards() {
   const container = document.getElementById('data-table');
   const grouped = {};
@@ -298,13 +224,14 @@ function renderCards() {
 
   let html = '<div class="teams-container">';
   Object.keys(grouped).sort().forEach(conf => {
-    html += '<div class="conference-section"><h2 class="conference-title">' + conf + '</h2>';
+    html += `<div class="conference-section">`;
+    html += `<h2 class="conference-title">${conf}</h2>`;
+    
     Object.keys(grouped[conf]).sort().forEach(div => {
-      if (div && div !== 'undefined') {
-        html += '<div class="division-section"><h3 class="division-title">' + div + '</h3><div class="teams-grid">';
-      } else {
-        html += '<div class="division-section"><div class="teams-grid">';
-      }
+      html += `<div class="division-section">`;
+      html += `<h3 class="division-title">${div}</h3>`;
+      html += `<div class="teams-grid">`;
+      
       grouped[conf][div].forEach(team => {
         const exact = team.founded !== team.leagueJoined;
         const foundedClass = exact ? 'exact-founding' : 'nfl-founding';
@@ -312,21 +239,32 @@ function renderCards() {
         const stateInfo = stateData[team.state];
         const stateText = stateInfo ? team.state + ' • ' + stateInfo.order + getOrdinal(stateInfo.order) + ' State' : team.state;
         
-        html += '<div class="team-card ' + foundedClass + '" onclick="showPopup(\'' + team.name + '\')">';
-        html += '<div class="team-card-content">';
-        html += '<h4 class="team-name">' + team.name + '</h4>';
-        html += '<p class="team-location">' + team.city + ', ' + stateText + '</p>';
-        html += '<p class="team-founded">' + foundedText + '</p>';
-        html += '</div></div>';
+        html += `
+          <div class="team-card ${foundedClass}" onclick="showPopup('${team.name.replace(/'/g, "\\'")}')">
+            <div class="team-card-content">
+              <h4 class="team-name">${team.name}</h4>
+              <p class="team-location">${team.city}, ${stateText}</p>
+              <p class="team-founded">${foundedText}</p>
+            </div>
+          </div>
+        `;
       });
-      html += '</div></div>';
+      
+      html += `</div></div>`;
     });
-    html += '</div>';
+    
+    html += `</div>`;
   });
   html += '</div>';
   
-  html += '<div id="team-modal" class="modal"><div class="modal-content">';
-  html += '<span class="close" onclick="closePopup()">&times;</span><div id="modal-body"></div></div></div>';
+  html += `
+    <div id="team-modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <div id="modal-body"></div>
+      </div>
+    </div>
+  `;
   
   container.innerHTML = html;
 }
@@ -347,38 +285,37 @@ function showPopup(teamName) {
   const venueName = team.stadium || team.arena;
   const venueOpened = team.stadiumOpened || team.arenaOpened;
   
-  let html = '<div class="popup-header"><h2>' + team.name + '</h2>';
-  if (team.division) html += '<p class="popup-division">' + team.division + '</p>';
-  html += '</div>';
-  html += '<div class="popup-content">';
+  let html = `<div class="popup-header"><h2>${team.name}</h2>`;
+  if (team.division) html += `<p class="popup-division">${team.division}</p>`;
+  html += `</div><div class="popup-content">`;
   
-  html += '<div class="info-section"><h3>Team History</h3><div class="info-grid">';
-  html += '<div class="info-item"><label>Founded:</label><span class="' + (exact ? 'exact-date' : 'nfl-date') + '">' + team.founded + '</span>';
-  html += '<small>Day ' + teamInfo.dayOfYear + ' • ' + teamInfo.daysLeft + ' days left</small></div>';
-  html += '<div class="info-item"><label>' + config.leagueJoinedLabel + ':</label><span>' + team.leagueJoined + '</span></div>';
-  html += '<div class="info-item"><label>' + config.conferenceLabel + ':</label><span>' + team.conference + '</span></div>';
-  if (team.division) html += '<div class="info-item"><label>' + config.divisionLabel + ':</label><span>' + team.division + '</span></div>';
-  html += '</div></div>';
+  html += `<div class="info-section"><h3>Team History</h3><div class="info-grid">`;
+  html += `<div class="info-item"><label>Founded:</label><span class="${exact ? 'exact-date' : 'nfl-date'}">${team.founded}</span>`;
+  html += `<small>Day ${teamInfo.dayOfYear} • ${teamInfo.daysLeft} days left</small></div>`;
+  html += `<div class="info-item"><label>${config.leagueJoinedLabel}:</label><span>${team.leagueJoined}</span></div>`;
+  html += `<div class="info-item"><label>${config.conferenceLabel}:</label><span>${team.conference}</span></div>`;
+  if (team.division) html += `<div class="info-item"><label>${config.divisionLabel}:</label><span>${team.division}</span></div>`;
+  html += `</div></div>`;
   
-  html += '<div class="info-section"><h3>Location Details</h3><div class="info-grid">';
-  html += '<div class="info-item"><label>City:</label><span>' + team.city + '</span></div>';
-  html += '<div class="info-item"><label>State:</label><span>' + team.state + (stateInfo ? ' • ' + stateInfo.order + getOrdinal(stateInfo.order) + ' State' : '') + '</span></div>';
-  html += '<div class="info-item"><label>City Founded:</label><span>' + (team.cityFounded || 'Not available') + '</span>';
-  if (team.cityFounded) html += '<small>Day ' + cityInfo.dayOfYear + ' • ' + cityInfo.daysLeft + ' days left</small>';
-  html += '</div>';
-  html += '<div class="info-item"><label>City Chartered:</label><span>' + (team.cityCharter || 'Not available') + '</span>';
-  if (team.cityCharter) html += '<small>Day ' + charterInfo.dayOfYear + ' • ' + charterInfo.daysLeft + ' days left</small>';
-  html += '</div>';
+  html += `<div class="info-section"><h3>Location Details</h3><div class="info-grid">`;
+  html += `<div class="info-item"><label>City:</label><span>${team.city}</span></div>`;
+  html += `<div class="info-item"><label>State:</label><span>${team.state}${stateInfo ? ' • ' + stateInfo.order + getOrdinal(stateInfo.order) + ' State' : ''}</span></div>`;
+  html += `<div class="info-item"><label>City Founded:</label><span>${team.cityFounded || 'Not available'}</span>`;
+  if (team.cityFounded) html += `<small>Day ${cityInfo.dayOfYear} • ${cityInfo.daysLeft} days left</small>`;
+  html += `</div>`;
+  html += `<div class="info-item"><label>City Chartered:</label><span>${team.cityCharter || 'Not available'}</span>`;
+  if (team.cityCharter) html += `<small>Day ${charterInfo.dayOfYear} • ${charterInfo.daysLeft} days left</small>`;
+  html += `</div>`;
   if (stateInfo) {
-    html += '<div class="info-item"><label>State Founded:</label><span>' + stateInfo.founded + '</span>';
-    html += '<small>Day ' + stateFoundedInfo.dayOfYear + ' • ' + stateFoundedInfo.daysLeft + ' days left</small></div>';
+    html += `<div class="info-item"><label>State Founded:</label><span>${stateInfo.founded}</span>`;
+    html += `<small>Day ${stateFoundedInfo.dayOfYear} • ${stateFoundedInfo.daysLeft} days left</small></div>`;
   }
-  html += '</div></div>';
+  html += `</div></div>`;
   
-  html += '<div class="info-section"><h3>' + config.venueLabel + ' Information</h3><div class="info-grid">';
-  html += '<div class="info-item"><label>' + config.venueLabel + ':</label><span>' + venueName + '</span></div>';
-  html += '<div class="info-item"><label>' + config.venueLabel + ' Opened:</label><span>' + venueOpened + '</span>';
-  html += '<small>Day ' + venueInfo.dayOfYear + ' • ' + venueInfo.daysLeft + ' days left</small></div></div></div></div>';
+  html += `<div class="info-section"><h3>${config.venueLabel} Information</h3><div class="info-grid">`;
+  html += `<div class="info-item"><label>${config.venueLabel}:</label><span>${venueName}</span></div>`;
+  html += `<div class="info-item"><label>${config.venueLabel} Opened:</label><span>${venueOpened}</span>`;
+  html += `<small>Day ${venueInfo.dayOfYear} • ${venueInfo.daysLeft} days left</small></div></div></div></div>`;
   
   document.getElementById('modal-body').innerHTML = html;
   document.getElementById('team-modal').style.display = 'block';
@@ -391,7 +328,6 @@ function closePopup() {
 function initFilters() {
   const currentData = sportsData[currentSport] || [];
   
-  // Clear and populate conference filter
   const confSelect = document.getElementById('conference-filter');
   confSelect.innerHTML = '<option value="">All ' + sportConfig[currentSport].conferenceLabel + 's</option>';
   const conferences = [...new Set(currentData.map(t => t.conference))].sort();
@@ -402,7 +338,6 @@ function initFilters() {
     confSelect.appendChild(option);
   });
   
-  // Clear and populate division filter
   const divSelect = document.getElementById('division-filter');
   divSelect.innerHTML = '<option value="">All ' + sportConfig[currentSport].divisionLabel + 's</option>';
   const divisions = [...new Set(currentData.map(t => t.division).filter(d => d))].sort();
@@ -413,7 +348,6 @@ function initFilters() {
     divSelect.appendChild(option);
   });
   
-  // Add event listeners
   document.getElementById('search').addEventListener('input', function() {
     const term = this.value.toLowerCase();
     filtered = currentData.filter(t => 
@@ -441,14 +375,12 @@ function initFilters() {
 
 // Initialize app
 document.addEventListener('DOMContentLoaded', function() {
-  // Add navigation event listeners
   document.querySelectorAll('.nav-tab').forEach(tab => {
     tab.addEventListener('click', function() {
       switchSport(this.dataset.sport);
     });
   });
   
-  // Initialize with NFL (your corrected data)
   switchSport('nfl');
 });
 
