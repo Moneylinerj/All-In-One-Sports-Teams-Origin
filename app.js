@@ -441,6 +441,7 @@ function renderCards() {
     closeBtn.addEventListener('click', closePopup);
   }
 }
+
 function showPopup(teamName) {
   const team = sportsData[currentSport].find(t => t.name === teamName);
   if (!team) return;
