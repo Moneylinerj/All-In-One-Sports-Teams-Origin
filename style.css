@@ -50,14 +50,18 @@ body {
 }
 
 .controls-section {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 2rem;
   margin-bottom: 2rem;
 }
 
-.search-filter h3,
-.legend h3 {
+.search-filter {
+  background-color: #1a202c;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #2d3748;
+  max-width: 600px;
+}
+
+.search-filter h3 {
   color: #ffffff;
   font-size: 1.125rem;
   margin-bottom: 1rem;
@@ -87,6 +91,9 @@ body {
 
 .filter-group {
   margin-bottom: 1rem;
+  display: inline-block;
+  margin-right: 1rem;
+  width: calc(50% - 0.5rem);
 }
 
 .filter-group label {
@@ -110,100 +117,6 @@ body {
 .filter-select:focus {
   outline: none;
   border-color: #63b3ed;
-}
-
-/* Legend */
-.legend {
-  background-color: #1a202c;
-  padding: 1.5rem;
-  border-radius: 8px;
-  border: 1px solid #2d3748;
-}
-
-.legend-item {
-  display: flex;
-  align-items: center;
-  margin-bottom: 0.5rem;
-  font-size: 0.875rem;
-}
-
-.legend-color {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  margin-right: 0.75rem;
-}
-
-.legend-color.exact {
-  background-color: #48bb78;
-}
-
-.legend-color.nfl {
-  background-color: #ed8936;
-}
-
-/* Tabs */
-.tabs {
-  display: flex;
-  margin-bottom: 1.5rem;
-  border-bottom: 1px solid #2d3748;
-}
-
-.tab-btn {
-  background: none;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  color: #a0aec0;
-  cursor: pointer;
-  font-size: 0.875rem;
-  font-weight: 500;
-  border-bottom: 2px solid transparent;
-  transition: all 0.2s;
-}
-
-.tab-btn:hover {
-  color: #e6e6e6;
-}
-
-.tab-btn.active {
-  color: #63b3ed;
-  border-bottom-color: #63b3ed;
-}
-
-/* Export Section */
-.export-section {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-  padding: 1rem;
-  background-color: #1a202c;
-  border-radius: 6px;
-  border: 1px solid #2d3748;
-}
-
-.export-section span {
-  color: #a0aec0;
-  font-weight: 500;
-  font-size: 0.875rem;
-}
-
-.export-options {
-  display: flex;
-  gap: 1rem;
-}
-
-.export-options label {
-  display: flex;
-  align-items: center;
-  color: #e6e6e6;
-  font-size: 0.875rem;
-  cursor: pointer;
-}
-
-.export-options input[type="checkbox"] {
-  margin-right: 0.5rem;
-  accent-color: #63b3ed;
 }
 
 /* Teams Container */
@@ -415,6 +328,13 @@ body {
 .info-item span {
   color: #ffffff;
   font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.info-item small {
+  color: #718096;
+  font-size: 0.7rem;
+  font-style: italic;
 }
 
 .exact-date {
@@ -431,18 +351,9 @@ body {
     font-size: 1.875rem;
   }
   
-  .controls-section {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-  
-  .tabs {
-    flex-wrap: wrap;
-  }
-  
-  .export-options {
-    flex-direction: column;
-    gap: 0.5rem;
+  .filter-group {
+    width: 100%;
+    margin-right: 0;
   }
   
   .teams-grid {
