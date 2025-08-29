@@ -436,24 +436,21 @@ const nflTeams = [
     nflJoined: "1932",
     city: "Landover",
     state: "MD",
-    cityFounded: "July 16, 1790",
+    cityFounded: "July 16, 1790 (D.C.)",
     cityCharter: "",
     stadium: "Commanders Field",
     stadiumOpened: "September 14, 1997"
   }
 ];
 
-// Global variables
 let filteredTeams = [...nflTeams];
 
-// Initialize the app
 document.addEventListener('DOMContentLoaded', function() {
   initializeFilters();
   renderTeamCards();
 });
 
 function initializeFilters() {
-  // Populate division dropdown
   const divisions = [...new Set(nflTeams.map(team => team.division))].sort();
   const divisionSelect = document.getElementById('division-filter');
   divisions.forEach(division => {
@@ -463,7 +460,6 @@ function initializeFilters() {
     divisionSelect.appendChild(option);
   });
 
-  // Add event listeners
   document.getElementById('search').addEventListener('input', handleSearch);
   document.getElementById('conference-filter').addEventListener('change', handleFilter);
   document.getElementById('division-filter').addEventListener('change', handleFilter);
@@ -480,7 +476,6 @@ function handleFilter() {
 function filterAndRender() {
   filteredTeams = [...nflTeams];
 
-  // Search filter
   const searchTerm = document.getElementById('search').value.toLowerCase();
   if (searchTerm) {
     filteredTeams = filteredTeams.filter(team =>
@@ -491,13 +486,11 @@ function filterAndRender() {
     );
   }
 
-  // Conference filter
   const conference = document.getElementById('conference-filter').value;
   if (conference) {
     filteredTeams = filteredTeams.filter(team => team.conference === conference);
   }
 
-  // Division filter
   const division = document.getElementById('division-filter').value;
   if (division) {
     filteredTeams = filteredTeams.filter(team => team.division === division);
@@ -506,42 +499,21 @@ function filterAndRender() {
   renderTeamCards();
 }
 
-function parseDate(dateStr) {
-  if (!dateStr || dateStr === "") return null;
+function getOrdinal(n) {
+  const s = n.toString();
+  const lastDigit = s[s.length - 1];
+  const secondToLastDigit = s[s.length - 2];
   
-  try {
-    // Handle various date formats
-    if (dateStr.includes(",")) {
-      return new Date(dateStr);
-    } else if (dateStr.match(/^\d{4}$/)) {
-      return new Date(dateStr + "-01-01");
-    } else {
-      return new Date(dateStr);
-    }
-  } catch (e) {
-    return null;
-  }
-}
-
-function getDayInfo(dateStr) {
-  const date = parseDate(dateStr);
-  if (!date || isNaN(date)) return { dayOfYear: '—', daysLeft: '—' };
-  
-  const start = new Date(date.getFullYear(), 0, 0);
-  const diff = date - start;
-  const dayOfYear = Math.floor(diff / (1000 * 60 * 60 * 24));
-  
-  const isLeap = (date.getFullYear() % 4 === 0 && date.getFullYear() % 100 !== 0) || (date.getFullYear() % 400 === 0);
-  const totalDays = isLeap ? 366 : 365;
-  const daysLeft = totalDays - dayOfYear;
-  
-  return { dayOfYear, daysLeft };
+  if (secondToLastDigit === '1') return 'th';
+  if (lastDigit === '1') return 'st';
+  if (lastDigit === '2') return 'nd';
+  if (lastDigit === '3') return 'rd';
+  return 'th';
 }
 
 function renderTeamCards() {
   const container = document.getElementById('data-table');
   
-  // Group teams by conference and division
   const groupedTeams = {};
   
   filteredTeams.forEach(team => {
@@ -556,7 +528,6 @@ function renderTeamCards() {
 
   let html = '<div class="teams-container">';
 
-  // Sort conferences (AFC first, then NFC)
   const conferences = Object.keys(groupedTeams).sort();
   
   conferences.forEach(conference => {
@@ -596,7 +567,6 @@ function renderTeamCards() {
 
   html += '</div>';
 
-  // Add modal HTML
   html += `
     <div id="team-modal" class="modal">
       <div class="modal-content">
@@ -609,16 +579,35 @@ function renderTeamCards() {
   container.innerHTML = html;
 }
 
-function getOrdinal(n) {
-  const s = n.toString();
-  const lastDigit = s[s.length - 1];
-  const secondToLastDigit = s[s.length - 2];
+function parseDate(dateStr) {
+  if (!dateStr || dateStr === "") return null;
   
-  if (secondToLastDigit === '1') return 'th';
-  if (lastDigit === '1') return 'st';
-  if (lastDigit === '2') return 'nd';
-  if (lastDigit === '3') return 'rd';
-  return 'th';
+  try {
+    if (dateStr.includes(",")) {
+      return new Date(dateStr);
+    } else if (dateStr.match(/^\d{4}$/)) {
+      return new Date(dateStr + "-01-01");
+    } else {
+      return new Date(dateStr);
+    }
+  } catch (e) {
+    return null;
+  }
+}
+
+function getDayInfo(dateStr) {
+  const date = parseDate(dateStr);
+  if (!date || isNaN(date)) return { dayOfYear: '—', daysLeft: '—' };
+  
+  const start = new Date(date.getFullYear(), 0, 0);
+  const diff = date - start;
+  const dayOfYear = Math.floor(diff / (1000 * 60 * 60 * 24));
+  
+  const isLeap = (date.getFullYear() % 4 === 0 && date.getFullYear() % 100 !== 0) || (date.getFullYear() % 400 === 0);
+  const totalDays = isLeap ? 366 : 365;
+  const daysLeft = totalDays - dayOfYear;
+  
+  return { dayOfYear, daysLeft };
 }
 
 function showTeamPopup(teamName) {
@@ -628,7 +617,6 @@ function showTeamPopup(teamName) {
   const hasExactFounding = team.founded && team.founded !== team.nflJoined;
   const stateInfo = stateData[team.state];
   
-  // Calculate day info for all dates
   const teamFoundedInfo = getDayInfo(team.founded);
   const cityFoundedInfo = getDayInfo(team.cityFounded);
   const cityCharteredInfo = getDayInfo(team.cityCharter);
@@ -720,13 +708,13 @@ function closeTeamPopup() {
   document.getElementById('team-modal').style.display = 'none';
 }
 
-// Close modal when clicking outside of it
 window.onclick = function(event) {
   const modal = document.getElementById('team-modal');
   if (event.target === modal) {
     modal.style.display = 'none';
   }
 }
+
 
   }
 }
