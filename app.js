@@ -427,64 +427,71 @@ function renderCards() {
 }
 
 function showPopup(teamName) {
-  console.log('🔥 showPopup called with:', teamName);
+  console.log('🔥 SHOWPOPUP CALLED:', teamName);
   
-  // Check if modal exists
-  let modal = document.getElementById('team-modal');
-  if (!modal) {
-    console.log('Creating modal...');
-    modal = document.createElement('div');
-    modal.id = 'team-modal';
-    modal.className = 'modal';
-    modal.innerHTML = `
-      <div class="modal-content">
-        <span class="close" onclick="closePopup()">&times;</span>
-        <div id="modal-body"></div>
-      </div>
-    `;
-    document.body.appendChild(modal);
+  // Remove any existing modal
+  const existingModal = document.getElementById('team-modal');
+  if (existingModal) {
+    existingModal.remove();
   }
   
+  // Find team
   const team = sportsData[currentSport].find(t => t.name === teamName);
-  if (!team) {
-    console.error('❌ Team not found:', teamName);
-    return;
-  }
+  if (!team) return;
   
-  console.log('✅ Team found:', team.name);
+  // Create modal with guaranteed visibility
+  const modal = document.createElement('div');
+  modal.id = 'team-modal';
+  modal.style.cssText = `
+    display: block !important;
+    position: fixed !important;
+    z-index: 999999 !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background-color: rgba(0, 0, 0, 0.8) !important;
+    padding: 50px !important;
+    box-sizing: border-box !important;
+  `;
   
-  // Simple popup content for testing
-  document.getElementById('modal-body').innerHTML = `
-    <div style="padding: 2rem; color: white;">
-      <h2>${team.name}</h2>
-      <p>Founded: ${team.founded}</p>
-      <p>City: ${team.city}, ${team.state}</p>
-      <p>Stadium: ${team.stadium || team.arena}</p>
+  modal.innerHTML = `
+    <div style="
+      background: white !important;
+      color: black !important;
+      padding: 2rem !important;
+      border-radius: 12px !important;
+      max-width: 600px !important;
+      margin: 0 auto !important;
+      position: relative !important;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3) !important;
+    ">
+      <span onclick="closePopup()" style="
+        position: absolute !important;
+        right: 1rem !important;
+        top: 1rem !important;
+        font-size: 2rem !important;
+        cursor: pointer !important;
+        color: #666 !important;
+        font-weight: bold !important;
+      ">&times;</span>
+      
+      <h2 style="color: #333 !important; margin-bottom: 1rem !important;">${team.name}</h2>
+      <p style="margin: 0.5rem 0 !important;"><strong>Founded:</strong> ${team.founded}</p>
+      <p style="margin: 0.5rem 0 !important;"><strong>City:</strong> ${team.city}, ${team.state}</p>
+      <p style="margin: 0.5rem 0 !important;"><strong>Stadium:</strong> ${team.stadium || team.arena}</p>
+      <p style="margin: 0.5rem 0 !important;"><strong>Division:</strong> ${team.division}</p>
+      <p style="margin: 0.5rem 0 !important;"><strong>Conference:</strong> ${team.conference}</p>
     </div>
   `;
   
-  modal.style.display = 'block';
-  console.log('✅ Modal should be visible');
+  document.body.appendChild(modal);
+  console.log('✅ Modal created and displayed with guaranteed visibility');
 }
 
 function closePopup() {
-  document.getElementById('team-modal').style.display = 'none';
-}
-
-// Initialize app
-document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('.nav-tab').forEach(tab => {
-    tab.addEventListener('click', function() {
-      switchSport(this.dataset.sport);
-    });
-  });
-  
-  switchSport('nfl');
-});
-
-window.onclick = function(event) {
   const modal = document.getElementById('team-modal');
-  if (event.target === modal) modal.style.display = 'none';
+  if (modal) modal.remove();
 }
 
 function initFilters() {
