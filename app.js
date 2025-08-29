@@ -387,7 +387,6 @@ function renderCards() {
         const stateInfo = stateData[team.state];
         const stateText = stateInfo ? team.state + ' • ' + stateInfo.order + getOrdinal(stateInfo.order) + ' State' : team.state;
         
-        // Use data attributes instead of onclick
         html += `
           <div class="team-card ${foundedClass}" data-team-name="${team.name}">
             <div class="team-card-content">
@@ -409,7 +408,15 @@ function renderCards() {
   });
   html += '</div>';
   
-  html += `
+  container.innerHTML = html;
+  
+  // MOVE MODAL TO BODY LEVEL (not inside container)
+  let existingModal = document.getElementById('team-modal');
+  if (existingModal) {
+    existingModal.remove();
+  }
+  
+  const modalHTML = `
     <div id="team-modal" class="modal">
       <div class="modal-content">
         <span class="close" id="close-modal">&times;</span>
@@ -418,7 +425,7 @@ function renderCards() {
     </div>
   `;
   
-  container.innerHTML = html;
+  document.body.insertAdjacentHTML('beforeend', modalHTML);
   
   // Add event listeners after HTML is inserted
   document.querySelectorAll('.team-card').forEach(card => {
@@ -434,8 +441,6 @@ function renderCards() {
     closeBtn.addEventListener('click', closePopup);
   }
 }
-
-
 function showPopup(teamName) {
   const team = sportsData[currentSport].find(t => t.name === teamName);
   if (!team) return;
