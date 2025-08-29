@@ -244,17 +244,94 @@ body {
 }
 
 .team-card.exact-founding {
-  border-left: 4px solid #48
-    
-/* Modal Styles - CRITICAL FIXES */
-.modal {
+  border-left: 4px solid #48bb78;
+}
+
+.team-card.nfl-founding {
+  border-left: 4px solid #ed8936;
+}
+
+.team-card-content {
+  text-align: center;
+}
+
+.team-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.team-location {
+  color: #a0aec0;
+  font-size: 0.875rem;
+  margin-bottom: 0.75rem;
+}
+
+.team-founded {
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.exact-founding .team-founded {
+  background-color: rgba(72, 187, 120, 0.2);
+  color: #48bb78;
+}
+
+.nfl-founding .team-founded {
+  background-color: rgba(237, 137, 54, 0.2);
+  color: #ed8936;
+}
+
+/* Calculator Sections */
+.calculator-section {
+  background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+  border-radius: 16px;
+  padding: 2rem;
+  border: 1px solid #4a5568;
+  margin-top: 2rem;
+}
+
+.calculator-section h2 {
+  color: #63b3ed;
+  margin-bottom: 1.5rem;
+  font-size: 1.75rem;
+  text-align: center;
+}
+
+/* Coming Soon Styling */
+.coming-soon {
+  text-align: center;
+  padding: 3rem 2rem;
+  color: #a0aec0;
+  background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+  border-radius: 16px;
+  border: 1px solid #4a5568;
+}
+
+.coming-soon h3 {
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+  color: #63b3ed;
+}
+
+.coming-soon p {
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+}
+
+/* Modal Styles */
+#team-modal {
   display: none;
-  position: fixed !important;
-  z-index: 99999 !important;
+  position: fixed;
+  z-index: 999999;
   left: 0;
   top: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(4px);
 }
@@ -273,28 +350,172 @@ body {
   position: relative;
 }
 
-#team-modal {
-  display: none !important;
-  position: fixed !important;
-  z-index: 999999 !important;
-  left: 0 !important;
-  top: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  background-color: rgba(0, 0, 0, 0.8) !important;
+.close {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  color: #a0aec0;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10001;
+  transition: color 0.2s;
 }
 
-#team-modal.show {
-  display: block !important;
+.close:hover {
+  color: #e53e3e;
 }
 
-#team-modal .modal-content {
-  background: #2d3748 !important;
-  margin: 10% auto !important;
-  padding: 2rem !important;
-  border-radius: 12px !important;
-  width: 80% !important;
-  max-width: 600px !important;
-  color: white !important;
-  position: relative !important;
+.popup-header {
+  padding: 2rem;
+  text-align: center;
+  background: linear-gradient(135deg, #2d3748 0%, #374151 100%);
+  border-bottom: 1px solid #4a5568;
+}
+
+.popup-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.popup-division {
+  color: #63b3ed;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.popup-content {
+  padding: 2rem;
+}
+
+.info-section {
+  margin-bottom: 2rem;
+}
+
+.info-section h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #63b3ed;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #374151;
+  padding-bottom: 0.5rem;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background-color: rgba(45, 55, 72, 0.5);
+  border-radius: 8px;
+  border: 1px solid #4a5568;
+}
+
+.info-item label {
+  font-size: 0.75rem;
+  color: #a0aec0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.info-item span {
+  color: #ffffff;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.info-item small {
+  color: #718096;
+  font-size: 0.7rem;
+  font-style: italic;
+}
+
+.exact-date {
+  color: #48bb78 !important;
+}
+
+.nfl-date {
+  color: #ed8936 !important;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .nav-tabs {
+    gap: 0.25rem;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+  
+  .nav-tab {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-content h1 {
+    font-size: 1.875rem;
+  }
+  
+  .filter-group {
+    width: 100%;
+    margin-right: 0;
+  }
+  
+  .teams-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+  
+  .modal-content {
+    width: 95%;
+    margin: 10% auto;
+  }
+  
+  .popup-content {
+    padding: 1.5rem;
+  }
+  
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .main-nav {
+    padding: 0.75rem 0;
+  }
+  
+  .nav-tabs {
+    padding: 0 1rem;
+  }
+  
+  .nav-tab {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+    min-width: fit-content;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-tab {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.7rem;
+  }
+  
+  .coming-soon {
+    padding: 2rem 1rem;
+  }
+  
+  .coming-soon h3 {
+    font-size: 1.5rem;
+  }
 }
