@@ -953,13 +953,10 @@ const sportsData = {
   { name: "Utah Valley Wolverines", division: "WAC", conference: "Western Athletic Conference", founded: "09/14/1941", leagueJoined: "2012", city: "Orem", state: "UT", cityFounded: "03/05/1919", cityCharter: "05/05/1919", stadium: "UCCU Center", stadiumOpened: "12/01/1996" },
   ]   
 };
+
 // Rest of your JavaScript code stays exactly the same...
 // (Include all the utility functions, navigation, rendering, popup functions, etc. from the previous complete version)
-
 // Current sport and filtered data
-let currentSport = 'nfl';
-let filtered = [];
-
 // Sport configurations for different leagues
 const sportConfig = {
   nfl: { title: 'NFL Teams', venueLabel: 'Stadium', conferenceLabel: 'Conference', divisionLabel: 'Division', leagueJoinedLabel: 'Joined NFL' },
