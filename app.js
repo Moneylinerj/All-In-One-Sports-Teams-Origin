@@ -1,3 +1,29 @@
+const stateData = {
+  "AZ": { order: 48, founded: "February 14, 1912" },
+  "GA": { order: 4, founded: "January 2, 1788" },
+  "MD": { order: 7, founded: "April 28, 1788" },
+  "NY": { order: 11, founded: "July 26, 1788" },
+  "NC": { order: 12, founded: "November 21, 1789" },
+  "OH": { order: 17, founded: "March 1, 1803" },
+  "TX": { order: 28, founded: "December 29, 1845" },
+  "CO": { order: 38, founded: "August 1, 1876" },
+  "MI": { order: 26, founded: "January 26, 1837" },
+  "WI": { order: 30, founded: "May 29, 1848" },
+  "FL": { order: 27, founded: "March 3, 1845" },
+  "IN": { order: 19, founded: "December 11, 1816" },
+  "MO": { order: 24, founded: "August 10, 1821" },
+  "NV": { order: 36, founded: "October 31, 1864" },
+  "CA": { order: 31, founded: "September 9, 1850" },
+  "MN": { order: 32, founded: "May 11, 1858" },
+  "MA": { order: 6, founded: "February 6, 1788" },
+  "LA": { order: 18, founded: "April 30, 1812" },
+  "NJ": { order: 3, founded: "December 18, 1787" },
+  "PA": { order: 2, founded: "December 12, 1787" },
+  "WA": { order: 42, founded: "November 11, 1889" },
+  "TN": { order: 16, founded: "June 1, 1796" },
+  "IL": { order: 21, founded: "December 3, 1818" }
+};
+
 const nflTeams = [
   {
     name: "Arizona Cardinals",
@@ -441,7 +467,6 @@ function initializeFilters() {
   document.getElementById('search').addEventListener('input', handleSearch);
   document.getElementById('conference-filter').addEventListener('change', handleFilter);
   document.getElementById('division-filter').addEventListener('change', handleFilter);
-  document.getElementById('date-type').addEventListener('change', handleFilter);
 }
 
 function handleSearch() {
@@ -478,15 +503,39 @@ function filterAndRender() {
     filteredTeams = filteredTeams.filter(team => team.division === division);
   }
 
-  // Date type filter
-  const dateType = document.getElementById('date-type').value;
-  if (dateType === 'exact') {
-    filteredTeams = filteredTeams.filter(team => team.founded !== team.nflJoined);
-  } else if (dateType === 'nfl') {
-    filteredTeams = filteredTeams.filter(team => team.founded === team.nflJoined);
-  }
-
   renderTeamCards();
+}
+
+function parseDate(dateStr) {
+  if (!dateStr || dateStr === "") return null;
+  
+  try {
+    // Handle various date formats
+    if (dateStr.includes(",")) {
+      return new Date(dateStr);
+    } else if (dateStr.match(/^\d{4}$/)) {
+      return new Date(dateStr + "-01-01");
+    } else {
+      return new Date(dateStr);
+    }
+  } catch (e) {
+    return null;
+  }
+}
+
+function getDayInfo(dateStr) {
+  const date = parseDate(dateStr);
+  if (!date || isNaN(date)) return { dayOfYear: '—', daysLeft: '—' };
+  
+  const start = new Date(date.getFullYear(), 0, 0);
+  const diff = date - start;
+  const dayOfYear = Math.floor(diff / (1000 * 60 * 60 * 24));
+  
+  const isLeap = (date.getFullYear() % 4 === 0 && date.getFullYear() % 100 !== 0) || (date.getFullYear() % 400 === 0);
+  const totalDays = isLeap ? 366 : 365;
+  const daysLeft = totalDays - dayOfYear;
+  
+  return { dayOfYear, daysLeft };
 }
 
 function renderTeamCards() {
@@ -525,12 +574,14 @@ function renderTeamCards() {
         const hasExactFounding = team.founded && team.founded !== team.nflJoined;
         const foundedClass = hasExactFounding ? 'exact-founding' : 'nfl-founding';
         const foundedText = hasExactFounding ? team.founded : `NFL: ${team.nflJoined}`;
+        const stateInfo = stateData[team.state];
+        const stateText = stateInfo ? `${team.state} • ${stateInfo.order}${getOrdinal(stateInfo.order)} State` : team.state;
         
         html += `
           <div class="team-card ${foundedClass}" onclick="showTeamPopup('${team.name}')">
             <div class="team-card-content">
               <h4 class="team-name">${team.name}</h4>
-              <p class="team-location">${team.city}, ${team.state}</p>
+              <p class="team-location">${team.city}, ${stateText}</p>
               <p class="team-founded">${foundedText}</p>
             </div>
           </div>
@@ -558,11 +609,31 @@ function renderTeamCards() {
   container.innerHTML = html;
 }
 
+function getOrdinal(n) {
+  const s = n.toString();
+  const lastDigit = s[s.length - 1];
+  const secondToLastDigit = s[s.length - 2];
+  
+  if (secondToLastDigit === '1') return 'th';
+  if (lastDigit === '1') return 'st';
+  if (lastDigit === '2') return 'nd';
+  if (lastDigit === '3') return 'rd';
+  return 'th';
+}
+
 function showTeamPopup(teamName) {
   const team = nflTeams.find(t => t.name === teamName);
   if (!team) return;
 
   const hasExactFounding = team.founded && team.founded !== team.nflJoined;
+  const stateInfo = stateData[team.state];
+  
+  // Calculate day info for all dates
+  const teamFoundedInfo = getDayInfo(team.founded);
+  const cityFoundedInfo = getDayInfo(team.cityFounded);
+  const cityCharteredInfo = getDayInfo(team.cityCharter);
+  const stadiumInfo = getDayInfo(team.stadiumOpened);
+  const stateFoundedInfo = stateInfo ? getDayInfo(stateInfo.founded) : { dayOfYear: '—', daysLeft: '—' };
   
   const modalBody = document.getElementById('modal-body');
   modalBody.innerHTML = `
@@ -578,6 +649,7 @@ function showTeamPopup(teamName) {
           <div class="info-item">
             <label>Founded:</label>
             <span class="${hasExactFounding ? 'exact-date' : 'nfl-date'}">${team.founded}</span>
+            <small>Day ${teamFoundedInfo.dayOfYear} • ${teamFoundedInfo.daysLeft} days left</small>
           </div>
           <div class="info-item">
             <label>Joined NFL:</label>
@@ -603,16 +675,24 @@ function showTeamPopup(teamName) {
           </div>
           <div class="info-item">
             <label>State:</label>
-            <span>${team.state}</span>
+            <span>${team.state}${stateInfo ? ` • ${stateInfo.order}${getOrdinal(stateInfo.order)} State` : ''}</span>
           </div>
           <div class="info-item">
             <label>City Founded:</label>
             <span>${team.cityFounded || 'Not available'}</span>
+            ${team.cityFounded ? `<small>Day ${cityFoundedInfo.dayOfYear} • ${cityFoundedInfo.daysLeft} days left</small>` : ''}
           </div>
           <div class="info-item">
             <label>City Chartered:</label>
             <span>${team.cityCharter || 'Not available'}</span>
+            ${team.cityCharter ? `<small>Day ${cityCharteredInfo.dayOfYear} • ${cityCharteredInfo.daysLeft} days left</small>` : ''}
           </div>
+          ${stateInfo ? `
+          <div class="info-item">
+            <label>State Founded:</label>
+            <span>${stateInfo.founded}</span>
+            <small>Day ${stateFoundedInfo.dayOfYear} • ${stateFoundedInfo.daysLeft} days left</small>
+          </div>` : ''}
         </div>
       </div>
 
@@ -626,6 +706,7 @@ function showTeamPopup(teamName) {
           <div class="info-item">
             <label>Stadium Opened:</label>
             <span>${team.stadiumOpened}</span>
+            <small>Day ${stadiumInfo.dayOfYear} • ${stadiumInfo.daysLeft} days left</small>
           </div>
         </div>
       </div>
@@ -644,5 +725,8 @@ window.onclick = function(event) {
   const modal = document.getElementById('team-modal');
   if (event.target === modal) {
     modal.style.display = 'none';
+  }
+}
+
   }
 }
