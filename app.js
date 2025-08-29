@@ -952,7 +952,7 @@ const sportsData = {
   { name: "Tarleton State Texans", division: "WAC", conference: "Western Athletic Conference", founded: "09/26/1899", leagueJoined: "2020", city: "Stephenville", state: "TX", cityFounded: "01/01/1856", cityCharter: "10/08/1889", stadium: "Wisdom Gym", stadiumOpened: "12/01/1981" },
   { name: "Utah Valley Wolverines", division: "WAC", conference: "Western Athletic Conference", founded: "09/14/1941", leagueJoined: "2012", city: "Orem", state: "UT", cityFounded: "03/05/1919", cityCharter: "05/05/1919", stadium: "UCCU Center", stadiumOpened: "12/01/1996" },
  ]   
-},
+};
 // Rest of your JavaScript code stays exactly the same...
 // (Include all the utility functions, navigation, rendering, popup functions, etc. from the previous complete version)
 
