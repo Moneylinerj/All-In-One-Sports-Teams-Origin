@@ -1,4 +1,3 @@
-/* Original NFL card styles that were missing */
 * {
   margin: 0;
   padding: 0;
@@ -43,6 +42,70 @@ body {
   font-size: 0.875rem;
   color: #718096;
   font-style: italic;
+}
+
+/* Navigation Styles */
+.main-nav {
+  background: #0f1419;
+  border-bottom: 1px solid #2d3748;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-tabs {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.nav-tab {
+  background: #2d3748;
+  color: #a0aec0;
+  border: 1px solid #4a5568;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.nav-tab:hover {
+  background: #374151;
+  color: #e6e6e6;
+  border-color: #63b3ed;
+  transform: translateY(-1px);
+}
+
+.nav-tab.active {
+  background: #63b3ed;
+  color: #ffffff;
+  border-color: #63b3ed;
+  box-shadow: 0 4px 12px rgba(99, 179, 237, 0.3);
+}
+
+.gematria-tab {
+  background: #7c3aed !important;
+  border-color: #7c3aed !important;
+}
+
+.gematria-tab:hover, .gematria-tab.active {
+  background: #8b5cf6 !important;
+  border-color: #8b5cf6 !important;
+}
+
+.numerology-tab {
+  background: #059669 !important;
+  border-color: #059669 !important;
+}
+
+.numerology-tab:hover, .numerology-tab.active {
+  background: #10b981 !important;
+  border-color: #10b981 !important;
 }
 
 /* Main Content */
@@ -181,197 +244,4 @@ body {
 }
 
 .team-card.exact-founding {
-  border-left: 4px solid #48bb78;
-}
-
-.team-card.nfl-founding {
-  border-left: 4px solid #ed8936;
-}
-
-.team-card-content {
-  text-align: center;
-}
-
-.team-name {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #ffffff;
-  margin-bottom: 0.5rem;
-}
-
-.team-location {
-  color: #a0aec0;
-  font-size: 0.875rem;
-  margin-bottom: 0.75rem;
-}
-
-.team-founded {
-  font-size: 0.875rem;
-  font-weight: 600;
-  padding: 0.25rem 0.75rem;
-  border-radius: 20px;
-  display: inline-block;
-}
-
-.exact-founding .team-founded {
-  background-color: rgba(72, 187, 120, 0.2);
-  color: #48bb78;
-}
-
-.nfl-founding .team-founded {
-  background-color: rgba(237, 137, 54, 0.2);
-  color: #ed8936;
-}
-
-/* Modal Styles */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(4px);
-}
-
-.modal-content {
-  background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
-  margin: 5% auto;
-  padding: 0;
-  border-radius: 16px;
-  width: 90%;
-  max-width: 700px;
-  max-height: 80vh;
-  overflow-y: auto;
-  border: 1px solid #4a5568;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-}
-
-.close {
-  position: absolute;
-  right: 20px;
-  top: 20px;
-  color: #a0aec0;
-  font-size: 2rem;
-  font-weight: bold;
-  cursor: pointer;
-  z-index: 1001;
-  transition: color 0.2s;
-}
-
-.close:hover {
-  color: #e53e3e;
-}
-
-.popup-header {
-  padding: 2rem;
-  text-align: center;
-  background: linear-gradient(135deg, #2d3748 0%, #374151 100%);
-  border-bottom: 1px solid #4a5568;
-}
-
-.popup-header h2 {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #ffffff;
-  margin-bottom: 0.5rem;
-}
-
-.popup-division {
-  color: #63b3ed;
-  font-size: 1.125rem;
-  font-weight: 600;
-}
-
-.popup-content {
-  padding: 2rem;
-}
-
-.info-section {
-  margin-bottom: 2rem;
-}
-
-.info-section h3 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #63b3ed;
-  margin-bottom: 1rem;
-  border-bottom: 2px solid #374151;
-  padding-bottom: 0.5rem;
-}
-
-.info-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
-}
-
-.info-item {
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  background-color: rgba(45, 55, 72, 0.5);
-  border-radius: 8px;
-  border: 1px solid #4a5568;
-}
-
-.info-item label {
-  font-size: 0.75rem;
-  color: #a0aec0;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 0.25rem;
-  font-weight: 600;
-}
-
-.info-item span {
-  color: #ffffff;
-  font-weight: 500;
-  margin-bottom: 0.25rem;
-}
-
-.info-item small {
-  color: #718096;
-  font-size: 0.7rem;
-  font-style: italic;
-}
-
-.exact-date {
-  color: #48bb78 !important;
-}
-
-.nfl-date {
-  color: #ed8936 !important;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .header-content h1 {
-    font-size: 1.875rem;
-  }
-  
-  .filter-group {
-    width: 100%;
-    margin-right: 0;
-  }
-  
-  .teams-grid {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  }
-  
-  .modal-content {
-    width: 95%;
-    margin: 10% auto;
-  }
-  
-  .popup-content {
-    padding: 1.5rem;
-  }
-  
-  .info-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
+  border-left: 4px solid #48
