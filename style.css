@@ -272,3 +272,29 @@ body {
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
   position: relative;
 }
+
+#team-modal {
+  display: none !important;
+  position: fixed !important;
+  z-index: 999999 !important;
+  left: 0 !important;
+  top: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+#team-modal.show {
+  display: block !important;
+}
+
+#team-modal .modal-content {
+  background: #2d3748 !important;
+  margin: 10% auto !important;
+  padding: 2rem !important;
+  border-radius: 12px !important;
+  width: 80% !important;
+  max-width: 600px !important;
+  color: white !important;
+  position: relative !important;
+}
