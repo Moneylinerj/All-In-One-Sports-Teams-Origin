@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFL Teams Database - Complete Founding & Joining Dates</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <h1 class="header-title">NFL Teams Database</h1>
+            <p class="header-subtitle">Complete Founding & NFL Joining Information</p>
+            <div class="header-stats">
+                <span class="stat-item">32 Teams</span>
+                <span class="stat-item">13 Exact Founding Dates</span>
+                <span class="stat-item">19 NFL Joining Dates</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <aside class="sidebar">
+            <div class="search-section">
+                <h3>Search & Filter</h3>
+                <input type="text" id="searchInput" class="form-control" placeholder="Search teams, cities, states...">
+            </div>
+            
+            <div class="filter-section">
+                <h4>Conference</h4>
+                <select id="conferenceFilter" class="form-control">
+                    <option value="">All Conferences</option>
+                    <option value="AFC">AFC</option>
+                    <option value="NFC">NFC</option>
+                </select>
+                
+                <h4>Division</h4>
+                <select id="divisionFilter" class="form-control">
+                    <option value="">All Divisions</option>
+                    <option value="AFC East">AFC East</option>
+                    <option value="AFC North">AFC North</option>
+                    <option value="AFC South">AFC South</option>
+                    <option value="AFC West">AFC West</option>
+                    <option value="NFC East">NFC East</option>
+                    <option value="NFC North">NFC North</option>
+                    <option value="NFC South">NFC South</option>
+                    <option value="NFC West">NFC West</option>
+                </select>
+
+                <h4>Date Type</h4>
+                <select id="dateTypeFilter" class="form-control">
+                    <option value="">All Teams</option>
+                    <option value="exact">Exact Founding Dates</option>
+                    <option value="joining">NFL Joining Dates</option>
+                </select>
+            </div>
+
+            <div class="legend-section">
+                <h4>Legend</h4>
+                <div class="legend-item">
+                    <span class="legend-dot exact-founding"></span>
+                    <span>Exact Founding Date</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-dot nfl-joining"></span>
+                    <span>NFL Joining Date</span>
+                </div>
+            </div>
+        </aside>
+
+        <div class="content-area">
+            <nav class="tab-nav">
+                <button class="tab-btn active" data-tab="all-teams">All Teams</button>
+                <button class="tab-btn" data-tab="by-division">By Division</button>
+                <button class="tab-btn" data-tab="timeline">Timeline</button>
+                <button class="tab-btn" data-tab="statistics">Statistics</button>
+                <button class="tab-btn" data-tab="states-cities">States & Cities</button>
+            </nav>
+
+            <div id="all-teams" class="tab-content active">
+                <div class="table-controls">
+                    <button id="exportBtn" class="btn btn--secondary">Export Data</button>
+                    <div class="column-toggles">
+                        <label><input type="checkbox" checked data-column="division"> Division</label>
+                        <label><input type="checkbox" checked data-column="city"> City</label>
+                        <label><input type="checkbox" checked data-column="state"> State</label>
+                        <label><input type="checkbox" checked data-column="stadium"> Stadium</label>
+                    </div>
+                </div>
+                
+                <div class="table-container">
+                    <table id="teamsTable" class="teams-table">
+                        <thead>
+                            <tr>
+                                <th data-sort="name">Team Name</th>
+                                <th data-sort="division" class="column-division">Division</th>
+                                <th data-sort="teamFounded">Founded/Joined</th>
+                                <th data-sort="city" class="column-city">City</th>
+                                <th data-sort="state" class="column-state">State</th>
+                                <th data-sort="stadium" class="column-stadium">Stadium</th>
+                                <th data-sort="dataCompleteness">Data Score</th>
+                            </tr>
+                        </thead>
+                        <tbody id="teamsTableBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="by-division" class="tab-content">
+                <div class="divisions-grid" id="divisionsGrid">
+                </div>
+            </div>
+
+            <div id="timeline" class="tab-content">
+                <div class="timeline-container" id="timelineContainer">
+                </div>
+            </div>
+
+            <div id="statistics" class="tab-content">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>32</h3>
+                        <p>Total NFL Teams</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>13</h3>
+                        <p>Teams with Exact Founding Dates</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>19</h3>
+                        <p>Teams with NFL Joining Dates</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>1898</h3>
+                        <p>Oldest Team (Cardinals)</p>
+                    </div>
+                </div>
+                
+                <div class="facts-section">
+                    <h3>Did You Know?</h3>
+                    <ul class="facts-list">
+                        <li>The Arizona Cardinals are the oldest NFL team, founded in 1898</li>
+                        <li>8 teams joined through the AFL-NFL merger in 1970</li>
+                        <li>2 teams joined through the AAFC merger in 1949</li>
+                        <li>The Houston Texans are the newest team, beginning play in 2002</li>
+                        <li>Soldier Field (1924) is the oldest stadium still in use</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="states-cities" class="tab-content">
+                <div class="states-container" id="statesContainer">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Team Detail Modal -->
+    <div id="teamModal" class="modal hidden">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p><strong>Data Sources:</strong> NFL Official Records, Team Histories, Stadium Information</p>
+            <p><strong>Last Updated:</strong> August 28, 2025</p>
+            <p><strong>Note:</strong> Teams without exact founding dates show NFL joining dates instead</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
