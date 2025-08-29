@@ -589,7 +589,7 @@ function switchSport(sportKey) {
   
   // Hide/show division dropdown for college sports
   const divisionFilterGroup = document.getElementById('division-filter-group');
-  if (sportKey === 'collegefootball' || sportKey === 'collegebasketball') {
+  if (sportKey === "college-football" || sportKey === "college-basketball") {
     divisionFilterGroup.style.display = 'none';
   } else {
     divisionFilterGroup.style.display = 'block';
