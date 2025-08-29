@@ -573,12 +573,10 @@ function getDayInfo(dateStr) {
 // Navigation functions
 function switchSport(sportKey) {
   currentSport = sportKey;
-  
   if (sportKey === 'gematria') {
     showGematriaCalculator();
     return;
   }
-  
   if (sportKey === 'numerology') {
     showNumerologyTools();
     return;
@@ -588,6 +586,14 @@ function switchSport(sportKey) {
   document.getElementById('data-table').style.display = 'block';
   document.getElementById('gematria-calculator').style.display = 'none';
   document.getElementById('numerology-tools').style.display = 'none';
+  
+  // Hide/show division dropdown for college sports
+  const divisionFilterGroup = document.getElementById('division-filter-group');
+  if (sportKey === 'collegefootball' || sportKey === 'collegebasketball') {
+    divisionFilterGroup.style.display = 'none';
+  } else {
+    divisionFilterGroup.style.display = 'block';
+  }
   
   if (!sportsData[sportKey] || sportsData[sportKey].length === 0) {
     showComingSoon(sportKey);
@@ -605,17 +611,6 @@ function switchSport(sportKey) {
   filtered = [...sportsData[sportKey]];
   initFilters();
   renderCards();
-}
-
-function showComingSoon(sportKey) {
-  const config = sportConfig[sportKey];
-  document.getElementById('data-table').innerHTML = `
-    <div class="coming-soon">
-      <h3>${config.title}</h3>
-      <p>Coming Soon! This section will include complete team histories, founding dates, and venue information.</p>
-      <p>Stay tuned for updates...</p>
-    </div>
-  `;
 }
 
 function showGematriaCalculator() {
