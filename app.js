@@ -296,7 +296,7 @@ function switchSport(sportKey) {
   document.getElementById('search-title').textContent = `Search & Filter - ${config.title}`;
   
   filtered = [...sportsData[sportKey]];
-  initFilters();
+  initFilters(); // This line calls the function
   renderCards();
 }
 
@@ -486,4 +486,55 @@ document.addEventListener('DOMContentLoaded', function() {
 window.onclick = function(event) {
   const modal = document.getElementById('team-modal');
   if (event.target === modal) modal.style.display = 'none';
+}
+
+function initFilters() {
+  const currentData = sportsData[currentSport] || [];
+  
+  // Clear and populate conference filter
+  const confSelect = document.getElementById('conference-filter');
+  confSelect.innerHTML = '<option value="">All ' + sportConfig[currentSport].conferenceLabel + 's</option>';
+  const conferences = [...new Set(currentData.map(t => t.conference))].sort();
+  conferences.forEach(conf => {
+    const option = document.createElement('option');
+    option.value = conf;
+    option.textContent = conf;
+    confSelect.appendChild(option);
+  });
+  
+  // Clear and populate division filter
+  const divSelect = document.getElementById('division-filter');
+  divSelect.innerHTML = '<option value="">All ' + sportConfig[currentSport].divisionLabel + 's</option>';
+  const divisions = [...new Set(currentData.map(t => t.division).filter(d => d))].sort();
+  divisions.forEach(div => {
+    const option = document.createElement('option');
+    option.value = div;
+    option.textContent = div;
+    divSelect.appendChild(option);
+  });
+  
+  // Add event listeners for search and filters
+  document.getElementById('search').addEventListener('input', function() {
+    const term = this.value.toLowerCase();
+    filtered = currentData.filter(t => 
+      t.name.toLowerCase().includes(term) || 
+      t.city.toLowerCase().includes(term) || 
+      t.state.toLowerCase().includes(term) || 
+      (t.stadium && t.stadium.toLowerCase().includes(term)) ||
+      (t.arena && t.arena.toLowerCase().includes(term))
+    );
+    renderCards();
+  });
+  
+  confSelect.addEventListener('change', function() {
+    if (this.value) filtered = currentData.filter(t => t.conference === this.value);
+    else filtered = [...currentData];
+    renderCards();
+  });
+  
+  divSelect.addEventListener('change', function() {
+    if (this.value) filtered = currentData.filter(t => t.division === this.value);
+    else filtered = [...currentData];
+    renderCards();
+  });
 }
