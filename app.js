@@ -1119,9 +1119,10 @@ function showGematriaCalculator() {
     calculateGematriaLive();
 }
 
-// All cipher definitions based on your screenshot
+// Complete Gematria Calculator Implementation
+
+// All cipher definitions
 const allCiphers = {
-    // Left column - Basic ciphers
     'Ordinal': {
         color: 'ordinal-color',
         values: {'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 6, 'G': 7, 'H': 8, 'I': 9, 'J': 10, 'K': 11, 'L': 12, 'M': 13, 'N': 14, 'O': 15, 'P': 16, 'Q': 17, 'R': 18, 'S': 19, 'T': 20, 'U': 21, 'V': 22, 'W': 23, 'X': 24, 'Y': 25, 'Z': 26}
@@ -1138,8 +1139,6 @@ const allCiphers = {
         color: 'reverse-reduction-color',
         values: {'A': 8, 'B': 7, 'C': 6, 'D': 5, 'E': 4, 'F': 3, 'G': 2, 'H': 1, 'I': 9, 'J': 8, 'K': 7, 'L': 6, 'M': 5, 'N': 4, 'O': 3, 'P': 2, 'Q': 1, 'R': 9, 'S': 8, 'T': 7, 'U': 6, 'V': 5, 'W': 4, 'X': 3, 'Y': 2, 'Z': 1}
     },
-    
-    // Second column
     'Standard': {
         color: 'standard-color',
         values: {'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 6, 'G': 7, 'H': 8, 'I': 9, 'J': 10, 'K': 11, 'L': 12, 'M': 13, 'N': 14, 'O': 15, 'P': 16, 'Q': 17, 'R': 18, 'S': 19, 'T': 20, 'U': 21, 'V': 22, 'W': 23, 'X': 24, 'Y': 25, 'Z': 26}
@@ -1156,8 +1155,6 @@ const allCiphers = {
         color: 'reverse-sumerian-color',
         values: {'A': 156, 'B': 150, 'C': 144, 'D': 138, 'E': 132, 'F': 126, 'G': 120, 'H': 114, 'I': 108, 'J': 102, 'K': 96, 'L': 90, 'M': 84, 'N': 78, 'O': 72, 'P': 66, 'Q': 60, 'R': 54, 'S': 48, 'T': 42, 'U': 36, 'V': 30, 'W': 24, 'X': 18, 'Y': 12, 'Z': 6}
     },
-    
-    // Third column
     'Capitals Mixed': {
         color: 'capitals-mixed-color',
         values: {'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 6, 'G': 7, 'H': 8, 'I': 9, 'J': 10, 'K': 11, 'L': 12, 'M': 13, 'N': 14, 'O': 15, 'P': 16, 'Q': 17, 'R': 18, 'S': 19, 'T': 20, 'U': 21, 'V': 22, 'W': 23, 'X': 24, 'Y': 25, 'Z': 26}
@@ -1174,8 +1171,6 @@ const allCiphers = {
         color: 'reverse-caps-added-color',
         values: {'A': 26, 'B': 25, 'C': 24, 'D': 23, 'E': 22, 'F': 21, 'G': 20, 'H': 19, 'I': 18, 'J': 17, 'K': 16, 'L': 15, 'M': 14, 'N': 13, 'O': 12, 'P': 11, 'Q': 10, 'R': 9, 'S': 8, 'T': 7, 'U': 6, 'V': 5, 'W': 4, 'X': 3, 'Y': 2, 'Z': 1}
     },
-    
-    // Fourth column - Special ciphers
     'KV Exception': {
         color: 'kv-exception-color',
         values: {'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 6, 'G': 7, 'H': 8, 'I': 9, 'J': 10, 'K': 10, 'L': 12, 'M': 13, 'N': 14, 'O': 15, 'P': 16, 'Q': 17, 'R': 18, 'S': 19, 'T': 20, 'U': 21, 'V': 21, 'W': 23, 'X': 24, 'Y': 25, 'Z': 26}
@@ -1196,8 +1191,6 @@ const allCiphers = {
         color: 'ehp-exception-color',
         values: {'A': 6, 'B': 12, 'C': 18, 'D': 24, 'E': 24, 'F': 36, 'G': 42, 'H': 42, 'I': 54, 'J': 60, 'K': 66, 'L': 72, 'M': 78, 'N': 84, 'O': 90, 'P': 90, 'Q': 102, 'R': 108, 'S': 114, 'T': 120, 'U': 126, 'V': 132, 'W': 138, 'X': 144, 'Y': 150, 'Z': 156}
     },
-    
-    // Fifth column - Mathematical
     'Squares': {
         color: 'squares-color',
         values: {'A': 1, 'B': 4, 'C': 9, 'D': 16, 'E': 25, 'F': 36, 'G': 49, 'H': 64, 'I': 81, 'J': 100, 'K': 121, 'L': 144, 'M': 169, 'N': 196, 'O': 225, 'P': 256, 'Q': 289, 'R': 324, 'S': 361, 'T': 400, 'U': 441, 'V': 484, 'W': 529, 'X': 576, 'Y': 625, 'Z': 676}
@@ -1218,8 +1211,6 @@ const allCiphers = {
         color: 'reverse-squares-color',
         values: {'A': 676, 'B': 625, 'C': 576, 'D': 529, 'E': 484, 'F': 441, 'G': 400, 'H': 361, 'I': 324, 'J': 289, 'K': 256, 'L': 225, 'M': 196, 'N': 169, 'O': 144, 'P': 121, 'Q': 100, 'R': 81, 'S': 64, 'T': 49, 'U': 36, 'V': 25, 'W': 16, 'X': 9, 'Y': 4, 'Z': 1}
     },
-    
-    // Sixth column - Traditional systems
     'Primes': {
         color: 'primes-color',
         values: {'A': 2, 'B': 3, 'C': 5, 'D': 7, 'E': 11, 'F': 13, 'G': 17, 'H': 19, 'I': 23, 'J': 29, 'K': 31, 'L': 37, 'M': 41, 'N': 43, 'O': 47, 'P': 53, 'Q': 59, 'R': 61, 'S': 67, 'T': 71, 'U': 73, 'V': 79, 'W': 83, 'X': 89, 'Y': 97, 'Z': 101}
@@ -1240,8 +1231,6 @@ const allCiphers = {
         color: 'keypad-color',
         values: {'A': 2, 'B': 2, 'C': 2, 'D': 3, 'E': 3, 'F': 3, 'G': 4, 'H': 4, 'I': 4, 'J': 5, 'K': 5, 'L': 5, 'M': 6, 'N': 6, 'O': 6, 'P': 7, 'Q': 7, 'R': 7, 'S': 7, 'T': 8, 'U': 8, 'V': 8, 'W': 9, 'X': 9, 'Y': 9, 'Z': 9}
     },
-    
-    // Additional special ciphers
     'Satanic': {
         color: 'satanic-color',
         values: {'A': 36, 'B': 37, 'C': 38, 'D': 39, 'E': 40, 'F': 41, 'G': 42, 'H': 43, 'I': 44, 'J': 45, 'K': 46, 'L': 47, 'M': 48, 'N': 49, 'O': 50, 'P': 51, 'Q': 52, 'R': 53, 'S': 54, 'T': 55, 'U': 56, 'V': 57, 'W': 58, 'X': 59, 'Y': 60, 'Z': 61}
@@ -1256,8 +1245,105 @@ const allCiphers = {
     }
 };
 
+// Cipher groups for toggle buttons
+const cipherGroups = {
+    "Select Base": ["Ordinal", "Reduction", "Reverse", "Reverse Reduction"],
+    "Select All": Object.keys(allCiphers),
+    "Clear All": [],
+    "RJ's Base": [
+        "Ordinal", "Reduction", "Reverse", "Reverse Reduction",
+        "Standard", "Latin", "Sumerian", "Reverse Sumerian",
+        "Satanic", "Reverse Satanic", "Single Reduction",
+        "Trigonal", "Reverse Trigonal", "Chaldean", "Septenary", "Keypad"
+    ]
+};
+
 let currentCipherIndex = 0;
 const cipherNames = Object.keys(allCiphers);
+
+// Main gematria calculator function
+function showGematriaCalculator() {
+    document.getElementById('controls-section').style.display = 'none';
+    document.getElementById('data-table').style.display = 'none';
+    document.getElementById('numerology-tools').style.display = 'none';
+    document.getElementById('gematria-calculator').style.display = 'block';
+    
+    document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
+    document.querySelector('[data-sport="gematria"]').classList.add('active');
+    
+    document.getElementById('gematria-calculator').innerHTML = `
+        <div class="gematria-container">
+            <div class="gematria-header">
+                <h2>Gematria Calculator</h2>
+                <div class="header-options">
+                    <span>Ciphers | Options | Shortcuts</span>
+                </div>
+            </div>
+            
+            <div class="input-section">
+                <input type="text" id="gematria-input" placeholder="Enter Word, Phrase, or #(s):" 
+                       onkeyup="calculateGematriaLive()" />
+            </div>
+            
+            <div class="cipher-toggles">
+                <button class="toggle-btn" onclick="toggleCiphers('Select Base')">SELECT BASE</button>
+                <button class="toggle-btn" onclick="toggleCiphers('Select All')">SELECT ALL</button>
+                <button class="toggle-btn" onclick="toggleCiphers('Clear All')">CLEAR ALL</button>
+                <button class="toggle-btn" onclick="toggleCiphers('RJ\\'s Base')">RJ'S BASE</button>
+            </div>
+            
+            <div class="summary-display">
+                <div class="summary-item">
+                    <div class="label">Ordinal</div>
+                    <div class="value ordinal-color" id="ordinal-summary">0</div>
+                </div>
+                <div class="summary-item">
+                    <div class="label">Reduction</div>
+                    <div class="value reduction-color" id="reduction-summary">0</div>
+                </div>
+                <div class="summary-item">
+                    <div class="label">Reverse</div>
+                    <div class="value reverse-color" id="reverse-summary">0</div>
+                </div>
+                <div class="summary-item">
+                    <div class="label">Reverse Reduction</div>
+                    <div class="value reverse-reduction-color" id="reverse-reduction-summary">0</div>
+                </div>
+            </div>
+            
+            <div class="word-count">
+                <span id="word-count">(0 words, 0 letters)</span>
+            </div>
+            
+            <div class="alphabet-display">
+                <div class="alphabet-row letters">
+                    <span>a b c d e f g h i j k l m</span><br>
+                    <span>n o p q r s t u v w x y z</span>
+                </div>
+                <div class="alphabet-row numbers" id="alphabet-numbers">
+                    <span>1 2 3 4 5 6 7 8 9 10 11 12 13</span><br>
+                    <span>14 15 16 17 18 19 20 21 22 23 24 25 26</span>
+                </div>
+                <div class="alphabet-controls">
+                    <button class="prev-cipher" onclick="previousCipher()">‹</button>
+                    <span class="current-cipher" id="current-cipher-name">Ordinal</span>
+                    <button class="next-cipher" onclick="nextCipher()">›</button>
+                </div>
+            </div>
+            
+            <div class="ciphers-grid" id="ciphers-results">
+                <!-- Cipher results will be populated here -->
+            </div>
+            
+            <div class="letter-breakdown" id="letter-breakdown" style="display: none;">
+                <!-- Letter breakdown will show here -->
+            </div>
+        </div>
+    `;
+    
+    initializeCiphers();
+    calculateGematriaLive();
+}
 
 function initializeCiphers() {
     updateAlphabetDisplay();
@@ -1282,8 +1368,13 @@ function calculateGematriaLive() {
     document.getElementById('reverse-summary').textContent = reverse;
     document.getElementById('reverse-reduction-summary').textContent = reverseReduction;
     
-    // Generate all cipher results
-    generateAllCipherResults(text);
+    // Generate all cipher results if not already generated
+    if (!document.querySelector('[data-cipher]')) {
+        generateAllCipherResults(text);
+    } else {
+        // Update existing cipher values
+        updateCipherValues(text);
+    }
     
     // Show letter breakdown if there's text
     if (text.trim()) {
@@ -1323,10 +1414,15 @@ function generateAllCipherResults(text) {
             if (allCiphers[cipherName]) {
                 const value = calculateCipher(text, cipherName);
                 const colorClass = allCiphers[cipherName].color;
+                // Default to base 4 ciphers checked
+                const isBaseCipher = ['Ordinal', 'Reduction', 'Reverse', 'Reverse Reduction'].includes(cipherName);
+                const checked = isBaseCipher ? 'checked' : '';
+                const displayStyle = isBaseCipher ? 'display: grid;' : 'display: none;';
+                
                 html += `
-                    <div class="cipher-row">
+                    <div class="cipher-row" data-cipher="${cipherName}" style="${displayStyle}">
                         <div class="cipher-checkbox">
-                            <input type="checkbox" checked>
+                            <input type="checkbox" ${checked} onchange="onCipherToggle('${cipherName}', this)" />
                         </div>
                         <div class="cipher-name ${colorClass}">${cipherName}</div>
                         <div class="cipher-value ${colorClass}">${value}</div>
@@ -1338,6 +1434,61 @@ function generateAllCipherResults(text) {
     });
     
     resultsContainer.innerHTML = html;
+}
+
+function updateCipherValues(text) {
+    Object.keys(allCiphers).forEach(cipherName => {
+        const cipherRow = document.querySelector(`[data-cipher="${cipherName}"]`);
+        const valueElement = cipherRow?.querySelector('.cipher-value');
+        
+        if (valueElement) {
+            const value = calculateCipher(text, cipherName);
+            valueElement.textContent = value;
+        }
+    });
+}
+
+function onCipherToggle(cipherName, checkbox) {
+    const cipherRow = document.querySelector(`[data-cipher="${cipherName}"]`);
+    if (!cipherRow) return;
+    
+    if (checkbox.checked) {
+        cipherRow.style.display = 'grid';
+        cipherRow.style.opacity = '1';
+    } else {
+        cipherRow.style.display = 'none';
+    }
+}
+
+function toggleCiphers(groupName) {
+    const toToggle = cipherGroups[groupName];
+    
+    // Handle all ciphers
+    Object.keys(allCiphers).forEach(cipherName => {
+        const cipherRow = document.querySelector(`[data-cipher="${cipherName}"]`);
+        const checkbox = cipherRow?.querySelector('input[type="checkbox"]');
+        
+        if (!cipherRow || !checkbox) return;
+        
+        let shouldShow = false;
+        
+        if (groupName === "Clear All") {
+            shouldShow = false;
+        } else if (groupName === "Select All") {
+            shouldShow = true;
+        } else {
+            shouldShow = toToggle.includes(cipherName);
+        }
+        
+        checkbox.checked = shouldShow;
+        
+        if (shouldShow) {
+            cipherRow.style.display = 'grid';
+            cipherRow.style.opacity = '1';
+        } else {
+            cipherRow.style.display = 'none';
+        }
+    });
 }
 
 function updateAlphabetDisplay() {
