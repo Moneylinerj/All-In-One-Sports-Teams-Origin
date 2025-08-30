@@ -1356,7 +1356,7 @@ function calculateGematriaLive() {
     
     // Update word count
     document.getElementById('word-count').textContent = `(${words.length} words, ${letters.length} letters)`;
-    
+  
     // Calculate summary values (main 4 ciphers)
     const ordinal = calculateCipher(text, 'Ordinal');
     const reduction = calculateCipher(text, 'Reduction');
@@ -1375,13 +1375,58 @@ function calculateGematriaLive() {
         // Update existing cipher values
         updateCipherValues(text);
     }
-    
+
+  // Update the summary display to show only active ciphers
+    updateSummaryDisplay(text);
+  
     // Show letter breakdown if there's text
     if (text.trim()) {
         showLetterBreakdown(text);
     } else {
         document.getElementById('letter-breakdown').style.display = 'none';
     }
+}
+
+// New function to update the summary display based on active ciphers
+function updateSummaryDisplay(text) {
+    const activeCiphers = getActiveCiphers();
+    const summaryContainer = document.querySelector('.summary-display');
+    
+    if (activeCiphers.length === 0) {
+        summaryContainer.innerHTML = '<div class="no-active">No ciphers selected</div>';
+        return;
+    }
+    
+    let summaryHtml = '';
+    activeCiphers.forEach(cipherName => {
+        const value = calculateCipher(text, cipherName);
+        const colorClass = allCiphers[cipherName].color;
+        
+        summaryHtml += `
+            <div class="summary-item">
+                <div class="label">${cipherName}</div>
+                <div class="value ${colorClass}">${value}</div>
+            </div>
+        `;
+    });
+    
+    summaryContainer.innerHTML = summaryHtml;
+}
+
+// Helper function to get currently active/visible ciphers
+function getActiveCiphers() {
+    const activeCiphers = [];
+    const checkboxes = document.querySelectorAll('#ciphers-results input[type="checkbox"]:checked');
+    
+    checkboxes.forEach(checkbox => {
+        const cipherRow = checkbox.closest('.cipher-row');
+        const cipherName = cipherRow.getAttribute('data-cipher');
+        if (cipherName) {
+            activeCiphers.push(cipherName);
+        }
+    });
+    
+    return activeCiphers;
 }
 
 function calculateCipher(text, cipherName) {
@@ -1458,8 +1503,12 @@ function onCipherToggle(cipherName, checkbox) {
     } else {
         cipherRow.style.display = 'none';
     }
-}
 
+// Update summary display when individual cipher is toggled
+    const text = document.getElementById('gematria-input').value.toUpperCase();
+    updateSummaryDisplay(text);
+}
+  
 function toggleCiphers(groupName) {
     const toToggle = cipherGroups[groupName];
     
@@ -1489,6 +1538,10 @@ function toggleCiphers(groupName) {
             cipherRow.style.display = 'none';
         }
     });
+
+  // Update summary display after bulk toggle
+    const text = document.getElementById('gematria-input').value.toUpperCase();
+    updateSummaryDisplay(text);
 }
 
 function updateAlphabetDisplay() {
