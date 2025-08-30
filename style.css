@@ -519,3 +519,322 @@ body {
     font-size: 1.5rem;
   }
 }
+
+/* ==========================================================================
+   GEMATRIA CALCULATOR STYLES
+   ========================================================================== */
+
+.gematria-main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #0f1419;
+    color: #e6e6e6;
+}
+
+/* Phrase Input Box */
+.phrase-box {
+    background: #1a202c;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+    border: 1px solid #2d3748;
+    text-align: center;
+}
+
+#phrase-input {
+    width: 100%;
+    max-width: 600px;
+    padding: 16px 20px;
+    font-size: 18px;
+    background: #2d3748;
+    border: 2px solid #4a5568;
+    border-radius: 8px;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 12px;
+    transition: border-color 0.3s ease;
+}
+
+#phrase-input:focus {
+    outline: none;
+    border-color: #63b3ed;
+    box-shadow: 0 0 0 3px rgba(99, 179, 237, 0.1);
+}
+
+.phrase-info {
+    color: #a0aec0;
+    font-size: 14px;
+}
+
+/* Cipher Chart */
+.cipher-chart {
+    background: #1a202c;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+    border: 1px solid #2d3748;
+}
+
+.chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.chart-header h3 {
+    color: #63b3ed;
+    font-size: 18px;
+    margin: 0;
+}
+
+.btn-toggle-all {
+    background: #4a5568;
+    color: #ffffff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease;
+}
+
+.btn-toggle-all:hover {
+    background: #63b3ed;
+}
+
+.cipher-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.cipher-result {
+    background: #2d3748;
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+    border: 1px solid #4a5568;
+    transition: transform 0.2s ease;
+}
+
+.cipher-result:hover {
+    transform: translateY(-2px);
+}
+
+.cipher-result .cipher-name {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.cipher-result .cipher-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.no-results {
+    text-align: center;
+    color: #718096;
+    font-style: italic;
+    padding: 40px;
+    grid-column: 1 / -1;
+}
+
+/* Cipher Selection */
+.cipher-selection {
+    background: #1a202c;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+    border: 1px solid #2d3748;
+}
+
+.cipher-selection h3 {
+    color: #63b3ed;
+    font-size: 18px;
+    margin-bottom: 16px;
+}
+
+.cipher-checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+}
+
+.cipher-checkbox {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    background: #2d3748;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.cipher-checkbox:hover {
+    background: #374151;
+}
+
+.cipher-checkbox input {
+    margin-right: 8px;
+}
+
+.cipher-checkbox .cipher-name {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* History Section */
+.history-section {
+    background: #1a202c;
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid #2d3748;
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.history-header h3 {
+    color: #63b3ed;
+    font-size: 18px;
+    margin: 0;
+}
+
+.btn-clear-history {
+    background: #e53e3e;
+    color: #ffffff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease;
+}
+
+.btn-clear-history:hover {
+    background: #c53030;
+}
+
+.history-table {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.history-empty {
+    text-align: center;
+    color: #718096;
+    font-style: italic;
+    padding: 40px;
+}
+
+.history-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 3fr auto;
+    gap: 16px;
+    align-items: center;
+    padding: 12px;
+    background: #2d3748;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    border: 1px solid #4a5568;
+}
+
+.history-phrase {
+    font-weight: 600;
+    color: #ffffff;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.history-phrase:hover {
+    color: #63b3ed;
+}
+
+.history-time {
+    color: #a0aec0;
+    font-size: 12px;
+}
+
+.history-results {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.history-result {
+    font-size: 12px;
+    padding: 2px 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+.btn-remove {
+    background: #e53e3e;
+    color: #ffffff;
+    border: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.btn-remove:hover {
+    background: #c53030;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .cipher-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 12px;
+    }
+    
+    .cipher-checkbox-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .history-row {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .history-results {
+        justify-content: center;
+    }
+    
+    #phrase-input {
+        font-size: 16px;
+        padding: 14px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gematria-main-container {
+        padding: 16px;
+    }
+    
+    .phrase-box,
+    .cipher-chart,
+    .cipher-selection,
+    .history-section {
+        padding: 16px;
+        margin-bottom: 16px;
+    }
+    
+    .cipher-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
