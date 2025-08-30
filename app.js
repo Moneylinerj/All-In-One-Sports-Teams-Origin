@@ -1133,13 +1133,7 @@ const allCiphers = {
 const cipherGroups = {
     "Select Base": ["Ordinal", "Reduction", "Reverse", "Reverse Reduction"],
     "Select All": Object.keys(allCiphers),
-    "Clear All": [],
-    "RJ's Base": [
-        "Ordinal", "Reduction", "Reverse", "Reverse Reduction",
-        "Standard", "Latin", "Sumerian", "Reverse Sumerian",
-        "Satanic", "Reverse Satanic", "Single Reduction",
-        "Trigonal", "Reverse Trigonal", "Chaldean", "Septenary", "Keypad"
-    ]
+    "Clear All": []
 };
 
 let currentCipherIndex = 0;
@@ -1175,7 +1169,7 @@ function showCipherModal() {
                     margin-bottom: 20px;
                 ">
                     <h3 style="color: #fff; margin: 0;">Select Ciphers</h3>
-                    <button onclick="closeCipherModal()" style="
+                    <button id="modal-close-btn" style="
                         background: none;
                         border: none;
                         color: #fff;
@@ -1191,7 +1185,7 @@ function showCipherModal() {
                 </div>
                 
                 <div style="margin-bottom: 20px;">
-                    <button onclick="toggleCiphers('Select Base')" style="
+                    <button id="select-base-btn" style="
                         background: #444;
                         color: #fff;
                         border: 1px solid #666;
@@ -1201,7 +1195,7 @@ function showCipherModal() {
                         margin-right: 10px;
                         margin-bottom: 10px;
                     ">SELECT BASE</button>
-                    <button onclick="toggleCiphers('Select All')" style="
+                    <button id="select-all-btn" style="
                         background: #444;
                         color: #fff;
                         border: 1px solid #666;
@@ -1211,25 +1205,15 @@ function showCipherModal() {
                         margin-right: 10px;
                         margin-bottom: 10px;
                     ">SELECT ALL</button>
-                    <button onclick="toggleCiphers('Clear All')" style="
+                    <button id="clear-all-btn" style="
                         background: #444;
                         color: #fff;
                         border: 1px solid #666;
                         padding: 8px 16px;
                         border-radius: 4px;
                         cursor: pointer;
-                        margin-right: 10px;
                         margin-bottom: 10px;
                     ">CLEAR ALL</button>
-                    <button onclick="toggleCiphers('RJ\\'s Base')" style="
-                        background: #444;
-                        color: #fff;
-                        border: 1px solid #666;
-                        padding: 8px 16px;
-                        border-radius: 4px;
-                        cursor: pointer;
-                        margin-bottom: 10px;
-                    ">RJ'S BASE</button>
                 </div>
                 
                 <div id="cipher-selection-grid" style="
@@ -1241,7 +1225,7 @@ function showCipherModal() {
                 </div>
                 
                 <div style="margin-top: 20px; text-align: center;">
-                    <button onclick="closeCipherModal()" style="
+                    <button id="modal-done-btn" style="
                         background: #63b3ed;
                         color: #fff;
                         border: none;
@@ -1256,6 +1240,57 @@ function showCipherModal() {
     `;
     
     document.body.insertAdjacentHTML('beforeend', modalHTML);
+    
+    // Add event listeners after modal is created
+    addModalEventListeners();
+}
+
+function addModalEventListeners() {
+    // Close button
+    const closeBtn = document.getElementById('modal-close-btn');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeCipherModal);
+    }
+    
+    // Done button
+    const doneBtn = document.getElementById('modal-done-btn');
+    if (doneBtn) {
+        doneBtn.addEventListener('click', closeCipherModal);
+    }
+    
+    // Select Base button
+    const selectBaseBtn = document.getElementById('select-base-btn');
+    if (selectBaseBtn) {
+        selectBaseBtn.addEventListener('click', function() {
+            toggleCiphersInModal('Select Base');
+        });
+    }
+    
+    // Select All button
+    const selectAllBtn = document.getElementById('select-all-btn');
+    if (selectAllBtn) {
+        selectAllBtn.addEventListener('click', function() {
+            toggleCiphersInModal('Select All');
+        });
+    }
+    
+    // Clear All button
+    const clearAllBtn = document.getElementById('clear-all-btn');
+    if (clearAllBtn) {
+        clearAllBtn.addEventListener('click', function() {
+            toggleCiphersInModal('Clear All');
+        });
+    }
+    
+    // Close modal when clicking outside
+    const modal = document.getElementById('cipher-modal');
+    if (modal) {
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeCipherModal();
+            }
+        });
+    }
 }
 
 function generateCipherCheckboxes() {
@@ -1275,17 +1310,38 @@ function generateCipherCheckboxes() {
                 gap: 10px;
             ">
                 <input type="checkbox" ${checked} 
-                       onchange="toggleSingleCipher('${cipherName}', this.checked)"
+                       data-cipher="${cipherName}"
                        style="transform: scale(1.2);" />
                 <label style="
                     color: ${cipher.color};
                     font-size: 14px;
                     cursor: pointer;
                     flex: 1;
-                " onclick="this.previousElementSibling.click()">${cipherName}</label>
+                " data-cipher="${cipherName}">${cipherName}</label>
             </div>
         `;
     });
+    
+    // Add event listeners for checkboxes after they're created
+    setTimeout(() => {
+        const checkboxes = document.querySelectorAll('#cipher-modal input[type="checkbox"]');
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const cipherName = this.getAttribute('data-cipher');
+                toggleSingleCipher(cipherName, this.checked);
+            });
+        });
+        
+        const labels = document.querySelectorAll('#cipher-modal label[data-cipher]');
+        labels.forEach(label => {
+            label.addEventListener('click', function() {
+                const cipherName = this.getAttribute('data-cipher');
+                const checkbox = this.previousElementSibling;
+                checkbox.click();
+            });
+        });
+    }, 0);
+    
     return html;
 }
 
@@ -1302,6 +1358,41 @@ function closeCipherModal() {
     if (modal) {
         modal.remove();
     }
+}
+
+// Updated toggle function specifically for modal buttons
+function toggleCiphersInModal(groupName) {
+    const toToggle = cipherGroups[groupName];
+    
+    // Handle all ciphers
+    Object.keys(allCiphers).forEach(cipherName => {
+        let shouldShow = false;
+        
+        if (groupName === "Clear All") {
+            shouldShow = false;
+        } else if (groupName === "Select All") {
+            shouldShow = true;
+        } else {
+            shouldShow = toToggle.includes(cipherName);
+        }
+        
+        allCiphers[cipherName].enabled = shouldShow;
+    });
+    
+    // Update modal checkboxes
+    const modal = document.getElementById('cipher-modal');
+    if (modal) {
+        Object.keys(allCiphers).forEach(cipherName => {
+            const checkbox = modal.querySelector(`input[data-cipher="${cipherName}"]`);
+            if (checkbox) {
+                checkbox.checked = allCiphers[cipherName].enabled;
+            }
+        });
+    }
+    
+    // Update summary display
+    const text = document.getElementById('gematria-input').value.toUpperCase();
+    updateSummaryDisplay(text);
 }
 
 // Update the showGematriaCalculator function to remove bottom section and make "Ciphers" clickable
@@ -1370,12 +1461,17 @@ function showGematriaCalculator() {
     calculateGematriaLive();
 }
 
-// Update the toggleCiphers function to work with the modal and close it
+// Keep the original toggleCiphers function for non-modal usage
 function toggleCiphers(groupName) {
     const toToggle = cipherGroups[groupName];
     
     // Handle all ciphers
     Object.keys(allCiphers).forEach(cipherName => {
+        const cipherRow = document.querySelector(`[data-cipher="${cipherName}"]`);
+        const checkbox = cipherRow?.querySelector('input[type="checkbox"]');
+        
+        if (!cipherRow || !checkbox) return;
+        
         let shouldShow = false;
         
         if (groupName === "Clear All") {
@@ -1387,20 +1483,17 @@ function toggleCiphers(groupName) {
         }
         
         allCiphers[cipherName].enabled = shouldShow;
+        checkbox.checked = shouldShow;
+        
+        if (shouldShow) {
+            cipherRow.style.display = 'grid';
+            cipherRow.style.opacity = '1';
+        } else {
+            cipherRow.style.display = 'none';
+        }
     });
     
-    // Update modal checkboxes if modal is open
-    const modal = document.getElementById('cipher-modal');
-    if (modal) {
-        Object.keys(allCiphers).forEach(cipherName => {
-            const checkbox = modal.querySelector(`input[onchange*="${cipherName}"]`);
-            if (checkbox) {
-                checkbox.checked = allCiphers[cipherName].enabled;
-            }
-        });
-    }
-    
-    // Update summary display
+    // Update summary display after bulk toggle
     const text = document.getElementById('gematria-input').value.toUpperCase();
     updateSummaryDisplay(text);
 }
@@ -1532,42 +1625,6 @@ function onCipherToggle(cipherName, checkbox) {
     }
     
     // Update summary display
-    const text = document.getElementById('gematria-input').value.toUpperCase();
-    updateSummaryDisplay(text);
-}
-
-function toggleCiphers(groupName) {
-    const toToggle = cipherGroups[groupName];
-    
-    // Handle all ciphers
-    Object.keys(allCiphers).forEach(cipherName => {
-        const cipherRow = document.querySelector(`[data-cipher="${cipherName}"]`);
-        const checkbox = cipherRow?.querySelector('input[type="checkbox"]');
-        
-        if (!cipherRow || !checkbox) return;
-        
-        let shouldShow = false;
-        
-        if (groupName === "Clear All") {
-            shouldShow = false;
-        } else if (groupName === "Select All") {
-            shouldShow = true;
-        } else {
-            shouldShow = toToggle.includes(cipherName);
-        }
-        
-        allCiphers[cipherName].enabled = shouldShow;
-        checkbox.checked = shouldShow;
-        
-        if (shouldShow) {
-            cipherRow.style.display = 'grid';
-            cipherRow.style.opacity = '1';
-        } else {
-            cipherRow.style.display = 'none';
-        }
-    });
-    
-    // Update summary display after bulk toggle
     const text = document.getElementById('gematria-input').value.toUpperCase();
     updateSummaryDisplay(text);
 }
