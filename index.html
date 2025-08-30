@@ -1,65 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sports Origins & Numerology Hub</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Origins & Numerology Hub</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="header">
-    <div class="container">
-      <div class="header-content">
-        <h1>Sports Origins & Numerology Hub</h1>
-        <p class="subtitle">Complete Team Histories, Founding Dates & Interactive Numerology Tools</p>
-        <p class="credit">Compiled and curated by Moneylinerj</p>
-      </div>
-    </div>
-  </header>
-  <nav class="main-nav">
-    <div class="container">
-      <div class="nav-tabs">
-        <button class="nav-tab active" data-sport="nfl">NFL</button>
-        <button class="nav-tab" data-sport="nba">NBA</button>
-        <button class="nav-tab" data-sport="mlb">MLB</button>
-        <button class="nav-tab" data-sport="nhl">NHL</button>
-        <button class="nav-tab" data-sport="wnba">WNBA</button>
-        <button class="nav-tab" data-sport="mls">MLS</button>
-        <button class="nav-tab" data-sport="college-football">College FB</button>
-        <button class="nav-tab" data-sport="college-basketball">College BB</button>
-        <button class="nav-tab gematria-tab" data-sport="gematria">Gematria Calculator</button>
-        <button class="nav-tab numerology-tab" data-sport="numerology">Date Calculator</button>
-      </div>
-    </div>
-  </nav>
-  <main class="main">
-    <div class="container">
-      <div class="controls-section" id="controls-section">
-        <div class="search-filter">
-          <h3 id="search-title">Search & Filter - NFL Teams</h3>
-          <input type="text" id="search" placeholder="Search teams, cities, states..." class="search-input">
-          
-          <div class="filter-group">
-            <label id="conference-label">Conference</label>
-            <select id="conference-filter" class="filter-select">
-              <option value="">All Conferences</option>
-            </select>
-          </div>
-          
-          <div class="filter-group" id="division-filter-group">
-            <label id="division-label">Division</label>
-            <select id="division-filter" class="filter-select">
-              <option value="">All Divisions</option>
-            </select>
-          </div>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1>Sports Origins & Numerology Hub</h1>
+                <p class="subtitle">Complete Team Histories, Founding Dates & Interactive Numerology Tools</p>
+                <p class="credit">Compiled and curated by Moneytinerj</p>
+            </div>
         </div>
-      </div>
-      
-      <div id="data-table" class="data-table"></div>
-      <div id="gematria-calculator" class="calculator-section" style="display: none;"></div>
-      <div id="numerology-tools" class="calculator-section" style="display: none;"></div>
+    </header>
+
+    <!-- Navigation Section -->
+    <nav class="main-nav">
+        <div class="container">
+            <div class="nav-tabs">
+                <button class="nav-tab active" data-sport="nfl" onclick="switchSport('nfl')">NFL</button>
+                <button class="nav-tab" data-sport="nba" onclick="switchSport('nba')">NBA</button>
+                <button class="nav-tab" data-sport="mlb" onclick="switchSport('mlb')">MLB</button>
+                <button class="nav-tab" data-sport="nhl" onclick="switchSport('nhl')">NHL</button>
+                <button class="nav-tab" data-sport="wnba" onclick="switchSport('wnba')">WNBA</button>
+                <button class="nav-tab" data-sport="mls" onclick="switchSport('mls')">MLS</button>
+                <button class="nav-tab" data-sport="college-football" onclick="switchSport('college-football')">College FB</button>
+                <button class="nav-tab" data-sport="college-basketball" onclick="switchSport('college-basketball')">College BB</button>
+                <button class="nav-tab gematria-tab" data-sport="gematria" onclick="switchSport('gematria')">Gematria Calculator</button>
+                <button class="nav-tab numerology-tab" data-sport="numerology" onclick="switchSport('numerology')">Date Calculator</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Controls Section -->
+            <section id="controls-section" class="controls-section">
+                <div class="search-filter">
+                    <h3 id="search-title">Search & Filter - NFL Teams</h3>
+                    <input type="text" id="search-input" class="search-input" placeholder="Search teams, cities, states..." oninput="applyFilters()">
+                    
+                    <div class="filter-group">
+                        <label for="conference-filter" id="conference-label">Conference</label>
+                        <select id="conference-filter" class="filter-select" onchange="applyFilters()">
+                            <option value="">All</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group" id="division-filter-group">
+                        <label for="division-filter" id="division-label">Division</label>
+                        <select id="division-filter" class="filter-select" onchange="applyFilters()">
+                            <option value="">All</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Data Table Section -->
+            <section id="data-table-section" class="teams-container">
+                <table id="data-table" class="teams-table">
+                    <thead>
+                        <tr>
+                            <th>Team Name</th>
+                            <th>Location</th>
+                            <th>Founded</th>
+                            <th>Conference</th>
+                            <th>Division</th>
+                            <th>Venue</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Teams will be populated here by JavaScript -->
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Gematria Calculator Section -->
+            <section id="gematria-calculator" style="display: none;">
+                <!-- Content will be populated by JavaScript -->
+            </section>
+
+            <!-- Numerology Tools Section -->
+            <section id="numerology-tools" style="display: none;">
+                <!-- Content will be populated by JavaScript -->
+            </section>
+        </div>
+    </main>
+
+    <!-- Team Popup Modal -->
+    <div id="team-popup" class="team-popup">
+        <!-- Popup content will be populated by JavaScript -->
     </div>
-  </main>
-  <script src="app.js"></script>
+
+    <!-- JavaScript -->
+    <script src="app.js"></script>
 </body>
 </html>
