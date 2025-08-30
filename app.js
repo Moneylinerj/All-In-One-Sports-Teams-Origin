@@ -1041,300 +1041,424 @@ function switchSport(sportKey) {
   renderCards();
 }
 
-// Gematria Calculator - Complete Implementation
-const gematriaCalculator = {
-    ciphers: {
-        'English Ordinal': { enabled: true, color: '#ff6188', getValue: (char) => char.charCodeAt(0) - 64 },
-        'Full Reduction': { enabled: true, color: '#88ff61', getValue: (char) => ((char.charCodeAt(0) - 65) % 9) + 1 },
-        'Reverse Ordinal': { enabled: true, color: '#6188ff', getValue: (char) => 91 - char.charCodeAt(0) },
-        'Reverse Reduction': { enabled: true, color: '#ff8861', getValue: (char) => ((90 - char.charCodeAt(0)) % 9) + 1 },
-        'English Gematria': { enabled: false, color: '#ffff61', getValue: (char) => (char.charCodeAt(0) - 64) * 6 },
-        'Jewish Gematria': { enabled: false, color: '#ff61ff', getValue: (char) => getJewishValue(char) },
-        'Simple Gematria': { enabled: false, color: '#61ffff', getValue: (char) => char.charCodeAt(0) - 64 },
-        'Septenary': { enabled: false, color: '#ff8888', getValue: (char) => ((char.charCodeDate(0) - 65) % 7) + 1 },
-        'Chaldean': { enabled: false, color: '#88ff88', getValue: (char) => getChaldeanValue(char) },
-        'Pythagorean': { enabled: false, color: '#8888ff', getValue: (char) => ((char.charCodeAt(0) - 65) % 9) + 1 }
+// ==========================================================================
+// GEMATRIA CALCULATOR - COMPLETE IMPLEMENTATION
+// ==========================================================================
+
+// Complete cipher definitions based on Gematrinator.com
+const allCiphers = {
+    'Ordinal': {
+        color: '#90EE90',
+        enabled: true,
+        values: {'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 6, 'G': 7, 'H': 8, 'I': 9, 'J': 10, 'K': 11, 'L': 12, 'M': 13, 'N': 14, 'O': 15, 'P': 16, 'Q': 17, 'R': 18, 'S': 19, 'T': 20, 'U': 21, 'V': 22, 'W': 23, 'X': 24, 'Y': 25, 'Z': 26}
     },
-    
-    history: [],
-    currentPhrase: ''
+    'Reduction': {
+        color: '#4169E1',
+        enabled: true,
+        values: {'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 6, 'G': 7, 'H': 8, 'I': 9, 'J': 1, 'K': 2, 'L': 3, 'M': 4, 'N': 5, 'O': 6, 'P': 7, 'Q': 8, 'R': 9, 'S': 1, 'T': 2, 'U': 3, 'V': 4, 'W': 5, 'X': 6, 'Y': 7, 'Z': 8}
+    },
+    'Reverse': {
+        color: '#90EE90',
+        enabled: true,
+        values: {'A': 26, 'B': 25, 'C': 24, 'D': 23, 'E': 22, 'F': 21, 'G': 20, 'H': 19, 'I': 18, 'J': 17, 'K': 16, 'L': 15, 'M': 14, 'N': 13, 'O': 12, 'P': 11, 'Q': 10, 'R': 9, 'S': 8, 'T': 7, 'U': 6, 'V': 5, 'W': 4, 'X': 3, 'Y': 2, 'Z': 1}
+    },
+    'Reverse Reduction': {
+        color: '#20B2AA',
+        enabled: true,
+        values: {'A': 8, 'B': 7, 'C': 6, 'D': 5, 'E': 4, 'F': 3, 'G': 2, 'H': 1, 'I': 9, 'J': 8, 'K': 7, 'L': 6, 'M': 5, 'N': 4, 'O': 3, 'P': 2, 'Q': 1, 'R': 9, 'S': 8, 'T': 7, 'U': 6, 'V': 5, 'W': 4, 'X': 3, 'Y': 2, 'Z': 1}
+    },
+    'Standard': {
+        color: '#FFB6C1',
+        enabled: false,
+        values: {'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 6, 'G': 7, 'H': 8, 'I': 9, 'J': 10, 'K': 11, 'L': 12, 'M': 13, 'N': 14, 'O': 15, 'P': 16, 'Q': 17, 'R': 18, 'S': 19, 'T': 20, 'U': 21, 'V': 22, 'W': 23, 'X': 24, 'Y': 25, 'Z': 26}
+    },
+    'Latin': {
+        color: '#DDA0DD',
+        enabled: false,
+        values: {'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 6, 'G': 7, 'H': 8, 'I': 9, 'J': 10, 'K': 20, 'L': 30, 'M': 40, 'N': 50, 'O': 60, 'P': 70, 'Q': 80, 'R': 90, 'S': 100, 'T': 200, 'U': 300, 'V': 400, 'W': 500, 'X': 600, 'Y': 700, 'Z': 800}
+    },
+    'Sumerian': {
+        color: '#32CD32',
+        enabled: false,
+        values: {'A': 6, 'B': 12, 'C': 18, 'D': 24, 'E': 30, 'F': 36, 'G': 42, 'H': 48, 'I': 54, 'J': 60, 'K': 66, 'L': 72, 'M': 78, 'N': 84, 'O': 90, 'P': 96, 'Q': 102, 'R': 108, 'S': 114, 'T': 120, 'U': 126, 'V': 132, 'W': 138, 'X': 144, 'Y': 150, 'Z': 156}
+    },
+    'Reverse Sumerian': {
+        color: '#B0C4DE',
+        enabled: false,
+        values: {'A': 156, 'B': 150, 'C': 144, 'D': 138, 'E': 132, 'F': 126, 'G': 120, 'H': 114, 'I': 108, 'J': 102, 'K': 96, 'L': 90, 'M': 84, 'N': 78, 'O': 72, 'P': 66, 'Q': 60, 'R': 54, 'S': 48, 'T': 42, 'U': 36, 'V': 30, 'W': 24, 'X': 18, 'Y': 12, 'Z': 6}
+    },
+    'Satanic': {
+        color: '#FF6347',
+        enabled: false,
+        values: {'A': 36, 'B': 37, 'C': 38, 'D': 39, 'E': 40, 'F': 41, 'G': 42, 'H': 43, 'I': 44, 'J': 45, 'K': 46, 'L': 47, 'M': 48, 'N': 49, 'O': 50, 'P': 51, 'Q': 52, 'R': 53, 'S': 54, 'T': 55, 'U': 56, 'V': 57, 'W': 58, 'X': 59, 'Y': 60, 'Z': 61}
+    },
+    'Reverse Satanic': {
+        color: '#FF6347',
+        enabled: false,
+        values: {'A': 61, 'B': 60, 'C': 59, 'D': 58, 'E': 57, 'F': 56, 'G': 55, 'H': 54, 'I': 53, 'J': 52, 'K': 51, 'L': 50, 'M': 49, 'N': 48, 'O': 47, 'P': 46, 'Q': 45, 'R': 44, 'S': 43, 'T': 42, 'U': 41, 'V': 40, 'W': 39, 'X': 38, 'Y': 37, 'Z': 36}
+    },
+    'Single Reduction': {
+        color: '#4169E1',
+        enabled: false,
+        values: {'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 6, 'G': 7, 'H': 8, 'I': 9, 'J': 1, 'K': 2, 'L': 3, 'M': 4, 'N': 5, 'O': 6, 'P': 7, 'Q': 8, 'R': 9, 'S': 1, 'T': 2, 'U': 3, 'V': 4, 'W': 5, 'X': 6, 'Y': 7, 'Z': 8}
+    },
+    'Trigonal': {
+        color: '#FFB6C1',
+        enabled: false,
+        values: {'A': 1, 'B': 3, 'C': 6, 'D': 10, 'E': 15, 'F': 21, 'G': 28, 'H': 36, 'I': 45, 'J': 55, 'K': 66, 'L': 78, 'M': 91, 'N': 105, 'O': 120, 'P': 136, 'Q': 153, 'R': 171, 'S': 190, 'T': 210, 'U': 231, 'V': 253, 'W': 276, 'X': 300, 'Y': 325, 'Z': 351}
+    },
+    'Reverse Trigonal': {
+        color: '#FFB6C1',
+        enabled: false,
+        values: {'A': 351, 'B': 325, 'C': 300, 'D': 276, 'E': 253, 'F': 231, 'G': 210, 'H': 190, 'I': 171, 'J': 153, 'K': 136, 'L': 120, 'M': 105, 'N': 91, 'O': 78, 'P': 66, 'Q': 55, 'R': 45, 'S': 36, 'T': 28, 'U': 21, 'V': 15, 'W': 10, 'X': 6, 'Y': 3, 'Z': 1}
+    },
+    'Chaldean': {
+        color: '#DDA0DD',
+        enabled: false,
+        values: {'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 8, 'G': 3, 'H': 5, 'I': 1, 'J': 1, 'K': 2, 'L': 3, 'M': 4, 'N': 5, 'O': 7, 'P': 8, 'Q': 1, 'R': 2, 'S': 3, 'T': 4, 'U': 6, 'V': 6, 'W': 6, 'X': 5, 'Y': 1, 'Z': 7}
+    },
+    'Septenary': {
+        color: '#DDA0DD',
+        enabled: false,
+        values: {'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 6, 'G': 7, 'H': 1, 'I': 2, 'J': 3, 'K': 4, 'L': 5, 'M': 6, 'N': 7, 'O': 1, 'P': 2, 'Q': 3, 'R': 4, 'S': 5, 'T': 6, 'U': 7, 'V': 1, 'W': 2, 'X': 3, 'Y': 4, 'Z': 5}
+    },
+    'Keypad': {
+        color: '#DDA0DD',
+        enabled: false,
+        values: {'A': 2, 'B': 2, 'C': 2, 'D': 3, 'E': 3, 'F': 3, 'G': 4, 'H': 4, 'I': 4, 'J': 5, 'K': 5, 'L': 5, 'M': 6, 'N': 6, 'O': 6, 'P': 7, 'Q': 7, 'R': 7, 'S': 7, 'T': 8, 'U': 8, 'V': 8, 'W': 9, 'X': 9, 'Y': 9, 'Z': 9}
+    }
 };
 
-function getJewishValue(char) {
-    const jewishValues = {
-        'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 6, 'G': 7, 'H': 8, 'I': 9, 'J': 10,
-        'K': 20, 'L': 30, 'M': 40, 'N': 50, 'O': 60, 'P': 70, 'Q': 80, 'R': 90, 'S': 100,
-        'T': 200, 'U': 300, 'V': 400, 'W': 500, 'X': 600, 'Y': 700, 'Z': 800
-    };
-    return jewishValues[char] || 0;
-}
+// Cipher groups for toggle buttons
+const cipherGroups = {
+    "Select Base": ["Ordinal", "Reduction", "Reverse", "Reverse Reduction"],
+    "Select All": Object.keys(allCiphers),
+    "Clear All": [],
+    "RJ's Base": [
+        "Ordinal", "Reduction", "Reverse", "Reverse Reduction",
+        "Standard", "Latin", "Sumerian", "Reverse Sumerian",
+        "Satanic", "Reverse Satanic", "Single Reduction",
+        "Trigonal", "Reverse Trigonal", "Chaldean", "Septenary", "Keypad"
+    ]
+};
 
-function getChaldeanValue(char) {
-    const chaldeanValues = {
-        'A': 1, 'I': 1, 'J': 1, 'Q': 1, 'Y': 1,
-        'B': 2, 'K': 2, 'R': 2,
-        'C': 3, 'G': 3, 'L': 3, 'S': 3,
-        'D': 4, 'M': 4, 'T': 4,
-        'E': 5, 'H': 5, 'N': 5, 'X': 5,
-        'U': 6, 'V': 6, 'W': 6,
-        'O': 7, 'Z': 7,
-        'F': 8, 'P': 8
-    };
-    return chaldeanValues[char] || 0;
-}
+let currentCipherIndex = 0;
+const cipherNames = Object.keys(allCiphers);
 
+// Main gematria calculator function
 function showGematriaCalculator() {
-    // Hide other sections
     document.getElementById('controls-section').style.display = 'none';
     document.getElementById('data-table').style.display = 'none';
     document.getElementById('numerology-tools').style.display = 'none';
     document.getElementById('gematria-calculator').style.display = 'block';
     
-    // Update navigation
     document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
     document.querySelector('[data-sport="gematria"]').classList.add('active');
     
-    // Create the complete calculator interface
     document.getElementById('gematria-calculator').innerHTML = `
-        <div class="gematria-main-container">
-            <!-- Phrase Input Box -->
-            <div class="phrase-box">
-                <input type="text" id="phrase-input" placeholder="Enter word or phrase..." 
-                       onkeyup="calculateGematria()" autocomplete="off">
-                <div class="phrase-info">
-                    <span id="word-count">0 words</span> | 
-                    <span id="letter-count">0 letters</span>
+        <div class="gematria-container">
+            <div class="gematria-header">
+                <h2>Gematria Calculator</h2>
+                <div class="header-options">
+                    <span>Ciphers | Options | Shortcuts</span>
                 </div>
             </div>
-
-            <!-- Cipher Chart Display -->
-            <div class="cipher-chart">
-                <div class="chart-header">
-                    <h3>Active Ciphers</h3>
-                    <button class="btn-toggle-all" onclick="toggleAllCiphers()">Toggle All</button>
+            
+            <div class="input-section">
+                <input type="text" id="gematria-input" placeholder="Enter Word, Phrase, or #(s):" 
+                       onkeyup="calculateGematriaLive()" />
+            </div>
+            
+            <div class="cipher-toggles">
+                <button class="toggle-btn" onclick="toggleCiphers('Select Base')">SELECT BASE</button>
+                <button class="toggle-btn" onclick="toggleCiphers('Select All')">SELECT ALL</button>
+                <button class="toggle-btn" onclick="toggleCiphers('Clear All')">CLEAR ALL</button>
+                <button class="toggle-btn" onclick="toggleCiphers('RJ\\'s Base')">RJ'S BASE</button>
+            </div>
+            
+            <div class="summary-display" id="summary-display">
+                <!-- Dynamic summary will be populated here -->
+            </div>
+            
+            <div class="word-count">
+                <span id="word-count">(0 words, 0 letters)</span>
+            </div>
+            
+            <div class="alphabet-display">
+                <div class="alphabet-row letters">
+                    <span>a b c d e f g h i j k l m</span><br>
+                    <span>n o p q r s t u v w x y z</span>
                 </div>
-                <div id="cipher-results" class="cipher-grid">
-                    <!-- Cipher results will be populated here -->
+                <div class="alphabet-row numbers" id="alphabet-numbers">
+                    <span>1 2 3 4 5 6 7 8 9 10 11 12 13</span><br>
+                    <span>14 15 16 17 18 19 20 21 22 23 24 25 26</span>
+                </div>
+                <div class="alphabet-controls">
+                    <button class="prev-cipher" onclick="previousCipher()">‹</button>
+                    <span class="current-cipher" id="current-cipher-name">Ordinal</span>
+                    <button class="next-cipher" onclick="nextCipher()">›</button>
                 </div>
             </div>
-
-            <!-- Cipher Selection Panel -->
-            <div class="cipher-selection">
-                <h3>Available Ciphers</h3>
-                <div id="cipher-checkboxes" class="cipher-checkbox-grid">
-                    <!-- Cipher checkboxes will be populated here -->
-                </div>
+            
+            <div class="ciphers-grid" id="ciphers-results">
+                <!-- Cipher results will be populated here -->
             </div>
-
-            <!-- History Table -->
-            <div class="history-section">
-                <div class="history-header">
-                    <h3>History</h3>
-                    <button class="btn-clear-history" onclick="clearHistory()">Clear All</button>
-                </div>
-                <div id="history-table" class="history-table">
-                    <div class="history-empty">No calculations yet</div>
-                </div>
+            
+            <div class="letter-breakdown" id="letter-breakdown" style="display: none;">
+                <!-- Letter breakdown will show here -->
             </div>
         </div>
     `;
     
-    // Initialize calculator
-    initializeGematriaCalculator();
+    initializeCiphers();
+    calculateGematriaLive();
 }
 
-function initializeGematriaCalculator() {
-    populateCipherCheckboxes();
-    updateCipherResults();
-    updateHistory();
+function initializeCiphers() {
+    updateAlphabetDisplay();
+    generateAllCipherResults('');
 }
 
-function populateCipherCheckboxes() {
-    const container = document.getElementById('cipher-checkboxes');
+function calculateGematriaLive() {
+    const text = document.getElementById('gematria-input').value.toUpperCase();
+    const words = text.trim() ? text.trim().split(/\s+/) : [];
+    const letters = text.replace(/[^A-Za-z]/g, '');
+    
+    // Update word count
+    document.getElementById('word-count').textContent = `(${words.length} words, ${letters.length} letters)`;
+    
+    // Update all cipher values
+    updateAllCipherValues(text);
+    
+    // Update summary display to show active ciphers
+    updateSummaryDisplay(text);
+    
+    // Show letter breakdown if there's text
+    if (text.trim()) {
+        showLetterBreakdown(text);
+    } else {
+        document.getElementById('letter-breakdown').style.display = 'none';
+    }
+}
+
+function calculateCipher(text, cipherName) {
+    if (!allCiphers[cipherName]) return 0;
+    
+    let total = 0;
+    for (let char of text.toUpperCase()) {
+        if (allCiphers[cipherName].values[char]) {
+            total += allCiphers[cipherName].values[char];
+        }
+    }
+    return total;
+}
+
+function generateAllCipherResults(text) {
+    const resultsContainer = document.getElementById('ciphers-results');
     let html = '';
     
-    Object.entries(gematriaCalculator.ciphers).forEach(([name, cipher]) => {
-        html += `
-            <label class="cipher-checkbox">
-                <input type="checkbox" ${cipher.enabled ? 'checked' : ''} 
-                       onchange="toggleCipher('${name}', this.checked)">
-                <span class="cipher-name" style="color: ${cipher.color}">${name}</span>
-            </label>
-        `;
+    // Group ciphers into columns
+    const columns = [
+        ['Ordinal', 'Reduction', 'Reverse', 'Reverse Reduction'],
+        ['Standard', 'Latin', 'Sumerian', 'Reverse Sumerian'],
+        ['Satanic', 'Reverse Satanic', 'Single Reduction', 'Trigonal'],
+        ['Reverse Trigonal', 'Chaldean', 'Septenary', 'Keypad']
+    ];
+    
+    columns.forEach((column, colIndex) => {
+        html += '<div class="cipher-column">';
+        column.forEach(cipherName => {
+            if (allCiphers[cipherName]) {
+                const value = calculateCipher(text, cipherName);
+                const checked = allCiphers[cipherName].enabled ? 'checked' : '';
+                const displayStyle = allCiphers[cipherName].enabled ? 'display: grid;' : 'display: none;';
+                
+                html += `
+                    <div class="cipher-row" data-cipher="${cipherName}" style="${displayStyle}">
+                        <div class="cipher-checkbox">
+                            <input type="checkbox" ${checked} onchange="onCipherToggle('${cipherName}', this)" />
+                        </div>
+                        <div class="cipher-name" style="color: ${allCiphers[cipherName].color}">${cipherName}</div>
+                        <div class="cipher-value" style="color: ${allCiphers[cipherName].color}">${value}</div>
+                    </div>
+                `;
+            }
+        });
+        html += '</div>';
     });
     
-    container.innerHTML = html;
+    resultsContainer.innerHTML = html;
 }
 
-function toggleCipher(cipherName, enabled) {
-    gematriaCalculator.ciphers[cipherName].enabled = enabled;
-    updateCipherResults();
-    calculateGematria();
-}
-
-function toggleAllCiphers() {
-    const anyEnabled = Object.values(gematriaCalculator.ciphers).some(c => c.enabled);
-    const newState = !anyEnabled;
-    
-    Object.keys(gematriaCalculator.ciphers).forEach(name => {
-        gematriaCalculator.ciphers[name].enabled = newState;
+function updateAllCipherValues(text) {
+    Object.keys(allCiphers).forEach(cipherName => {
+        const cipherRow = document.querySelector(`[data-cipher="${cipherName}"]`);
+        const valueElement = cipherRow?.querySelector('.cipher-value');
+        
+        if (valueElement) {
+            const value = calculateCipher(text, cipherName);
+            valueElement.textContent = value;
+        }
     });
-    
-    populateCipherCheckboxes();
-    updateCipherResults();
-    calculateGematria();
 }
 
-function calculateGematria() {
-    const input = document.getElementById('phrase-input');
-    const phrase = input.value.trim();
+function updateSummaryDisplay(text) {
+    const activeCiphers = Object.keys(allCiphers).filter(name => allCiphers[name].enabled);
+    const summaryContainer = document.getElementById('summary-display');
     
-    // Update word/letter count
-    const words = phrase ? phrase.split(/\s+/).length : 0;
-    const letters = phrase.replace(/[^a-zA-Z]/g, '').length;
-    
-    document.getElementById('word-count').textContent = `${words} word${words !== 1 ? 's' : ''}`;
-    document.getElementById('letter-count').textContent = `${letters} letter${letters !== 1 ? 's' : ''}`;
-    
-    if (!phrase) {
-        updateCipherResults();
+    if (activeCiphers.length === 0) {
+        summaryContainer.innerHTML = '<div class="no-active">No ciphers selected</div>';
         return;
     }
     
-    // Calculate values for all enabled ciphers
-    const results = {};
-    const cleanPhrase = phrase.toUpperCase().replace(/[^A-Z]/g, '');
+    let summaryHtml = '';
+    activeCiphers.forEach(cipherName => {
+        const value = calculateCipher(text, cipherName);
+        const color = allCiphers[cipherName].color;
+        
+        summaryHtml += `
+            <div class="summary-item">
+                <div class="label">${cipherName}</div>
+                <div class="value" style="color: ${color}">${value}</div>
+            </div>
+        `;
+    });
     
-    Object.entries(gematriaCalculator.ciphers).forEach(([name, cipher]) => {
-        if (cipher.enabled) {
-            let total = 0;
-            for (let char of cleanPhrase) {
-                if (char >= 'A' && char <= 'Z') {
-                    total += cipher.getValue(char);
-                }
-            }
-            results[name] = { value: total, color: cipher.color };
+    summaryContainer.innerHTML = summaryHtml;
+}
+
+function onCipherToggle(cipherName, checkbox) {
+    const cipherRow = document.querySelector(`[data-cipher="${cipherName}"]`);
+    if (!cipherRow) return;
+    
+    allCiphers[cipherName].enabled = checkbox.checked;
+    
+    if (checkbox.checked) {
+        cipherRow.style.display = 'grid';
+        cipherRow.style.opacity = '1';
+    } else {
+        cipherRow.style.display = 'none';
+    }
+    
+    // Update summary display
+    const text = document.getElementById('gematria-input').value.toUpperCase();
+    updateSummaryDisplay(text);
+}
+
+function toggleCiphers(groupName) {
+    const toToggle = cipherGroups[groupName];
+    
+    // Handle all ciphers
+    Object.keys(allCiphers).forEach(cipherName => {
+        const cipherRow = document.querySelector(`[data-cipher="${cipherName}"]`);
+        const checkbox = cipherRow?.querySelector('input[type="checkbox"]');
+        
+        if (!cipherRow || !checkbox) return;
+        
+        let shouldShow = false;
+        
+        if (groupName === "Clear All") {
+            shouldShow = false;
+        } else if (groupName === "Select All") {
+            shouldShow = true;
+        } else {
+            shouldShow = toToggle.includes(cipherName);
+        }
+        
+        allCiphers[cipherName].enabled = shouldShow;
+        checkbox.checked = shouldShow;
+        
+        if (shouldShow) {
+            cipherRow.style.display = 'grid';
+            cipherRow.style.opacity = '1';
+        } else {
+            cipherRow.style.display = 'none';
         }
     });
     
-    updateCipherResults(results);
-    
-    // Add to history if phrase changed
-    if (phrase !== gematriaCalculator.currentPhrase && phrase.length > 0) {
-        addToHistory(phrase, results);
-        gematriaCalculator.currentPhrase = phrase;
-    }
+    // Update summary display after bulk toggle
+    const text = document.getElementById('gematria-input').value.toUpperCase();
+    updateSummaryDisplay(text);
 }
 
-function updateCipherResults(results = {}) {
-    const container = document.getElementById('cipher-results');
+function updateAlphabetDisplay() {
+    const currentCipher = cipherNames[currentCipherIndex];
+    const cipher = allCiphers[currentCipher];
     
-    if (Object.keys(results).length === 0) {
-        container.innerHTML = '<div class="no-results">Enter text to see calculations</div>';
-        return;
-    }
+    document.getElementById('current-cipher-name').textContent = currentCipher;
     
-    let html = '';
-    Object.entries(results).forEach(([name, data]) => {
-        html += `
-            <div class="cipher-result">
-                <div class="cipher-name" style="color: ${data.color}">${name}</div>
-                <div class="cipher-value">${data.value}</div>
-            </div>
-        `;
+    // Update alphabet numbers
+    const numbers1 = [];
+    const numbers2 = [];
+    
+    'ABCDEFGHIJKLM'.split('').forEach(letter => {
+        numbers1.push(cipher.values[letter] || 0);
     });
     
-    container.innerHTML = html;
-}
-
-function addToHistory(phrase, results) {
-    const entry = {
-        phrase: phrase,
-        results: { ...results },
-        timestamp: new Date().toLocaleTimeString()
-    };
-    
-    // Add to beginning of history
-    gematriaCalculator.history.unshift(entry);
-    
-    // Keep only last 50 entries
-    if (gematriaCalculator.history.length > 50) {
-        gematriaCalculator.history = gematriaCalculator.history.slice(0, 50);
-    }
-    
-    updateHistory();
-}
-
-function updateHistory() {
-    const container = document.getElementById('history-table');
-    
-    if (gematriaCalculator.history.length === 0) {
-        container.innerHTML = '<div class="history-empty">No calculations yet</div>';
-        return;
-    }
-    
-    let html = '<div class="history-grid">';
-    
-    gematriaCalculator.history.forEach((entry, index) => {
-        html += `
-            <div class="history-row">
-                <div class="history-phrase" onclick="loadFromHistory(${index})">${entry.phrase}</div>
-                <div class="history-time">${entry.timestamp}</div>
-                <div class="history-results">
-        `;
-        
-        Object.entries(entry.results).forEach(([name, data]) => {
-            html += `<span class="history-result" style="color: ${data.color}">${name}: ${data.value}</span>`;
-        });
-        
-        html += `
-                </div>
-                <button class="btn-remove" onclick="removeFromHistory(${index})">×</button>
-            </div>
-        `;
+    'NOPQRSTUVWXYZ'.split('').forEach(letter => {
+        numbers2.push(cipher.values[letter] || 0);
     });
     
-    html += '</div>';
-    container.innerHTML = html;
+    document.getElementById('alphabet-numbers').innerHTML = `
+        <span>${numbers1.join(' ')}</span><br>
+        <span>${numbers2.join(' ')}</span>
+    `;
 }
 
-function loadFromHistory(index) {
-    const entry = gematriaCalculator.history[index];
-    document.getElementById('phrase-input').value = entry.phrase;
-    calculateGematria();
+function previousCipher() {
+    currentCipherIndex = (currentCipherIndex - 1 + cipherNames.length) % cipherNames.length;
+    updateAlphabetDisplay();
 }
 
-function removeFromHistory(index) {
-    gematriaCalculator.history.splice(index, 1);
-    updateHistory();
+function nextCipher() {
+    currentCipherIndex = (currentCipherIndex + 1) % cipherNames.length;
+    updateAlphabetDisplay();
 }
 
-function clearHistory() {
-    gematriaCalculator.history = [];
-    updateHistory();
+function showLetterBreakdown(text) {
+    const currentCipher = cipherNames[currentCipherIndex];
+    const cipher = allCiphers[currentCipher];
+    const breakdown = [];
+    let total = 0;
+    
+    for (let char of text.toUpperCase()) {
+        if (cipher.values[char]) {
+            breakdown.push(`${char} = ${cipher.values[char]}`);
+            total += cipher.values[char];
+        } else if (char.match(/[A-Z]/)) {
+            breakdown.push(`${char} = 0`);
+        }
+    }
+    
+    if (breakdown.length > 0) {
+        document.getElementById('letter-breakdown').innerHTML = `
+            <div class="breakdown-title">Letter Breakdown (${currentCipher}):</div>
+            <div class="breakdown-content">${breakdown.join(' + ')} = ${total}</div>
+        `;
+        document.getElementById('letter-breakdown').style.display = 'block';
+    }
 }
 
 function showNumerologyTools() {
-  document.getElementById('controls-section').style.display = 'none';
-  document.getElementById('data-table').style.display = 'none';
-  document.getElementById('gematria-calculator').style.display = 'none';
-  document.getElementById('numerology-tools').style.display = 'block';
-  
-  document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
-  document.querySelector('[data-sport="numerology"]').classList.add('active');
-  
-  document.getElementById('numerology-tools').innerHTML = `
-    <h2>📅 Date Calculator & Numerology Tools</h2>
-    <div class="coming-soon">
-      <p>Interactive date and number analysis tools</p>
-      <p>• Date to day-of-year calculator</p>
-      <p>• Number properties (primes, composites, squares)</p>
-      <p>• Date numerology analysis</p>
-      <p>• Cross-reference with team founding dates</p>
-      <br>
-      <p><strong>Coming Soon!</strong></p>
-    </div>
-  `;
+    document.getElementById('controls-section').style.display = 'none';
+    document.getElementById('data-table').style.display = 'none';
+    document.getElementById('gematria-calculator').style.display = 'none';
+    document.getElementById('numerology-tools').style.display = 'block';
+    
+    document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
+    document.querySelector('[data-sport="numerology"]').classList.add('active');
+    
+    document.getElementById('numerology-tools').innerHTML = `
+        <div class="coming-soon">
+            <h3>Numerology Tools</h3>
+            <p><strong>Interactive date and number analysis tools</strong></p>
+            <p>• Date to day-of-year calculator</p>
+            <p>• Number properties (primes, composites, squares)</p>
+            <p>• Date numerology analysis</p>
+            <p>• Cross-reference with team founding dates</p>
+            <p><strong>Coming Soon!</strong></p>
+        </div>
+    `;
 }
 
 // RENDER CARDS FUNCTION
