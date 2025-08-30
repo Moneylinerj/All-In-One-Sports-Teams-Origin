@@ -22,7 +22,44 @@ const stateData = {
   "TN": { order: 16, founded: "June 1, 1796" },
   "TX": { order: 28, founded: "December 29, 1845" },
   "WA": { order: 42, founded: "November 11, 1889" },
-  "WI": { order: 30, founded: "May 29, 1848" }
+  "WI": { order: 30, founded: "May 29, 1848" },
+
+// Additional states for college sports - CORRECTED DATA
+  "AL": { order: 22, founded: "December 14, 1819" },
+  "AR": { order: 25, founded: "June 15, 1836" },
+  "CT": { order: 5, founded: "January 9, 1788" },
+  "DE": { order: 1, founded: "December 7, 1787" },
+  "ID": { order: 43, founded: "July 3, 1890" },
+  "IA": { order: 29, founded: "December 28, 1846" },
+  "KS": { order: 34, founded: "January 29, 1861" },
+  "KY": { order: 15, founded: "June 1, 1792" },
+  "ME": { order: 23, founded: "March 15, 1820" },
+  "MS": { order: 20, founded: "December 10, 1817" },
+  "MT": { order: 41, founded: "November 8, 1889" },
+  "NE": { order: 37, founded: "March 1, 1867" },
+  "NH": { order: 9, founded: "June 21, 1788" },
+  "NM": { order: 47, founded: "January 6, 1912" },
+  "ND": { order: 39, founded: "November 2, 1889" },
+  "OK": { order: 46, founded: "November 16, 1907" },
+  "OR": { order: 33, founded: "February 14, 1859" },
+  "RI": { order: 13, founded: "May 29, 1790" },
+  "SC": { order: 8, founded: "May 23, 1788" },
+  "SD": { order: 40, founded: "November 2, 1889" },
+  "UT": { order: 45, founded: "January 4, 1896" },
+  "VT": { order: 14, founded: "March 4, 1791" },
+  "VA": { order: 10, founded: "June 25, 1788" },
+  "WV": { order: 35, founded: "June 20, 1863" },
+  "WY": { order: 44, founded: "July 10, 1890" },
+    
+// Canadian provinces and DC
+  "AB": { order: null, founded: "September 1, 1905" },
+  "BC": { order: null, founded: "July 20, 1871" },
+  "ON": { order: null, founded: "July 1, 1867" },
+  "QC": { order: null, founded: "July 1, 1867" },
+  "MB": { order: null, founded: "July 15, 1870" },
+  "DC": { order: null, founded: "July 16, 1790" },
+  "HI": { order: 50, founded: "August 21, 1959" },
+  "AK": { order: 49, founded: "January 3, 1959" }
 };
 
 // COMPLETE Multi-sport data structure with verified exact founding dates
@@ -998,48 +1035,135 @@ function getDayInfo(dateStr) {
   }
 }
 
-// Navigation functions
+// UPDATED Navigation functions to include state filter
 function switchSport(sportKey) {
-  currentSport = sportKey;
-  if (sportKey === 'gematria') {
-    showGematriaCalculator();
-    return;
-  }
-  if (sportKey === 'numerology') {
-    showNumerologyTools();
-    return;
-  }
-  
-  document.getElementById('controls-section').style.display = 'block';
-  document.getElementById('data-table').style.display = 'block';
-  document.getElementById('gematria-calculator').style.display = 'none';
-  document.getElementById('numerology-tools').style.display = 'none';
-  
-  // Hide/show division dropdown for college sports
-  const divisionFilterGroup = document.getElementById('division-filter-group');
-  if (sportKey === "college-football" || sportKey === "college-basketball") {
-    divisionFilterGroup.style.display = 'none';
-  } else {
-    divisionFilterGroup.style.display = 'block';
-  }
-  
-  if (!sportsData[sportKey] || sportsData[sportKey].length === 0) {
-    showComingSoon(sportKey);
-    return;
-  }
-  
-  document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
-  document.querySelector(`[data-sport="${sportKey}"]`).classList.add('active');
-  
-  const config = sportConfig[sportKey];
-  document.getElementById('conference-label').textContent = config.conferenceLabel;
-  document.getElementById('division-label').textContent = config.divisionLabel;
-  document.getElementById('search-title').textContent = `Search & Filter - ${config.title}`;
-  
-  filtered = [...sportsData[sportKey]];
-  initFilters();
-  renderCards();
+    currentSport = sportKey;
+    if (sportKey === 'gematria') {
+        showGematriaCalculator();
+        return;
+    }
+    if (sportKey === 'numerology') {
+        showNumerologyTools();
+        return;
+    }
+
+    document.getElementById('controls-section').style.display = 'block';
+    document.getElementById('data-table').style.display = 'block';
+    document.getElementById('gematria-calculator').style.display = 'none';
+    document.getElementById('numerology-tools').style.display = 'none';
+
+    // Show/hide division dropdown for college sports
+    const divisionFilterGroup = document.getElementById('division-filter-group');
+    const stateFilterGroup = document.getElementById('state-filter-group');
+    
+    if (sportKey === "college-football" || sportKey === "college-basketball") {
+        divisionFilterGroup.style.display = 'none';
+        stateFilterGroup.style.display = 'block';
+    } else {
+        divisionFilterGroup.style.display = 'block';
+        stateFilterGroup.style.display = 'none';
+    }
+
+    if (!sportsData[sportKey] || sportsData[sportKey].length === 0) {
+        showComingSoon(sportKey);
+        return;
+    }
+
+    document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
+    document.querySelector(`[data-sport="${sportKey}"]`).classList.add('active');
+
+    const config = sportConfig[sportKey];
+    document.getElementById('conference-label').textContent = config.conferenceLabel;
+    document.getElementById('division-label').textContent = config.divisionLabel;
+    document.getElementById('search-title').textContent = `Search & Filter - ${config.title}`;
+
+    filtered = [...sportsData[sportKey]];
+    initFilters();
+    renderCards();
 }
+
+// UPDATED initFilters function to include state dropdown
+function initFilters() {
+    const conferenceSelect = document.getElementById('conference-filter');
+    const divisionSelect = document.getElementById('division-filter');
+    const stateSelect = document.getElementById('state-filter');
+    
+    // Conference filter
+    const conferences = [...new Set(filtered.map(item => item.conference))].sort();
+    conferenceSelect.innerHTML = '<option value="">All</option>';
+    conferences.forEach(conf => {
+        const option = document.createElement('option');
+        option.value = conf;
+        option.textContent = conf;
+        conferenceSelect.appendChild(option);
+    });
+
+    // Division filter
+    if (currentSport !== "college-football" && currentSport !== "college-basketball") {
+        const divisions = [...new Set(filtered.map(item => item.division))].sort();
+        divisionSelect.innerHTML = '<option value="">All</option>';
+        divisions.forEach(div => {
+            const option = document.createElement('option');
+            option.value = div;
+            option.textContent = div;
+            divisionSelect.appendChild(option);
+        });
+    }
+
+    // State filter for college sports
+    if (currentSport === "college-football" || currentSport === "college-basketball") {
+        const states = [...new Set(filtered.map(item => item.state))].sort();
+        stateSelect.innerHTML = '<option value="">All States</option>';
+        states.forEach(state => {
+            const option = document.createElement('option');
+            option.value = state;
+            option.textContent = state;
+            stateSelect.appendChild(option);
+        });
+    }
+}
+
+// UPDATED applyFilters function to include state filtering
+function applyFilters() {
+    const searchTerm = document.getElementById('search-input').value.toLowerCase();
+    const conferenceFilter = document.getElementById('conference-filter').value;
+    const divisionFilter = document.getElementById('division-filter').value;
+    const stateFilterValue = document.getElementById('state-filter').value;
+
+    filtered = sportsData[currentSport].filter(item => {
+        const matchesSearch = item.name.toLowerCase().includes(searchTerm) ||
+                            item.city.toLowerCase().includes(searchTerm) ||
+                            item.state.toLowerCase().includes(searchTerm);
+        
+        const matchesConference = !conferenceFilter || item.conference === conferenceFilter;
+        const matchesDivision = !divisionFilter || item.division === divisionFilter;
+        const matchesState = !stateFilterValue || item.state === stateFilterValue;
+
+        return matchesSearch && matchesConference && matchesDivision && matchesState;
+    });
+
+    renderCards();
+}
+
+// Event listeners
+document.addEventListener('DOMContentLoaded', function() {
+    // Navigation
+    document.querySelectorAll('.nav-tab').forEach(tab => {
+        tab.addEventListener('click', (e) => {
+            e.preventDefault();
+            switchSport(tab.dataset.sport);
+        });
+    });
+
+    // Search and filters
+    document.getElementById('search-input').addEventListener('input', applyFilters);
+    document.getElementById('conference-filter').addEventListener('change', applyFilters);
+    document.getElementById('division-filter').addEventListener('change', applyFilters);
+    document.getElementById('state-filter').addEventListener('change', applyFilters); // Add state filter listener
+
+    // Initialize
+    switchSport('nfl');
+});
 
 // ==========================================================================
 // GEMATRIA CALCULATOR - COMPLETE IMPLEMENTATION
@@ -1703,4 +1827,111 @@ window.onclick = function(event) {
   if (event.target === modal) {
     closePopup();
   }
+}
+
+function renderCards() {
+    const container = document.getElementById('cards-container');
+    
+    if (filtered.length === 0) {
+        container.innerHTML = '<div class="no-results">No teams match your criteria.</div>';
+        return;
+    }
+
+    container.innerHTML = filtered.map(team => {
+        const stateInfo = stateData[team.state];
+        const stateText = stateInfo ? 
+            `${team.state} (${stateInfo.order}${getOrdinal(stateInfo.order)} state, ${stateInfo.founded})` : 
+            team.state;
+
+        const foundedInfo = getDayInfo(team.founded);
+        const foundedText = foundedInfo ? 
+            `Founded: ${team.founded} (Day ${foundedInfo.dayOfYear}, ${foundedInfo.daysLeft} days left)` : 
+            `Founded: ${team.founded}`;
+
+        const venueLabel = sportConfig[currentSport].venueLabel;
+        const venueInfo = currentSport === 'college-football' || 
+                         currentSport === 'college-basketball' ? 
+                         team.stadium : 
+                         (currentSport === 'nfl' || currentSport === 'mlb' || currentSport === 'mls' ? 
+                          team.stadium : team.arena);
+
+        return `
+            <div class="team-card" onclick="showTeamDetails('${team.name.replace(/'/g, "\\'")}')">
+                <h3>${team.name}</h3>
+                <p><strong>${team.city}, ${stateText}</strong></p>
+                <p>${foundedText}</p>
+                <div class="team-details">
+                    <span class="conference">${team.conference}</span>
+                    ${team.division && currentSport !== "college-football" && currentSport !== "college-basketball" ? 
+                      `<span class="division">${team.division}</span>` : ''}
+                </div>
+            </div>
+        `;
+    }).join('');
+}
+
+function showComingSoon(sport) {
+    const config = sportConfig[sport];
+    document.getElementById('cards-container').innerHTML = `
+        <div class="coming-soon">
+            <h2>${config.title} - Coming Soon!</h2>
+            <p>Team data for this sport is currently being compiled and will be available soon.</p>
+        </div>
+    `;
+}
+
+function showTeamDetails(teamName) {
+    const team = filtered.find(t => t.name === teamName);
+    if (!team) return;
+
+    const stateInfo = stateData[team.state];
+    const stateText = stateInfo ? 
+        `${team.state} (${stateInfo.order}${getOrdinal(stateInfo.order)} state, ${stateInfo.founded})` : 
+        team.state;
+
+    const foundedInfo = getDayInfo(team.founded);
+    const foundedText = foundedInfo ? 
+        `${team.founded} (Day ${foundedInfo.dayOfYear} of year, ${foundedInfo.daysLeft} days remaining)` : 
+        team.founded;
+
+    const config = sportConfig[currentSport];
+    const venueInfo = currentSport === 'college-football' || 
+                     currentSport === 'college-basketball' ? 
+                     team.stadium : 
+                     (currentSport === 'nfl' || currentSport === 'mlb' || currentSport === 'mls' ? 
+                      team.stadium : team.arena);
+
+    const venueOpenedInfo = currentSport === 'college-football' || 
+                           currentSport === 'college-basketball' ? 
+                           team.stadiumOpened : 
+                           (currentSport === 'nfl' || currentSport === 'mlb' || currentSport === 'mls' ? 
+                            team.stadiumOpened : team.arenaOpened);
+
+    const popup = document.createElement('div');
+    popup.className = 'popup-overlay';
+    popup.innerHTML = `
+        <div class="popup-content">
+            <span class="close-popup" onclick="closePopup()">&times;</span>
+            <h2>${team.name}</h2>
+            <div class="popup-details">
+                <p><strong>Location:</strong> ${team.city}, ${stateText}</p>
+                <p><strong>Founded:</strong> ${foundedText}</p>
+                <p><strong>${config.conferenceLabel}:</strong> ${team.conference}</p>
+                ${team.division && currentSport !== "college-football" && currentSport !== "college-basketball" ? 
+                  `<p><strong>${config.divisionLabel}:</strong> ${team.division}</p>` : ''}
+                <p><strong>${config.leagueJoinedLabel}:</strong> ${team.leagueJoined}</p>
+                <p><strong>${config.venueLabel}:</strong> ${venueInfo}</p>
+                <p><strong>${config.venueLabel} Opened:</strong> ${venueOpenedInfo}</p>
+            </div>
+        </div>
+    `;
+    
+    document.body.appendChild(popup);
+}
+
+function closePopup() {
+    const popup = document.querySelector('.popup-overlay');
+    if (popup) {
+        popup.remove();
+    }
 }
