@@ -1,9 +1,15 @@
+/* ==========================================================================
+   RESET AND GLOBAL STYLES
+   ========================================================================== */
+
+/* Reset and Global Styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Body and Base Styles */
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   background-color: #0f1419;
@@ -11,19 +17,25 @@ body {
   line-height: 1.6;
 }
 
+/* Layout Container */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-/* Header */
+/* ==========================================================================
+   HEADER SECTION
+   ========================================================================== */
+
+/* Header Background and Padding */
 .header {
   background: linear-gradient(135deg, #1a1f36 0%, #252b47 100%);
   padding: 2rem 0;
   border-bottom: 1px solid #2d3748;
 }
 
+/* Header Title Styling */
 .header-content h1 {
   font-size: 2.25rem;
   font-weight: 700;
@@ -32,19 +44,25 @@ body {
   letter-spacing: -0.025em;
 }
 
+/* Subtitle Styling */
 .subtitle {
   font-size: 1.125rem;
   color: #a0aec0;
   margin-bottom: 0.5rem;
 }
 
+/* Credit Text Styling */
 .credit {
   font-size: 0.875rem;
   color: #718096;
   font-style: italic;
 }
 
-/* Navigation Styles */
+/* ==========================================================================
+   NAVIGATION STYLES
+   ========================================================================== */
+
+/* Navigation Bar */
 .main-nav {
   background: #0f1419;
   border-bottom: 1px solid #2d3748;
@@ -54,6 +72,7 @@ body {
   z-index: 100;
 }
 
+/* Navigation Tabs Container */
 .nav-tabs {
   display: flex;
   gap: 0.5rem;
@@ -61,6 +80,7 @@ body {
   justify-content: center;
 }
 
+/* Individual Navigation Tabs */
 .nav-tab {
   background: #2d3748;
   color: #a0aec0;
@@ -74,6 +94,7 @@ body {
   white-space: nowrap;
 }
 
+/* Navigation Tab Hover State */
 .nav-tab:hover {
   background: #374151;
   color: #e6e6e6;
@@ -81,6 +102,7 @@ body {
   transform: translateY(-1px);
 }
 
+/* Active Navigation Tab Styling */
 .nav-tab.active {
   background: #63b3ed;
   color: #ffffff;
@@ -88,35 +110,45 @@ body {
   box-shadow: 0 4px 12px rgba(99, 179, 237, 0.3);
 }
 
+/* Gematria Tab Styling Overrides */
 .gematria-tab {
   background: #7c3aed !important;
   border-color: #7c3aed !important;
 }
 
+/* Gematria Tab Hover and Active State */
 .gematria-tab:hover, .gematria-tab.active {
   background: #8b5cf6 !important;
   border-color: #8b5cf6 !important;
 }
 
+/* Numerology Tab Styling Overrides */
 .numerology-tab {
   background: #059669 !important;
   border-color: #059669 !important;
 }
 
+/* Numerology Tab Hover and Active State */
 .numerology-tab:hover, .numerology-tab.active {
   background: #10b981 !important;
   border-color: #10b981 !important;
 }
 
-/* Main Content */
+/* ==========================================================================
+   MAIN CONTENT SECTION
+   ========================================================================== */
+
+/* Main Content Padding */
 .main {
   padding: 2rem 0;
 }
 
+/* Controls Section Margin */
 .controls-section {
   margin-bottom: 2rem;
 }
 
+/* Search Filter Container */
 .search-filter {
   background-color: #1a202c;
   padding: 1.5rem;
@@ -125,6 +157,7 @@ body {
   max-width: 600px;
 }
 
+/* Search Filter Heading Styling */
 .search-filter h3 {
   color: #ffffff;
   font-size: 1.125rem;
@@ -132,6 +165,7 @@ body {
   font-weight: 600;
 }
 
+/* Search Input Field Styling */
 .search-input {
   width: 100%;
   padding: 0.75rem;
@@ -143,16 +177,19 @@ body {
   margin-bottom: 1rem;
 }
 
+/* Search Input Placeholder Styling */
 .search-input::placeholder {
   color: #718096;
 }
 
+/* Search Input Focus State */
 .search-input:focus {
   outline: none;
   border-color: #63b3ed;
   box-shadow: 0 0 0 3px rgba(99, 179, 237, 0.1);
 }
 
+/* Filter Group Container */
 .filter-group {
   margin-bottom: 1rem;
   display: inline-block;
@@ -160,6 +197,7 @@ body {
   width: calc(50% - 0.5rem);
 }
 
+/* Filter Group Label Styling */
 .filter-group label {
   display: block;
   color: #a0aec0;
@@ -168,6 +206,7 @@ body {
   font-weight: 500;
 }
 
+/* Filter Select Dropdown Styling */
 .filter-select {
   width: 100%;
   padding: 0.5rem;
@@ -178,20 +217,27 @@ body {
   font-size: 0.875rem;
 }
 
+/* Filter Select Focus State */
 .filter-select:focus {
   outline: none;
   border-color: #63b3ed;
 }
 
-/* Teams Container */
+/* ==========================================================================
+   TEAMS CONTAINER SECTION
+   ========================================================================== */
+
+/* Teams Container Padding */
 .teams-container {
   padding: 1rem 0;
 }
 
+/* Conference Section Spacing */
 .conference-section {
   margin-bottom: 3rem;
 }
 
+/* Conference Title Styling */
 .conference-title {
   font-size: 2rem;
   font-weight: 700;
@@ -204,10 +250,12 @@ body {
   border: 1px solid #4a5568;
 }
 
+/* Division Section Spacing */
 .division-section {
   margin-bottom: 2.5rem;
 }
 
+/* Division Title Styling */
 .division-title {
   font-size: 1.5rem;
   font-weight: 600;
@@ -219,13 +267,18 @@ body {
   border-left: 4px solid #63b3ed;
 }
 
+/* Teams Grid Layout */
 .teams-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1rem;
 }
 
-/* Team Cards */
+/* ==========================================================================
+   TEAM CARD STYLING
+   ========================================================================== */
+
+/* Team Card Base Styling */
 .team-card {
   background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
   border: 1px solid #4a5568;
@@ -237,24 +290,29 @@ body {
   overflow: hidden;
 }
 
+/* Team Card Hover Effect */
 .team-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
   border-color: #63b3ed;
 }
 
+/* Exact Founding Border Styling */
 .team-card.exact-founding {
   border-left: 4px solid #48bb78;
 }
 
+/* NFL Founding Border Styling */
 .team-card.nfl-founding {
   border-left: 4px solid #ed8936;
 }
 
+/* Team Card Content Centering */
 .team-card-content {
   text-align: center;
 }
 
+/* Team Name Styling */
 .team-name {
   font-size: 1.25rem;
   font-weight: 700;
@@ -262,12 +320,14 @@ body {
   margin-bottom: 0.5rem;
 }
 
+/* Team Location Styling */
 .team-location {
   color: #a0aec0;
   font-size: 0.875rem;
   margin-bottom: 0.75rem;
 }
 
+/* Team Founded Date Styling */
 .team-founded {
   font-size: 0.875rem;
   font-weight: 600;
@@ -276,17 +336,23 @@ body {
   display: inline-block;
 }
 
+/* Exact Founding Highlight */
 .exact-founding .team-founded {
   background-color: rgba(72, 187, 120, 0.2);
   color: #48bb78;
 }
 
+/* NFL Founding Highlight */
 .nfl-founding .team-founded {
   background-color: rgba(237, 137, 54, 0.2);
   color: #ed8936;
 }
 
-/* Calculator Sections */
+/* ==========================================================================
+   CALCULATOR SECTION STYLING
+   ========================================================================== */
+
+/* Calculator Section Base Styling */
 .calculator-section {
   background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
   border-radius: 16px;
@@ -295,6 +361,7 @@ body {
   margin-top: 2rem;
 }
 
+/* Calculator Section Heading Styling */
 .calculator-section h2 {
   color: #63b3ed;
   margin-bottom: 1.5rem;
@@ -302,7 +369,11 @@ body {
   text-align: center;
 }
 
-/* Coming Soon Styling */
+/* ==========================================================================
+   COMING SOON MESSAGE STYLING
+   ========================================================================== */
+
+/* Coming Soon Container Styling */
 .coming-soon {
   text-align: center;
   padding: 3rem 2rem;
@@ -312,18 +383,24 @@ body {
   border: 1px solid #4a5568;
 }
 
+/* Coming Soon Heading Styling */
 .coming-soon h3 {
   font-size: 1.75rem;
   margin-bottom: 1.5rem;
   color: #63b3ed;
 }
 
+/* Coming Soon Paragraph Styling */
 .coming-soon p {
   margin-bottom: 0.75rem;
   font-size: 1.1rem;
 }
 
-/* Modal Styles */
+/* ==========================================================================
+   MODAL STYLES
+   ========================================================================== */
+
+/* Team Modal Container */
 #team-modal {
   display: none;
   position: fixed;
@@ -336,6 +413,7 @@ body {
   backdrop-filter: blur(4px);
 }
 
+/* Modal Content Styling */
 .modal-content {
   background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
   margin: 5% auto;
@@ -350,6 +428,7 @@ body {
   position: relative;
 }
 
+/* Modal Close Button Styling */
 .close {
   position: absolute;
   right: 20px;
@@ -362,10 +441,12 @@ body {
   transition: color 0.2s;
 }
 
+/* Modal Close Button Hover State */
 .close:hover {
   color: #e53e3e;
 }
 
+/* Modal Popup Header Styling */
 .popup-header {
   padding: 2rem;
   text-align: center;
@@ -373,6 +454,7 @@ body {
   border-bottom: 1px solid #4a5568;
 }
 
+/* Modal Popup Header Title */
 .popup-header h2 {
   font-size: 2rem;
   font-weight: 700;
@@ -380,20 +462,24 @@ body {
   margin-bottom: 0.5rem;
 }
 
+/* Modal Popup Division Styling */
 .popup-division {
   color: #63b3ed;
   font-size: 1.125rem;
   font-weight: 600;
 }
 
+/* Modal Popup Content Padding */
 .popup-content {
   padding: 2rem;
 }
 
+/* Info Section Margin */
 .info-section {
   margin-bottom: 2rem;
 }
 
+/* Info Section Title Styling */
 .info-section h3 {
   font-size: 1.25rem;
   font-weight: 600;
@@ -403,12 +489,14 @@ body {
   padding-bottom: 0.5rem;
 }
 
+/* Info Grid Layout */
 .info-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
 }
 
+/* Info Item Styling */
 .info-item {
   display: flex;
   flex-direction: column;
@@ -418,6 +506,7 @@ body {
   border: 1px solid #4a5568;
 }
 
+/* Info Item Label Styling */
 .info-item label {
   font-size: 0.75rem;
   color: #a0aec0;
@@ -427,18 +516,21 @@ body {
   font-weight: 600;
 }
 
+/* Info Item Text Styling */
 .info-item span {
   color: #ffffff;
   font-weight: 500;
   margin-bottom: 0.25rem;
 }
 
+/* Info Item Small Italic Styling */
 .info-item small {
   color: #718096;
   font-size: 0.7rem;
   font-style: italic;
 }
 
+/* Color Overrides */
 .exact-date {
   color: #48bb78 !important;
 }
@@ -447,7 +539,11 @@ body {
   color: #ed8936 !important;
 }
 
-/* Responsive Design */
+/* ==========================================================================
+   RESPONSIVE STYLES
+   ========================================================================== */
+
+/* Medium Screen Adjustments (desktop/tablet) */
 @media (max-width: 1024px) {
   .nav-tabs {
     gap: 0.25rem;
@@ -463,6 +559,7 @@ body {
   }
 }
 
+/* Small Screen Adjustments (large phones/tablets) */
 @media (max-width: 768px) {
   .header-content h1 {
     font-size: 1.875rem;
@@ -505,6 +602,7 @@ body {
   }
 }
 
+/* Extra Small Screen Adjustments (phones) */
 @media (max-width: 480px) {
   .nav-tab {
     padding: 0.4rem 0.6rem;
@@ -524,317 +622,285 @@ body {
    GEMATRIA CALCULATOR STYLES
    ========================================================================== */
 
-.gematria-main-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    background: #0f1419;
-    color: #e6e6e6;
+.gematria-container {
+  background: #1a1a1a;
+  color: #ffffff;
+  min-height: 100vh;
+  padding: 20px;
+  font-family: Arial, sans-serif;
 }
 
-/* Phrase Input Box */
-.phrase-box {
-    background: #1a202c;
-    border-radius: 12px;
-    padding: 24px;
-    margin-bottom: 24px;
-    border: 1px solid #2d3748;
-    text-align: center;
+.gematria-header {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-#phrase-input {
-    width: 100%;
-    max-width: 600px;
-    padding: 16px 20px;
-    font-size: 18px;
-    background: #2d3748;
-    border: 2px solid #4a5568;
-    border-radius: 8px;
-    color: #ffffff;
-    text-align: center;
-    margin-bottom: 12px;
-    transition: border-color 0.3s ease;
+.gematria-header h2 {
+  color: #ffffff;
+  margin: 0 0 10px 0;
+  font-size: 24px;
 }
 
-#phrase-input:focus {
-    outline: none;
-    border-color: #63b3ed;
-    box-shadow: 0 0 0 3px rgba(99, 179, 237, 0.1);
+.header-options {
+  color: #cccccc;
+  font-size: 14px;
 }
 
-.phrase-info {
-    color: #a0aec0;
-    font-size: 14px;
+.input-section {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-/* Cipher Chart */
-.cipher-chart {
-    background: #1a202c;
-    border-radius: 12px;
-    padding: 24px;
-    margin-bottom: 24px;
-    border: 1px solid #2d3748;
+#gematria-input {
+  width: 500px;
+  max-width: 90%;
+  padding: 10px 15px;
+  font-size: 16px;
+  background: #333333;
+  border: 1px solid #555555;
+  color: #ffffff;
+  border-radius: 4px;
 }
 
-.chart-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 16px;
+#gematria-input::placeholder {
+  color: #888888;
 }
 
-.chart-header h3 {
-    color: #63b3ed;
-    font-size: 18px;
-    margin: 0;
+/* Cipher Toggle Buttons */
+.cipher-toggles {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 
-.btn-toggle-all {
-    background: #4a5568;
-    color: #ffffff;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background 0.3s ease;
+.toggle-btn {
+  background: #444444;
+  color: #ffffff;
+  border: 1px solid #666666;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-.btn-toggle-all:hover {
-    background: #63b3ed;
+.toggle-btn:hover {
+  background: #555555;
+  border-color: #777777;
 }
 
-.cipher-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 16px;
+.toggle-btn:active {
+  background: #333333;
+  transform: translateY(1px);
 }
 
-.cipher-result {
-    background: #2d3748;
-    border-radius: 8px;
-    padding: 16px;
-    text-align: center;
-    border: 1px solid #4a5568;
-    transition: transform 0.2s ease;
+/* Summary Display */
+.summary-display {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  min-height: 80px;
+  align-items: center;
 }
 
-.cipher-result:hover {
-    transform: translateY(-2px);
+.summary-item {
+  text-align: center;
+  min-width: 120px;
 }
 
-.cipher-result .cipher-name {
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 8px;
+.summary-item .label {
+  font-size: 12px;
+  color: #cccccc;
+  margin-bottom: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.cipher-result .cipher-value {
-    font-size: 24px;
-    font-weight: bold;
-    color: #ffffff;
+.summary-item .value {
+  font-size: 24px;
+  font-weight: bold;
 }
 
-.no-results {
-    text-align: center;
-    color: #718096;
-    font-style: italic;
-    padding: 40px;
-    grid-column: 1 / -1;
+.no-active {
+  color: #666666;
+  font-style: italic;
+  text-align: center;
 }
 
-/* Cipher Selection */
-.cipher-selection {
-    background: #1a202c;
-    border-radius: 12px;
-    padding: 24px;
-    margin-bottom: 24px;
-    border: 1px solid #2d3748;
+/* Word Count */
+.word-count {
+  text-align: center;
+  color: #cccccc;
+  font-size: 14px;
+  margin-bottom: 20px;
 }
 
-.cipher-selection h3 {
-    color: #63b3ed;
-    font-size: 18px;
-    margin-bottom: 16px;
+/* Alphabet Display */
+.alphabet-display {
+  background: #2a2a2a;
+  border: 2px solid #444444;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 30px;
+  text-align: center;
 }
 
-.cipher-checkbox-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 12px;
+.alphabet-row {
+  margin-bottom: 10px;
 }
 
-.cipher-checkbox {
-    display: flex;
-    align-items: center;
-    padding: 8px 12px;
-    background: #2d3748;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.3s ease;
+.alphabet-row.letters {
+  color: #ffcccc;
+  font-size: 14px;
+  letter-spacing: 2px;
 }
 
-.cipher-checkbox:hover {
-    background: #374151;
+.alphabet-row.numbers {
+  color: #ffffff;
+  font-size: 14px;
+  letter-spacing: 2px;
 }
 
-.cipher-checkbox input {
-    margin-right: 8px;
+.alphabet-controls {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
-.cipher-checkbox .cipher-name {
-    font-size: 14px;
-    font-weight: 500;
+.prev-cipher, .next-cipher {
+  background: #444444;
+  color: #ffffff;
+  border: 1px solid #666666;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* History Section */
-.history-section {
-    background: #1a202c;
-    border-radius: 12px;
-    padding: 24px;
-    border: 1px solid #2d3748;
+.prev-cipher:hover, .next-cipher:hover {
+  background: #555555;
 }
 
-.history-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 16px;
+.current-cipher {
+  color: #ffffff;
+  font-weight: bold;
 }
 
-.history-header h3 {
-    color: #63b3ed;
-    font-size: 18px;
-    margin: 0;
+/* Ciphers Grid */
+.ciphers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
 }
 
-.btn-clear-history {
-    background: #e53e3e;
-    color: #ffffff;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background 0.3s ease;
+.cipher-column {
+  background: #2a2a2a;
+  border-radius: 8px;
+  padding: 15px;
 }
 
-.btn-clear-history:hover {
-    background: #c53030;
+.cipher-row {
+  display: grid;
+  grid-template-columns: 20px 1fr auto;
+  gap: 10px;
+  align-items: center;
+  padding: 5px 0;
+  border-bottom: 1px solid #333333;
+  transition: opacity 0.2s ease;
 }
 
-.history-table {
-    max-height: 400px;
-    overflow-y: auto;
+.cipher-row:last-child {
+  border-bottom: none;
 }
 
-.history-empty {
-    text-align: center;
-    color: #718096;
-    font-style: italic;
-    padding: 40px;
+.cipher-checkbox input[type="checkbox"] {
+  margin: 0;
 }
 
-.history-row {
-    display: grid;
-    grid-template-columns: 2fr 1fr 3fr auto;
-    gap: 16px;
-    align-items: center;
-    padding: 12px;
-    background: #2d3748;
-    border-radius: 8px;
-    margin-bottom: 8px;
-    border: 1px solid #4a5568;
+.cipher-name {
+  font-size: 14px;
+  text-align: left;
 }
 
-.history-phrase {
-    font-weight: 600;
-    color: #ffffff;
-    cursor: pointer;
-    transition: color 0.3s ease;
+.cipher-value {
+  font-weight: bold;
+  text-align: right;
+  font-size: 14px;
 }
 
-.history-phrase:hover {
-    color: #63b3ed;
+.cipher-row[style*="display: none"] {
+  display: none !important;
 }
 
-.history-time {
-    color: #a0aec0;
-    font-size: 12px;
+/* Letter Breakdown */
+.letter-breakdown {
+  background: #2a2a2a;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
 }
 
-.history-results {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
+.breakdown-title {
+  color: #cccccc;
+  font-size: 16px;
+  margin-bottom: 10px;
+  font-weight: bold;
 }
 
-.history-result {
-    font-size: 12px;
-    padding: 2px 6px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
+.breakdown-content {
+  color: #ffffff;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  word-wrap: break-word;
 }
 
-.btn-remove {
-    background: #e53e3e;
-    color: #ffffff;
-    border: none;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.3s ease;
-}
-
-.btn-remove:hover {
-    background: #c53030;
-}
-
-/* Responsive Design */
+/* Gematria Calculator Responsive */
 @media (max-width: 768px) {
-    .cipher-grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 12px;
-    }
-    
-    .cipher-checkbox-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .history-row {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-    
-    .history-results {
-        justify-content: center;
-    }
-    
-    #phrase-input {
-        font-size: 16px;
-        padding: 14px 16px;
-    }
-}
-
-@media (max-width: 480px) {
-    .gematria-main-container {
-        padding: 16px;
-    }
-    
-    .phrase-box,
-    .cipher-chart,
-    .cipher-selection,
-    .history-section {
-        padding: 16px;
-        margin-bottom: 16px;
-    }
-    
-    .cipher-grid {
-        grid-template-columns: 1fr 1fr;
-    }
+  .cipher-toggles {
+    gap: 8px;
+  }
+  
+  .toggle-btn {
+    padding: 6px 12px;
+    font-size: 11px;
+  }
+  
+  .summary-display {
+    gap: 15px;
+  }
+  
+  .summary-item {
+    min-width: 100px;
+  }
+  
+  .summary-item .value {
+    font-size: 20px;
+  }
+  
+  .summary-item .label {
+    font-size: 11px;
+  }
+  
+  #gematria-input {
+    width: 100%;
+  }
+  
+  .ciphers-grid {
+    grid-template-columns: 1fr;
+  }
 }
