@@ -1041,207 +1041,91 @@ function switchSport(sportKey) {
   renderCards();
 }
 
-// Replace the existing gematria functions with this comprehensive version
+// ==========================================================================
+// GEMATRIA CALCULATOR - COMPLETE IMPLEMENTATION
+// ==========================================================================
 
-function showGematriaCalculator() {
-    document.getElementById('controls-section').style.display = 'none';
-    document.getElementById('data-table').style.display = 'none';
-    document.getElementById('numerology-tools').style.display = 'none';
-    document.getElementById('gematria-calculator').style.display = 'block';
-    
-    document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
-    document.querySelector('[data-sport="gematria"]').classList.add('active');
-    
-    document.getElementById('gematria-calculator').innerHTML = `
-        <div class="gematria-container">
-            <div class="gematria-header">
-                <h2>Gematria Calculator</h2>
-                <div class="header-options">
-                    <span>Ciphers | Options | Shortcuts</span>
-                </div>
-            </div>
-            
-            <div class="input-section">
-                <input type="text" id="gematria-input" placeholder="Enter Word, Phrase, or #(s):" 
-                       onkeyup="calculateGematriaLive()" />
-            </div>
-            
-            <div class="summary-display">
-                <div class="summary-item">
-                    <div class="label">Ordinal</div>
-                    <div class="value ordinal-color" id="ordinal-summary">0</div>
-                </div>
-                <div class="summary-item">
-                    <div class="label">Reduction</div>
-                    <div class="value reduction-color" id="reduction-summary">0</div>
-                </div>
-                <div class="summary-item">
-                    <div class="label">Reverse</div>
-                    <div class="value reverse-color" id="reverse-summary">0</div>
-                </div>
-                <div class="summary-item">
-                    <div class="label">Reverse Reduction</div>
-                    <div class="value reverse-reduction-color" id="reverse-reduction-summary">0</div>
-                </div>
-            </div>
-            
-            <div class="word-count">
-                <span id="word-count">(0 words, 0 letters)</span>
-            </div>
-            
-            <div class="alphabet-display">
-                <div class="alphabet-row letters">
-                    <span>a b c d e f g h i j k l m</span><br>
-                    <span>n o p q r s t u v w x y z</span>
-                </div>
-                <div class="alphabet-row numbers" id="alphabet-numbers">
-                    <span>1 2 3 4 5 6 7 8 9 10 11 12 13</span><br>
-                    <span>14 15 16 17 18 19 20 21 22 23 24 25 26</span>
-                </div>
-                <div class="alphabet-controls">
-                    <button class="prev-cipher" onclick="previousCipher()">‹</button>
-                    <span class="current-cipher" id="current-cipher-name">Ordinal</span>
-                    <button class="next-cipher" onclick="nextCipher()">›</button>
-                </div>
-            </div>
-            
-            <div class="ciphers-grid" id="ciphers-results">
-                <!-- Cipher results will be populated here -->
-            </div>
-            
-            <div class="letter-breakdown" id="letter-breakdown" style="display: none;">
-                <!-- Letter breakdown will show here -->
-            </div>
-        </div>
-    `;
-    
-    initializeCiphers();
-    calculateGematriaLive();
-}
-
-// Complete Gematria Calculator Implementation
-
-// All cipher definitions
+// Complete cipher definitions based on Gematrinator.com
 const allCiphers = {
     'Ordinal': {
-        color: 'ordinal-color',
+        color: '#90EE90',
+        enabled: true,
         values: {'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 6, 'G': 7, 'H': 8, 'I': 9, 'J': 10, 'K': 11, 'L': 12, 'M': 13, 'N': 14, 'O': 15, 'P': 16, 'Q': 17, 'R': 18, 'S': 19, 'T': 20, 'U': 21, 'V': 22, 'W': 23, 'X': 24, 'Y': 25, 'Z': 26}
     },
     'Reduction': {
-        color: 'reduction-color',
+        color: '#4169E1',
+        enabled: true,
         values: {'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 6, 'G': 7, 'H': 8, 'I': 9, 'J': 1, 'K': 2, 'L': 3, 'M': 4, 'N': 5, 'O': 6, 'P': 7, 'Q': 8, 'R': 9, 'S': 1, 'T': 2, 'U': 3, 'V': 4, 'W': 5, 'X': 6, 'Y': 7, 'Z': 8}
     },
     'Reverse': {
-        color: 'reverse-color',
+        color: '#90EE90',
+        enabled: true,
         values: {'A': 26, 'B': 25, 'C': 24, 'D': 23, 'E': 22, 'F': 21, 'G': 20, 'H': 19, 'I': 18, 'J': 17, 'K': 16, 'L': 15, 'M': 14, 'N': 13, 'O': 12, 'P': 11, 'Q': 10, 'R': 9, 'S': 8, 'T': 7, 'U': 6, 'V': 5, 'W': 4, 'X': 3, 'Y': 2, 'Z': 1}
     },
     'Reverse Reduction': {
-        color: 'reverse-reduction-color',
+        color: '#20B2AA',
+        enabled: true,
         values: {'A': 8, 'B': 7, 'C': 6, 'D': 5, 'E': 4, 'F': 3, 'G': 2, 'H': 1, 'I': 9, 'J': 8, 'K': 7, 'L': 6, 'M': 5, 'N': 4, 'O': 3, 'P': 2, 'Q': 1, 'R': 9, 'S': 8, 'T': 7, 'U': 6, 'V': 5, 'W': 4, 'X': 3, 'Y': 2, 'Z': 1}
     },
     'Standard': {
-        color: 'standard-color',
+        color: '#FFB6C1',
+        enabled: false,
         values: {'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 6, 'G': 7, 'H': 8, 'I': 9, 'J': 10, 'K': 11, 'L': 12, 'M': 13, 'N': 14, 'O': 15, 'P': 16, 'Q': 17, 'R': 18, 'S': 19, 'T': 20, 'U': 21, 'V': 22, 'W': 23, 'X': 24, 'Y': 25, 'Z': 26}
     },
     'Latin': {
-        color: 'latin-color',
+        color: '#DDA0DD',
+        enabled: false,
         values: {'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 6, 'G': 7, 'H': 8, 'I': 9, 'J': 10, 'K': 20, 'L': 30, 'M': 40, 'N': 50, 'O': 60, 'P': 70, 'Q': 80, 'R': 90, 'S': 100, 'T': 200, 'U': 300, 'V': 400, 'W': 500, 'X': 600, 'Y': 700, 'Z': 800}
     },
     'Sumerian': {
-        color: 'sumerian-color',
+        color: '#32CD32',
+        enabled: false,
         values: {'A': 6, 'B': 12, 'C': 18, 'D': 24, 'E': 30, 'F': 36, 'G': 42, 'H': 48, 'I': 54, 'J': 60, 'K': 66, 'L': 72, 'M': 78, 'N': 84, 'O': 90, 'P': 96, 'Q': 102, 'R': 108, 'S': 114, 'T': 120, 'U': 126, 'V': 132, 'W': 138, 'X': 144, 'Y': 150, 'Z': 156}
     },
     'Reverse Sumerian': {
-        color: 'reverse-sumerian-color',
+        color: '#B0C4DE',
+        enabled: false,
         values: {'A': 156, 'B': 150, 'C': 144, 'D': 138, 'E': 132, 'F': 126, 'G': 120, 'H': 114, 'I': 108, 'J': 102, 'K': 96, 'L': 90, 'M': 84, 'N': 78, 'O': 72, 'P': 66, 'Q': 60, 'R': 54, 'S': 48, 'T': 42, 'U': 36, 'V': 30, 'W': 24, 'X': 18, 'Y': 12, 'Z': 6}
     },
-    'Capitals Mixed': {
-        color: 'capitals-mixed-color',
-        values: {'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 6, 'G': 7, 'H': 8, 'I': 9, 'J': 10, 'K': 11, 'L': 12, 'M': 13, 'N': 14, 'O': 15, 'P': 16, 'Q': 17, 'R': 18, 'S': 19, 'T': 20, 'U': 21, 'V': 22, 'W': 23, 'X': 24, 'Y': 25, 'Z': 26}
-    },
-    'Capitals Added': {
-        color: 'capitals-added-color',
-        values: {'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 6, 'G': 7, 'H': 8, 'I': 9, 'J': 10, 'K': 11, 'L': 12, 'M': 13, 'N': 14, 'O': 15, 'P': 16, 'Q': 17, 'R': 18, 'S': 19, 'T': 20, 'U': 21, 'V': 22, 'W': 23, 'X': 24, 'Y': 25, 'Z': 26}
-    },
-    'Reverse Caps Mixed': {
-        color: 'reverse-caps-mixed-color',
-        values: {'A': 26, 'B': 25, 'C': 24, 'D': 23, 'E': 22, 'F': 21, 'G': 20, 'H': 19, 'I': 18, 'J': 17, 'K': 16, 'L': 15, 'M': 14, 'N': 13, 'O': 12, 'P': 11, 'Q': 10, 'R': 9, 'S': 8, 'T': 7, 'U': 6, 'V': 5, 'W': 4, 'X': 3, 'Y': 2, 'Z': 1}
-    },
-    'Reverse Caps Added': {
-        color: 'reverse-caps-added-color',
-        values: {'A': 26, 'B': 25, 'C': 24, 'D': 23, 'E': 22, 'F': 21, 'G': 20, 'H': 19, 'I': 18, 'J': 17, 'K': 16, 'L': 15, 'M': 14, 'N': 13, 'O': 12, 'P': 11, 'Q': 10, 'R': 9, 'S': 8, 'T': 7, 'U': 6, 'V': 5, 'W': 4, 'X': 3, 'Y': 2, 'Z': 1}
-    },
-    'KV Exception': {
-        color: 'kv-exception-color',
-        values: {'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 6, 'G': 7, 'H': 8, 'I': 9, 'J': 10, 'K': 10, 'L': 12, 'M': 13, 'N': 14, 'O': 15, 'P': 16, 'Q': 17, 'R': 18, 'S': 19, 'T': 20, 'U': 21, 'V': 21, 'W': 23, 'X': 24, 'Y': 25, 'Z': 26}
-    },
-    'SKV Exception': {
-        color: 'skv-exception-color',
-        values: {'A': 6, 'B': 12, 'C': 18, 'D': 24, 'E': 30, 'F': 36, 'G': 42, 'H': 48, 'I': 54, 'J': 60, 'K': 60, 'L': 72, 'M': 78, 'N': 84, 'O': 90, 'P': 96, 'Q': 102, 'R': 108, 'S': 114, 'T': 120, 'U': 126, 'V': 126, 'W': 138, 'X': 144, 'Y': 150, 'Z': 156}
-    },
-    'Reverse Single Reduction': {
-        color: 'reverse-single-reduction-color',
-        values: {'A': 8, 'B': 7, 'C': 6, 'D': 5, 'E': 4, 'F': 3, 'G': 2, 'H': 1, 'I': 9, 'J': 8, 'K': 7, 'L': 6, 'M': 5, 'N': 4, 'O': 3, 'P': 2, 'Q': 1, 'R': 9, 'S': 8, 'T': 7, 'U': 6, 'V': 5, 'W': 4, 'X': 3, 'Y': 2, 'Z': 1}
-    },
-    'EP Exception': {
-        color: 'ep-exception-color',
-        values: {'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 4, 'F': 6, 'G': 7, 'H': 8, 'I': 9, 'J': 10, 'K': 11, 'L': 12, 'M': 13, 'N': 14, 'O': 15, 'P': 15, 'Q': 17, 'R': 18, 'S': 19, 'T': 20, 'U': 21, 'V': 22, 'W': 23, 'X': 24, 'Y': 25, 'Z': 26}
-    },
-    'EHP Exception': {
-        color: 'ehp-exception-color',
-        values: {'A': 6, 'B': 12, 'C': 18, 'D': 24, 'E': 24, 'F': 36, 'G': 42, 'H': 42, 'I': 54, 'J': 60, 'K': 66, 'L': 72, 'M': 78, 'N': 84, 'O': 90, 'P': 90, 'Q': 102, 'R': 108, 'S': 114, 'T': 120, 'U': 126, 'V': 132, 'W': 138, 'X': 144, 'Y': 150, 'Z': 156}
-    },
-    'Squares': {
-        color: 'squares-color',
-        values: {'A': 1, 'B': 4, 'C': 9, 'D': 16, 'E': 25, 'F': 36, 'G': 49, 'H': 64, 'I': 81, 'J': 100, 'K': 121, 'L': 144, 'M': 169, 'N': 196, 'O': 225, 'P': 256, 'Q': 289, 'R': 324, 'S': 361, 'T': 400, 'U': 441, 'V': 484, 'W': 529, 'X': 576, 'Y': 625, 'Z': 676}
-    },
-    'Fibonacci': {
-        color: 'fibonacci-color',
-        values: {'A': 1, 'B': 1, 'C': 2, 'D': 3, 'E': 5, 'F': 8, 'G': 13, 'H': 21, 'I': 34, 'J': 55, 'K': 89, 'L': 144, 'M': 233, 'N': 377, 'O': 610, 'P': 987, 'Q': 1597, 'R': 2584, 'S': 4181, 'T': 6765, 'U': 10946, 'V': 17711, 'W': 28657, 'X': 46368, 'Y': 75025, 'Z': 121393}
-    },
-    'Reverse Primes': {
-        color: 'reverse-primes-color',
-        values: {'A': 101, 'B': 97, 'C': 89, 'D': 83, 'E': 79, 'F': 73, 'G': 71, 'H': 67, 'I': 61, 'J': 59, 'K': 53, 'L': 47, 'M': 43, 'N': 41, 'O': 37, 'P': 31, 'Q': 29, 'R': 23, 'S': 19, 'T': 17, 'U': 13, 'V': 11, 'W': 7, 'X': 5, 'Y': 3, 'Z': 2}
-    },
-    'Reverse Trigonal': {
-        color: 'reverse-trigonal-color',
-        values: {'A': 351, 'B': 325, 'C': 300, 'D': 276, 'E': 253, 'F': 231, 'G': 210, 'H': 190, 'I': 171, 'J': 153, 'K': 136, 'L': 120, 'M': 105, 'N': 91, 'O': 78, 'P': 66, 'Q': 55, 'R': 45, 'S': 36, 'T': 28, 'U': 21, 'V': 15, 'W': 10, 'X': 6, 'Y': 3, 'Z': 1}
-    },
-    'Reverse Squares': {
-        color: 'reverse-squares-color',
-        values: {'A': 676, 'B': 625, 'C': 576, 'D': 529, 'E': 484, 'F': 441, 'G': 400, 'H': 361, 'I': 324, 'J': 289, 'K': 256, 'L': 225, 'M': 196, 'N': 169, 'O': 144, 'P': 121, 'Q': 100, 'R': 81, 'S': 64, 'T': 49, 'U': 36, 'V': 25, 'W': 16, 'X': 9, 'Y': 4, 'Z': 1}
-    },
-    'Primes': {
-        color: 'primes-color',
-        values: {'A': 2, 'B': 3, 'C': 5, 'D': 7, 'E': 11, 'F': 13, 'G': 17, 'H': 19, 'I': 23, 'J': 29, 'K': 31, 'L': 37, 'M': 41, 'N': 43, 'O': 47, 'P': 53, 'Q': 59, 'R': 61, 'S': 67, 'T': 71, 'U': 73, 'V': 79, 'W': 83, 'X': 89, 'Y': 97, 'Z': 101}
-    },
-    'Trigonal': {
-        color: 'trigonal-color',
-        values: {'A': 1, 'B': 3, 'C': 6, 'D': 10, 'E': 15, 'F': 21, 'G': 28, 'H': 36, 'I': 45, 'J': 55, 'K': 66, 'L': 78, 'M': 91, 'N': 105, 'O': 120, 'P': 136, 'Q': 153, 'R': 171, 'S': 190, 'T': 210, 'U': 231, 'V': 253, 'W': 276, 'X': 300, 'Y': 325, 'Z': 351}
-    },
-    'Chaldean': {
-        color: 'chaldean-color',
-        values: {'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 8, 'G': 3, 'H': 5, 'I': 1, 'J': 1, 'K': 2, 'L': 3, 'M': 4, 'N': 5, 'O': 7, 'P': 8, 'Q': 1, 'R': 2, 'S': 3, 'T': 4, 'U': 6, 'V': 6, 'W': 6, 'X': 5, 'Y': 1, 'Z': 7}
-    },
-    'Septenary': {
-        color: 'septenary-color',
-        values: {'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 6, 'G': 7, 'H': 1, 'I': 2, 'J': 3, 'K': 4, 'L': 5, 'M': 6, 'N': 7, 'O': 1, 'P': 2, 'Q': 3, 'R': 4, 'S': 5, 'T': 6, 'U': 7, 'V': 1, 'W': 2, 'X': 3, 'Y': 4, 'Z': 5}
-    },
-    'Keypad': {
-        color: 'keypad-color',
-        values: {'A': 2, 'B': 2, 'C': 2, 'D': 3, 'E': 3, 'F': 3, 'G': 4, 'H': 4, 'I': 4, 'J': 5, 'K': 5, 'L': 5, 'M': 6, 'N': 6, 'O': 6, 'P': 7, 'Q': 7, 'R': 7, 'S': 7, 'T': 8, 'U': 8, 'V': 8, 'W': 9, 'X': 9, 'Y': 9, 'Z': 9}
-    },
     'Satanic': {
-        color: 'satanic-color',
+        color: '#FF6347',
+        enabled: false,
         values: {'A': 36, 'B': 37, 'C': 38, 'D': 39, 'E': 40, 'F': 41, 'G': 42, 'H': 43, 'I': 44, 'J': 45, 'K': 46, 'L': 47, 'M': 48, 'N': 49, 'O': 50, 'P': 51, 'Q': 52, 'R': 53, 'S': 54, 'T': 55, 'U': 56, 'V': 57, 'W': 58, 'X': 59, 'Y': 60, 'Z': 61}
     },
     'Reverse Satanic': {
-        color: 'reverse-satanic-color',
+        color: '#FF6347',
+        enabled: false,
         values: {'A': 61, 'B': 60, 'C': 59, 'D': 58, 'E': 57, 'F': 56, 'G': 55, 'H': 54, 'I': 53, 'J': 52, 'K': 51, 'L': 50, 'M': 49, 'N': 48, 'O': 47, 'P': 46, 'Q': 45, 'R': 44, 'S': 43, 'T': 42, 'U': 41, 'V': 40, 'W': 39, 'X': 38, 'Y': 37, 'Z': 36}
     },
     'Single Reduction': {
-        color: 'single-reduction-color',
+        color: '#4169E1',
+        enabled: false,
         values: {'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 6, 'G': 7, 'H': 8, 'I': 9, 'J': 1, 'K': 2, 'L': 3, 'M': 4, 'N': 5, 'O': 6, 'P': 7, 'Q': 8, 'R': 9, 'S': 1, 'T': 2, 'U': 3, 'V': 4, 'W': 5, 'X': 6, 'Y': 7, 'Z': 8}
+    },
+    'Trigonal': {
+        color: '#FFB6C1',
+        enabled: false,
+        values: {'A': 1, 'B': 3, 'C': 6, 'D': 10, 'E': 15, 'F': 21, 'G': 28, 'H': 36, 'I': 45, 'J': 55, 'K': 66, 'L': 78, 'M': 91, 'N': 105, 'O': 120, 'P': 136, 'Q': 153, 'R': 171, 'S': 190, 'T': 210, 'U': 231, 'V': 253, 'W': 276, 'X': 300, 'Y': 325, 'Z': 351}
+    },
+    'Reverse Trigonal': {
+        color: '#FFB6C1',
+        enabled: false,
+        values: {'A': 351, 'B': 325, 'C': 300, 'D': 276, 'E': 253, 'F': 231, 'G': 210, 'H': 190, 'I': 171, 'J': 153, 'K': 136, 'L': 120, 'M': 105, 'N': 91, 'O': 78, 'P': 66, 'Q': 55, 'R': 45, 'S': 36, 'T': 28, 'U': 21, 'V': 15, 'W': 10, 'X': 6, 'Y': 3, 'Z': 1}
+    },
+    'Chaldean': {
+        color: '#DDA0DD',
+        enabled: false,
+        values: {'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 8, 'G': 3, 'H': 5, 'I': 1, 'J': 1, 'K': 2, 'L': 3, 'M': 4, 'N': 5, 'O': 7, 'P': 8, 'Q': 1, 'R': 2, 'S': 3, 'T': 4, 'U': 6, 'V': 6, 'W': 6, 'X': 5, 'Y': 1, 'Z': 7}
+    },
+    'Septenary': {
+        color: '#DDA0DD',
+        enabled: false,
+        values: {'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 6, 'G': 7, 'H': 1, 'I': 2, 'J': 3, 'K': 4, 'L': 5, 'M': 6, 'N': 7, 'O': 1, 'P': 2, 'Q': 3, 'R': 4, 'S': 5, 'T': 6, 'U': 7, 'V': 1, 'W': 2, 'X': 3, 'Y': 4, 'Z': 5}
+    },
+    'Keypad': {
+        color: '#DDA0DD',
+        enabled: false,
+        values: {'A': 2, 'B': 2, 'C': 2, 'D': 3, 'E': 3, 'F': 3, 'G': 4, 'H': 4, 'I': 4, 'J': 5, 'K': 5, 'L': 5, 'M': 6, 'N': 6, 'O': 6, 'P': 7, 'Q': 7, 'R': 7, 'S': 7, 'T': 8, 'U': 8, 'V': 8, 'W': 9, 'X': 9, 'Y': 9, 'Z': 9}
     }
 };
 
@@ -1292,23 +1176,8 @@ function showGematriaCalculator() {
                 <button class="toggle-btn" onclick="toggleCiphers('RJ\\'s Base')">RJ'S BASE</button>
             </div>
             
-            <div class="summary-display">
-                <div class="summary-item">
-                    <div class="label">Ordinal</div>
-                    <div class="value ordinal-color" id="ordinal-summary">0</div>
-                </div>
-                <div class="summary-item">
-                    <div class="label">Reduction</div>
-                    <div class="value reduction-color" id="reduction-summary">0</div>
-                </div>
-                <div class="summary-item">
-                    <div class="label">Reverse</div>
-                    <div class="value reverse-color" id="reverse-summary">0</div>
-                </div>
-                <div class="summary-item">
-                    <div class="label">Reverse Reduction</div>
-                    <div class="value reverse-reduction-color" id="reverse-reduction-summary">0</div>
-                </div>
+            <div class="summary-display" id="summary-display">
+                <!-- Dynamic summary will be populated here -->
             </div>
             
             <div class="word-count">
@@ -1347,6 +1216,7 @@ function showGematriaCalculator() {
 
 function initializeCiphers() {
     updateAlphabetDisplay();
+    generateAllCipherResults('');
 }
 
 function calculateGematriaLive() {
@@ -1356,77 +1226,19 @@ function calculateGematriaLive() {
     
     // Update word count
     document.getElementById('word-count').textContent = `(${words.length} words, ${letters.length} letters)`;
-  
-    // Calculate summary values (main 4 ciphers)
-    const ordinal = calculateCipher(text, 'Ordinal');
-    const reduction = calculateCipher(text, 'Reduction');
-    const reverse = calculateCipher(text, 'Reverse');
-    const reverseReduction = calculateCipher(text, 'Reverse Reduction');
     
-    document.getElementById('ordinal-summary').textContent = ordinal;
-    document.getElementById('reduction-summary').textContent = reduction;
-    document.getElementById('reverse-summary').textContent = reverse;
-    document.getElementById('reverse-reduction-summary').textContent = reverseReduction;
+    // Update all cipher values
+    updateAllCipherValues(text);
     
-    // Generate all cipher results if not already generated
-    if (!document.querySelector('[data-cipher]')) {
-        generateAllCipherResults(text);
-    } else {
-        // Update existing cipher values
-        updateCipherValues(text);
-    }
-
-  // Update the summary display to show only active ciphers
+    // Update summary display to show active ciphers
     updateSummaryDisplay(text);
-  
+    
     // Show letter breakdown if there's text
     if (text.trim()) {
         showLetterBreakdown(text);
     } else {
         document.getElementById('letter-breakdown').style.display = 'none';
     }
-}
-
-// New function to update the summary display based on active ciphers
-function updateSummaryDisplay(text) {
-    const activeCiphers = getActiveCiphers();
-    const summaryContainer = document.querySelector('.summary-display');
-    
-    if (activeCiphers.length === 0) {
-        summaryContainer.innerHTML = '<div class="no-active">No ciphers selected</div>';
-        return;
-    }
-    
-    let summaryHtml = '';
-    activeCiphers.forEach(cipherName => {
-        const value = calculateCipher(text, cipherName);
-        const colorClass = allCiphers[cipherName].color;
-        
-        summaryHtml += `
-            <div class="summary-item">
-                <div class="label">${cipherName}</div>
-                <div class="value ${colorClass}">${value}</div>
-            </div>
-        `;
-    });
-    
-    summaryContainer.innerHTML = summaryHtml;
-}
-
-// Helper function to get currently active/visible ciphers
-function getActiveCiphers() {
-    const activeCiphers = [];
-    const checkboxes = document.querySelectorAll('#ciphers-results input[type="checkbox"]:checked');
-    
-    checkboxes.forEach(checkbox => {
-        const cipherRow = checkbox.closest('.cipher-row');
-        const cipherName = cipherRow.getAttribute('data-cipher');
-        if (cipherName) {
-            activeCiphers.push(cipherName);
-        }
-    });
-    
-    return activeCiphers;
 }
 
 function calculateCipher(text, cipherName) {
@@ -1445,12 +1257,12 @@ function generateAllCipherResults(text) {
     const resultsContainer = document.getElementById('ciphers-results');
     let html = '';
     
-    // Group ciphers into columns like the original
+    // Group ciphers into columns
     const columns = [
-        ['Ordinal', 'Reduction', 'Reverse', 'Reverse Reduction', 'Standard', 'Latin', 'Sumerian', 'Reverse Sumerian'],
-        ['Capitals Mixed', 'Capitals Added', 'Reverse Caps Mixed', 'Reverse Caps Added', 'Reverse Standard', 'Satanic', 'Reverse Satanic', 'Single Reduction'],
-        ['KV Exception', 'SKV Exception', 'Reverse Single Reduction', 'EP Exception', 'EHP Exception', 'Primes', 'Trigonal'],
-        ['Squares', 'Fibonacci', 'Reverse Primes', 'Reverse Trigonal', 'Reverse Squares', 'Chaldean', 'Septenary', 'Keypad']
+        ['Ordinal', 'Reduction', 'Reverse', 'Reverse Reduction'],
+        ['Standard', 'Latin', 'Sumerian', 'Reverse Sumerian'],
+        ['Satanic', 'Reverse Satanic', 'Single Reduction', 'Trigonal'],
+        ['Reverse Trigonal', 'Chaldean', 'Septenary', 'Keypad']
     ];
     
     columns.forEach((column, colIndex) => {
@@ -1458,19 +1270,16 @@ function generateAllCipherResults(text) {
         column.forEach(cipherName => {
             if (allCiphers[cipherName]) {
                 const value = calculateCipher(text, cipherName);
-                const colorClass = allCiphers[cipherName].color;
-                // Default to base 4 ciphers checked
-                const isBaseCipher = ['Ordinal', 'Reduction', 'Reverse', 'Reverse Reduction'].includes(cipherName);
-                const checked = isBaseCipher ? 'checked' : '';
-                const displayStyle = isBaseCipher ? 'display: grid;' : 'display: none;';
+                const checked = allCiphers[cipherName].enabled ? 'checked' : '';
+                const displayStyle = allCiphers[cipherName].enabled ? 'display: grid;' : 'display: none;';
                 
                 html += `
                     <div class="cipher-row" data-cipher="${cipherName}" style="${displayStyle}">
                         <div class="cipher-checkbox">
                             <input type="checkbox" ${checked} onchange="onCipherToggle('${cipherName}', this)" />
                         </div>
-                        <div class="cipher-name ${colorClass}">${cipherName}</div>
-                        <div class="cipher-value ${colorClass}">${value}</div>
+                        <div class="cipher-name" style="color: ${allCiphers[cipherName].color}">${cipherName}</div>
+                        <div class="cipher-value" style="color: ${allCiphers[cipherName].color}">${value}</div>
                     </div>
                 `;
             }
@@ -1481,7 +1290,7 @@ function generateAllCipherResults(text) {
     resultsContainer.innerHTML = html;
 }
 
-function updateCipherValues(text) {
+function updateAllCipherValues(text) {
     Object.keys(allCiphers).forEach(cipherName => {
         const cipherRow = document.querySelector(`[data-cipher="${cipherName}"]`);
         const valueElement = cipherRow?.querySelector('.cipher-value');
@@ -1493,9 +1302,36 @@ function updateCipherValues(text) {
     });
 }
 
+function updateSummaryDisplay(text) {
+    const activeCiphers = Object.keys(allCiphers).filter(name => allCiphers[name].enabled);
+    const summaryContainer = document.getElementById('summary-display');
+    
+    if (activeCiphers.length === 0) {
+        summaryContainer.innerHTML = '<div class="no-active">No ciphers selected</div>';
+        return;
+    }
+    
+    let summaryHtml = '';
+    activeCiphers.forEach(cipherName => {
+        const value = calculateCipher(text, cipherName);
+        const color = allCiphers[cipherName].color;
+        
+        summaryHtml += `
+            <div class="summary-item">
+                <div class="label">${cipherName}</div>
+                <div class="value" style="color: ${color}">${value}</div>
+            </div>
+        `;
+    });
+    
+    summaryContainer.innerHTML = summaryHtml;
+}
+
 function onCipherToggle(cipherName, checkbox) {
     const cipherRow = document.querySelector(`[data-cipher="${cipherName}"]`);
     if (!cipherRow) return;
+    
+    allCiphers[cipherName].enabled = checkbox.checked;
     
     if (checkbox.checked) {
         cipherRow.style.display = 'grid';
@@ -1503,12 +1339,12 @@ function onCipherToggle(cipherName, checkbox) {
     } else {
         cipherRow.style.display = 'none';
     }
-
-// Update summary display when individual cipher is toggled
+    
+    // Update summary display
     const text = document.getElementById('gematria-input').value.toUpperCase();
     updateSummaryDisplay(text);
 }
-  
+
 function toggleCiphers(groupName) {
     const toToggle = cipherGroups[groupName];
     
@@ -1529,6 +1365,7 @@ function toggleCiphers(groupName) {
             shouldShow = toToggle.includes(cipherName);
         }
         
+        allCiphers[cipherName].enabled = shouldShow;
         checkbox.checked = shouldShow;
         
         if (shouldShow) {
@@ -1538,8 +1375,8 @@ function toggleCiphers(groupName) {
             cipherRow.style.display = 'none';
         }
     });
-
-  // Update summary display after bulk toggle
+    
+    // Update summary display after bulk toggle
     const text = document.getElementById('gematria-input').value.toUpperCase();
     updateSummaryDisplay(text);
 }
