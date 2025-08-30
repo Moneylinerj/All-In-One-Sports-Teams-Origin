@@ -1145,22 +1145,188 @@ const cipherGroups = {
 let currentCipherIndex = 0;
 const cipherNames = Object.keys(allCiphers);
 
-// Main gematria calculator function
+function showCipherModal() {
+    const modalHTML = `
+        <div id="cipher-modal" style="
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 10000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        ">
+            <div style="
+                background: #2a2a2a;
+                border-radius: 12px;
+                padding: 30px;
+                max-width: 600px;
+                max-height: 80vh;
+                overflow-y: auto;
+                border: 2px solid #444;
+            ">
+                <div style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 20px;
+                ">
+                    <h3 style="color: #fff; margin: 0;">Select Ciphers</h3>
+                    <button onclick="closeCipherModal()" style="
+                        background: none;
+                        border: none;
+                        color: #fff;
+                        font-size: 24px;
+                        cursor: pointer;
+                        padding: 0;
+                        width: 30px;
+                        height: 30px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    ">&times;</button>
+                </div>
+                
+                <div style="margin-bottom: 20px;">
+                    <button onclick="toggleCiphers('Select Base')" style="
+                        background: #444;
+                        color: #fff;
+                        border: 1px solid #666;
+                        padding: 8px 16px;
+                        border-radius: 4px;
+                        cursor: pointer;
+                        margin-right: 10px;
+                        margin-bottom: 10px;
+                    ">SELECT BASE</button>
+                    <button onclick="toggleCiphers('Select All')" style="
+                        background: #444;
+                        color: #fff;
+                        border: 1px solid #666;
+                        padding: 8px 16px;
+                        border-radius: 4px;
+                        cursor: pointer;
+                        margin-right: 10px;
+                        margin-bottom: 10px;
+                    ">SELECT ALL</button>
+                    <button onclick="toggleCiphers('Clear All')" style="
+                        background: #444;
+                        color: #fff;
+                        border: 1px solid #666;
+                        padding: 8px 16px;
+                        border-radius: 4px;
+                        cursor: pointer;
+                        margin-right: 10px;
+                        margin-bottom: 10px;
+                    ">CLEAR ALL</button>
+                    <button onclick="toggleCiphers('RJ\\'s Base')" style="
+                        background: #444;
+                        color: #fff;
+                        border: 1px solid #666;
+                        padding: 8px 16px;
+                        border-radius: 4px;
+                        cursor: pointer;
+                        margin-bottom: 10px;
+                    ">RJ'S BASE</button>
+                </div>
+                
+                <div id="cipher-selection-grid" style="
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                    gap: 15px;
+                ">
+                    ${generateCipherCheckboxes()}
+                </div>
+                
+                <div style="margin-top: 20px; text-align: center;">
+                    <button onclick="closeCipherModal()" style="
+                        background: #63b3ed;
+                        color: #fff;
+                        border: none;
+                        padding: 10px 20px;
+                        border-radius: 6px;
+                        cursor: pointer;
+                        font-weight: bold;
+                    ">Done</button>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+}
+
+function generateCipherCheckboxes() {
+    let html = '';
+    Object.keys(allCiphers).forEach(cipherName => {
+        const cipher = allCiphers[cipherName];
+        const checked = cipher.enabled ? 'checked' : '';
+        
+        html += `
+            <div style="
+                background: rgba(255, 255, 255, 0.05);
+                border: 1px solid #444;
+                border-radius: 8px;
+                padding: 12px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            ">
+                <input type="checkbox" ${checked} 
+                       onchange="toggleSingleCipher('${cipherName}', this.checked)"
+                       style="transform: scale(1.2);" />
+                <label style="
+                    color: ${cipher.color};
+                    font-size: 14px;
+                    cursor: pointer;
+                    flex: 1;
+                " onclick="this.previousElementSibling.click()">${cipherName}</label>
+            </div>
+        `;
+    });
+    return html;
+}
+
+function toggleSingleCipher(cipherName, isEnabled) {
+    allCiphers[cipherName].enabled = isEnabled;
+    
+    // Update summary display
+    const text = document.getElementById('gematria-input').value.toUpperCase();
+    updateSummaryDisplay(text);
+}
+
+function closeCipherModal() {
+    const modal = document.getElementById('cipher-modal');
+    if (modal) {
+        modal.remove();
+    }
+}
+
+// Update the showGematriaCalculator function to remove bottom section and make "Ciphers" clickable
 function showGematriaCalculator() {
+    // Hide other sections
     document.getElementById('controls-section').style.display = 'none';
     document.getElementById('data-table').style.display = 'none';
     document.getElementById('numerology-tools').style.display = 'none';
+    
+    // Show gematria calculator
     document.getElementById('gematria-calculator').style.display = 'block';
     
+    // Update navigation
     document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
     document.querySelector('[data-sport="gematria"]').classList.add('active');
     
+    // Updated HTML without bottom cipher list and clickable "Ciphers"
     document.getElementById('gematria-calculator').innerHTML = `
         <div class="gematria-container">
             <div class="gematria-header">
                 <h2>Gematria Calculator</h2>
                 <div class="header-options">
-                    <span>Ciphers | Options | Shortcuts</span>
+                    <span style="cursor: pointer; color: #ffd700; text-decoration: underline;" onclick="showCipherModal()">Ciphers</span> | 
+                    <span style="cursor: pointer;" onclick="alert('Options coming soon!')">Options</span> | 
+                    <span style="cursor: pointer;" onclick="alert('Shortcuts coming soon!')">Shortcuts</span>
                 </div>
             </div>
             
@@ -1169,15 +1335,8 @@ function showGematriaCalculator() {
                        onkeyup="calculateGematriaLive()" />
             </div>
             
-            <div class="cipher-toggles">
-                <button class="toggle-btn" onclick="toggleCiphers('Select Base')">SELECT BASE</button>
-                <button class="toggle-btn" onclick="toggleCiphers('Select All')">SELECT ALL</button>
-                <button class="toggle-btn" onclick="toggleCiphers('Clear All')">CLEAR ALL</button>
-                <button class="toggle-btn" onclick="toggleCiphers('RJ\\'s Base')">RJ'S BASE</button>
-            </div>
-            
             <div class="summary-display" id="summary-display">
-                <!-- Dynamic summary will be populated here -->
+                <div class="no-active">Click "Ciphers" above to select cipher systems</div>
             </div>
             
             <div class="word-count">
@@ -1200,18 +1359,50 @@ function showGematriaCalculator() {
                 </div>
             </div>
             
-            <div class="ciphers-grid" id="ciphers-results">
-                <!-- Cipher results will be populated here -->
-            </div>
-            
             <div class="letter-breakdown" id="letter-breakdown" style="display: none;">
                 <!-- Letter breakdown will show here -->
             </div>
         </div>
     `;
     
+    // Initialize the calculator
     initializeCiphers();
     calculateGematriaLive();
+}
+
+// Update the toggleCiphers function to work with the modal and close it
+function toggleCiphers(groupName) {
+    const toToggle = cipherGroups[groupName];
+    
+    // Handle all ciphers
+    Object.keys(allCiphers).forEach(cipherName => {
+        let shouldShow = false;
+        
+        if (groupName === "Clear All") {
+            shouldShow = false;
+        } else if (groupName === "Select All") {
+            shouldShow = true;
+        } else {
+            shouldShow = toToggle.includes(cipherName);
+        }
+        
+        allCiphers[cipherName].enabled = shouldShow;
+    });
+    
+    // Update modal checkboxes if modal is open
+    const modal = document.getElementById('cipher-modal');
+    if (modal) {
+        Object.keys(allCiphers).forEach(cipherName => {
+            const checkbox = modal.querySelector(`input[onchange*="${cipherName}"]`);
+            if (checkbox) {
+                checkbox.checked = allCiphers[cipherName].enabled;
+            }
+        });
+    }
+    
+    // Update summary display
+    const text = document.getElementById('gematria-input').value.toUpperCase();
+    updateSummaryDisplay(text);
 }
 
 function initializeCiphers() {
