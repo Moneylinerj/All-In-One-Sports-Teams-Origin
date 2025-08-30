@@ -1145,7 +1145,9 @@ const cipherGroups = {
 let currentCipherIndex = 0;
 const cipherNames = Object.keys(allCiphers);
 
-// Main gematria calculator function
+// Updated cipher visibility state
+let showCipherSelection = false;
+
 function showGematriaCalculator() {
     document.getElementById('controls-section').style.display = 'none';
     document.getElementById('data-table').style.display = 'none';
@@ -1160,7 +1162,7 @@ function showGematriaCalculator() {
             <div class="gematria-header">
                 <h2>Gematria Calculator</h2>
                 <div class="header-options">
-                    <span>Ciphers | Options | Shortcuts</span>
+                    <span class="clickable-cipher" onclick="toggleCipherSelection()">Ciphers</span> | Options | Shortcuts
                 </div>
             </div>
             
@@ -1177,7 +1179,7 @@ function showGematriaCalculator() {
             </div>
             
             <div class="summary-display" id="summary-display">
-                <!-- Dynamic summary will be populated here -->
+                <div class="no-active">Select ciphers above to get started</div>
             </div>
             
             <div class="word-count">
@@ -1200,8 +1202,15 @@ function showGematriaCalculator() {
                 </div>
             </div>
             
-            <div class="ciphers-grid" id="ciphers-results">
-                <!-- Cipher results will be populated here -->
+            <!-- Cipher Selection Panel (Initially Hidden) -->
+            <div class="cipher-selection-panel" id="cipher-selection-panel" style="display: none;">
+                <div class="cipher-selection-header">
+                    <h3>Select Ciphers</h3>
+                    <button class="close-cipher-panel" onclick="toggleCipherSelection()">✕</button>
+                </div>
+                <div class="cipher-selection-grid" id="cipher-selection-grid">
+                    <!-- Cipher checkboxes will be populated here -->
+                </div>
             </div>
             
             <div class="letter-breakdown" id="letter-breakdown" style="display: none;">
@@ -1211,8 +1220,52 @@ function showGematriaCalculator() {
     `;
     
     initializeCiphers();
+    populateCipherSelection();
     calculateGematriaLive();
 }
+
+// Function to toggle cipher selection panel
+function toggleCipherSelection() {
+    showCipherSelection = !showCipherSelection;
+    const panel = document.getElementById('cipher-selection-panel');
+    const cipherText = document.querySelector('.clickable-cipher');
+    
+    if (showCipherSelection) {
+        panel.style.display = 'block';
+        cipherText.style.color = '#63b3ed';
+        cipherText.style.textDecoration = 'underline';
+    } else {
+        panel.style.display = 'none';
+        cipherText.style.color = '#cccccc';
+        cipherText.style.textDecoration = 'none';
+    }
+}
+
+// Function to populate cipher selection checkboxes
+function populateCipherSelection() {
+    const grid = document.getElementById('cipher-selection-grid');
+    let html = '';
+    
+    Object.keys(allCiphers).forEach(cipherName => {
+        const cipher = allCiphers[cipherName];
+        const checked = cipher.enabled ? 'checked' : '';
+        
+        html += `
+            <div class="cipher-checkbox-item">
+                <label class="cipher-checkbox-label">
+                    <input type="checkbox" ${checked} onchange="onCipherSelectionChange('${cipherName}', this)" />
+                    <span class="cipher-checkbox-name" style="color: ${cipher.color}">${cipherName}</span>
+                </label>
+            </div>
+        `;
+    });
+    
+    grid.innerHTML = html;
+}
+
+// Handle cipher selection changes
+function onCipherSelectionChange(cipherName, checkbox) {
+    allCiphers[cipherName].enabled = checkbox.checked;
 
 function initializeCiphers() {
     updateAlphabetDisplay();
