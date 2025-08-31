@@ -1035,7 +1035,15 @@ function getDayInfo(dateStr) {
   }
 }
 
-// UPDATED Navigation functions to include state filter
+// NEW function - add this
+function resetFilters() {
+    document.getElementById('search-input').value = '';
+    document.getElementById('conference-filter').value = '';
+    document.getElementById('division-filter').value = '';
+    document.getElementById('state-filter').value = '';
+}
+
+// UPDATED function - replace your existing switchSport function
 function switchSport(sportKey) {
     currentSport = sportKey;
     if (sportKey === 'gematria') {
@@ -1077,19 +1085,21 @@ function switchSport(sportKey) {
     document.getElementById('division-label').textContent = config.divisionLabel;
     document.getElementById('search-title').textContent = `Search & Filter - ${config.title}`;
 
-    filtered = [...sportsData[sportKey]];
-    initFilters();
-    renderCards();
+    // THESE 4 LINES ARE THE KEY FIX:
+    filtered = [...sportsData[sportKey]];  // 1. Set data first
+    resetFilters();                        // 2. Reset filter values
+    initFilters();                         // 3. Populate filter options
+    renderCards();                         // 4. Render cards immediately
 }
 
-// UPDATED initFilters function to include state dropdown
+// UPDATED function - replace your existing initFilters function
 function initFilters() {
     const conferenceSelect = document.getElementById('conference-filter');
     const divisionSelect = document.getElementById('division-filter');
     const stateSelect = document.getElementById('state-filter');
     
-    // Conference filter
-    const conferences = [...new Set(filtered.map(item => item.conference))].sort();
+    // FIXED: Get conferences from the full dataset, not filtered data
+    const conferences = [...new Set(sportsData[currentSport].map(item => item.conference))].sort();
     conferenceSelect.innerHTML = '<option value="">All</option>';
     conferences.forEach(conf => {
         const option = document.createElement('option');
@@ -1098,9 +1108,9 @@ function initFilters() {
         conferenceSelect.appendChild(option);
     });
 
-    // Division filter
+    // Division filter for non-college sports
     if (currentSport !== "college-football" && currentSport !== "college-basketball") {
-        const divisions = [...new Set(filtered.map(item => item.division))].sort();
+        const divisions = [...new Set(sportsData[currentSport].map(item => item.division))].sort();
         divisionSelect.innerHTML = '<option value="">All</option>';
         divisions.forEach(div => {
             const option = document.createElement('option');
@@ -1110,9 +1120,9 @@ function initFilters() {
         });
     }
 
-    // State filter for college sports
+    // FIXED: State filter for college sports - populate from full dataset
     if (currentSport === "college-football" || currentSport === "college-basketball") {
-        const states = [...new Set(filtered.map(item => item.state))].sort();
+        const states = [...new Set(sportsData[currentSport].map(item => item.state))].sort();
         stateSelect.innerHTML = '<option value="">All States</option>';
         states.forEach(state => {
             const option = document.createElement('option');
