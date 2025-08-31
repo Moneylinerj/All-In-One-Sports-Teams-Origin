@@ -30,28 +30,28 @@
 
         <!-- Controls Section -->
         <div id="controls-section">
-            <h2 id="section-title">Search & Filter - NFL Teams</h2>
+            <h2 id="search-title">Search & Filter - NFL Teams</h2>
             <div class="search-filters">
                 <div class="filter-group">
                     <label for="search-input">Search</label>
                     <input type="text" id="search-input" placeholder="Search by team, city, or state...">
                 </div>
-                <div class="filter-group">
-                    <label for="league-filter">League</label>
-                    <select id="league-filter">
+                <div class="filter-group" id="conference-filter-group">
+                    <label id="conference-label" for="conference-filter">Conference</label>
+                    <select id="conference-filter">
                         <option value="">All Conferences</option>
                     </select>
                 </div>
-                <div class="filter-group">
-                    <label for="division-filter">Division</label>
+                <div class="filter-group" id="division-filter-group">
+                    <label id="division-label" for="division-filter">Division</label>
                     <select id="division-filter">
                         <option value="">All Divisions</option>
                     </select>
                 </div>
-                <div class="filter-group">
-                    <label for="year-filter">Year</label>
-                    <select id="year-filter">
-                        <option value="">All Years</option>
+                <div class="filter-group" id="state-filter-group" style="display: none;">
+                    <label for="state-filter">State</label>
+                    <select id="state-filter">
+                        <option value="">All States</option>
                     </select>
                 </div>
             </div>
@@ -69,8 +69,8 @@
             <!-- Gematria calculator content will be inserted here by JavaScript -->
         </div>
 
-        <!-- Numerology Calculator (Initially Hidden) -->
-        <div id="numerology-calculator" style="display: none;">
+        <!-- Numerology Tools (Initially Hidden) -->
+        <div id="numerology-tools" style="display: none;">
             <div class="coming-soon">
                 <h2>Numerology Calculator</h2>
                 <p>Advanced numerological calculations and interpretations</p>
