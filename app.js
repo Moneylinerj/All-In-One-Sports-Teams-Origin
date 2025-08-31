@@ -49,7 +49,12 @@ const stateData = {
     "WV": { order: 35, founded: "June 20, 1863" },
     "WY": { order: 44, founded: "July 10, 1890" },
     "HI": { order: 50, founded: "August 21, 1959" },
-    "AK": { order: 49, founded: "January 3, 1959" }
+    "AK": { order: 49, founded: "January 3, 1959" },
+    "AB": { founded: "September 1, 1905" },
+    "BC": { founded: "July 20, 1871" },
+    "ON": { founded: "July 1, 1867" },
+    "QC": { founded: "July 1, 1867" },
+    "MB": { founded: "July 15, 1870" }
 };
 
 // COMPLETE Multi-sport data structure with verified exact founding dates
