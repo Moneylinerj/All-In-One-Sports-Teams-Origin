@@ -1,3 +1,6 @@
+let currentSport = 'nfl';
+let filtered = [];
+
 // Your corrected state data (preserved exactly)
 const stateData = {
   "AZ": { order: 48, founded: "February 14, 1912" },
@@ -995,9 +998,6 @@ const sportsData = {
 // (Include all the utility functions, navigation, rendering, popup functions, etc. from the previous complete version)
 // Current sport and filtered data
 // Sport configurations for different leagues
-
-let currentSport = 'nfl';
-let filtered = [];
 
 const sportConfig = {
   nfl: { title: 'NFL Teams', venueLabel: 'Stadium', conferenceLabel: 'Conference', divisionLabel: 'Division', leagueJoinedLabel: 'Joined NFL' },
