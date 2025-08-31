@@ -1,64 +1,80 @@
-// State information database - CORRECTED AND COMPLETE
+// == Table of Contents ==
+// 1. State Data
+// 2. Sports Data Reference
+// 3. Sport Configuration
+// 4. Utility Functions
+//    4.1 getOrdinal
+//    4.2 getDayInfo
+// 5. Navigation & Filters
+//    5.1 switchSport
+//    5.2 initFilters
+//    5.3 renderCards
+// 6. Popup Functions
+//    6.1 showPopup
+//    6.2 closePopup
+// 7. Gematria Calculator
+//    7.1 Cipher Definitions
+//    7.2 showGematriaCalculator
+//    7.3 calculateGematriaLive
+// 8. Numerology Placeholder
+// 9. Event Listeners & Initialization
+
+// 1. State Data
 const stateData = {
-    "AZ": { order: 48, founded: "February 14, 1912" },
-    "CA": { order: 31, founded: "September 9, 1850" },
-    "CO": { order: 38, founded: "August 1, 1876" },
-    "FL": { order: 27, founded: "March 3, 1845" },
-    "GA": { order: 4, founded: "January 2, 1788" },
-    "IL": { order: 21, founded: "December 3, 1818" },
-    "IN": { order: 19, founded: "December 11, 1816" },
-    "LA": { order: 18, founded: "April 30, 1812" },
-    "MA": { order: 6, founded: "February 6, 1788" },
-    "MD": { order: 7, founded: "April 28, 1788" },
-    "MI": { order: 26, founded: "January 26, 1837" },
-    "MN": { order: 32, founded: "May 11, 1858" },
-    "MO": { order: 24, founded: "August 10, 1821" },
-    "NC": { order: 12, founded: "November 21, 1789" },
-    "NJ": { order: 3, founded: "December 18, 1787" },
-    "NV": { order: 36, founded: "October 31, 1864" },
-    "NY": { order: 11, founded: "July 26, 1788" },
-    "OH": { order: 17, founded: "March 1, 1803" },
-    "PA": { order: 2, founded: "December 12, 1787" },
-    "TN": { order: 16, founded: "June 1, 1796" },
-    "TX": { order: 28, founded: "December 29, 1845" },
-    "WA": { order: 42, founded: "November 11, 1889" },
-    "WI": { order: 30, founded: "May 29, 1848" },
-    "AL": { order: 22, founded: "December 14, 1819" },
-    "AR": { order: 25, founded: "June 15, 1836" },
-    "CT": { order: 5, founded: "January 9, 1788" },
-    "DE": { order: 1, founded: "December 7, 1787" },
-    "ID": { order: 43, founded: "July 3, 1890" },
-    "IA": { order: 29, founded: "December 28, 1846" },
-    "KS": { order: 34, founded: "January 29, 1861" },
-    "KY": { order: 15, founded: "June 1, 1792" },
-    "ME": { order: 23, founded: "March 15, 1820" },
-    "MS": { order: 20, founded: "December 10, 1817" },
-    "MT": { order: 41, founded: "November 8, 1889" },
-    "NE": { order: 37, founded: "March 1, 1867" },
-    "NH": { order: 9, founded: "June 21, 1788" },
-    "NM": { order: 47, founded: "January 6, 1912" },
-    "ND": { order: 39, founded: "November 2, 1889" },
-    "OK": { order: 46, founded: "November 16, 1907" },
-    "OR": { order: 33, founded: "February 14, 1859" },
-    "RI": { order: 13, founded: "May 29, 1790" },
-    "SC": { order: 8, founded: "May 23, 1788" },
-    "SD": { order: 40, founded: "November 2, 1889" },
-    "UT": { order: 45, founded: "January 4, 1896" },
-    "VT": { order: 14, founded: "March 4, 1791" },
-    "VA": { order: 10, founded: "June 25, 1788" },
-    "WV": { order: 35, founded: "June 20, 1863" },
-    "WY": { order: 44, founded: "July 10, 1890" },
-    "AB": { order: null, founded: "September 1, 1905" },
-    "BC": { order: null, founded: "July 20, 1871" },
-    "ON": { order: null, founded: "July 1, 1867" },
-    "QC": { order: null, founded: "July 1, 1867" },
-    "MB": { order: null, founded: "July 15, 1870" },
-    "DC": { order: null, founded: "July 16, 1790" },
-    "HI": { order: 50, founded: "August 21, 1959" },
-    "AK": { order: 49, founded: "January 3, 1959" }
+  AZ: { order: 48, founded: "February 14, 1912" },
+  CA: { order: 31, founded: "September 9, 1850" },
+  CO: { order: 38, founded: "August 1, 1876" },
+  FL: { order: 27, founded: "March 3, 1845" },
+  GA: { order: 4, founded: "January 2, 1788" },
+  IL: { order: 21, founded: "December 3, 1818" },
+  IN: { order: 19, founded: "December 11, 1816" },
+  LA: { order: 18, founded: "April 30, 1812" },
+  MA: { order: 6, founded: "February 6, 1788" },
+  MD: { order: 7, founded: "April 28, 1788" },
+  MI: { order: 26, founded: "January 26, 1837" },
+  MN: { order: 32, founded: "May 11, 1858" },
+  MO: { order: 24, founded: "August 10, 1821" },
+  NC: { order: 12, founded: "November 21, 1789" },
+  NJ: { order: 3, founded: "December 18, 1787" },
+  NV: { order: 36, founded: "October 31, 1864" },
+  NY: { order: 11, founded: "July 26, 1788" },
+  OH: { order: 17, founded: "March 1, 1803" },
+  PA: { order: 2, founded: "December 12, 1787" },
+  SC: { order: 8, founded: "May 23, 1788" },
+  TN: { order: 16, founded: "June 1, 1796" },
+  TX: { order: 28, founded: "December 29, 1845" },
+  VA: { order: 10, founded: "June 25, 1788" },
+  WA: { order: 42, founded: "November 11, 1889" },
+  WI: { order: 30, founded: "May 29, 1848" },
+  AL: { order: 22, founded: "December 14, 1819" },
+  AR: { order: 25, founded: "June 15, 1836" },
+  CT: { order: 5, founded: "January 9, 1788" },
+  DE: { order: 1, founded: "December 7, 1787" },
+  HI: { order: 50, founded: "August 21, 1959" },
+  IA: { order: 29, founded: "December 28, 1846" },
+  ID: { order: 43, founded: "July 3, 1890" },
+  KS: { order: 34, founded: "January 29, 1861" },
+  KY: { order: 15, founded: "June 1, 1792" },
+  ME: { order: 23, founded: "March 15, 1820" },
+  MD: { order: 7, founded: "April 28, 1788" },
+  MS: { order: 20, founded: "December 10, 1817" },
+  MT: { order: 41, founded: "November 8, 1889" },
+  NE: { order: 37, founded: "March 1, 1867" },
+  NH: { order: 9, founded: "June 21, 1788" },
+  NM: { order: 47, founded: "January 6, 1912" },
+  ND: { order: 39, founded: "November 2, 1889" },
+  OK: { order: 46, founded: "November 16, 1907" },
+  OR: { order: 33, founded: "February 14, 1859" },
+  RI: { order: 13, founded: "May 29, 1790" },
+  SD: { order: 40, founded: "November 2, 1889" },
+  UT: { order: 45, founded: "January 4, 1896" },
+  VT: { order: 14, founded: "March 4, 1791" },
+  WV: { order: 35, founded: "June 20, 1863" },
+  WY: { order: 44, founded: "July 10, 1890" },
+  DC: { order: null, founded: "July 16, 1790" }
 };
 
-// COMPLETE Multi-sport data structure with verified exact founding dates
+// 2. Sports Data Reference
 const sportsData = {
   nfl: [
     { name: "Arizona Cardinals", division: "NFC West", conference: "NFC", founded: "March 28, 1898", leagueJoined: "1920", city: "Glendale", state: "AZ", cityFounded: "October 10, 1910", cityCharter: "October 10, 1910", stadium: "State Farm Stadium", stadiumOpened: "August 1, 2006" },
@@ -987,10 +1003,7 @@ const sportsData = {
   ]   
 };
 
-// Rest of your JavaScript code stays exactly the same...
-// (Include all the utility functions, navigation, rendering, popup functions, etc. from the previous complete version)
-// Current sport and filtered data
-// Sport configurations for different leagues
+// 3. Sport Configuration
 const sportConfig = {
   nfl: { title: 'NFL Teams', venueLabel: 'Stadium', conferenceLabel: 'Conference', divisionLabel: 'Division', leagueJoinedLabel: 'Joined NFL' },
   nba: { title: 'NBA Teams', venueLabel: 'Arena', conferenceLabel: 'Conference', divisionLabel: 'Division', leagueJoinedLabel: 'Joined NBA' },
@@ -1000,38 +1013,36 @@ const sportConfig = {
   mls: { title: 'MLS Teams', venueLabel: 'Stadium', conferenceLabel: 'Conference', divisionLabel: 'Division', leagueJoinedLabel: 'Joined MLS' },
   'college-football': { title: 'College Football (D1)', venueLabel: 'Stadium', conferenceLabel: 'Conference', divisionLabel: 'Division', leagueJoinedLabel: 'Joined Conference' },
   'college-basketball': { title: 'College Basketball (D1)', venueLabel: 'Arena', conferenceLabel: 'Conference', divisionLabel: 'Division', leagueJoinedLabel: 'Joined Conference' }
-};    
+}; 
 
-// Utility functions
+// 4. Utility Functions
+
+//    4.1 getOrdinal
 function getOrdinal(n) {
   const s = n.toString();
-  const last = s[s.length - 1];
-  const secondLast = s[s.length - 2];
-  if (secondLast === '1') return 'th';
-  if (last === '1') return 'st';
-  if (last === '2') return 'nd';
-  if (last === '3') return 'rd';
+  if (s.slice(-2) === '11') return 'th';
+  if (s.endsWith('1')) return 'st';
+  if (s.endsWith('2')) return 'nd';
+  if (s.endsWith('3')) return 'rd';
   return 'th';
 }
 
+//    4.2 getDayInfo
 function getDayInfo(dateStr) {
   if (!dateStr) return { dayOfYear: '—', daysLeft: '—' };
-  try {
-    const date = new Date(dateStr);
-    if (isNaN(date)) return { dayOfYear: '—', daysLeft: '—' };
-    const start = new Date(date.getFullYear(), 0, 0);
-    const diff = date - start;
-    const dayOfYear = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const isLeap = (date.getFullYear() % 4 === 0 && date.getFullYear() % 100 !== 0) || (date.getFullYear() % 400 === 0);
-    const totalDays = isLeap ? 366 : 365;
-    const daysLeft = totalDays - dayOfYear;
-    return { dayOfYear, daysLeft };
-  } catch (e) {
-    return { dayOfYear: '—', daysLeft: '—' };
-  }
+  const d = new Date(dateStr);
+  if (isNaN(d)) return { dayOfYear: '—', daysLeft: '—' };
+  const start = new Date(d.getFullYear(), 0, 0);
+  const diff = d - start;
+  const dayOfYear = Math.floor(diff / 86400000);
+  const isLeap = ((d.getFullYear() % 4 === 0 && d.getFullYear() % 100 !== 0) || (d.getFullYear() % 400 === 0));
+  const daysLeft = (isLeap ? 366 : 365) - dayOfYear;
+  return { dayOfYear, daysLeft };
 }
 
-// Navigation functions
+// 5. Navigation & Filters
+
+//    5.1 switchSport
 function switchSport(sportKey) {
   currentSport = sportKey;
   if (sportKey === 'gematria') {
@@ -1068,18 +1079,218 @@ function switchSport(sportKey) {
   document.getElementById('conference-label').textContent = config.conferenceLabel;
   document.getElementById('division-label').textContent = config.divisionLabel;
   document.getElementById('search-title').textContent = `Search & Filter - ${config.title}`;
-  
-  filtered = [...sportsData[sportKey]];
+
+ filtered = [...sportsData[sportKey]];
   initFilters();
   renderCards();
 }
 
-// ==========================================================================
-// GEMATRIA CALCULATOR - COMPLETE IMPLEMENTATION
-// ==========================================================================
+  //    5.2 initFilters
+    function initFilters() {
+  const currentData = sportsData[currentSport] || [];
+  
+  // Conference filter
+  const confSelect = document.getElementById('conference-filter');
+  confSelect.innerHTML = '<option value="">All ' + sportConfig[currentSport].conferenceLabel + 's</option>';
+  const conferences = [...new Set(currentData.map(t => t.conference))].sort();
+  conferences.forEach(conf => {
+    const option = document.createElement('option');
+    option.value = conf;
+    option.textContent = conf;
+    confSelect.appendChild(option);
+  });
+  
+  // Division filter
+  const divSelect = document.getElementById('division-filter');
+  divSelect.innerHTML = '<option value="">All ' + sportConfig[currentSport].divisionLabel + 's</option>';
+  const divisions = [...new Set(currentData.map(t => t.division).filter(d => d))].sort();
+  divisions.forEach(div => {
+    const option = document.createElement('option');
+    option.value = div;
+    option.textContent = div;
+    divSelect.appendChild(option);
+  });
+    
+  //    5.3 renderCards
+        function renderCards() {
+  const container = document.getElementById('data-table');
+  const grouped = {};
+  
+  filtered.forEach(team => {
+    if (!grouped[team.conference]) grouped[team.conference] = {};
+    if (!grouped[team.conference][team.division]) grouped[team.conference][team.division] = [];
+    grouped[team.conference][team.division].push(team);
+  });
 
-// Complete cipher definitions based on Gematrinator.com
-const allCiphers = {
+  let html = '<div class="teams-container">';
+  Object.keys(grouped).sort().forEach(conf => {
+    html += `<div class="conference-section">`;
+    html += `<h2 class="conference-title">${conf}</h2>`;
+    
+    Object.keys(grouped[conf]).sort().forEach(div => {
+      if (div && div !== 'undefined') {
+        html += `<div class="division-section">`;
+        html += `<h3 class="division-title">${div}</h3>`;
+      }
+      html += `<div class="teams-grid">`;
+      
+      grouped[conf][div].forEach(team => {
+        const exact = team.founded !== team.leagueJoined;
+        const foundedClass = exact ? 'exact-founding' : 'nfl-founding';
+        const foundedText = exact ? team.founded : sportConfig[currentSport].leagueJoinedLabel + ': ' + team.leagueJoined;
+        const stateInfo = stateData[team.state];
+        const stateText = stateInfo ? team.state + ' • ' + stateInfo.order + getOrdinal(stateInfo.order) + ' State' : team.state;
+        
+        html += `
+          <div class="team-card ${foundedClass}" data-team-name="${team.name}">
+            <div class="team-card-content">
+              <h4 class="team-name">${team.name}</h4>
+              <p class="team-location">${team.city}, ${stateText}</p>
+              <p class="team-founded">${foundedText}</p>
+            </div>
+          </div>
+        `;
+      });
+      
+      html += `</div>`;
+      if (div && div !== 'undefined') {
+        html += `</div>`;
+      }
+    });
+    
+    html += `</div>`;
+  });
+  html += '</div>';
+  
+  container.innerHTML = html;
+  
+  // Add event listeners to team cards
+  document.querySelectorAll('.team-card').forEach(card => {
+    card.addEventListener('click', function() {
+      const teamName = this.getAttribute('data-team-name');
+      showPopup(teamName);
+    });
+  });
+}
+
+  // 6. Popup Functions
+
+  //    6.1 showPopup
+        function showPopup(teamName) {
+  // Remove existing modal if present
+  const existingModal = document.getElementById('team-modal');
+  if (existingModal) {
+    existingModal.remove();
+  }
+  
+  // Find team
+  const team = sportsData[currentSport].find(t => t.name === teamName);
+  if (!team) return;
+  
+  const exact = team.founded !== team.leagueJoined;
+  const stateInfo = stateData[team.state];
+  const teamInfo = getDayInfo(team.founded);
+  const cityInfo = getDayInfo(team.cityFounded);
+  const charterInfo = getDayInfo(team.cityCharter);
+  const venueInfo = getDayInfo(team.stadiumOpened || team.arenaOpened);
+  const stateFoundedInfo = stateInfo ? getDayInfo(stateInfo.founded) : { dayOfYear: '—', daysLeft: '—' };
+  
+  const config = sportConfig[currentSport];
+  const venueName = team.stadium || team.arena;
+  const venueOpened = team.stadiumOpened || team.arenaOpened;
+  
+  // Create modal
+  const modal = document.createElement('div');
+  modal.id = 'team-modal';
+  modal.className = 'modal';
+  modal.style.display = 'block';
+  
+  modal.innerHTML = `
+    <div class="modal-content">
+      <span class="close" onclick="closePopup()">&times;</span>
+      <div class="popup-header">
+        <h2>${team.name}</h2>
+        ${team.division ? `<p class="popup-division">${team.division}</p>` : ''}
+      </div>
+      <div class="popup-content">
+        <div class="info-section">
+          <h3>Team History</h3>
+          <div class="info-grid">
+            <div class="info-item">
+              <label>Founded:</label>
+              <span class="${exact ? 'exact-date' : 'nfl-date'}">${team.founded}</span>
+              <small>Day ${teamInfo.dayOfYear} • ${teamInfo.daysLeft} days left</small>
+            </div>
+            <div class="info-item">
+              <label>${config.leagueJoinedLabel}:</label>
+              <span>${team.leagueJoined}</span>
+            </div>
+            <div class="info-item">
+              <label>${config.conferenceLabel}:</label>
+              <span>${team.conference}</span>
+            </div>
+            ${team.division ? `<div class="info-item"><label>${config.divisionLabel}:</label><span>${team.division}</span></div>` : ''}
+          </div>
+        </div>
+        
+        <div class="info-section">
+          <h3>Location Details</h3>
+          <div class="info-grid">
+            <div class="info-item">
+              <label>City:</label>
+              <span>${team.city}</span>
+            </div>
+            <div class="info-item">
+              <label>State:</label>
+              <span>${team.state}${stateInfo ? ' • ' + stateInfo.order + getOrdinal(stateInfo.order) + ' State' : ''}</span>
+            </div>
+            <div class="info-item">
+              <label>City Founded:</label>
+              <span>${team.cityFounded || 'Not available'}</span>
+              ${team.cityFounded ? `<small>Day ${cityInfo.dayOfYear} • ${cityInfo.daysLeft} days left</small>` : ''}
+            </div>
+            <div class="info-item">
+              <label>City Chartered:</label>
+              <span>${team.cityCharter || 'Not available'}</span>
+              ${team.cityCharter ? `<small>Day ${charterInfo.dayOfYear} • ${charterInfo.daysLeft} days left</small>` : ''}
+            </div>
+            ${stateInfo ? `<div class="info-item"><label>State Founded:</label><span>${stateInfo.founded}</span><small>Day ${stateFoundedInfo.dayOfYear} • ${stateFoundedInfo.daysLeft} days left</small></div>` : ''}
+          </div>
+        </div>
+        
+        <div class="info-section">
+          <h3>${config.venueLabel} Information</h3>
+          <div class="info-grid">
+            <div class="info-item">
+              <label>${config.venueLabel}:</label>
+              <span>${venueName}</span>
+            </div>
+            <div class="info-item">
+              <label>${config.venueLabel} Opened:</label>
+              <span>${venueOpened}</span>
+              <small>Day ${venueInfo.dayOfYear} • ${venueInfo.daysLeft} days left</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+  
+  document.body.appendChild(modal);
+}
+        
+  //    6.2 closePopup
+        function closePopup() {
+  const modal = document.getElementById('team-modal');
+  if (modal) {
+    modal.remove();
+  }
+}
+        
+  // 7. Gematria Calculator
+        
+  //    7.1 Cipher Definitions
+        const allCiphers = {
     'Ordinal': {
         color: '#90EE90',
         enabled: true,
@@ -1177,9 +1388,9 @@ const cipherGroups = {
 
 let currentCipherIndex = 0;
 const cipherNames = Object.keys(allCiphers);
-
-// Main gematria calculator function
-function showGematriaCalculator() {
+        
+  //    7.2 showGematriaCalculator
+        function showGematriaCalculator() {
     document.getElementById('controls-section').style.display = 'none';
     document.getElementById('data-table').style.display = 'none';
     document.getElementById('numerology-tools').style.display = 'none';
@@ -1251,8 +1462,9 @@ function initializeCiphers() {
     updateAlphabetDisplay();
     generateAllCipherResults('');
 }
-
-function calculateGematriaLive() {
+        
+  //    7.3 calculateGematriaLive
+        function calculateGematriaLive() {
     const text = document.getElementById('gematria-input').value.toUpperCase();
     const words = text.trim() ? text.trim().split(/\s+/) : [];
     const letters = text.replace(/[^A-Za-z]/g, '');
@@ -1471,8 +1683,8 @@ function showLetterBreakdown(text) {
         document.getElementById('letter-breakdown').style.display = 'block';
     }
 }
-
-function showNumerologyTools() {
+  // 8. Numerology Placeholder
+        function showNumerologyTools() {
     document.getElementById('controls-section').style.display = 'none';
     document.getElementById('data-table').style.display = 'none';
     document.getElementById('gematria-calculator').style.display = 'none';
@@ -1493,207 +1705,8 @@ function showNumerologyTools() {
         </div>
     `;
 }
-
-// RENDER CARDS FUNCTION
-function renderCards() {
-  const container = document.getElementById('data-table');
-  const grouped = {};
-  
-  filtered.forEach(team => {
-    if (!grouped[team.conference]) grouped[team.conference] = {};
-    if (!grouped[team.conference][team.division]) grouped[team.conference][team.division] = [];
-    grouped[team.conference][team.division].push(team);
-  });
-
-  let html = '<div class="teams-container">';
-  Object.keys(grouped).sort().forEach(conf => {
-    html += `<div class="conference-section">`;
-    html += `<h2 class="conference-title">${conf}</h2>`;
-    
-    Object.keys(grouped[conf]).sort().forEach(div => {
-      if (div && div !== 'undefined') {
-        html += `<div class="division-section">`;
-        html += `<h3 class="division-title">${div}</h3>`;
-      }
-      html += `<div class="teams-grid">`;
-      
-      grouped[conf][div].forEach(team => {
-        const exact = team.founded !== team.leagueJoined;
-        const foundedClass = exact ? 'exact-founding' : 'nfl-founding';
-        const foundedText = exact ? team.founded : sportConfig[currentSport].leagueJoinedLabel + ': ' + team.leagueJoined;
-        const stateInfo = stateData[team.state];
-        const stateText = stateInfo ? team.state + ' • ' + stateInfo.order + getOrdinal(stateInfo.order) + ' State' : team.state;
         
-        html += `
-          <div class="team-card ${foundedClass}" data-team-name="${team.name}">
-            <div class="team-card-content">
-              <h4 class="team-name">${team.name}</h4>
-              <p class="team-location">${team.city}, ${stateText}</p>
-              <p class="team-founded">${foundedText}</p>
-            </div>
-          </div>
-        `;
-      });
-      
-      html += `</div>`;
-      if (div && div !== 'undefined') {
-        html += `</div>`;
-      }
-    });
-    
-    html += `</div>`;
-  });
-  html += '</div>';
-  
-  container.innerHTML = html;
-  
-  // Add event listeners to team cards
-  document.querySelectorAll('.team-card').forEach(card => {
-    card.addEventListener('click', function() {
-      const teamName = this.getAttribute('data-team-name');
-      showPopup(teamName);
-    });
-  });
-}
-
-// POPUP FUNCTION
-function showPopup(teamName) {
-  // Remove existing modal if present
-  const existingModal = document.getElementById('team-modal');
-  if (existingModal) {
-    existingModal.remove();
-  }
-  
-  // Find team
-  const team = sportsData[currentSport].find(t => t.name === teamName);
-  if (!team) return;
-  
-  const exact = team.founded !== team.leagueJoined;
-  const stateInfo = stateData[team.state];
-  const teamInfo = getDayInfo(team.founded);
-  const cityInfo = getDayInfo(team.cityFounded);
-  const charterInfo = getDayInfo(team.cityCharter);
-  const venueInfo = getDayInfo(team.stadiumOpened || team.arenaOpened);
-  const stateFoundedInfo = stateInfo ? getDayInfo(stateInfo.founded) : { dayOfYear: '—', daysLeft: '—' };
-  
-  const config = sportConfig[currentSport];
-  const venueName = team.stadium || team.arena;
-  const venueOpened = team.stadiumOpened || team.arenaOpened;
-  
-  // Create modal
-  const modal = document.createElement('div');
-  modal.id = 'team-modal';
-  modal.className = 'modal';
-  modal.style.display = 'block';
-  
-  modal.innerHTML = `
-    <div class="modal-content">
-      <span class="close" onclick="closePopup()">&times;</span>
-      <div class="popup-header">
-        <h2>${team.name}</h2>
-        ${team.division ? `<p class="popup-division">${team.division}</p>` : ''}
-      </div>
-      <div class="popup-content">
-        <div class="info-section">
-          <h3>Team History</h3>
-          <div class="info-grid">
-            <div class="info-item">
-              <label>Founded:</label>
-              <span class="${exact ? 'exact-date' : 'nfl-date'}">${team.founded}</span>
-              <small>Day ${teamInfo.dayOfYear} • ${teamInfo.daysLeft} days left</small>
-            </div>
-            <div class="info-item">
-              <label>${config.leagueJoinedLabel}:</label>
-              <span>${team.leagueJoined}</span>
-            </div>
-            <div class="info-item">
-              <label>${config.conferenceLabel}:</label>
-              <span>${team.conference}</span>
-            </div>
-            ${team.division ? `<div class="info-item"><label>${config.divisionLabel}:</label><span>${team.division}</span></div>` : ''}
-          </div>
-        </div>
-        
-        <div class="info-section">
-          <h3>Location Details</h3>
-          <div class="info-grid">
-            <div class="info-item">
-              <label>City:</label>
-              <span>${team.city}</span>
-            </div>
-            <div class="info-item">
-              <label>State:</label>
-              <span>${team.state}${stateInfo ? ' • ' + stateInfo.order + getOrdinal(stateInfo.order) + ' State' : ''}</span>
-            </div>
-            <div class="info-item">
-              <label>City Founded:</label>
-              <span>${team.cityFounded || 'Not available'}</span>
-              ${team.cityFounded ? `<small>Day ${cityInfo.dayOfYear} • ${cityInfo.daysLeft} days left</small>` : ''}
-            </div>
-            <div class="info-item">
-              <label>City Chartered:</label>
-              <span>${team.cityCharter || 'Not available'}</span>
-              ${team.cityCharter ? `<small>Day ${charterInfo.dayOfYear} • ${charterInfo.daysLeft} days left</small>` : ''}
-            </div>
-            ${stateInfo ? `<div class="info-item"><label>State Founded:</label><span>${stateInfo.founded}</span><small>Day ${stateFoundedInfo.dayOfYear} • ${stateFoundedInfo.daysLeft} days left</small></div>` : ''}
-          </div>
-        </div>
-        
-        <div class="info-section">
-          <h3>${config.venueLabel} Information</h3>
-          <div class="info-grid">
-            <div class="info-item">
-              <label>${config.venueLabel}:</label>
-              <span>${venueName}</span>
-            </div>
-            <div class="info-item">
-              <label>${config.venueLabel} Opened:</label>
-              <span>${venueOpened}</span>
-              <small>Day ${venueInfo.dayOfYear} • ${venueInfo.daysLeft} days left</small>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  `;
-  
-  document.body.appendChild(modal);
-}
-
-function closePopup() {
-  const modal = document.getElementById('team-modal');
-  if (modal) {
-    modal.remove();
-  }
-}
-
-// INITIALIZE FILTERS
-function initFilters() {
-  const currentData = sportsData[currentSport] || [];
-  
-  // Conference filter
-  const confSelect = document.getElementById('conference-filter');
-  confSelect.innerHTML = '<option value="">All ' + sportConfig[currentSport].conferenceLabel + 's</option>';
-  const conferences = [...new Set(currentData.map(t => t.conference))].sort();
-  conferences.forEach(conf => {
-    const option = document.createElement('option');
-    option.value = conf;
-    option.textContent = conf;
-    confSelect.appendChild(option);
-  });
-  
-  // Division filter
-  const divSelect = document.getElementById('division-filter');
-  divSelect.innerHTML = '<option value="">All ' + sportConfig[currentSport].divisionLabel + 's</option>';
-  const divisions = [...new Set(currentData.map(t => t.division).filter(d => d))].sort();
-  divisions.forEach(div => {
-    const option = document.createElement('option');
-    option.value = div;
-    option.textContent = div;
-    divSelect.appendChild(option);
-  });
-  
-  // Event listeners
+  // 9. Event Listeners & Initialization
   document.getElementById('search').addEventListener('input', function() {
     const term = this.value.toLowerCase();
     filtered = currentData.filter(t => 
