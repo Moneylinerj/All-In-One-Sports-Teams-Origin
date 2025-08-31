@@ -1055,28 +1055,24 @@ function switchSport(sportKey) {
         return;
     }
 
+    // Show controls and hide other sections
     document.getElementById('controls-section').style.display = 'block';
     document.getElementById('data-table').style.display = 'block';
     document.getElementById('gematria-calculator').style.display = 'none';
     document.getElementById('numerology-tools').style.display = 'none';
 
-    // Show/hide division dropdown for college sports
-    const divisionFilterGroup = document.getElementById('division-filter-group');
-    const stateFilterGroup = document.getElementById('state-filter-group');
-    
-    if (sportKey === "college-football" || sportKey === "college-basketball") {
-        divisionFilterGroup.style.display = 'none';
-        stateFilterGroup.style.display = 'block';
+    // Show/hide division vs state dropdown
+    const divGroup = document.getElementById('division-filter-group');
+    const stateGroup = document.getElementById('state-filter-group');
+    if (sportKey === 'college-football' || sportKey === 'college-basketball') {
+        divGroup.style.display = 'none';
+        stateGroup.style.display = 'block';
     } else {
-        divisionFilterGroup.style.display = 'block';
-        stateFilterGroup.style.display = 'none';
+        divGroup.style.display = 'block';
+        stateGroup.style.display = 'none';
     }
 
-    if (!sportsData[sportKey] || sportsData[sportKey].length === 0) {
-        showComingSoon(sportKey);
-        return;
-    }
-
+    // Highlight the active tab
     document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
     document.querySelector(`[data-sport="${sportKey}"]`).classList.add('active');
 
@@ -1085,51 +1081,35 @@ function switchSport(sportKey) {
     document.getElementById('division-label').textContent = config.divisionLabel;
     document.getElementById('search-title').textContent = `Search & Filter - ${config.title}`;
 
-    // THESE 4 LINES ARE THE KEY FIX:
-    filtered = [...sportsData[sportKey]];  // 1. Set data first
-    resetFilters();                        // 2. Reset filter values
-    initFilters();                         // 3. Populate filter options
-    renderCards();                         // 4. Render cards immediately
+    // KEY: load data, reset filters, init dropdowns, render cards
+    filtered = [...sportsData[sportKey]];
+    resetFilters();
+    initFilters();
+    renderCards();
 }
 
-// UPDATED function - replace your existing initFilters function
 function initFilters() {
-    const conferenceSelect = document.getElementById('conference-filter');
-    const divisionSelect = document.getElementById('division-filter');
-    const stateSelect = document.getElementById('state-filter');
-    
-    // FIXED: Get conferences from the full dataset, not filtered data
-    const conferences = [...new Set(sportsData[currentSport].map(item => item.conference))].sort();
-    conferenceSelect.innerHTML = '<option value="">All</option>';
-    conferences.forEach(conf => {
-        const option = document.createElement('option');
-        option.value = conf;
-        option.textContent = conf;
-        conferenceSelect.appendChild(option);
-    });
+    const confSelect = document.getElementById('conference-filter');
+    const divSelect = document.getElementById('division-filter');
+    const stSelect  = document.getElementById('state-filter');
 
-    // Division filter for non-college sports
-    if (currentSport !== "college-football" && currentSport !== "college-basketball") {
-        const divisions = [...new Set(sportsData[currentSport].map(item => item.division))].sort();
-        divisionSelect.innerHTML = '<option value="">All</option>';
-        divisions.forEach(div => {
-            const option = document.createElement('option');
-            option.value = div;
-            option.textContent = div;
-            divisionSelect.appendChild(option);
-        });
+    // Populate conferences
+    const confs = [...new Set(sportsData[currentSport].map(t => t.conference))].sort();
+    confSelect.innerHTML = '<option value="">All Conferences</option>';
+    confs.forEach(c => confSelect.append(new Option(c, c)));
+
+    // Populate divisions (non-college)
+    if (currentSport !== 'college-football' && currentSport !== 'college-basketball') {
+        const divs = [...new Set(sportsData[currentSport].map(t => t.division))].sort();
+        divSelect.innerHTML = '<option value="">All Divisions</option>';
+        divs.forEach(d => divSelect.append(new Option(d, d)));
     }
 
-    // FIXED: State filter for college sports - populate from full dataset
-    if (currentSport === "college-football" || currentSport === "college-basketball") {
-        const states = [...new Set(sportsData[currentSport].map(item => item.state))].sort();
-        stateSelect.innerHTML = '<option value="">All States</option>';
-        states.forEach(state => {
-            const option = document.createElement('option');
-            option.value = state;
-            option.textContent = state;
-            stateSelect.appendChild(option);
-        });
+    // Populate states (college only)
+    if (currentSport === 'college-football' || currentSport === 'college-basketball') {
+        const states = [...new Set(sportsData[currentSport].map(t => t.state))].sort();
+        stSelect.innerHTML = '<option value="">All States</option>';
+        states.forEach(s => stSelect.append(new Option(s, s)));
     }
 }
 
