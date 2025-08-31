@@ -679,7 +679,7 @@ const sportsData = {
   { name: "USC Upstate Spartans", division: "BigSouth", conference: "Big South Conference", founded: "09/01/1967", leagueJoined: "2007", city: "Spartanburg", state: "SC", cityFounded: "01/01/1785", cityCharter: "03/08/1831", stadium: "G.B. Hodge Center", stadiumOpened: "11/01/1978" },
   { name: "Winthrop Eagles", division: "BigSouth", conference: "Big South Conference", founded: "10/01/1886", leagueJoined: "1983", city: "Rock Hill", state: "SC", cityFounded: "01/01/1852", cityCharter: "03/20/1870", stadium: "Winthrop Coliseum", stadiumOpened: "11/30/1982" },
 
-  // BIG TEN CONFERENCE – 14 teams
+  // BIG TEN CONFERENCE – 18 teams
   { name: "Illinois Fighting Illini", division: "Big Ten", conference: "Big Ten Conference", founded: "03/02/1867", leagueJoined: "1896", city: "Champaign", state: "IL", cityFounded: "01/01/1855", cityCharter: "01/01/1860", stadium: "State Farm Center", stadiumOpened: "03/01/1963" },
   { name: "Indiana Hoosiers", division: "Big Ten", conference: "Big Ten Conference", founded: "01/20/1820", leagueJoined: "1899", city: "Bloomington", state: "IN", cityFounded: "01/01/1818", cityCharter: "01/01/1818", stadium: "Simon Skjodt Assembly Hall", stadiumOpened: "03/01/1971" },
   { name: "Iowa Hawkeyes", division: "Big Ten", conference: "Big Ten Conference", founded: "02/25/1847", leagueJoined: "1899", city: "Iowa City", state: "IA", cityFounded: "01/01/1839", cityCharter: "01/01/1853", stadium: "Carver–Hawkeye Arena", stadiumOpened: "01/01/1983" },
@@ -694,6 +694,10 @@ const sportsData = {
   { name: "Purdue Boilermakers", division: "Big Ten", conference: "Big Ten Conference", founded: "05/06/1869", leagueJoined: "1896", city: "West Lafayette", state: "IN", cityFounded: "01/01/1888", cityCharter: "01/01/1888", stadium: "Mackey Arena", stadiumOpened: "11/01/1967" },
   { name: "Rutgers Scarlet Knights", division: "Big Ten", conference: "Big Ten Conference", founded: "11/10/1766", leagueJoined: "2014", city: "Piscataway", state: "NJ", cityFounded: "01/01/1693", cityCharter: "01/01/1798", stadium: "J. Malcolm Simon Hall", stadiumOpened: "11/01/1977" },
   { name: "Wisconsin Badgers", division: "Big Ten", conference: "Big Ten Conference", founded: "07/26/1848", leagueJoined: "1896", city: "Madison", state: "WI", cityFounded: "01/01/1836", cityCharter: "01/01/1856", stadium: "Kohl Center", stadiumOpened: "11/01/1998" },
+  { name: "UCLA Bruins", division: "Big Ten", conference: "Big Ten Conference", founded: "05/23/1919", leagueJoined: "2024", city: "Los Angeles", state: "CA", cityFounded: "09/04/1781", cityCharter: "05/23/1835", stadium: "Rose Bowl", stadiumOpened: "10/28/1922" },
+  { name: "USC Trojans", division: "Big Ten", conference: "Big Ten Conference", founded: "10/06/1880", leagueJoined: "2024", city: "Los Angeles", state: "CA", cityFounded: "09/04/1781", cityCharter: "05/23/1835", stadium: "United Airlines Field at the Coliseum", stadiumOpened: "05/01/1923" },
+  { name: "Washington Huskies", division: "Big Ten", conference: "Big Ten Conference", founded: "11/04/1861", leagueJoined: "2024", city: "Seattle", state: "WA", cityFounded: "05/23/1853", cityCharter: "12/02/1869", stadium: "Husky Stadium", stadiumOpened: "11/27/1920" },
+  { name: "Oregon Ducks", division: "Big Ten", conference: "Big Ten Conference", founded: "10/19/1876", leagueJoined: "2024", city: "Eugene", state: "OR", cityFounded: "01/01/1846", cityCharter: "10/17/1862", stadium: "Autzen Stadium", stadiumOpened: "09/23/1967" },
 
   // BIG WEST CONFERENCE – 11 teams (2025-26)
   { name: "Cal Poly Mustangs", division: "Big West", conference: "Big West Conference", founded: "03/08/1901", leagueJoined: "1996", city: "San Luis Obispo", state: "CA", cityFounded: "09/01/1772", cityCharter: "12/01/1856", stadium: "Mott Athletics Center", stadiumOpened: "11/01/1959" },
