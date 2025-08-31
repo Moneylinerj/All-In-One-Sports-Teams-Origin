@@ -15,8 +15,9 @@
 // 1. GLOBAL VARIABLES & CONFIGURATION
 //==============================================================================
 
+//==============================================================================
 // Application state variables - MUST BE AT TOP LEVEL
-let currentSport = 'nfl';
+let currentSection = 'nfl';
 let filtered = [];
 
 // Sport display configurations
@@ -29,66 +30,6 @@ const sportConfig = {
     mls: { title: 'MLS Teams', venueLabel: 'Stadium', conferenceLabel: 'Conference', divisionLabel: 'Division', leagueJoinedLabel: 'Joined MLS' },
     'college-football': { title: 'College Football (D1)', venueLabel: 'Stadium', conferenceLabel: 'Conference', divisionLabel: 'Division', leagueJoinedLabel: 'Joined Conference' },
     'college-basketball': { title: 'College Basketball (D1)', venueLabel: 'Arena', conferenceLabel: 'Conference', divisionLabel: 'Division', leagueJoinedLabel: 'Joined Conference' }
-};
-
-// State information database - CORRECTED AND COMPLETE
-const stateData = {
-    "AZ": { order: 48, founded: "February 14, 1912" },
-    "CA": { order: 31, founded: "September 9, 1850" },
-    "CO": { order: 38, founded: "August 1, 1876" },
-    "FL": { order: 27, founded: "March 3, 1845" },
-    "GA": { order: 4, founded: "January 2, 1788" },
-    "IL": { order: 21, founded: "December 3, 1818" },
-    "IN": { order: 19, founded: "December 11, 1816" },
-    "LA": { order: 18, founded: "April 30, 1812" },
-    "MA": { order: 6, founded: "February 6, 1788" },
-    "MD": { order: 7, founded: "April 28, 1788" },
-    "MI": { order: 26, founded: "January 26, 1837" },
-    "MN": { order: 32, founded: "May 11, 1858" },
-    "MO": { order: 24, founded: "August 10, 1821" },
-    "NC": { order: 12, founded: "November 21, 1789" },
-    "NJ": { order: 3, founded: "December 18, 1787" },
-    "NV": { order: 36, founded: "October 31, 1864" },
-    "NY": { order: 11, founded: "July 26, 1788" },
-    "OH": { order: 17, founded: "March 1, 1803" },
-    "PA": { order: 2, founded: "December 12, 1787" },
-    "TN": { order: 16, founded: "June 1, 1796" },
-    "TX": { order: 28, founded: "December 29, 1845" },
-    "WA": { order: 42, founded: "November 11, 1889" },
-    "WI": { order: 30, founded: "May 29, 1848" },
-    "AL": { order: 22, founded: "December 14, 1819" },
-    "AR": { order: 25, founded: "June 15, 1836" },
-    "CT": { order: 5, founded: "January 9, 1788" },
-    "DE": { order: 1, founded: "December 7, 1787" },
-    "ID": { order: 43, founded: "July 3, 1890" },
-    "IA": { order: 29, founded: "December 28, 1846" },
-    "KS": { order: 34, founded: "January 29, 1861" },
-    "KY": { order: 15, founded: "June 1, 1792" },
-    "ME": { order: 23, founded: "March 15, 1820" },
-    "MS": { order: 20, founded: "December 10, 1817" },
-    "MT": { order: 41, founded: "November 8, 1889" },
-    "NE": { order: 37, founded: "March 1, 1867" },
-    "NH": { order: 9, founded: "June 21, 1788" },
-    "NM": { order: 47, founded: "January 6, 1912" },
-    "ND": { order: 39, founded: "November 2, 1889" },
-    "OK": { order: 46, founded: "November 16, 1907" },
-    "OR": { order: 33, founded: "February 14, 1859" },
-    "RI": { order: 13, founded: "May 29, 1790" },
-    "SC": { order: 8, founded: "May 23, 1788" },
-    "SD": { order: 40, founded: "November 2, 1889" },
-    "UT": { order: 45, founded: "January 4, 1896" },
-    "VT": { order: 14, founded: "March 4, 1791" },
-    "VA": { order: 10, founded: "June 25, 1788" },
-    "WV": { order: 35, founded: "June 20, 1863" },
-    "WY": { order: 44, founded: "July 10, 1890" },
-    "AB": { order: null, founded: "September 1, 1905" },
-    "BC": { order: null, founded: "July 20, 1871" },
-    "ON": { order: null, founded: "July 1, 1867" },
-    "QC": { order: null, founded: "July 1, 1867" },
-    "MB": { order: null, founded: "July 15, 1870" },
-    "DC": { order: null, founded: "July 16, 1790" },
-    "HI": { order: 50, founded: "August 21, 1959" },
-    "AK": { order: 49, founded: "January 3, 1959" }
 };
 
 //==============================================================================
@@ -138,17 +79,17 @@ function resetFilters() {
 //==============================================================================
 
 // Main navigation function - switches between sports and tools
-function switchSport(sportKey) {
-    currentSport = sportKey;
-    
-    // Handle special navigation to gematria calculator
-    if (sportKey === 'gematria') {
+function switchSection(sectionKey) {
+    currentSection = sectionKey;
+
+    // Special: Gematria calculator
+    if (sectionKey === 'gematria') {
         showGematriaCalculator();
         return;
     }
-    
-    // Handle special navigation to numerology tools
-    if (sportKey === 'numerology') {
+
+    // Special: Numerology tools
+    if (sectionKey === 'numerology') {
         showNumerologyTools();
         return;
     }
@@ -159,11 +100,10 @@ function switchSport(sportKey) {
     document.getElementById('gematria-calculator').style.display = 'none';
     document.getElementById('numerology-tools').style.display = 'none';
 
-    // Toggle between division filter (pro sports) and state filter (college sports)
+    // Toggle filters for college vs pro
     const divisionFilterGroup = document.getElementById('division-filter-group');
     const stateFilterGroup = document.getElementById('state-filter-group');
-    
-    if (sportKey === "college-football" || sportKey === "college-basketball") {
+    if (sectionKey === 'college-football' || sectionKey === 'college-basketball') {
         divisionFilterGroup.style.display = 'none';
         stateFilterGroup.style.display = 'block';
     } else {
@@ -172,26 +112,26 @@ function switchSport(sportKey) {
     }
 
     // Handle sports with no data yet
-    if (!sportsData[sportKey] || sportsData[sportKey].length === 0) {
-        showComingSoon(sportKey);
+    if (!sportsData[sectionKey] || sportsData[sectionKey].length === 0) {
+        showComingSoon(sectionKey);
         return;
     }
 
-    // Update UI to show active sport
+    // Update active tab
     document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
-    document.querySelector(`[data-section="${sportKey}"]`).classList.add('active');
+    document.querySelector(`[data-section="${sectionKey}"]`).classList.add('active');
 
-    // Update labels based on sport type
-    const config = sportConfig[sportKey];
+    // Update labels and title
+    const config = sportConfig[sectionKey];
     document.getElementById('conference-label').textContent = config.conferenceLabel;
     document.getElementById('division-label').textContent = config.divisionLabel;
     document.getElementById('search-title').textContent = `Search & Filter - ${config.title}`;
 
-    // CRITICAL: Load data and update interface in correct order
-    filtered = [...sportsData[sportKey]];  // 1. Set filtered data first
-    resetFilters();                        // 2. Clear all filter inputs
-    initFilters();                         // 3. Populate filter dropdowns
-    renderCards();                         // 4. Display team cards immediately
+    // Load and render data
+    filtered = [...sportsData[sectionKey]];  // 1. Set filtered data
+    resetFilters();                         // 2. Clear inputs
+    initFilters();                          // 3. Populate dropdowns
+    renderCards();                          // 4. Render cards
 }
 
 // Initialize and populate filter dropdown options
@@ -199,9 +139,9 @@ function initFilters() {
     const conferenceSelect = document.getElementById('conference-filter');
     const divisionSelect = document.getElementById('division-filter');
     const stateSelect = document.getElementById('state-filter');
-    
-    // Populate conference dropdown from full dataset
-    const conferences = [...new Set(sportsData[currentSport].map(item => item.conference))].sort();
+
+    // Conferences
+    const conferences = [...new Set(sportsData[currentSection].map(item => item.conference))].sort();
     conferenceSelect.innerHTML = '<option value="">All Conferences</option>';
     conferences.forEach(conf => {
         const option = document.createElement('option');
@@ -210,9 +150,9 @@ function initFilters() {
         conferenceSelect.appendChild(option);
     });
 
-    // Populate division dropdown for non-college sports
-    if (currentSport !== "college-football" && currentSport !== "college-basketball") {
-        const divisions = [...new Set(sportsData[currentSport].map(item => item.division))].sort();
+    // Divisions for pro sports
+    if (currentSection !== 'college-football' && currentSection !== 'college-basketball') {
+        const divisions = [...new Set(sportsData[currentSection].map(item => item.division))].sort();
         divisionSelect.innerHTML = '<option value="">All Divisions</option>';
         divisions.forEach(div => {
             const option = document.createElement('option');
@@ -222,9 +162,9 @@ function initFilters() {
         });
     }
 
-    // Populate state dropdown for college sports - FIXED VERSION
-    if (currentSport === "college-football" || currentSport === "college-basketball") {
-        const states = [...new Set(sportsData[currentSport].map(item => item.state))].sort();
+    // States for college sports
+    if (currentSection === 'college-football' || currentSection === 'college-basketball') {
+        const states = [...new Set(sportsData[currentSection].map(item => item.state))].sort();
         stateSelect.innerHTML = '<option value="">All States</option>';
         states.forEach(state => {
             const option = document.createElement('option');
@@ -242,11 +182,12 @@ function applyFilters() {
     const divisionFilter = document.getElementById('division-filter').value;
     const stateFilterValue = document.getElementById('state-filter').value;
 
-    filtered = sportsData[currentSport].filter(item => {
-        const matchesSearch = item.name.toLowerCase().includes(searchTerm) ||
-                            item.city.toLowerCase().includes(searchTerm) ||
-                            item.state.toLowerCase().includes(searchTerm);
-        
+    filtered = sportsData[currentSection].filter(item => {
+        const matchesSearch =
+            item.name.toLowerCase().includes(searchTerm) ||
+            item.city.toLowerCase().includes(searchTerm) ||
+            item.state.toLowerCase().includes(searchTerm);
+
         const matchesConference = !conferenceFilter || item.conference === conferenceFilter;
         const matchesDivision = !divisionFilter || item.division === divisionFilter;
         const matchesState = !stateFilterValue || item.state === stateFilterValue;
@@ -260,7 +201,6 @@ function applyFilters() {
 // Generate and display team cards based on current filtered data
 function renderCards() {
     const container = document.getElementById('cards-container');
-    
     if (filtered.length === 0) {
         container.innerHTML = '<div class="no-results">No teams match your criteria.</div>';
         return;
@@ -268,31 +208,22 @@ function renderCards() {
 
     container.innerHTML = filtered.map(team => {
         const stateInfo = stateData[team.state];
-        const stateText = stateInfo ? 
-            `${team.state} (${stateInfo.order}${getOrdinal(stateInfo.order)} state, ${stateInfo.founded})` : 
-            team.state;
-
+        const stateText = stateInfo
+            ? `${team.state} (${stateInfo.order}${getOrdinal(stateInfo.order)} state, ${stateInfo.founded})`
+            : team.state;
         const foundedInfo = getDayInfo(team.founded);
-        const foundedText = foundedInfo ? 
-            `Founded: ${team.founded} (Day ${foundedInfo.dayOfYear}, ${foundedInfo.daysLeft} days left)` : 
-            `Founded: ${team.founded}`;
-
-        const venueLabel = sportConfig[currentSport].venueLabel;
-        const venueInfo = currentSport === 'college-football' || 
-                         currentSport === 'college-basketball' ? 
-                         team.stadium : 
-                         (currentSport === 'nfl' || currentSport === 'mlb' || currentSport === 'mls' ? 
-                          team.stadium : team.arena);
+        const foundedText = foundedInfo
+            ? `Founded: ${team.founded} (Day ${foundedInfo.dayOfYear}, ${foundedInfo.daysLeft} days left)`
+            : `Founded: ${team.founded}`;
 
         return `
-            <div class="team-card" onclick="showTeamDetails('${team.name.replace(/'/g, "\\'")}')">
+            <div class="team-card" onclick="showTeamDetails('${team.name.replace(/'/g,"\\'")}')">
                 <h3>${team.name}</h3>
                 <p><strong>${team.city}, ${stateText}</strong></p>
                 <p>${foundedText}</p>
                 <div class="team-details">
                     <span class="conference">${team.conference}</span>
-                    ${team.division && currentSport !== "college-football" && currentSport !== "college-basketball" ? 
-                      `<span class="division">${team.division}</span>` : ''}
+                    ${team.division ? `<span class="division">${team.division}</span>` : ''}
                 </div>
             </div>
         `;
@@ -316,57 +247,56 @@ function showTeamDetails(teamName) {
     if (!team) return;
 
     const stateInfo = stateData[team.state];
-    const stateText = stateInfo ? 
-        `${team.state} (${stateInfo.order}${getOrdinal(stateInfo.order)} state, ${stateInfo.founded})` : 
-        team.state;
-
+    const stateText = stateInfo
+        ? `${team.state} (${stateInfo.order}${getOrdinal(stateInfo.order)} state, ${stateInfo.founded})`
+        : team.state;
     const foundedInfo = getDayInfo(team.founded);
-    const foundedText = foundedInfo ? 
-        `${team.founded} (Day ${foundedInfo.dayOfYear} of year, ${foundedInfo.daysLeft} days remaining)` : 
-        team.founded;
+    const foundedText = foundedInfo
+        ? `${team.founded} (Day ${foundedInfo.dayOfYear} of year, ${foundedInfo.daysLeft} days remaining)`
+        : team.founded;
 
-    const config = sportConfig[currentSport];
-    const venueInfo = currentSport === 'college-football' || 
-                     currentSport === 'college-basketball' ? 
-                     team.stadium : 
-                     (currentSport === 'nfl' || currentSport === 'mlb' || currentSport === 'mls' ? 
-                      team.stadium : team.arena);
-
-    const venueOpenedInfo = currentSport === 'college-football' || 
-                           currentSport === 'college-basketball' ? 
-                           team.stadiumOpened : 
-                           (currentSport === 'nfl' || currentSport === 'mlb' || currentSport === 'mls' ? 
-                            team.stadiumOpened : team.arenaOpened);
-
+    const config = sportConfig[currentSection];
     const popup = document.createElement('div');
     popup.className = 'popup-overlay';
     popup.innerHTML = `
         <div class="popup-content">
-            <span class="close-popup" onclick="closePopup()">&times;</span>
+            <button class="close-popup" onclick="closePopup()">&times;</button>
             <h2>${team.name}</h2>
             <div class="popup-details">
                 <p><strong>Location:</strong> ${team.city}, ${stateText}</p>
                 <p><strong>Founded:</strong> ${foundedText}</p>
                 <p><strong>${config.conferenceLabel}:</strong> ${team.conference}</p>
-                ${team.division && currentSport !== "college-football" && currentSport !== "college-basketball" ? 
-                  `<p><strong>${config.divisionLabel}:</strong> ${team.division}</p>` : ''}
+                ${team.division ? `<p><strong>${config.divisionLabel}:</strong> ${team.division}</p>` : ''}
                 <p><strong>${config.leagueJoinedLabel}:</strong> ${team.leagueJoined}</p>
-                <p><strong>${config.venueLabel}:</strong> ${venueInfo}</p>
-                <p><strong>${config.venueLabel} Opened:</strong> ${venueOpenedInfo}</p>
+                <p><strong>${config.venueLabel}:</strong> ${team.stadium || team.arena}</p>
             </div>
         </div>
     `;
-    
+
     document.body.appendChild(popup);
 }
 
 // Close team details popup
 function closePopup() {
     const popup = document.querySelector('.popup-overlay');
-    if (popup) {
-        popup.remove();
-    }
+    if (popup) popup.remove();
 }
+
+// Initial setup on page load
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.nav-tab').forEach(tab => {
+        tab.addEventListener('click', e => {
+            e.preventDefault();
+            switchSection(tab.dataset.section);
+        });
+    });
+    document.getElementById('search-input').addEventListener('input', applyFilters);
+    document.getElementById('conference-filter').addEventListener('change', applyFilters);
+    document.getElementById('division-filter').addEventListener('change', applyFilters);
+    document.getElementById('state-filter').addEventListener('change', applyFilters);
+
+    switchSection('nfl');
+});
 
 //==============================================================================
 // 4. GEMATRIA CALCULATOR - COMPLETE IMPLEMENTATION
