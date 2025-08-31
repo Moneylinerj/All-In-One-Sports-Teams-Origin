@@ -48,12 +48,6 @@ const stateData = {
     "VA": { order: 10, founded: "June 25, 1788" },
     "WV": { order: 35, founded: "June 20, 1863" },
     "WY": { order: 44, founded: "July 10, 1890" },
-    "AB": { order: null, founded: "September 1, 1905" },
-    "BC": { order: null, founded: "July 20, 1871" },
-    "ON": { order: null, founded: "July 1, 1867" },
-    "QC": { order: null, founded: "July 1, 1867" },
-    "MB": { order: null, founded: "July 15, 1870" },
-    "DC": { order: null, founded: "July 16, 1790" },
     "HI": { order: 50, founded: "August 21, 1959" },
     "AK": { order: 49, founded: "January 3, 1959" }
 };
