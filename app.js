@@ -179,7 +179,7 @@ function switchSport(sportKey) {
 
     // Update UI to show active sport
     document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
-    document.querySelector(`[data-sport="${sportKey}"]`).classList.add('active');
+    document.querySelector(`[data-section="${sportKey}"]`).classList.add('active');
 
     // Update labels based on sport type
     const config = sportConfig[sportKey];
@@ -1747,7 +1747,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.nav-tab').forEach(tab => {
         tab.addEventListener('click', (e) => {
             e.preventDefault();
-            switchSport(tab.dataset.sport);
+            switchSport(tab.dataset.section);
         });
     });
 
