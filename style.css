@@ -904,3 +904,481 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* ==========================================================================
+   TEAM LOGO STYLES
+   ========================================================================== */
+
+.team-logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 72px;
+  margin-bottom: 0.75rem;
+  padding: 0.5rem;
+}
+
+.team-logo {
+  max-height: 64px;
+  max-width: 100%;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5));
+  transition: transform 0.2s ease;
+}
+
+.team-card:hover .team-logo {
+  transform: scale(1.08);
+}
+
+/* Modal popup logo */
+.popup-team-logo {
+  display: block;
+  margin: 0 auto 0.75rem;
+  max-height: 80px;
+  max-width: 120px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.6));
+}
+
+/* ==========================================================================
+   IMPROVED TEAM CARD LAYOUT
+   ========================================================================== */
+
+.team-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 160px;
+}
+
+.team-card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Sport accent colors on conference titles */
+.conference-title.nfl  { border-left: 6px solid #f4a623; }
+.conference-title.nba  { border-left: 6px solid #c9082a; }
+.conference-title.mlb  { border-left: 6px solid #002d72; }
+.conference-title.nhl  { border-left: 6px solid #00529b; }
+.conference-title.wnba { border-left: 6px solid #ff6900; }
+.conference-title.mls  { border-left: 6px solid #00b140; }
+
+/* ==========================================================================
+   FLOATING DATE CALCULATOR PANEL
+   ========================================================================== */
+
+.date-calc-panel {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 700px;
+  max-width: calc(100vw - 32px);
+  max-height: 88vh;
+  background: #131920;
+  border: 1px solid #2d3748;
+  border-radius: 14px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.7), 0 0 0 1px rgba(99,179,237,0.15);
+  z-index: 9000;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.dcp-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(135deg, #1a2035 0%, #252d45 100%);
+  border-bottom: 1px solid #2d3748;
+  cursor: grab;
+  user-select: none;
+  border-radius: 14px 14px 0 0;
+}
+
+.dcp-header:active { cursor: grabbing; }
+
+.dcp-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #63b3ed;
+  letter-spacing: 0.01em;
+}
+
+.dcp-header-actions {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.dcp-minimize-btn, .dcp-close-btn {
+  background: #2d3748;
+  border: 1px solid #4a5568;
+  color: #a0aec0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+  line-height: 1;
+  padding: 0;
+}
+
+.dcp-minimize-btn:hover { background: #4a5568; color: #fff; }
+.dcp-close-btn:hover { background: #e53e3e; border-color: #e53e3e; color: #fff; }
+
+.dcp-body {
+  overflow-y: auto;
+  padding: 1rem;
+  flex: 1;
+  scrollbar-width: thin;
+  scrollbar-color: #4a5568 transparent;
+}
+
+/* Dual date inputs row */
+.dcp-dates-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.dcp-date-box {
+  flex: 1;
+  background: #1a202c;
+  border: 1px solid #2d3748;
+  border-radius: 10px;
+  padding: 0.75rem;
+}
+
+.dcp-date-header {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #63b3ed;
+  text-align: center;
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.03em;
+  padding: 0.3rem;
+  background: rgba(99,179,237,0.08);
+  border-radius: 6px;
+}
+
+.dcp-inputs {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.dcp-input-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.dcp-input-group label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: #718096;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+
+.dc-spin {
+  width: 100%;
+  padding: 0.4rem 0.2rem;
+  background: #2d3748;
+  border: 1px solid #4a5568;
+  border-radius: 5px;
+  color: #e6e6e6;
+  font-size: 0.85rem;
+  text-align: center;
+  -moz-appearance: textfield;
+}
+
+.dc-spin::-webkit-inner-spin-button,
+.dc-spin::-webkit-outer-spin-button { opacity: 0.5; }
+
+.dc-spin:focus {
+  outline: none;
+  border-color: #63b3ed;
+  box-shadow: 0 0 0 2px rgba(99,179,237,0.2);
+}
+
+.dcp-arrow {
+  color: #4a5568;
+  font-size: 1.5rem;
+  align-self: center;
+  margin-top: 1rem;
+  flex-shrink: 0;
+}
+
+/* Include end + days result */
+.dcp-duration-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+  padding: 0.6rem 0.8rem;
+  background: #1a202c;
+  border: 1px solid #2d3748;
+  border-radius: 8px;
+  flex-wrap: wrap;
+}
+
+.dcp-include-end label {
+  color: #a0aec0;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.dcp-include-end input[type="checkbox"] { accent-color: #63b3ed; }
+
+.dcp-days-result {
+  flex: 1;
+  color: #e6e6e6;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* Duration section */
+.dcp-dur-section {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.dcp-dur-checks {
+  background: #1a202c;
+  border: 1px solid #2d3748;
+  border-radius: 8px;
+  padding: 0.6rem 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 100px;
+  flex-shrink: 0;
+}
+
+.dcp-dur-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: #718096;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.2rem;
+}
+
+.dcp-dur-checks label {
+  color: #a0aec0;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+}
+
+.dcp-dur-checks input[type="checkbox"] { accent-color: #63b3ed; }
+
+.dcp-durations {
+  flex: 1;
+  background: #1a202c;
+  border: 1px solid #2d3748;
+  border-radius: 8px;
+  padding: 0.6rem 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-height: 36px;
+}
+
+.dur-row {
+  color: #e6e6e6;
+  font-size: 0.85rem;
+  padding: 0.2rem 0;
+  border-bottom: 1px solid #2d374850;
+}
+
+.dur-row:last-child { border-bottom: none; }
+
+/* Numerology tables */
+.dcp-tables-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.dcp-table-wrap {
+  background: #1a202c;
+  border: 1px solid #2d3748;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.dcp-table-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #63b3ed;
+  padding: 0.4rem 0.6rem;
+  background: rgba(99,179,237,0.08);
+  text-align: center;
+  border-bottom: 1px solid #2d3748;
+  letter-spacing: 0.02em;
+}
+
+.dc-num-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.75rem;
+}
+
+.dc-num-table tr:nth-child(even) { background: rgba(45,55,72,0.3); }
+.dc-num-table tr:hover { background: rgba(99,179,237,0.06); }
+
+.dc-formula {
+  padding: 0.3rem 0.5rem;
+  color: #718096;
+  font-size: 0.68rem;
+  font-family: 'Courier New', monospace;
+  border-right: 1px solid #2d374860;
+  white-space: nowrap;
+}
+
+.dc-result {
+  padding: 0.3rem 0.5rem;
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* Clickable number links */
+.num-link {
+  color: #63b3ed;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  transition: all 0.15s;
+  display: inline-block;
+}
+
+.num-link:hover {
+  color: #90cdf4;
+  text-decoration-color: #90cdf4;
+  transform: scale(1.05);
+}
+
+.dcp-footer-note {
+  text-align: center;
+  color: #4a5568;
+  font-size: 0.7rem;
+  padding: 0.4rem 0;
+  border-top: 1px solid #2d374860;
+  margin-top: 0.5rem;
+}
+
+/* Responsive date calc panel */
+@media (max-width: 768px) {
+  .date-calc-panel {
+    right: 8px;
+    bottom: 8px;
+    width: calc(100vw - 16px);
+    max-height: 80vh;
+  }
+  .dcp-dates-row { flex-direction: column; }
+  .dcp-arrow { display: none; }
+  .dcp-tables-row { grid-template-columns: 1fr; }
+}
+
+/* Ensure floating panel doesn't interfere with team modal */
+#team-modal { z-index: 999999; }
+.date-calc-panel { z-index: 9000; }
+
+/* ==========================================================================
+   IMPROVED HEADER GRADIENT
+   ========================================================================== */
+
+.header {
+  background: linear-gradient(135deg, #0d1117 0%, #1a1f36 40%, #252b47 100%);
+  border-bottom: 2px solid #2d3748;
+  padding: 2.5rem 0;
+}
+
+.header-content {
+  position: relative;
+}
+
+.header-content h1 {
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, #ffffff 0%, #90cdf4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+
+/* Teams grid tighter on large screens */
+@media (min-width: 1024px) {
+  .teams-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+}
+
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+
+.site-footer {
+  background: #0a0e15;
+  border-top: 1px solid #2d3748;
+  padding: 1.25rem 0;
+  margin-top: 3rem;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.footer-credit {
+  color: #4a5568;
+  font-size: 0.8rem;
+}
+
+.footer-sep { color: #2d3748; }
+
+.footer-pplx {
+  color: #4a5568;
+  font-size: 0.8rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-pplx:hover { color: #63b3ed; }
+
+/* Date Calc nav tab pulse on first visit */
+.numerology-tab::after {
+  content: ' ↗';
+  font-size: 0.7em;
+  opacity: 0.7;
+}

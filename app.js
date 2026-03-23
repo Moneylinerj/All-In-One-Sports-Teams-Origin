@@ -98,12 +98,12 @@ const sportsData = {
     { name: "Cleveland Cavaliers", division: "Central", conference: "Eastern", founded: "February 8, 1970", leagueJoined: "1970", city: "Cleveland", state: "OH", cityFounded: "July 22, 1796", cityCharter: "January 1, 1914", arena: "Rocket Mortgage FieldHouse", arenaOpened: "October 17, 1994" },
     { name: "Dallas Mavericks", division: "Southwest", conference: "Western", founded: "May 1, 1980", leagueJoined: "1980", city: "Dallas", state: "TX", cityFounded: "1841", cityCharter: "February 2, 1856", arena: "American Airlines Center", arenaOpened: "July 17, 2001" },
     { name: "Denver Nuggets", division: "Northwest", conference: "Western", founded: "February 2, 1967", leagueJoined: "1976", city: "Denver", state: "CO", cityFounded: "November 22, 1858", cityCharter: "November 7, 1861", arena: "Ball Arena", arenaOpened: "October 1, 1999" },
-    { name: "Detroit Pistons", division: "Central", conference: "Eastern", founded: "1941", leagueJoined: "1949", city: "Detroit", state: "MI", cityFounded: "July 24, 1701", cityCharter: "September 13, 1806", arena: "Little Caesars Arena", arenaOpened: "September 5, 2017" },
+    { name: "Detroit Pistons", division: "Central", conference: "Eastern", founded: "June 1, 1937", leagueJoined: "1949", city: "Detroit", state: "MI", cityFounded: "July 24, 1701", cityCharter: "September 13, 1806", arena: "Little Caesars Arena", arenaOpened: "September 5, 2017" },
     { name: "Golden State Warriors", division: "Pacific", conference: "Western", founded: "June 6, 1946", leagueJoined: "1946", city: "San Francisco", state: "CA", cityFounded: "January 30, 1847", cityCharter: "February 4, 1850", arena: "Chase Center", arenaOpened: "September 6, 2019" },
     { name: "Houston Rockets", division: "Southwest", conference: "Western", founded: "February 2, 1967", leagueJoined: "1967", city: "Houston", state: "TX", cityFounded: "August 30, 1836", cityCharter: "June 5, 1837", arena: "Toyota Center", arenaOpened: "September 29, 2003" },
     { name: "Indiana Pacers", division: "Central", conference: "Eastern", founded: "February 2, 1967", leagueJoined: "1976", city: "Indianapolis", state: "IN", cityFounded: "January 6, 1821", cityCharter: "March 30, 1847", arena: "Gainbridge Fieldhouse", arenaOpened: "November 6, 1999" },
     { name: "LA Clippers", division: "Pacific", conference: "Western", founded: "August 6, 1970", leagueJoined: "1970", city: "Los Angeles", state: "CA", cityFounded: "September 4, 1781", cityCharter: "May 23, 1835", arena: "Crypto.com Arena", arenaOpened: "October 17, 1999" },
-    { name: "Los Angeles Lakers", division: "Pacific", conference: "Western", founded: "1946", leagueJoined: "1948", city: "Los Angeles", state: "CA", cityFounded: "September 4, 1781", cityCharter: "May 23, 1835", arena: "Crypto.com Arena", arenaOpened: "October 17, 1999" },
+    { name: "Los Angeles Lakers", division: "Pacific", conference: "Western", founded: "June 6, 1946", leagueJoined: "1948", city: "Los Angeles", state: "CA", cityFounded: "September 4, 1781", cityCharter: "May 23, 1835", arena: "Crypto.com Arena", arenaOpened: "October 17, 1999" },
     { name: "Memphis Grizzlies", division: "Southwest", conference: "Western", founded: "April 27, 1995", leagueJoined: "1995", city: "Memphis", state: "TN", cityFounded: "May 22, 1819", cityCharter: "December 19, 1826", arena: "FedExForum", arenaOpened: "September 6, 2004" },
     { name: "Miami Heat", division: "Southeast", conference: "Eastern", founded: "April 22, 1987", leagueJoined: "1988", city: "Miami", state: "FL", cityFounded: "July 28, 1896", cityCharter: "July 28, 1896", arena: "Kaseya Center", arenaOpened: "December 31, 1999" },
     { name: "Milwaukee Bucks", division: "Central", conference: "Eastern", founded: "March 4, 1968", leagueJoined: "1968", city: "Milwaukee", state: "WI", cityFounded: "1846", cityCharter: "January 31, 1846", arena: "Fiserv Forum", arenaOpened: "August 26, 2018" },
@@ -115,7 +115,7 @@ const sportsData = {
     { name: "Philadelphia 76ers", division: "Atlantic", conference: "Eastern", founded: "June 6, 1946", leagueJoined: "1949", city: "Philadelphia", state: "PA", cityFounded: "1682", cityCharter: "October 25, 1701", arena: "Wells Fargo Center", arenaOpened: "August 31, 1996" },
     { name: "Phoenix Suns", division: "Pacific", conference: "Western", founded: "February 6, 1968", leagueJoined: "1968", city: "Phoenix", state: "AZ", cityFounded: "May 4, 1868", cityCharter: "February 25, 1881", arena: "Footprint Center", arenaOpened: "June 1, 1992" },
     { name: "Portland Trail Blazers", division: "Northwest", conference: "Western", founded: "February 6, 1970", leagueJoined: "1970", city: "Portland", state: "OR", cityFounded: "1843", cityCharter: "February 8, 1851", arena: "Moda Center", arenaOpened: "October 12, 1995" },
-    { name: "Sacramento Kings", division: "Pacific", conference: "Western", founded: "1945", leagueJoined: "1948", city: "Sacramento", state: "CA", cityFounded: "1848", cityCharter: "February 27, 1850", arena: "Golden 1 Center", arenaOpened: "September 30, 2016" },
+    { name: "Sacramento Kings", division: "Pacific", conference: "Western", founded: "June 1, 1945", leagueJoined: "1948", city: "Sacramento", state: "CA", cityFounded: "1848", cityCharter: "February 27, 1850", arena: "Golden 1 Center", arenaOpened: "September 30, 2016" },
     { name: "San Antonio Spurs", division: "Southwest", conference: "Western", founded: "February 2, 1967", leagueJoined: "1976", city: "San Antonio", state: "TX", cityFounded: "May 1, 1718", cityCharter: "June 5, 1837", arena: "Frost Bank Center", arenaOpened: "October 18, 2002" },
     { name: "Toronto Raptors", division: "Atlantic", conference: "Eastern", founded: "November 4, 1993", leagueJoined: "1995", city: "Toronto", state: "ON", cityFounded: "August 27, 1793", cityCharter: "March 6, 1834", arena: "Scotiabank Arena", arenaOpened: "February 20, 1999" },
     { name: "Utah Jazz", division: "Northwest", conference: "Western", founded: "June 7, 1974", leagueJoined: "1974", city: "Salt Lake City", state: "UT", cityFounded: "July 24, 1847", cityCharter: "January 6, 1851", arena: "Delta Center", arenaOpened: "October 4, 1991" },
@@ -125,11 +125,11 @@ const sportsData = {
   mlb: [
     { name: "Arizona Diamondbacks", division: "NL West", conference: "National League", founded: "March 9, 1995", leagueJoined: "1998", city: "Phoenix", state: "AZ", cityFounded: "May 4, 1868", cityCharter: "February 25, 1881", stadium: "Chase Field", stadiumOpened: "March 31, 1998" },
     { name: "Atlanta Braves", division: "NL East", conference: "National League", founded: "January 20, 1871", leagueJoined: "1876", city: "Atlanta", state: "GA", cityFounded: "1837", cityCharter: "December 29, 1847", stadium: "Truist Park", stadiumOpened: "March 31, 2017" },
-    { name: "Baltimore Orioles", division: "AL East", conference: "American League", founded: "1901", leagueJoined: "1901", city: "Baltimore", state: "MD", cityFounded: "August 8, 1729", cityCharter: "January 13, 1797", stadium: "Oriole Park at Camden Yards", stadiumOpened: "April 6, 1992" },
+    { name: "Baltimore Orioles", division: "AL East", conference: "American League", founded: "January 1, 1901", leagueJoined: "1901", city: "Baltimore", state: "MD", cityFounded: "August 8, 1729", cityCharter: "January 13, 1797", stadium: "Oriole Park at Camden Yards", stadiumOpened: "April 6, 1992" },
     { name: "Boston Red Sox", division: "AL East", conference: "American League", founded: "January 28, 1901", leagueJoined: "1901", city: "Boston", state: "MA", cityFounded: "September 17, 1630", cityCharter: "March 19, 1822", stadium: "Fenway Park", stadiumOpened: "April 20, 1912" },
-    { name: "Chicago Cubs", division: "NL Central", conference: "National League", founded: "1870", leagueJoined: "1876", city: "Chicago", state: "IL", cityFounded: "March 4, 1837", cityCharter: "March 4, 1837", stadium: "Wrigley Field", stadiumOpened: "April 23, 1914" },
+    { name: "Chicago Cubs", division: "NL Central", conference: "National League", founded: "October 26, 1870", leagueJoined: "1876", city: "Chicago", state: "IL", cityFounded: "March 4, 1837", cityCharter: "March 4, 1837", stadium: "Wrigley Field", stadiumOpened: "April 23, 1914" },
     { name: "Chicago White Sox", division: "AL Central", conference: "American League", founded: "March 21, 1900", leagueJoined: "1901", city: "Chicago", state: "IL", cityFounded: "March 4, 1837", cityCharter: "March 4, 1837", stadium: "Guaranteed Rate Field", stadiumOpened: "April 18, 1991" },
-    { name: "Cincinnati Reds", division: "NL Central", conference: "National League", founded: "1881", leagueJoined: "1890", city: "Cincinnati", state: "OH", cityFounded: "December 1788", cityCharter: "March 1, 1819", stadium: "Great American Ball Park", stadiumOpened: "March 31, 2003" },
+    { name: "Cincinnati Reds", division: "NL Central", conference: "National League", founded: "March 1, 1881", leagueJoined: "1890", city: "Cincinnati", state: "OH", cityFounded: "December 1788", cityCharter: "March 1, 1819", stadium: "Great American Ball Park", stadiumOpened: "March 31, 2003" },
     { name: "Cleveland Guardians", division: "AL Central", conference: "American League", founded: "January 28, 1901", leagueJoined: "1901", city: "Cleveland", state: "OH", cityFounded: "July 22, 1796", cityCharter: "January 1, 1914", stadium: "Progressive Field", stadiumOpened: "April 4, 1994" },
     { name: "Colorado Rockies", division: "NL West", conference: "National League", founded: "July 5, 1991", leagueJoined: "1993", city: "Denver", state: "CO", cityFounded: "November 22, 1858", cityCharter: "November 7, 1861", stadium: "Coors Field", stadiumOpened: "April 26, 1995" },
     { name: "Detroit Tigers", division: "AL Central", conference: "American League", founded: "April 28, 1901", leagueJoined: "1901", city: "Detroit", state: "MI", cityFounded: "July 24, 1701", cityCharter: "September 13, 1806", stadium: "Comerica Park", stadiumOpened: "April 11, 2000" },
@@ -142,7 +142,7 @@ const sportsData = {
     { name: "Minnesota Twins", division: "AL Central", conference: "American League", founded: "November 17, 1900", leagueJoined: "1901", city: "Minneapolis", state: "MN", cityFounded: "1872", cityCharter: "1872", stadium: "Target Field", stadiumOpened: "April 12, 2010" },
     { name: "New York Mets", division: "NL East", conference: "National League", founded: "October 17, 1960", leagueJoined: "1962", city: "New York", state: "NY", cityFounded: "1624", cityCharter: "1653", stadium: "Citi Field", stadiumOpened: "April 13, 2009" },
     { name: "New York Yankees", division: "AL East", conference: "American League", founded: "March 12, 1903", leagueJoined: "1903", city: "New York", state: "NY", cityFounded: "1624", cityCharter: "1653", stadium: "Yankee Stadium", stadiumOpened: "April 16, 2009" },
-    { name: "Oakland Athletics", division: "AL West", conference: "American League", founded: "1901", leagueJoined: "1901", city: "Oakland", state: "CA", cityFounded: "May 4, 1852", cityCharter: "May 4, 1852", stadium: "Oakland Coliseum", stadiumOpened: "September 18, 1966" },
+    { name: "Athletics", division: "AL West", conference: "American League", founded: "January 1, 1901", leagueJoined: "1901", city: "West Sacramento", state: "CA", cityFounded: "November 14, 1987", cityCharter: "November 14, 1987", stadium: "Sutter Health Park", stadiumOpened: "April 3, 2000" },
     { name: "Philadelphia Phillies", division: "NL East", conference: "National League", founded: "May 1, 1883", leagueJoined: "1883", city: "Philadelphia", state: "PA", cityFounded: "1682", cityCharter: "October 25, 1701", stadium: "Citizens Bank Park", stadiumOpened: "April 12, 2004" },
     { name: "Pittsburgh Pirates", division: "NL Central", conference: "National League", founded: "October 15, 1881", leagueJoined: "1887", city: "Pittsburgh", state: "PA", cityFounded: "November 27, 1758", cityCharter: "March 18, 1816", stadium: "PNC Park", stadiumOpened: "March 31, 2001" },
     { name: "San Diego Padres", division: "NL West", conference: "National League", founded: "January 16, 1969", leagueJoined: "1969", city: "San Diego", state: "CA", cityFounded: "July 16, 1769", cityCharter: "March 27, 1850", stadium: "Petco Park", stadiumOpened: "April 8, 2004" },
@@ -212,7 +212,7 @@ const sportsData = {
     { name: "Chicago Fire FC", division: "Eastern", conference: "Eastern", founded: "October 8, 1997", leagueJoined: "1998", city: "Chicago", state: "IL", cityFounded: "March 4, 1837", cityCharter: "March 4, 1837", stadium: "SeatGeek Stadium", stadiumOpened: "June 11, 2006" },
     { name: "FC Cincinnati", division: "Eastern", conference: "Eastern", founded: "August 12, 2015", leagueJoined: "2019", city: "Cincinnati", state: "OH", cityFounded: "December 1788", cityCharter: "March 1, 1819", stadium: "TQL Stadium", stadiumOpened: "May 1, 2021" },
     { name: "Colorado Rapids", division: "Western", conference: "Western", founded: "June 15, 1995", leagueJoined: "1996", city: "Commerce City", state: "CO", cityFounded: "1952", cityCharter: "1952", stadium: "Dick's Sporting Goods Park", stadiumOpened: "April 7, 2007" },
-    { name: "Columbus Crew", division: "Eastern", conference: "Eastern", founded: "June 15, 1994", leagueJoined: "1996", city: "Columbus", state: "OH", cityFounded: "February 14, 1812", cityCharter: "March 3, 1834", stadium: "Field", stadiumOpened: "July 3, 2021" },
+    { name: "Columbus Crew", division: "Eastern", conference: "Eastern", founded: "June 15, 1994", leagueJoined: "1996", city: "Columbus", state: "OH", cityFounded: "February 14, 1812", cityCharter: "March 3, 1834", stadium: "Lower.com Field", stadiumOpened: "July 3, 2021" },
     { name: "D.C. United", division: "Eastern", conference: "Eastern", founded: "June 15, 1994", leagueJoined: "1996", city: "Washington", state: "DC", cityFounded: "July 16, 1790", cityCharter: "", stadium: "Audi Field", stadiumOpened: "July 14, 2018" },
     { name: "FC Dallas", division: "Western", conference: "Western", founded: "June 15, 1995", leagueJoined: "1996", city: "Frisco", state: "TX", cityFounded: "1902", cityCharter: "1987", stadium: "Toyota Stadium", stadiumOpened: "August 6, 2005" },
     { name: "Houston Dynamo FC", division: "Western", conference: "Western", founded: "December 15, 2005", leagueJoined: "2006", city: "Houston", state: "TX", cityFounded: "August 30, 1836", cityCharter: "June 5, 1837", stadium: "Shell Energy Stadium", stadiumOpened: "May 12, 2012" },
@@ -986,6 +986,188 @@ const sportsData = {
 };
 
 // Rest of your JavaScript code stays exactly the same...
+
+// ==========================================================================
+// TEAM LOGO MAP — ESPN CDN + fallback initials
+// ==========================================================================
+const teamLogos = {
+  // NFL
+  "Arizona Cardinals": "https://a.espncdn.com/i/teamlogos/nfl/500/ari.png",
+  "Atlanta Falcons": "https://a.espncdn.com/i/teamlogos/nfl/500/atl.png",
+  "Baltimore Ravens": "https://a.espncdn.com/i/teamlogos/nfl/500/bal.png",
+  "Buffalo Bills": "https://a.espncdn.com/i/teamlogos/nfl/500/buf.png",
+  "Carolina Panthers": "https://a.espncdn.com/i/teamlogos/nfl/500/car.png",
+  "Chicago Bears": "https://a.espncdn.com/i/teamlogos/nfl/500/chi.png",
+  "Cincinnati Bengals": "https://a.espncdn.com/i/teamlogos/nfl/500/cin.png",
+  "Cleveland Browns": "https://a.espncdn.com/i/teamlogos/nfl/500/cle.png",
+  "Dallas Cowboys": "https://a.espncdn.com/i/teamlogos/nfl/500/dal.png",
+  "Denver Broncos": "https://a.espncdn.com/i/teamlogos/nfl/500/den.png",
+  "Detroit Lions": "https://a.espncdn.com/i/teamlogos/nfl/500/det.png",
+  "Green Bay Packers": "https://a.espncdn.com/i/teamlogos/nfl/500/gb.png",
+  "Houston Texans": "https://a.espncdn.com/i/teamlogos/nfl/500/hou.png",
+  "Indianapolis Colts": "https://a.espncdn.com/i/teamlogos/nfl/500/ind.png",
+  "Jacksonville Jaguars": "https://a.espncdn.com/i/teamlogos/nfl/500/jax.png",
+  "Kansas City Chiefs": "https://a.espncdn.com/i/teamlogos/nfl/500/kc.png",
+  "Las Vegas Raiders": "https://a.espncdn.com/i/teamlogos/nfl/500/lv.png",
+  "Los Angeles Chargers": "https://a.espncdn.com/i/teamlogos/nfl/500/lac.png",
+  "Los Angeles Rams": "https://a.espncdn.com/i/teamlogos/nfl/500/lar.png",
+  "Miami Dolphins": "https://a.espncdn.com/i/teamlogos/nfl/500/mia.png",
+  "Minnesota Vikings": "https://a.espncdn.com/i/teamlogos/nfl/500/min.png",
+  "New England Patriots": "https://a.espncdn.com/i/teamlogos/nfl/500/ne.png",
+  "New Orleans Saints": "https://a.espncdn.com/i/teamlogos/nfl/500/no.png",
+  "New York Giants": "https://a.espncdn.com/i/teamlogos/nfl/500/nyg.png",
+  "New York Jets": "https://a.espncdn.com/i/teamlogos/nfl/500/nyj.png",
+  "Philadelphia Eagles": "https://a.espncdn.com/i/teamlogos/nfl/500/phi.png",
+  "Pittsburgh Steelers": "https://a.espncdn.com/i/teamlogos/nfl/500/pit.png",
+  "San Francisco 49ers": "https://a.espncdn.com/i/teamlogos/nfl/500/sf.png",
+  "Seattle Seahawks": "https://a.espncdn.com/i/teamlogos/nfl/500/sea.png",
+  "Tampa Bay Buccaneers": "https://a.espncdn.com/i/teamlogos/nfl/500/tb.png",
+  "Tennessee Titans": "https://a.espncdn.com/i/teamlogos/nfl/500/ten.png",
+  "Washington Commanders": "https://a.espncdn.com/i/teamlogos/nfl/500/wsh.png",
+  // NBA
+  "Atlanta Hawks": "https://a.espncdn.com/i/teamlogos/nba/500/atl.png",
+  "Boston Celtics": "https://a.espncdn.com/i/teamlogos/nba/500/bos.png",
+  "Brooklyn Nets": "https://a.espncdn.com/i/teamlogos/nba/500/bkn.png",
+  "Charlotte Hornets": "https://a.espncdn.com/i/teamlogos/nba/500/cha.png",
+  "Chicago Bulls": "https://a.espncdn.com/i/teamlogos/nba/500/chi.png",
+  "Cleveland Cavaliers": "https://a.espncdn.com/i/teamlogos/nba/500/cle.png",
+  "Dallas Mavericks": "https://a.espncdn.com/i/teamlogos/nba/500/dal.png",
+  "Denver Nuggets": "https://a.espncdn.com/i/teamlogos/nba/500/den.png",
+  "Detroit Pistons": "https://a.espncdn.com/i/teamlogos/nba/500/det.png",
+  "Golden State Warriors": "https://a.espncdn.com/i/teamlogos/nba/500/gs.png",
+  "Houston Rockets": "https://a.espncdn.com/i/teamlogos/nba/500/hou.png",
+  "Indiana Pacers": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png",
+  "LA Clippers": "https://a.espncdn.com/i/teamlogos/nba/500/lac.png",
+  "Los Angeles Lakers": "https://a.espncdn.com/i/teamlogos/nba/500/lal.png",
+  "Memphis Grizzlies": "https://a.espncdn.com/i/teamlogos/nba/500/mem.png",
+  "Miami Heat": "https://a.espncdn.com/i/teamlogos/nba/500/mia.png",
+  "Milwaukee Bucks": "https://a.espncdn.com/i/teamlogos/nba/500/mil.png",
+  "Minnesota Timberwolves": "https://a.espncdn.com/i/teamlogos/nba/500/min.png",
+  "New Orleans Pelicans": "https://a.espncdn.com/i/teamlogos/nba/500/no.png",
+  "New York Knicks": "https://a.espncdn.com/i/teamlogos/nba/500/ny.png",
+  "Oklahoma City Thunder": "https://a.espncdn.com/i/teamlogos/nba/500/okc.png",
+  "Orlando Magic": "https://a.espncdn.com/i/teamlogos/nba/500/orl.png",
+  "Philadelphia 76ers": "https://a.espncdn.com/i/teamlogos/nba/500/phi.png",
+  "Phoenix Suns": "https://a.espncdn.com/i/teamlogos/nba/500/phx.png",
+  "Portland Trail Blazers": "https://a.espncdn.com/i/teamlogos/nba/500/por.png",
+  "Sacramento Kings": "https://a.espncdn.com/i/teamlogos/nba/500/sac.png",
+  "San Antonio Spurs": "https://a.espncdn.com/i/teamlogos/nba/500/sa.png",
+  "Toronto Raptors": "https://a.espncdn.com/i/teamlogos/nba/500/tor.png",
+  "Utah Jazz": "https://a.espncdn.com/i/teamlogos/nba/500/utah.png",
+  "Washington Wizards": "https://a.espncdn.com/i/teamlogos/nba/500/wsh.png",
+  // MLB
+  "Arizona Diamondbacks": "https://a.espncdn.com/i/teamlogos/mlb/500/ari.png",
+  "Atlanta Braves": "https://a.espncdn.com/i/teamlogos/mlb/500/atl.png",
+  "Baltimore Orioles": "https://a.espncdn.com/i/teamlogos/mlb/500/bal.png",
+  "Boston Red Sox": "https://a.espncdn.com/i/teamlogos/mlb/500/bos.png",
+  "Chicago Cubs": "https://a.espncdn.com/i/teamlogos/mlb/500/chc.png",
+  "Chicago White Sox": "https://a.espncdn.com/i/teamlogos/mlb/500/chw.png",
+  "Cincinnati Reds": "https://a.espncdn.com/i/teamlogos/mlb/500/cin.png",
+  "Cleveland Guardians": "https://a.espncdn.com/i/teamlogos/mlb/500/cle.png",
+  "Colorado Rockies": "https://a.espncdn.com/i/teamlogos/mlb/500/col.png",
+  "Detroit Tigers": "https://a.espncdn.com/i/teamlogos/mlb/500/det.png",
+  "Houston Astros": "https://a.espncdn.com/i/teamlogos/mlb/500/hou.png",
+  "Kansas City Royals": "https://a.espncdn.com/i/teamlogos/mlb/500/kc.png",
+  "Los Angeles Angels": "https://a.espncdn.com/i/teamlogos/mlb/500/laa.png",
+  "Los Angeles Dodgers": "https://a.espncdn.com/i/teamlogos/mlb/500/lad.png",
+  "Miami Marlins": "https://a.espncdn.com/i/teamlogos/mlb/500/mia.png",
+  "Milwaukee Brewers": "https://a.espncdn.com/i/teamlogos/mlb/500/mil.png",
+  "Minnesota Twins": "https://a.espncdn.com/i/teamlogos/mlb/500/min.png",
+  "New York Mets": "https://a.espncdn.com/i/teamlogos/mlb/500/nym.png",
+  "New York Yankees": "https://a.espncdn.com/i/teamlogos/mlb/500/nyy.png",
+  "Athletics": "https://a.espncdn.com/i/teamlogos/mlb/500/oak.png",
+  "Philadelphia Phillies": "https://a.espncdn.com/i/teamlogos/mlb/500/phi.png",
+  "Pittsburgh Pirates": "https://a.espncdn.com/i/teamlogos/mlb/500/pit.png",
+  "San Diego Padres": "https://a.espncdn.com/i/teamlogos/mlb/500/sd.png",
+  "San Francisco Giants": "https://a.espncdn.com/i/teamlogos/mlb/500/sf.png",
+  "Seattle Mariners": "https://a.espncdn.com/i/teamlogos/mlb/500/sea.png",
+  "St. Louis Cardinals": "https://a.espncdn.com/i/teamlogos/mlb/500/stl.png",
+  "Tampa Bay Rays": "https://a.espncdn.com/i/teamlogos/mlb/500/tb.png",
+  "Texas Rangers": "https://a.espncdn.com/i/teamlogos/mlb/500/tex.png",
+  "Toronto Blue Jays": "https://a.espncdn.com/i/teamlogos/mlb/500/tor.png",
+  "Washington Nationals": "https://a.espncdn.com/i/teamlogos/mlb/500/wsh.png",
+  // NHL
+  "Anaheim Ducks": "https://a.espncdn.com/i/teamlogos/nhl/500/ana.png",
+  "Boston Bruins": "https://a.espncdn.com/i/teamlogos/nhl/500/bos.png",
+  "Buffalo Sabres": "https://a.espncdn.com/i/teamlogos/nhl/500/buf.png",
+  "Calgary Flames": "https://a.espncdn.com/i/teamlogos/nhl/500/cgy.png",
+  "Carolina Hurricanes": "https://a.espncdn.com/i/teamlogos/nhl/500/car.png",
+  "Chicago Blackhawks": "https://a.espncdn.com/i/teamlogos/nhl/500/chi.png",
+  "Colorado Avalanche": "https://a.espncdn.com/i/teamlogos/nhl/500/col.png",
+  "Columbus Blue Jackets": "https://a.espncdn.com/i/teamlogos/nhl/500/cbj.png",
+  "Dallas Stars": "https://a.espncdn.com/i/teamlogos/nhl/500/dal.png",
+  "Detroit Red Wings": "https://a.espncdn.com/i/teamlogos/nhl/500/det.png",
+  "Edmonton Oilers": "https://a.espncdn.com/i/teamlogos/nhl/500/edm.png",
+  "Florida Panthers": "https://a.espncdn.com/i/teamlogos/nhl/500/fla.png",
+  "Los Angeles Kings": "https://a.espncdn.com/i/teamlogos/nhl/500/la.png",
+  "Minnesota Wild": "https://a.espncdn.com/i/teamlogos/nhl/500/min.png",
+  "Montreal Canadiens": "https://a.espncdn.com/i/teamlogos/nhl/500/mtl.png",
+  "Nashville Predators": "https://a.espncdn.com/i/teamlogos/nhl/500/nsh.png",
+  "New Jersey Devils": "https://a.espncdn.com/i/teamlogos/nhl/500/nj.png",
+  "New York Islanders": "https://a.espncdn.com/i/teamlogos/nhl/500/nyi.png",
+  "New York Rangers": "https://a.espncdn.com/i/teamlogos/nhl/500/nyr.png",
+  "Ottawa Senators": "https://a.espncdn.com/i/teamlogos/nhl/500/ott.png",
+  "Philadelphia Flyers": "https://a.espncdn.com/i/teamlogos/nhl/500/phi.png",
+  "Pittsburgh Penguins": "https://a.espncdn.com/i/teamlogos/nhl/500/pit.png",
+  "San Jose Sharks": "https://a.espncdn.com/i/teamlogos/nhl/500/sj.png",
+  "Seattle Kraken": "https://a.espncdn.com/i/teamlogos/nhl/500/sea.png",
+  "St. Louis Blues": "https://a.espncdn.com/i/teamlogos/nhl/500/stl.png",
+  "Tampa Bay Lightning": "https://a.espncdn.com/i/teamlogos/nhl/500/tb.png",
+  "Toronto Maple Leafs": "https://a.espncdn.com/i/teamlogos/nhl/500/tor.png",
+  "Utah Hockey Club": "https://a.espncdn.com/i/teamlogos/nhl/500/utah.png",
+  "Vancouver Canucks": "https://a.espncdn.com/i/teamlogos/nhl/500/van.png",
+  "Vegas Golden Knights": "https://a.espncdn.com/i/teamlogos/nhl/500/vgk.png",
+  "Washington Capitals": "https://a.espncdn.com/i/teamlogos/nhl/500/wsh.png",
+  "Winnipeg Jets": "https://a.espncdn.com/i/teamlogos/nhl/500/wpg.png",
+  // WNBA
+  "Atlanta Dream": "https://a.espncdn.com/i/teamlogos/wnba/500/atl.png",
+  "Chicago Sky": "https://a.espncdn.com/i/teamlogos/wnba/500/chi.png",
+  "Connecticut Sun": "https://a.espncdn.com/i/teamlogos/wnba/500/conn.png",
+  "Dallas Wings": "https://a.espncdn.com/i/teamlogos/wnba/500/dal.png",
+  "Golden State Valkyries": "https://a.espncdn.com/i/teamlogos/wnba/500/gsv.png",
+  "Indiana Fever": "https://a.espncdn.com/i/teamlogos/wnba/500/ind.png",
+  "Las Vegas Aces": "https://a.espncdn.com/i/teamlogos/wnba/500/lv.png",
+  "Minnesota Lynx": "https://a.espncdn.com/i/teamlogos/wnba/500/min.png",
+  "New York Liberty": "https://a.espncdn.com/i/teamlogos/wnba/500/ny.png",
+  "Phoenix Mercury": "https://a.espncdn.com/i/teamlogos/wnba/500/phx.png",
+  "Seattle Storm": "https://a.espncdn.com/i/teamlogos/wnba/500/sea.png",
+  "Washington Mystics": "https://a.espncdn.com/i/teamlogos/wnba/500/wsh.png",
+  // MLS
+  "Atlanta United FC": "https://a.espncdn.com/i/teamlogos/soccer/500/660.png",
+  "Austin FC": "https://a.espncdn.com/i/teamlogos/soccer/500/18614.png",
+  "Charlotte FC": "https://a.espncdn.com/i/teamlogos/soccer/500/17928.png",
+  "Chicago Fire FC": "https://a.espncdn.com/i/teamlogos/soccer/500/674.png",
+  "FC Cincinnati": "https://a.espncdn.com/i/teamlogos/soccer/500/11194.png",
+  "Colorado Rapids": "https://a.espncdn.com/i/teamlogos/soccer/500/691.png",
+  "Columbus Crew": "https://a.espncdn.com/i/teamlogos/soccer/500/693.png",
+  "D.C. United": "https://a.espncdn.com/i/teamlogos/soccer/500/694.png",
+  "FC Dallas": "https://a.espncdn.com/i/teamlogos/soccer/500/6154.png",
+  "Houston Dynamo FC": "https://a.espncdn.com/i/teamlogos/soccer/500/4936.png",
+  "Inter Miami CF": "https://a.espncdn.com/i/teamlogos/soccer/500/16193.png",
+  "LA Galaxy": "https://a.espncdn.com/i/teamlogos/soccer/500/714.png",
+  "Los Angeles FC": "https://a.espncdn.com/i/teamlogos/soccer/500/9726.png",
+  "Minnesota United FC": "https://a.espncdn.com/i/teamlogos/soccer/500/9726.png",
+  "CF Montréal": "https://a.espncdn.com/i/teamlogos/soccer/500/4473.png",
+  "Nashville SC": "https://a.espncdn.com/i/teamlogos/soccer/500/14941.png",
+  "New England Revolution": "https://a.espncdn.com/i/teamlogos/soccer/500/731.png",
+  "New York City FC": "https://a.espncdn.com/i/teamlogos/soccer/500/5503.png",
+  "New York Red Bulls": "https://a.espncdn.com/i/teamlogos/soccer/500/473.png",
+  "Orlando City SC": "https://a.espncdn.com/i/teamlogos/soccer/500/7247.png",
+  "Philadelphia Union": "https://a.espncdn.com/i/teamlogos/soccer/500/9599.png",
+  "Portland Timbers": "https://a.espncdn.com/i/teamlogos/soccer/500/5140.png",
+  "Real Salt Lake": "https://a.espncdn.com/i/teamlogos/soccer/500/4415.png",
+  "San Jose Earthquakes": "https://a.espncdn.com/i/teamlogos/soccer/500/703.png",
+  "Seattle Sounders FC": "https://a.espncdn.com/i/teamlogos/soccer/500/9750.png",
+  "Sporting Kansas City": "https://a.espncdn.com/i/teamlogos/soccer/500/649.png",
+  "St. Louis City SC": "https://a.espncdn.com/i/teamlogos/soccer/500/20285.png",
+  "Toronto FC": "https://a.espncdn.com/i/teamlogos/soccer/500/4415.png",
+  "Vancouver Whitecaps FC": "https://a.espncdn.com/i/teamlogos/soccer/500/5140.png"
+};
+
+function getTeamLogo(teamName) {
+  return teamLogos[teamName] || null;
+}
+
 // (Include all the utility functions, navigation, rendering, popup functions, etc. from the previous complete version)
 // Current sport and filtered data
 // Sport configurations for different leagues
@@ -1038,6 +1220,7 @@ function switchSport(sportKey) {
   }
   if (sportKey === 'numerology') {
     showNumerologyTools();
+    // Don't hide the main content — floating panel overlays it
     return;
   }
   
@@ -1470,27 +1653,356 @@ function showLetterBreakdown(text) {
     }
 }
 
-function showNumerologyTools() {
-    document.getElementById('controls-section').style.display = 'none';
-    document.getElementById('data-table').style.display = 'none';
-    document.getElementById('gematria-calculator').style.display = 'none';
-    document.getElementById('numerology-tools').style.display = 'block';
-    
-    document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
-    document.querySelector('[data-sport="numerology"]').classList.add('active');
-    
-    document.getElementById('numerology-tools').innerHTML = `
-        <div class="coming-soon">
-            <h3>Numerology Tools</h3>
-            <p><strong>Interactive date and number analysis tools</strong></p>
-            <p>• Date to day-of-year calculator</p>
-            <p>• Number properties (primes, composites, squares)</p>
-            <p>• Date numerology analysis</p>
-            <p>• Cross-reference with team founding dates</p>
-            <p><strong>Coming Soon!</strong></p>
-        </div>
-    `;
+// ==========================================================================
+// DATE CALCULATOR — Gematrinator-style
+// ==========================================================================
+
+function isLeapYear(y) {
+  return (y % 4 === 0 && y % 100 !== 0) || y % 400 === 0;
 }
+
+function daysInMonth(m, y) {
+  return [0,31, isLeapYear(y)?29:28, 31,30,31,30,31,31,30,31,30,31][m] || 30;
+}
+
+function dayOfYear(m, d, y) {
+  let n = 0;
+  for (let i = 1; i < m; i++) n += daysInMonth(i, y);
+  return n + d;
+}
+
+function daysLeftInYear(m, d, y) {
+  const total = isLeapYear(y) ? 366 : 365;
+  return total - dayOfYear(m, d, y);
+}
+
+function dateDiff(m1, d1, y1, m2, d2, y2, includeEnd) {
+  const a = new Date(y1, m1 - 1, d1);
+  const b = new Date(y2, m2 - 1, d2);
+  const ms = b - a;
+  let days = Math.round(ms / 86400000);
+  if (includeEnd) days += 1;
+  return days;
+}
+
+function buildDurationBreakdown(totalDays, m1, d1, y1, m2, d2, y2) {
+  // Year + Days
+  let yrs = 0, rem = totalDays;
+  let tempM = m1, tempD = d1, tempY = y1;
+  while (true) {
+    const nextY = new Date(tempY + 1, tempM - 1, tempD);
+    const daysInYear = isLeapYear(tempY) ? 366 : 365;
+    if (rem >= daysInYear) { yrs++; rem -= daysInYear; tempY++; } else break;
+  }
+  const yr_days = rem;
+
+  // Months + Days (from y1)
+  let months = (y2 - y1) * 12 + (m2 - m1);
+  let mo_days = d2 - d1;
+  if (mo_days < 0) { months--; mo_days += daysInMonth(m1, y1); }
+
+  // Weeks + Days
+  const weeks = Math.floor(totalDays / 7);
+  const wk_days = totalDays % 7;
+
+  return { yrs, yr_days, months, mo_days, weeks, wk_days };
+}
+
+const WEEKDAYS = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+const MONTHS_SHORT = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+function getWeekday(m, d, y) {
+  const dt = new Date(y, m - 1, d);
+  return WEEKDAYS[dt.getDay()];
+}
+
+function dateLabel(m, d, y) {
+  return `${getWeekday(m,d,y)} ${MONTHS_SHORT[m-1]} ${String(d).padStart(2,'0')} ${y}`;
+}
+
+function calcNumerology(m, d, y) {
+  const M = m, D = d;
+  const CC = Math.floor(y / 100);
+  const YY = y % 100;
+  const digits = (n) => String(Math.abs(n)).split('').map(Number);
+  const sumDigits = (n) => digits(n).reduce((a,b)=>a+b,0);
+  const allYDigits = digits(y);
+  const last2Digits = digits(YY);
+
+  // Row 1: (M)+(D)+(CC)+(YY)
+  const r1 = M + D + CC + YY;
+  // Row 2: (M)+(D)+individual year digits
+  const r2 = M + D + allYDigits.reduce((a,b)=>a+b,0);
+  // Row 3: individual m digits + individual d digits + individual year digits
+  const r3 = sumDigits(M) + sumDigits(D) + allYDigits.reduce((a,b)=>a+b,0);
+  // Row 4: (M)+(D)+(YY)
+  const r4 = M + D + YY;
+  // Row 5: individual m + individual d + last 2 year digits
+  const r5 = sumDigits(M) + sumDigits(D) + last2Digits.reduce((a,b)=>a+b,0);
+  // Row 6: Day of Year
+  const r6 = dayOfYear(m, d, y);
+  // Row 7: Days Left in Year
+  const r7 = daysLeftInYear(m, d, y);
+  // Row 8: (M)+(D)
+  const r8 = M + D;
+  // Row 9: individual m + individual d + (CC)+(YY)
+  const r9 = sumDigits(M) + sumDigits(D) + CC + YY;
+  // Row 10: (M)+(D)+last 2 year digits summed
+  const r10 = M + D + last2Digits.reduce((a,b)=>a+b,0);
+  // Row 11: individual m + individual d + (YY)
+  const r11 = sumDigits(M) + sumDigits(D) + YY;
+  // Row 12: product of non-zero digits (full year) — all digits of M, D, Y
+  const allDigits12 = [...digits(M), ...digits(D), ...allYDigits].filter(x=>x!==0);
+  const r12 = allDigits12.length ? allDigits12.reduce((a,b)=>a*b,1) : 0;
+  // Row 13: product of non-zero digits (last 2 year digits) — M, D, last2Y
+  const allDigits13 = [...digits(M), ...digits(D), ...last2Digits].filter(x=>x!==0);
+  const r13 = allDigits13.length ? allDigits13.reduce((a,b)=>a*b,1) : 0;
+
+  return [r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13];
+}
+
+function numLink(n, sport) {
+  const cls = sport || 'num-link';
+  return `<span class="num-link" onclick="sendToGematria(${n})">${n}</span>`;
+}
+
+function sendToGematria(n) {
+  // Switch to gematria tab and pre-fill
+  switchSport('gematria');
+  setTimeout(() => {
+    const inp = document.getElementById('gematria-input');
+    if (inp) { inp.value = n; inp.dispatchEvent(new Event('keyup')); }
+  }, 100);
+}
+
+function updateDateCalc() {
+  const m1 = parseInt(document.getElementById('dc-m1').value)||1;
+  const d1 = parseInt(document.getElementById('dc-d1').value)||1;
+  const y1 = parseInt(document.getElementById('dc-y1').value)||2025;
+  const m2 = parseInt(document.getElementById('dc-m2').value)||1;
+  const d2 = parseInt(document.getElementById('dc-d2').value)||1;
+  const y2 = parseInt(document.getElementById('dc-y2').value)||2026;
+  const includeEnd = document.getElementById('dc-include-end') && document.getElementById('dc-include-end').checked;
+
+  // Clamp
+  const clamp = (v,lo,hi) => Math.min(Math.max(v,lo),hi);
+  const cm1=clamp(m1,1,12),cd1=clamp(d1,1,daysInMonth(cm1,y1)||28),cy1=clamp(y1,0,9999);
+  const cm2=clamp(m2,1,12),cd2=clamp(d2,1,daysInMonth(cm2,y2)||28),cy2=clamp(y2,0,9999);
+
+  // Headers
+  document.getElementById('dc-header1').textContent = dateLabel(cm1,cd1,cy1);
+  document.getElementById('dc-header2').textContent = dateLabel(cm2,cd2,cy2);
+
+  // Duration
+  const totalDays = dateDiff(cm1,cd1,cy1,cm2,cd2,cy2,includeEnd);
+  document.getElementById('dc-days-result').innerHTML = `From ${dateLabel(cm1,cd1,cy1)} to ${dateLabel(cm2,cd2,cy2)} is: ${numLink(totalDays)} Days`;
+
+  // Duration breakdowns
+  const bd = buildDurationBreakdown(totalDays,cm1,cd1,cy1,cm2,cd2,cy2);
+  const showYear = document.getElementById('dc-show-year')?.checked;
+  const showMonth = document.getElementById('dc-show-month')?.checked;
+  const showWeek = document.getElementById('dc-show-week')?.checked;
+  const showDay = document.getElementById('dc-show-day')?.checked !== false; // default true
+
+  let durHTML = '';
+  if(showYear)  durHTML += `<div class="dur-row">${numLink(bd.yrs)} Year, ${numLink(bd.yr_days)} Days</div>`;
+  if(showYear && showMonth) durHTML += `<div class="dur-row">${numLink(bd.yrs)} Year, ${numLink(Math.abs(bd.months % 12))} Months, ${numLink(Math.abs(bd.mo_days))} Days</div>`;
+  if(showYear && showWeek)  durHTML += `<div class="dur-row">${numLink(bd.yrs)} Year, ${numLink(Math.floor(bd.yr_days/7))} Weeks, ${numLink(bd.yr_days%7)} Days</div>`;
+  if(showMonth) durHTML += `<div class="dur-row">${numLink(bd.months)} Months, ${numLink(Math.abs(bd.mo_days))} Days</div>`;
+  if(showWeek)  durHTML += `<div class="dur-row">${numLink(bd.weeks)} Weeks, ${numLink(bd.wk_days)} ${bd.wk_days===1?'Day':'Days'}</div>`;
+  if(showDay)   durHTML += `<div class="dur-row">${numLink(totalDays)} Days</div>`;
+  if(!durHTML)  durHTML = '<div class="dur-row" style="color:#718096">Select a duration type to view</div>';
+  document.getElementById('dc-durations').innerHTML = durHTML;
+
+  // Numerology tables
+  const n1 = calcNumerology(cm1,cd1,cy1);
+  const n2 = calcNumerology(cm2,cd2,cy2);
+  const M1=cm1,D1=cd1,Y1=cy1,M2=cm2,D2=cd2,Y2=cy2;
+  const CC1=Math.floor(Y1/100),YY1=Y1%100,CC2=Math.floor(Y2/100),YY2=Y2%100;
+
+  const digStr = (n) => String(Math.abs(n)).split('').join('+');
+  const formulas = [
+    [`(${M1})+(${D1})+(${CC1})+(${YY1})`, `(${M2})+(${D2})+(${CC2})+(${YY2})`],
+    [`(${M1})+(${D1})+${digStr(Y1)}`,     `(${M2})+(${D2})+${digStr(Y2)}`],
+    [`${digStr(M1)}+${digStr(D1)}+${digStr(Y1)}`, `${digStr(M2)}+${digStr(D2)}+${digStr(Y2)}`],
+    [`(${M1})+(${D1})+(${YY1})`,          `(${M2})+(${D2})+(${YY2})`],
+    [`${digStr(M1)}+${digStr(D1)}+${digStr(YY1)}`, `${digStr(M2)}+${digStr(D2)}+${digStr(YY2)}`],
+    [`Day of Year: (${MONTHS_SHORT[M1-1]}-${D1})`, `Day of Year: (${MONTHS_SHORT[M2-1]}-${D2})`],
+    [`Days Left in Year: (${MONTHS_SHORT[M1-1]}-${D1})`, `Days Left in Year: (${MONTHS_SHORT[M2-1]}-${D2})`],
+    [`(${M1})+(${D1})`,                   `(${M2})+(${D2})`],
+    [`${digStr(M1)}+${digStr(D1)}+(${CC1})+(${YY1})`, `${digStr(M2)}+${digStr(D2)}+(${CC2})+(${YY2})`],
+    [`(${M1})+(${D1})+${digStr(YY1)}`,    `(${M2})+(${D2})+${digStr(YY2)}`],
+    [`${digStr(M1)}+${digStr(D1)}+(${YY1})`, `${digStr(M2)}+${digStr(D2)}+(${YY2})`],
+    [`Product (Full Year)`,               `Product (Full Year)`],
+    [`Product (Last 2 Yr)`,               `Product (Last 2 Yr)`]
+  ];
+
+  let t1='',t2='';
+  for(let i=0;i<13;i++){
+    t1 += `<tr><td class="dc-formula">${formulas[i][0]}</td><td class="dc-result">${numLink(n1[i])}</td></tr>`;
+    t2 += `<tr><td class="dc-formula">${formulas[i][1]}</td><td class="dc-result">${numLink(n2[i])}</td></tr>`;
+  }
+  document.getElementById('dc-table1').innerHTML = t1;
+  document.getElementById('dc-table2').innerHTML = t2;
+}
+
+function showNumerologyTools() {
+  // Don't hide the main content — date calc is a floating overlay
+  // Just activate the tab and show the floating panel
+  document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
+  document.querySelector('[data-sport="numerology"]').classList.add('active');
+  openDateCalcPanel();
+}
+
+function openDateCalcPanel() {
+  let panel = document.getElementById('date-calc-panel');
+  if (!panel) {
+    createDateCalcPanel();
+    panel = document.getElementById('date-calc-panel');
+  }
+  panel.style.display = 'flex';
+  updateDateCalc();
+}
+
+function closeDateCalcPanel() {
+  const p = document.getElementById('date-calc-panel');
+  if (p) p.style.display = 'none';
+  // Return nav to previously active sport if available
+  document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
+  const prevTab = document.querySelector('[data-sport="nfl"]');
+  if(prevTab) prevTab.classList.add('active');
+}
+
+function createDateCalcPanel() {
+  const today = new Date();
+  const lastYear = new Date(today.getFullYear()-1, today.getMonth(), today.getDate());
+
+  const panel = document.createElement('div');
+  panel.id = 'date-calc-panel';
+  panel.className = 'date-calc-panel';
+  panel.innerHTML = `
+    <div class="dcp-header">
+      <span class="dcp-title">📅 Date Calculator</span>
+      <div class="dcp-header-actions">
+        <button class="dcp-minimize-btn" onclick="minimizeDateCalc()" title="Minimize">—</button>
+        <button class="dcp-close-btn" onclick="closeDateCalcPanel()" title="Close">✕</button>
+      </div>
+    </div>
+    <div class="dcp-body" id="dcp-body">
+      <!-- Dual date inputs -->
+      <div class="dcp-dates-row">
+        <div class="dcp-date-box">
+          <div class="dcp-date-header" id="dc-header1">${dateLabel(lastYear.getMonth()+1, lastYear.getDate(), lastYear.getFullYear())}</div>
+          <div class="dcp-inputs">
+            <div class="dcp-input-group">
+              <label>Month</label>
+              <input type="number" id="dc-m1" class="dc-spin" value="${lastYear.getMonth()+1}" min="1" max="12" oninput="updateDateCalc()">
+            </div>
+            <div class="dcp-input-group">
+              <label>Day</label>
+              <input type="number" id="dc-d1" class="dc-spin" value="${lastYear.getDate()}" min="1" max="31" oninput="updateDateCalc()">
+            </div>
+            <div class="dcp-input-group">
+              <label>Year</label>
+              <input type="number" id="dc-y1" class="dc-spin" value="${lastYear.getFullYear()}" min="0" max="9999" oninput="updateDateCalc()">
+            </div>
+          </div>
+        </div>
+        <div class="dcp-arrow">→</div>
+        <div class="dcp-date-box">
+          <div class="dcp-date-header" id="dc-header2">${dateLabel(today.getMonth()+1, today.getDate(), today.getFullYear())}</div>
+          <div class="dcp-inputs">
+            <div class="dcp-input-group">
+              <label>Month</label>
+              <input type="number" id="dc-m2" class="dc-spin" value="${today.getMonth()+1}" min="1" max="12" oninput="updateDateCalc()">
+            </div>
+            <div class="dcp-input-group">
+              <label>Day</label>
+              <input type="number" id="dc-d2" class="dc-spin" value="${today.getDate()}" min="1" max="31" oninput="updateDateCalc()">
+            </div>
+            <div class="dcp-input-group">
+              <label>Year</label>
+              <input type="number" id="dc-y2" class="dc-spin" value="${today.getFullYear()}" min="0" max="9999" oninput="updateDateCalc()">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Include end date + result -->
+      <div class="dcp-duration-row">
+        <div class="dcp-include-end">
+          <label><input type="checkbox" id="dc-include-end" onchange="updateDateCalc()"> Include End Date?</label>
+        </div>
+        <div class="dcp-days-result" id="dc-days-result"></div>
+      </div>
+
+      <!-- Duration checkboxes + breakdown -->
+      <div class="dcp-dur-section">
+        <div class="dcp-dur-checks">
+          <div class="dcp-dur-label">Show Durations:</div>
+          <label><input type="checkbox" id="dc-show-year" onchange="updateDateCalc()"> Year</label>
+          <label><input type="checkbox" id="dc-show-month" onchange="updateDateCalc()"> Month</label>
+          <label><input type="checkbox" id="dc-show-week" onchange="updateDateCalc()"> Week</label>
+          <label><input type="checkbox" id="dc-show-day" checked onchange="updateDateCalc()"> Day</label>
+        </div>
+        <div class="dcp-durations" id="dc-durations"></div>
+      </div>
+
+      <!-- Numerology tables -->
+      <div class="dcp-tables-row">
+        <div class="dcp-table-wrap">
+          <div class="dcp-table-title" id="dc-header1-tbl">Date 1</div>
+          <table class="dc-num-table"><tbody id="dc-table1"></tbody></table>
+        </div>
+        <div class="dcp-table-wrap">
+          <div class="dcp-table-title" id="dc-header2-tbl">Date 2</div>
+          <table class="dc-num-table"><tbody id="dc-table2"></tbody></table>
+        </div>
+      </div>
+
+      <div class="dcp-footer-note">Click any number to send it to the Gematria Calculator</div>
+    </div>
+  `;
+
+  // Make it draggable
+  let isDragging = false, dragOffX = 0, dragOffY = 0;
+  const header = panel.querySelector('.dcp-header');
+  header.addEventListener('mousedown', e => {
+    if(e.target.tagName === 'BUTTON') return;
+    isDragging = true;
+    dragOffX = e.clientX - panel.getBoundingClientRect().left;
+    dragOffY = e.clientY - panel.getBoundingClientRect().top;
+    panel.style.transition = 'none';
+    e.preventDefault();
+  });
+  document.addEventListener('mousemove', e => {
+    if(!isDragging) return;
+    let x = e.clientX - dragOffX;
+    let y = e.clientY - dragOffY;
+    const maxX = window.innerWidth - panel.offsetWidth;
+    const maxY = window.innerHeight - panel.offsetHeight;
+    x = Math.max(0, Math.min(x, maxX));
+    y = Math.max(0, Math.min(y, maxY));
+    panel.style.right = 'auto';
+    panel.style.bottom = 'auto';
+    panel.style.left = x + 'px';
+    panel.style.top = y + 'px';
+  });
+  document.addEventListener('mouseup', () => { isDragging = false; });
+
+  document.body.appendChild(panel);
+}
+
+let dcMinimized = false;
+function minimizeDateCalc() {
+  const body = document.getElementById('dcp-body');
+  const btn = document.querySelector('.dcp-minimize-btn');
+  if (!body || !btn) return;
+  dcMinimized = !dcMinimized;
+  body.style.display = dcMinimized ? 'none' : 'block';
+  btn.textContent = dcMinimized ? '□' : '—';
+}
+
 
 // RENDER CARDS FUNCTION
 function renderCards() {
@@ -1522,8 +2034,11 @@ function renderCards() {
         const stateInfo = stateData[team.state];
         const stateText = stateInfo ? team.state + ' • ' + stateInfo.order + getOrdinal(stateInfo.order) + ' State' : team.state;
         
+        const logoUrl = getTeamLogo(team.name);
+        const logoHtml = logoUrl ? `<div class="team-logo-wrap"><img class="team-logo" src="${logoUrl}" alt="${team.name} logo" loading="lazy" onerror="this.style.display='none'"></div>` : '';
         html += `
           <div class="team-card ${foundedClass}" data-team-name="${team.name}">
+            ${logoHtml}
             <div class="team-card-content">
               <h4 class="team-name">${team.name}</h4>
               <p class="team-location">${team.city}, ${stateText}</p>
@@ -1588,6 +2103,7 @@ function showPopup(teamName) {
     <div class="modal-content">
       <span class="close" onclick="closePopup()">&times;</span>
       <div class="popup-header">
+        ${(function() { const l = getTeamLogo(team.name); return l ? `<img class="popup-team-logo" src="${l}" alt="${team.name} logo" onerror="this.style.display='none'">` : ''; })()}
         <h2>${team.name}</h2>
         ${team.division ? `<p class="popup-division">${team.division}</p>` : ''}
       </div>
