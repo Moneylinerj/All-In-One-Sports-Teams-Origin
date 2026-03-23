@@ -1161,7 +1161,159 @@ const teamLogos = {
   "Sporting Kansas City": "https://a.espncdn.com/i/teamlogos/soccer/500/649.png",
   "St. Louis City SC": "https://a.espncdn.com/i/teamlogos/soccer/500/20285.png",
   "Toronto FC": "https://a.espncdn.com/i/teamlogos/soccer/500/4415.png",
-  "Vancouver Whitecaps FC": "https://a.espncdn.com/i/teamlogos/soccer/500/5140.png"
+  "Vancouver Whitecaps FC": "https://a.espncdn.com/i/teamlogos/soccer/500/5140.png",
+
+  // College Football & Basketball
+  "Alabama Crimson Tide": "https://a.espncdn.com/i/teamlogos/ncaa/500/333.png",
+  "Arkansas Razorbacks": "https://a.espncdn.com/i/teamlogos/ncaa/500/8.png",
+  "Auburn Tigers": "https://a.espncdn.com/i/teamlogos/ncaa/500/2.png",
+  "Florida Gators": "https://a.espncdn.com/i/teamlogos/ncaa/500/57.png",
+  "Georgia Bulldogs": "https://a.espncdn.com/i/teamlogos/ncaa/500/61.png",
+  "Kentucky Wildcats": "https://a.espncdn.com/i/teamlogos/ncaa/500/96.png",
+  "LSU Tigers": "https://a.espncdn.com/i/teamlogos/ncaa/500/99.png",
+  "Mississippi State Bulldogs": "https://a.espncdn.com/i/teamlogos/ncaa/500/344.png",
+  "Missouri Tigers": "https://a.espncdn.com/i/teamlogos/ncaa/500/142.png",
+  "Ole Miss Rebels": "https://a.espncdn.com/i/teamlogos/ncaa/500/145.png",
+  "Mississippi Rebels": "https://a.espncdn.com/i/teamlogos/ncaa/500/145.png",
+  "Oklahoma Sooners": "https://a.espncdn.com/i/teamlogos/ncaa/500/201.png",
+  "South Carolina Gamecocks": "https://a.espncdn.com/i/teamlogos/ncaa/500/2579.png",
+  "Tennessee Volunteers": "https://a.espncdn.com/i/teamlogos/ncaa/500/2633.png",
+  "Texas Longhorns": "https://a.espncdn.com/i/teamlogos/ncaa/500/251.png",
+  "Texas A&M Aggies": "https://a.espncdn.com/i/teamlogos/ncaa/500/245.png",
+  "Vanderbilt Commodores": "https://a.espncdn.com/i/teamlogos/ncaa/500/238.png",
+  "Ohio State Buckeyes": "https://a.espncdn.com/i/teamlogos/ncaa/500/194.png",
+  "Michigan Wolverines": "https://a.espncdn.com/i/teamlogos/ncaa/500/130.png",
+  "Michigan State Spartans": "https://a.espncdn.com/i/teamlogos/ncaa/500/127.png",
+  "Penn State Nittany Lions": "https://a.espncdn.com/i/teamlogos/ncaa/500/213.png",
+  "Wisconsin Badgers": "https://a.espncdn.com/i/teamlogos/ncaa/500/275.png",
+  "Iowa Hawkeyes": "https://a.espncdn.com/i/teamlogos/ncaa/500/2294.png",
+  "Nebraska Cornhuskers": "https://a.espncdn.com/i/teamlogos/ncaa/500/158.png",
+  "Minnesota Golden Gophers": "https://a.espncdn.com/i/teamlogos/ncaa/500/135.png",
+  "Northwestern Wildcats": "https://a.espncdn.com/i/teamlogos/ncaa/500/77.png",
+  "Illinois Fighting Illini": "https://a.espncdn.com/i/teamlogos/ncaa/500/356.png",
+  "Indiana Hoosiers": "https://a.espncdn.com/i/teamlogos/ncaa/500/84.png",
+  "Purdue Boilermakers": "https://a.espncdn.com/i/teamlogos/ncaa/500/2509.png",
+  "Maryland Terrapins": "https://a.espncdn.com/i/teamlogos/ncaa/500/120.png",
+  "Rutgers Scarlet Knights": "https://a.espncdn.com/i/teamlogos/ncaa/500/164.png",
+  "Oregon Ducks": "https://a.espncdn.com/i/teamlogos/ncaa/500/2483.png",
+  "Washington Huskies": "https://a.espncdn.com/i/teamlogos/ncaa/500/264.png",
+  "UCLA Bruins": "https://a.espncdn.com/i/teamlogos/ncaa/500/26.png",
+  "USC Trojans": "https://a.espncdn.com/i/teamlogos/ncaa/500/30.png",
+  "California Golden Bears": "https://a.espncdn.com/i/teamlogos/ncaa/500/25.png",
+  "Stanford Cardinal": "https://a.espncdn.com/i/teamlogos/ncaa/500/24.png",
+  "Arizona Wildcats": "https://a.espncdn.com/i/teamlogos/ncaa/500/12.png",
+  "Arizona State Sun Devils": "https://a.espncdn.com/i/teamlogos/ncaa/500/9.png",
+  "Utah Utes": "https://a.espncdn.com/i/teamlogos/ncaa/500/254.png",
+  "Colorado Buffaloes": "https://a.espncdn.com/i/teamlogos/ncaa/500/38.png",
+  "Baylor Bears": "https://a.espncdn.com/i/teamlogos/ncaa/500/239.png",
+  "TCU Horned Frogs": "https://a.espncdn.com/i/teamlogos/ncaa/500/2628.png",
+  "Texas Tech Red Raiders": "https://a.espncdn.com/i/teamlogos/ncaa/500/2641.png",
+  "Kansas Jayhawks": "https://a.espncdn.com/i/teamlogos/ncaa/500/2305.png",
+  "Kansas State Wildcats": "https://a.espncdn.com/i/teamlogos/ncaa/500/2306.png",
+  "Iowa State Cyclones": "https://a.espncdn.com/i/teamlogos/ncaa/500/66.png",
+  "West Virginia Mountaineers": "https://a.espncdn.com/i/teamlogos/ncaa/500/277.png",
+  "Oklahoma State Cowboys": "https://a.espncdn.com/i/teamlogos/ncaa/500/197.png",
+  "UCF Knights": "https://a.espncdn.com/i/teamlogos/ncaa/500/2116.png",
+  "Cincinnati Bearcats": "https://a.espncdn.com/i/teamlogos/ncaa/500/2132.png",
+  "Houston Cougars": "https://a.espncdn.com/i/teamlogos/ncaa/500/248.png",
+  "BYU Cougars": "https://a.espncdn.com/i/teamlogos/ncaa/500/252.png",
+  "Clemson Tigers": "https://a.espncdn.com/i/teamlogos/ncaa/500/228.png",
+  "Florida State Seminoles": "https://a.espncdn.com/i/teamlogos/ncaa/500/52.png",
+  "Miami Hurricanes": "https://a.espncdn.com/i/teamlogos/ncaa/500/2390.png",
+  "North Carolina Tar Heels": "https://a.espncdn.com/i/teamlogos/ncaa/500/153.png",
+  "NC State Wolfpack": "https://a.espncdn.com/i/teamlogos/ncaa/500/152.png",
+  "Duke Blue Devils": "https://a.espncdn.com/i/teamlogos/ncaa/500/150.png",
+  "Virginia Cavaliers": "https://a.espncdn.com/i/teamlogos/ncaa/500/258.png",
+  "Virginia Tech Hokies": "https://a.espncdn.com/i/teamlogos/ncaa/500/259.png",
+  "Pittsburgh Panthers": "https://a.espncdn.com/i/teamlogos/ncaa/500/221.png",
+  "Boston College Eagles": "https://a.espncdn.com/i/teamlogos/ncaa/500/103.png",
+  "Syracuse Orange": "https://a.espncdn.com/i/teamlogos/ncaa/500/183.png",
+  "Georgia Tech Yellow Jackets": "https://a.espncdn.com/i/teamlogos/ncaa/500/59.png",
+  "Louisville Cardinals": "https://a.espncdn.com/i/teamlogos/ncaa/500/97.png",
+  "Wake Forest Demon Deacons": "https://a.espncdn.com/i/teamlogos/ncaa/500/154.png",
+  "SMU Mustangs": "https://a.espncdn.com/i/teamlogos/ncaa/500/2567.png",
+  "Notre Dame Fighting Irish": "https://a.espncdn.com/i/teamlogos/ncaa/500/87.png",
+  "Army Black Knights": "https://a.espncdn.com/i/teamlogos/ncaa/500/349.png",
+  "Navy Midshipmen": "https://a.espncdn.com/i/teamlogos/ncaa/500/2426.png",
+  "Memphis Tigers": "https://a.espncdn.com/i/teamlogos/ncaa/500/235.png",
+  "Tulane Green Wave": "https://a.espncdn.com/i/teamlogos/ncaa/500/2655.png",
+  "Tulsa Golden Hurricane": "https://a.espncdn.com/i/teamlogos/ncaa/500/202.png",
+  "East Carolina Pirates": "https://a.espncdn.com/i/teamlogos/ncaa/500/151.png",
+  "South Florida Bulls": "https://a.espncdn.com/i/teamlogos/ncaa/500/58.png",
+  "Temple Owls": "https://a.espncdn.com/i/teamlogos/ncaa/500/218.png",
+  "UAB Blazers": "https://a.espncdn.com/i/teamlogos/ncaa/500/2542.png",
+  "Charlotte 49ers": "https://a.espncdn.com/i/teamlogos/ncaa/500/2429.png",
+  "North Texas Mean Green": "https://a.espncdn.com/i/teamlogos/ncaa/500/249.png",
+  "Rice Owls": "https://a.espncdn.com/i/teamlogos/ncaa/500/242.png",
+  "Florida Atlantic Owls": "https://a.espncdn.com/i/teamlogos/ncaa/500/2226.png",
+  "UTSA Roadrunners": "https://a.espncdn.com/i/teamlogos/ncaa/500/2663.png",
+  "Boise State Broncos": "https://a.espncdn.com/i/teamlogos/ncaa/500/68.png",
+  "Air Force Falcons": "https://a.espncdn.com/i/teamlogos/ncaa/500/2005.png",
+  "Colorado State Rams": "https://a.espncdn.com/i/teamlogos/ncaa/500/36.png",
+  "Fresno State Bulldogs": "https://a.espncdn.com/i/teamlogos/ncaa/500/278.png",
+  "San Diego State Aztecs": "https://a.espncdn.com/i/teamlogos/ncaa/500/21.png",
+  "UNLV Rebels": "https://a.espncdn.com/i/teamlogos/ncaa/500/2439.png",
+  "Utah State Aggies": "https://a.espncdn.com/i/teamlogos/ncaa/500/328.png",
+  "Wyoming Cowboys": "https://a.espncdn.com/i/teamlogos/ncaa/500/2751.png",
+  "Nevada Wolf Pack": "https://a.espncdn.com/i/teamlogos/ncaa/500/2440.png",
+  "New Mexico Lobos": "https://a.espncdn.com/i/teamlogos/ncaa/500/167.png",
+  "Hawaii Rainbow Warriors": "https://a.espncdn.com/i/teamlogos/ncaa/500/62.png",
+  "San Jose State Spartans": "https://a.espncdn.com/i/teamlogos/ncaa/500/23.png",
+  "Ohio Bobcats": "https://a.espncdn.com/i/teamlogos/ncaa/500/195.png",
+  "Akron Zips": "https://a.espncdn.com/i/teamlogos/ncaa/500/2006.png",
+  "Ball State Cardinals": "https://a.espncdn.com/i/teamlogos/ncaa/500/2050.png",
+  "Bowling Green Falcons": "https://a.espncdn.com/i/teamlogos/ncaa/500/189.png",
+  "Buffalo Bulls": "https://a.espncdn.com/i/teamlogos/ncaa/500/2084.png",
+  "Central Michigan Chippewas": "https://a.espncdn.com/i/teamlogos/ncaa/500/2117.png",
+  "Eastern Michigan Eagles": "https://a.espncdn.com/i/teamlogos/ncaa/500/2199.png",
+  "Kent State Golden Flashes": "https://a.espncdn.com/i/teamlogos/ncaa/500/2309.png",
+  "Miami RedHawks": "https://a.espncdn.com/i/teamlogos/ncaa/500/193.png",
+  "Northern Illinois Huskies": "https://a.espncdn.com/i/teamlogos/ncaa/500/2459.png",
+  "Toledo Rockets": "https://a.espncdn.com/i/teamlogos/ncaa/500/2649.png",
+  "Western Michigan Broncos": "https://a.espncdn.com/i/teamlogos/ncaa/500/2711.png",
+  "Appalachian State Mountaineers": "https://a.espncdn.com/i/teamlogos/ncaa/500/2026.png",
+  "App State Mountaineers": "https://a.espncdn.com/i/teamlogos/ncaa/500/2026.png",
+  "Coastal Carolina Chanticleers": "https://a.espncdn.com/i/teamlogos/ncaa/500/324.png",
+  "Georgia Southern Eagles": "https://a.espncdn.com/i/teamlogos/ncaa/500/290.png",
+  "Georgia State Panthers": "https://a.espncdn.com/i/teamlogos/ncaa/500/2247.png",
+  "Louisiana Ragin Cajuns": "https://a.espncdn.com/i/teamlogos/ncaa/500/309.png",
+  "Arkansas State Red Wolves": "https://a.espncdn.com/i/teamlogos/ncaa/500/2032.png",
+  "South Alabama Jaguars": "https://a.espncdn.com/i/teamlogos/ncaa/500/6.png",
+  "Troy Trojans": "https://a.espncdn.com/i/teamlogos/ncaa/500/2653.png",
+  "Marshall Thundering Herd": "https://a.espncdn.com/i/teamlogos/ncaa/500/166.png",
+  "Old Dominion Monarchs": "https://a.espncdn.com/i/teamlogos/ncaa/500/295.png",
+  "James Madison Dukes": "https://a.espncdn.com/i/teamlogos/ncaa/500/256.png",
+  "Texas State Bobcats": "https://a.espncdn.com/i/teamlogos/ncaa/500/326.png",
+  "Liberty Flames": "https://a.espncdn.com/i/teamlogos/ncaa/500/2335.png",
+  "Gonzaga Bulldogs": "https://a.espncdn.com/i/teamlogos/ncaa/500/2250.png",
+  "Connecticut Huskies": "https://a.espncdn.com/i/teamlogos/ncaa/500/41.png",
+  "UConn Huskies": "https://a.espncdn.com/i/teamlogos/ncaa/500/41.png",
+  "Villanova Wildcats": "https://a.espncdn.com/i/teamlogos/ncaa/500/222.png",
+  "Creighton Bluejays": "https://a.espncdn.com/i/teamlogos/ncaa/500/156.png",
+  "Marquette Golden Eagles": "https://a.espncdn.com/i/teamlogos/ncaa/500/269.png",
+  "Georgetown Hoyas": "https://a.espncdn.com/i/teamlogos/ncaa/500/46.png",
+  "Seton Hall Pirates": "https://a.espncdn.com/i/teamlogos/ncaa/500/2550.png",
+  "Providence Friars": "https://a.espncdn.com/i/teamlogos/ncaa/500/2507.png",
+  "Xavier Musketeers": "https://a.espncdn.com/i/teamlogos/ncaa/500/2755.png",
+  "Butler Bulldogs": "https://a.espncdn.com/i/teamlogos/ncaa/500/2086.png",
+  "DePaul Blue Demons": "https://a.espncdn.com/i/teamlogos/ncaa/500/305.png",
+  "St. Johns Red Storm": "https://a.espncdn.com/i/teamlogos/ncaa/500/2599.png",
+  "Davidson Wildcats": "https://a.espncdn.com/i/teamlogos/ncaa/500/2166.png",
+  "Dayton Flyers": "https://a.espncdn.com/i/teamlogos/ncaa/500/2168.png",
+  "Duquesne Dukes": "https://a.espncdn.com/i/teamlogos/ncaa/500/2184.png",
+  "Fordham Rams": "https://a.espncdn.com/i/teamlogos/ncaa/500/2234.png",
+  "George Mason Patriots": "https://a.espncdn.com/i/teamlogos/ncaa/500/2244.png",
+  "George Washington Colonials": "https://a.espncdn.com/i/teamlogos/ncaa/500/45.png",
+  "La Salle Explorers": "https://a.espncdn.com/i/teamlogos/ncaa/500/2325.png",
+  "Loyola Chicago Ramblers": "https://a.espncdn.com/i/teamlogos/ncaa/500/2350.png",
+  "Massachusetts Minutemen": "https://a.espncdn.com/i/teamlogos/ncaa/500/113.png",
+  "Rhode Island Rams": "https://a.espncdn.com/i/teamlogos/ncaa/500/227.png",
+  "Richmond Spiders": "https://a.espncdn.com/i/teamlogos/ncaa/500/257.png",
+  "Saint Josephs Hawks": "https://a.espncdn.com/i/teamlogos/ncaa/500/2539.png",
+  "Saint Louis Billikens": "https://a.espncdn.com/i/teamlogos/ncaa/500/139.png",
+  "St. Bonaventure Bonnies": "https://a.espncdn.com/i/teamlogos/ncaa/500/179.png",
+  "VCU Rams": "https://a.espncdn.com/i/teamlogos/ncaa/500/2670.png",
+  "Wichita State Shockers": "https://a.espncdn.com/i/teamlogos/ncaa/500/2724.png"
 };
 
 function getTeamLogo(teamName) {
@@ -1262,85 +1414,100 @@ function switchSport(sportKey) {
 // Complete cipher definitions based on Gematrinator.com
 const allCiphers = {
     'Ordinal': {
-        color: '#90EE90',
+        color: '#00ba00',
         enabled: true,
         values: {'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 6, 'G': 7, 'H': 8, 'I': 9, 'J': 10, 'K': 11, 'L': 12, 'M': 13, 'N': 14, 'O': 15, 'P': 16, 'Q': 17, 'R': 18, 'S': 19, 'T': 20, 'U': 21, 'V': 22, 'W': 23, 'X': 24, 'Y': 25, 'Z': 26}
     },
     'Reduction': {
-        color: '#4169E1',
+        color: '#587dfe',
         enabled: true,
         values: {'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 6, 'G': 7, 'H': 8, 'I': 9, 'J': 1, 'K': 2, 'L': 3, 'M': 4, 'N': 5, 'O': 6, 'P': 7, 'Q': 8, 'R': 9, 'S': 1, 'T': 2, 'U': 3, 'V': 4, 'W': 5, 'X': 6, 'Y': 7, 'Z': 8}
     },
     'Reverse': {
-        color: '#90EE90',
+        color: '#50eb15',
         enabled: true,
         values: {'A': 26, 'B': 25, 'C': 24, 'D': 23, 'E': 22, 'F': 21, 'G': 20, 'H': 19, 'I': 18, 'J': 17, 'K': 16, 'L': 15, 'M': 14, 'N': 13, 'O': 12, 'P': 11, 'Q': 10, 'R': 9, 'S': 8, 'T': 7, 'U': 6, 'V': 5, 'W': 4, 'X': 3, 'Y': 2, 'Z': 1}
     },
     'Reverse Reduction': {
-        color: '#20B2AA',
+        color: '#64e2e2',
         enabled: true,
         values: {'A': 8, 'B': 7, 'C': 6, 'D': 5, 'E': 4, 'F': 3, 'G': 2, 'H': 1, 'I': 9, 'J': 8, 'K': 7, 'L': 6, 'M': 5, 'N': 4, 'O': 3, 'P': 2, 'Q': 1, 'R': 9, 'S': 8, 'T': 7, 'U': 6, 'V': 5, 'W': 4, 'X': 3, 'Y': 2, 'Z': 1}
     },
     'Standard': {
-        color: '#FFB6C1',
+        color: '#dae200',
         enabled: false,
         values: {'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 6, 'G': 7, 'H': 8, 'I': 9, 'J': 10, 'K': 11, 'L': 12, 'M': 13, 'N': 14, 'O': 15, 'P': 16, 'Q': 17, 'R': 18, 'S': 19, 'T': 20, 'U': 21, 'V': 22, 'W': 23, 'X': 24, 'Y': 25, 'Z': 26}
     },
     'Latin': {
-        color: '#DDA0DD',
+        color: '#9966ff',
         enabled: false,
         values: {'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 6, 'G': 7, 'H': 8, 'I': 9, 'J': 10, 'K': 20, 'L': 30, 'M': 40, 'N': 50, 'O': 60, 'P': 70, 'Q': 80, 'R': 90, 'S': 100, 'T': 200, 'U': 300, 'V': 400, 'W': 500, 'X': 600, 'Y': 700, 'Z': 800}
     },
     'Sumerian': {
-        color: '#32CD32',
+        color: '#a9d08e',
         enabled: false,
         values: {'A': 6, 'B': 12, 'C': 18, 'D': 24, 'E': 30, 'F': 36, 'G': 42, 'H': 48, 'I': 54, 'J': 60, 'K': 66, 'L': 72, 'M': 78, 'N': 84, 'O': 90, 'P': 96, 'Q': 102, 'R': 108, 'S': 114, 'T': 120, 'U': 126, 'V': 132, 'W': 138, 'X': 144, 'Y': 150, 'Z': 156}
     },
     'Reverse Sumerian': {
-        color: '#B0C4DE',
+        color: '#dcd094',
         enabled: false,
         values: {'A': 156, 'B': 150, 'C': 144, 'D': 138, 'E': 132, 'F': 126, 'G': 120, 'H': 114, 'I': 108, 'J': 102, 'K': 96, 'L': 90, 'M': 84, 'N': 78, 'O': 72, 'P': 66, 'Q': 60, 'R': 54, 'S': 48, 'T': 42, 'U': 36, 'V': 30, 'W': 24, 'X': 18, 'Y': 12, 'Z': 6}
     },
     'Satanic': {
-        color: '#FF6347',
+        color: '#ff0000',
         enabled: false,
         values: {'A': 36, 'B': 37, 'C': 38, 'D': 39, 'E': 40, 'F': 41, 'G': 42, 'H': 43, 'I': 44, 'J': 45, 'K': 46, 'L': 47, 'M': 48, 'N': 49, 'O': 50, 'P': 51, 'Q': 52, 'R': 53, 'S': 54, 'T': 55, 'U': 56, 'V': 57, 'W': 58, 'X': 59, 'Y': 60, 'Z': 61}
     },
     'Reverse Satanic': {
-        color: '#FF6347',
+        color: '#ff0000',
         enabled: false,
         values: {'A': 61, 'B': 60, 'C': 59, 'D': 58, 'E': 57, 'F': 56, 'G': 55, 'H': 54, 'I': 53, 'J': 52, 'K': 51, 'L': 50, 'M': 49, 'N': 48, 'O': 47, 'P': 46, 'Q': 45, 'R': 44, 'S': 43, 'T': 42, 'U': 41, 'V': 40, 'W': 39, 'X': 38, 'Y': 37, 'Z': 36}
     },
     'Single Reduction': {
-        color: '#4169E1',
+        color: '#8cabe3',
         enabled: false,
         values: {'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 6, 'G': 7, 'H': 8, 'I': 9, 'J': 1, 'K': 2, 'L': 3, 'M': 4, 'N': 5, 'O': 6, 'P': 7, 'Q': 8, 'R': 9, 'S': 1, 'T': 2, 'U': 3, 'V': 4, 'W': 5, 'X': 6, 'Y': 7, 'Z': 8}
     },
     'Trigonal': {
-        color: '#FFB6C1',
+        color: '#e7b471',
         enabled: false,
         values: {'A': 1, 'B': 3, 'C': 6, 'D': 10, 'E': 15, 'F': 21, 'G': 28, 'H': 36, 'I': 45, 'J': 55, 'K': 66, 'L': 78, 'M': 91, 'N': 105, 'O': 120, 'P': 136, 'Q': 153, 'R': 171, 'S': 190, 'T': 210, 'U': 231, 'V': 253, 'W': 276, 'X': 300, 'Y': 325, 'Z': 351}
     },
     'Reverse Trigonal': {
-        color: '#FFB6C1',
+        color: '#eebf70',
         enabled: false,
         values: {'A': 351, 'B': 325, 'C': 300, 'D': 276, 'E': 253, 'F': 231, 'G': 210, 'H': 190, 'I': 171, 'J': 153, 'K': 136, 'L': 120, 'M': 105, 'N': 91, 'O': 78, 'P': 66, 'Q': 55, 'R': 45, 'S': 36, 'T': 28, 'U': 21, 'V': 15, 'W': 10, 'X': 6, 'Y': 3, 'Z': 1}
     },
     'Chaldean': {
-        color: '#DDA0DD',
+        color: '#a6a663',
         enabled: false,
         values: {'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 8, 'G': 3, 'H': 5, 'I': 1, 'J': 1, 'K': 2, 'L': 3, 'M': 4, 'N': 5, 'O': 7, 'P': 8, 'Q': 1, 'R': 2, 'S': 3, 'T': 4, 'U': 6, 'V': 6, 'W': 6, 'X': 5, 'Y': 1, 'Z': 7}
     },
     'Septenary': {
-        color: '#DDA0DD',
+        color: '#ff994d',
         enabled: false,
         values: {'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 6, 'G': 7, 'H': 1, 'I': 2, 'J': 3, 'K': 4, 'L': 5, 'M': 6, 'N': 7, 'O': 1, 'P': 2, 'Q': 3, 'R': 4, 'S': 5, 'T': 6, 'U': 7, 'V': 1, 'W': 2, 'X': 3, 'Y': 4, 'Z': 5}
     },
     'Keypad': {
-        color: '#DDA0DD',
+        color: '#ff7eff',
         enabled: false,
         values: {'A': 2, 'B': 2, 'C': 2, 'D': 3, 'E': 3, 'F': 3, 'G': 4, 'H': 4, 'I': 4, 'J': 5, 'K': 5, 'L': 5, 'M': 6, 'N': 6, 'O': 6, 'P': 7, 'Q': 7, 'R': 7, 'S': 7, 'T': 8, 'U': 8, 'V': 8, 'W': 9, 'X': 9, 'Y': 9, 'Z': 9}
-    }
+    },
+    'Capitals Mixed': { color: '#5dbb58', enabled: false, values: {A:2,B:4,C:6,D:8,E:10,F:12,G:14,H:16,I:18,J:20,K:22,L:24,M:26,N:28,O:30,P:32,Q:34,R:36,S:38,T:40,U:42,V:44,W:46,X:48,Y:50,Z:52} },
+    'Capitals Added': { color: '#96f44d', enabled: false, values: {A:1,B:2,C:3,D:4,E:5,F:6,G:7,H:8,I:9,J:10,K:11,L:12,M:13,N:14,O:15,P:16,Q:17,R:18,S:19,T:20,U:21,V:22,W:23,X:24,Y:25,Z:26} },
+    'Reverse Caps Mixed': { color: '#6fc179', enabled: false, values: {A:52,B:50,C:48,D:46,E:44,F:42,G:40,H:38,I:36,J:34,K:32,L:30,M:28,N:26,O:24,P:22,Q:20,R:18,S:16,T:14,U:12,V:10,W:8,X:6,Y:4,Z:2} },
+    'Reverse Caps Added': { color: '#a3ff58', enabled: false, values: {A:26,B:25,C:24,D:23,E:22,F:21,G:20,H:19,I:18,J:17,K:16,L:15,M:14,N:13,O:12,P:11,Q:10,R:9,S:8,T:7,U:6,V:5,W:4,X:3,Y:2,Z:1} },
+    'Reverse Standard': { color: '#fdff77', enabled: false, values: {A:800,B:700,C:600,D:500,E:400,F:300,G:200,H:100,I:90,J:80,K:70,L:60,M:50,N:40,O:30,P:20,Q:10,R:9,S:8,T:7,U:6,V:5,W:4,X:3,Y:2,Z:1} },
+    'KV Exception': { color: '#61c3f4', enabled: false, values: {A:1,B:2,C:3,D:4,E:5,F:6,G:7,H:8,I:9,J:1,K:11,L:3,M:4,N:5,O:6,P:7,Q:8,R:9,S:1,T:2,U:3,V:22,W:5,X:6,Y:7,Z:8} },
+    'SKV Exception': { color: '#46aff4', enabled: false, values: {A:1,B:2,C:3,D:4,E:5,F:6,G:7,H:8,I:9,J:1,K:11,L:3,M:4,N:5,O:6,P:7,Q:8,R:9,S:10,T:2,U:3,V:22,W:5,X:6,Y:7,Z:8} },
+    'Reverse Single Reduction': { color: '#64d8d1', enabled: false, values: {A:8,B:7,C:6,D:5,E:4,F:3,G:2,H:10,I:9,J:8,K:7,L:6,M:5,N:4,O:3,P:2,Q:1,R:9,S:8,T:7,U:6,V:5,W:4,X:3,Y:2,Z:1} },
+    'EP Exception': { color: '#65e0c2', enabled: false, values: {A:1,B:2,C:3,D:4,E:22,F:6,G:7,H:8,I:9,J:1,K:2,L:3,M:4,N:5,O:6,P:11,Q:8,R:9,S:1,T:2,U:3,V:4,W:5,X:6,Y:7,Z:8} },
+    'EHP Exception': { color: '#6ee29c', enabled: false, values: {A:1,B:2,C:3,D:4,E:22,F:6,G:7,H:10,I:9,J:1,K:2,L:3,M:4,N:5,O:6,P:11,Q:8,R:9,S:1,T:2,U:3,V:4,W:5,X:6,Y:7,Z:8} },
+    'Primes': { color: '#ffcc6f', enabled: false, values: {A:2,B:3,C:5,D:7,E:11,F:13,G:17,H:19,I:23,J:29,K:31,L:37,M:41,N:43,O:47,P:53,Q:59,R:61,S:67,T:71,U:73,V:79,W:83,X:89,Y:97,Z:101} },
+    'Squares': { color: '#e4d860', enabled: false, values: {A:1,B:4,C:9,D:16,E:25,F:36,G:49,H:64,I:81,J:100,K:121,L:144,M:169,N:196,O:225,P:256,Q:289,R:324,S:361,T:400,U:441,V:484,W:529,X:576,Y:625,Z:676} },
+    'Fibonacci': { color: '#e9ca94', enabled: false, values: {A:1,B:1,C:2,D:3,E:5,F:8,G:13,H:21,I:34,J:55,K:89,L:144,M:233,N:233,O:144,P:89,Q:55,R:34,S:21,T:13,U:8,V:5,W:3,X:2,Y:1,Z:1} },
+    'Reverse Primes': { color: '#ffd191', enabled: false, values: {A:101,B:97,C:89,D:83,E:79,F:73,G:71,H:67,I:61,J:59,K:53,L:47,M:43,N:41,O:37,P:31,Q:29,R:23,S:19,T:17,U:13,V:11,W:7,X:5,Y:3,Z:2} },
+    'Reverse Squares': { color: '#f0e170', enabled: false, values: {A:676,B:625,C:576,D:529,E:484,F:441,G:400,H:361,I:324,J:289,K:256,L:225,M:196,N:169,O:144,P:121,Q:100,R:81,S:64,T:49,U:36,V:25,W:16,X:9,Y:4,Z:1} }
 };
 
 // Cipher groups for toggle buttons
@@ -1370,56 +1537,62 @@ function showGematriaCalculator() {
     document.querySelector('[data-sport="gematria"]').classList.add('active');
     
     document.getElementById('gematria-calculator').innerHTML = `
-        <div class="gematria-container">
-            <div class="gematria-header">
-                <h2>Gematria Calculator</h2>
-                <div class="header-options">
-                    <span>Ciphers | Options | Shortcuts</span>
+        <div class="gem-container" style="background:#222222; min-height:100vh; padding:16px; font-family:Arial,sans-serif; box-sizing:border-box;">
+            <div class="gem-panel" style="background:rgba(16,16,16,0.5); border:2px solid #4d4d4d; border-radius:15px; padding:20px; max-width:1100px; margin:0 auto;">
+                
+                <!-- Title -->
+                <div style="text-align:center; margin-bottom:14px;">
+                    <span style="color:#ffffff; font-size:1.4em; font-weight:bold; letter-spacing:2px; text-transform:uppercase;">Gematria Calculator</span>
                 </div>
-            </div>
-            
-            <div class="input-section">
-                <input type="text" id="gematria-input" placeholder="Enter Word, Phrase, or #(s):" 
-                       onkeyup="calculateGematriaLive()" />
-            </div>
-            
-            <div class="cipher-toggles">
-                <button class="toggle-btn" onclick="toggleCiphers('Select Base')">SELECT BASE</button>
-                <button class="toggle-btn" onclick="toggleCiphers('Select All')">SELECT ALL</button>
-                <button class="toggle-btn" onclick="toggleCiphers('Clear All')">CLEAR ALL</button>
-                <button class="toggle-btn" onclick="toggleCiphers('RJ\\'s Base')">RJ'S BASE</button>
-            </div>
-            
-            <div class="summary-display" id="summary-display">
-                <!-- Dynamic summary will be populated here -->
-            </div>
-            
-            <div class="word-count">
-                <span id="word-count">(0 words, 0 letters)</span>
-            </div>
-            
-            <div class="alphabet-display">
-                <div class="alphabet-row letters">
-                    <span>a b c d e f g h i j k l m</span><br>
-                    <span>n o p q r s t u v w x y z</span>
+                
+                <!-- Input -->
+                <div style="text-align:center; margin-bottom:14px;">
+                    <input type="text" id="gematria-input" placeholder="Enter Word, Phrase, or #(s):"
+                           onkeyup="calculateGematriaLive()"
+                           style="background:#000; color:#dedede; font-family:Arial,sans-serif; font-size:1.2em; border:1px solid #555; border-radius:8px; padding:8px 14px; width:100%; max-width:500px; outline:none;" />
+                    <div id="word-count" style="color:#888; font-size:0.85em; margin-top:4px;">(0 words, 0 letters)</div>
                 </div>
-                <div class="alphabet-row numbers" id="alphabet-numbers">
-                    <span>1 2 3 4 5 6 7 8 9 10 11 12 13</span><br>
-                    <span>14 15 16 17 18 19 20 21 22 23 24 25 26</span>
+                
+                <!-- Toggle buttons -->
+                <div style="text-align:center; margin-bottom:14px; display:flex; justify-content:center; gap:8px; flex-wrap:wrap;">
+                    <button onclick="toggleCiphers('Select Base')" style="background:#2e2e2e; color:white; border:1px solid #555; border-radius:15px; padding:6px 16px; text-transform:uppercase; cursor:pointer; font-size:0.8em;">SELECT BASE</button>
+                    <button onclick="toggleCiphers('Select All')" style="background:#2e2e2e; color:white; border:1px solid #555; border-radius:15px; padding:6px 16px; text-transform:uppercase; cursor:pointer; font-size:0.8em;">SELECT ALL</button>
+                    <button onclick="toggleCiphers('Clear All')" style="background:#2e2e2e; color:white; border:1px solid #555; border-radius:15px; padding:6px 16px; text-transform:uppercase; cursor:pointer; font-size:0.8em;">CLEAR ALL</button>
+                    <button onclick="toggleCiphers(\"RJ's Base\")" style="background:#2e2e2e; color:white; border:1px solid #555; border-radius:15px; padding:6px 16px; text-transform:uppercase; cursor:pointer; font-size:0.8em;">RJ'S BASE</button>
                 </div>
-                <div class="alphabet-controls">
-                    <button class="prev-cipher" onclick="previousCipher()">‹</button>
-                    <span class="current-cipher" id="current-cipher-name">Ordinal</span>
-                    <button class="next-cipher" onclick="nextCipher()">›</button>
+                
+                <!-- Alphabet chart -->
+                <div style="background:rgba(0,0,0,0.3); border:1px solid #444; border-radius:10px; padding:12px; margin-bottom:14px; text-align:center;">
+                    <div style="display:flex; justify-content:center; gap:8px; flex-wrap:wrap; margin-bottom:6px;">
+                        <span id="alpha-letters-top" style="font-size:1em; letter-spacing:3px;"></span>
+                    </div>
+                    <div style="display:flex; justify-content:center; gap:8px; flex-wrap:wrap; margin-bottom:6px;">
+                        <span id="alpha-numbers-top" style="font-size:0.9em; letter-spacing:1px; color:rgb(200,200,200);"></span>
+                    </div>
+                    <div style="display:flex; justify-content:center; gap:8px; flex-wrap:wrap; margin-bottom:6px;">
+                        <span id="alpha-letters-bot" style="font-size:1em; letter-spacing:3px;"></span>
+                    </div>
+                    <div style="display:flex; justify-content:center; gap:8px; flex-wrap:wrap; margin-bottom:8px;">
+                        <span id="alpha-numbers-bot" style="font-size:0.9em; letter-spacing:1px; color:rgb(200,200,200);"></span>
+                    </div>
+                    <div style="display:flex; align-items:center; justify-content:center; gap:12px;">
+                        <button onclick="previousCipher()" id="prev-cipher-btn" style="background:transparent; border:none; font-size:1.6em; cursor:pointer; color:#aaa; padding:0 6px;">&#8249;</button>
+                        <span id="current-cipher-name" style="font-size:1em; font-weight:bold; min-width:180px; text-align:center;"></span>
+                        <button onclick="nextCipher()" id="next-cipher-btn" style="background:transparent; border:none; font-size:1.6em; cursor:pointer; color:#aaa; padding:0 6px;">&#8250;</button>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="ciphers-grid" id="ciphers-results">
-                <!-- Cipher results will be populated here -->
-            </div>
-            
-            <div class="letter-breakdown" id="letter-breakdown" style="display: none;">
-                <!-- Letter breakdown will show here -->
+                
+                <!-- Letter breakdown -->
+                <div id="letter-breakdown" style="display:none; background:rgba(0,0,0,0.3); border:1px solid #444; border-radius:10px; padding:12px; margin-bottom:14px; text-align:center; font-size:0.95em;"></div>
+                
+                <!-- Cipher results grid -->
+                <div id="ciphers-results" style="display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:8px;">
+                    <!-- Cipher rows will be populated here -->
+                </div>
+                
+                <!-- Number Properties section -->
+                <div id="num-props-section" style="display:none; margin-top:20px;"></div>
+                
             </div>
         </div>
     `;
@@ -1438,26 +1611,19 @@ function calculateGematriaLive() {
     const words = text.trim() ? text.trim().split(/\s+/) : [];
     const letters = text.replace(/[^A-Za-z]/g, '');
     
-    // Update word count
     document.getElementById('word-count').textContent = `(${words.length} words, ${letters.length} letters)`;
-    
-    // Update all cipher values
     updateAllCipherValues(text);
     
-    // Update summary display to show active ciphers
-    updateSummaryDisplay(text);
-    
-    // Show letter breakdown if there's text
     if (text.trim()) {
         showLetterBreakdown(text);
     } else {
-        document.getElementById('letter-breakdown').style.display = 'none';
+        const lb = document.getElementById('letter-breakdown');
+        if (lb) lb.style.display = 'none';
     }
 }
 
 function calculateCipher(text, cipherName) {
     if (!allCiphers[cipherName]) return 0;
-    
     let total = 0;
     for (let char of text.toUpperCase()) {
         if (allCiphers[cipherName].values[char]) {
@@ -1469,36 +1635,24 @@ function calculateCipher(text, cipherName) {
 
 function generateAllCipherResults(text) {
     const resultsContainer = document.getElementById('ciphers-results');
+    if (!resultsContainer) return;
     let html = '';
     
-    // Group ciphers into columns
-    const columns = [
-        ['Ordinal', 'Reduction', 'Reverse', 'Reverse Reduction'],
-        ['Standard', 'Latin', 'Sumerian', 'Reverse Sumerian'],
-        ['Satanic', 'Reverse Satanic', 'Single Reduction', 'Trigonal'],
-        ['Reverse Trigonal', 'Chaldean', 'Septenary', 'Keypad']
-    ];
-    
-    columns.forEach((column, colIndex) => {
-        html += '<div class="cipher-column">';
-        column.forEach(cipherName => {
-            if (allCiphers[cipherName]) {
-                const value = calculateCipher(text, cipherName);
-                const checked = allCiphers[cipherName].enabled ? 'checked' : '';
-                const displayStyle = allCiphers[cipherName].enabled ? 'display: grid;' : 'display: none;';
-                
-                html += `
-                    <div class="cipher-row" data-cipher="${cipherName}" style="${displayStyle}">
-                        <div class="cipher-checkbox">
-                            <input type="checkbox" ${checked} onchange="onCipherToggle('${cipherName}', this)" />
-                        </div>
-                        <div class="cipher-name" style="color: ${allCiphers[cipherName].color}">${cipherName}</div>
-                        <div class="cipher-value" style="color: ${allCiphers[cipherName].color}">${value}</div>
-                    </div>
-                `;
-            }
-        });
-        html += '</div>';
+    Object.keys(allCiphers).forEach(cipherName => {
+        const cipher = allCiphers[cipherName];
+        const value = calculateCipher(text, cipherName);
+        const displayStyle = cipher.enabled ? 'display:block;' : 'display:none;';
+        const checked = cipher.enabled ? 'checked' : '';
+        
+        html += `
+            <div class="cipher-row" data-cipher="${cipherName}" style="${displayStyle} background:rgba(0,0,0,0.35); border:1px solid #333; border-radius:8px; padding:8px 10px;">
+                <div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;">
+                    <input type="checkbox" ${checked} onchange="onCipherToggle('${cipherName}', this)" style="cursor:pointer; accent-color:${cipher.color};" />
+                    <span class="cipher-name" style="color:${cipher.color}; font-size:0.8em; font-weight:bold; text-transform:uppercase; flex:1;">${cipherName}</span>
+                </div>
+                <div class="cipher-value" style="color:${cipher.color}; font-size:2em; font-weight:bold; text-align:center; cursor:pointer;" onclick="showNumberProperties(${value}, 'gem')">${value}</div>
+            </div>
+        `;
     });
     
     resultsContainer.innerHTML = html;
@@ -1508,150 +1662,344 @@ function updateAllCipherValues(text) {
     Object.keys(allCiphers).forEach(cipherName => {
         const cipherRow = document.querySelector(`[data-cipher="${cipherName}"]`);
         const valueElement = cipherRow?.querySelector('.cipher-value');
-        
         if (valueElement) {
             const value = calculateCipher(text, cipherName);
             valueElement.textContent = value;
+            valueElement.onclick = () => showNumberProperties(value, 'gem');
         }
     });
-}
-
-function updateSummaryDisplay(text) {
-    const activeCiphers = Object.keys(allCiphers).filter(name => allCiphers[name].enabled);
-    const summaryContainer = document.getElementById('summary-display');
-    
-    if (activeCiphers.length === 0) {
-        summaryContainer.innerHTML = '<div class="no-active">No ciphers selected</div>';
-        return;
-    }
-    
-    let summaryHtml = '';
-    activeCiphers.forEach(cipherName => {
-        const value = calculateCipher(text, cipherName);
-        const color = allCiphers[cipherName].color;
-        
-        summaryHtml += `
-            <div class="summary-item">
-                <div class="label">${cipherName}</div>
-                <div class="value" style="color: ${color}">${value}</div>
-            </div>
-        `;
-    });
-    
-    summaryContainer.innerHTML = summaryHtml;
 }
 
 function onCipherToggle(cipherName, checkbox) {
     const cipherRow = document.querySelector(`[data-cipher="${cipherName}"]`);
     if (!cipherRow) return;
-    
     allCiphers[cipherName].enabled = checkbox.checked;
-    
-    if (checkbox.checked) {
-        cipherRow.style.display = 'grid';
-        cipherRow.style.opacity = '1';
-    } else {
-        cipherRow.style.display = 'none';
-    }
-    
-    // Update summary display
-    const text = document.getElementById('gematria-input').value.toUpperCase();
-    updateSummaryDisplay(text);
+    cipherRow.style.display = checkbox.checked ? 'block' : 'none';
 }
 
 function toggleCiphers(groupName) {
     const toToggle = cipherGroups[groupName];
-    
-    // Handle all ciphers
     Object.keys(allCiphers).forEach(cipherName => {
         const cipherRow = document.querySelector(`[data-cipher="${cipherName}"]`);
         const checkbox = cipherRow?.querySelector('input[type="checkbox"]');
-        
         if (!cipherRow || !checkbox) return;
         
         let shouldShow = false;
-        
-        if (groupName === "Clear All") {
-            shouldShow = false;
-        } else if (groupName === "Select All") {
-            shouldShow = true;
-        } else {
-            shouldShow = toToggle.includes(cipherName);
-        }
+        if (groupName === "Clear All") { shouldShow = false; }
+        else if (groupName === "Select All") { shouldShow = true; }
+        else { shouldShow = toToggle.includes(cipherName); }
         
         allCiphers[cipherName].enabled = shouldShow;
         checkbox.checked = shouldShow;
-        
-        if (shouldShow) {
-            cipherRow.style.display = 'grid';
-            cipherRow.style.opacity = '1';
-        } else {
-            cipherRow.style.display = 'none';
-        }
+        cipherRow.style.display = shouldShow ? 'block' : 'none';
     });
-    
-    // Update summary display after bulk toggle
-    const text = document.getElementById('gematria-input').value.toUpperCase();
-    updateSummaryDisplay(text);
 }
 
 function updateAlphabetDisplay() {
     const currentCipher = cipherNames[currentCipherIndex];
     const cipher = allCiphers[currentCipher];
+    if (!cipher) return;
     
-    document.getElementById('current-cipher-name').textContent = currentCipher;
+    const color = cipher.color;
+    const ltTop = document.getElementById('alpha-letters-top');
+    const ltBot = document.getElementById('alpha-letters-bot');
+    const nTop = document.getElementById('alpha-numbers-top');
+    const nBot = document.getElementById('alpha-numbers-bot');
+    const cName = document.getElementById('current-cipher-name');
+    const prevBtn = document.getElementById('prev-cipher-btn');
+    const nextBtn = document.getElementById('next-cipher-btn');
     
-    // Update alphabet numbers
-    const numbers1 = [];
-    const numbers2 = [];
+    if (!ltTop || !ltBot || !nTop || !nBot) return;
     
-    'ABCDEFGHIJKLM'.split('').forEach(letter => {
-        numbers1.push(cipher.values[letter] || 0);
-    });
+    const topLetters = 'ABCDEFGHIJKLM'.split('');
+    const botLetters = 'NOPQRSTUVWXYZ'.split('');
     
-    'NOPQRSTUVWXYZ'.split('').forEach(letter => {
-        numbers2.push(cipher.values[letter] || 0);
-    });
+    ltTop.innerHTML = topLetters.map(l => `<span style="color:rgb(242,153,96); font-weight:bold;">${l}</span>`).join('<span style="color:#555;"> </span>');
+    nTop.innerHTML = topLetters.map(l => `<span style="color:rgb(200,200,200);">${cipher.values[l] || 0}</span>`).join('<span style="color:#555;"> </span>');
+    ltBot.innerHTML = botLetters.map(l => `<span style="color:rgb(242,153,96); font-weight:bold;">${l}</span>`).join('<span style="color:#555;"> </span>');
+    nBot.innerHTML = botLetters.map(l => `<span style="color:rgb(200,200,200);">${cipher.values[l] || 0}</span>`).join('<span style="color:#555;"> </span>');
     
-    document.getElementById('alphabet-numbers').innerHTML = `
-        <span>${numbers1.join(' ')}</span><br>
-        <span>${numbers2.join(' ')}</span>
-    `;
+    if (cName) { cName.textContent = currentCipher; cName.style.color = color; }
+    if (prevBtn) { prevBtn.style.color = color; }
+    if (nextBtn) { nextBtn.style.color = color; }
 }
 
 function previousCipher() {
     currentCipherIndex = (currentCipherIndex - 1 + cipherNames.length) % cipherNames.length;
     updateAlphabetDisplay();
+    const text = document.getElementById('gematria-input')?.value || '';
+    showLetterBreakdown(text.toUpperCase());
 }
 
 function nextCipher() {
     currentCipherIndex = (currentCipherIndex + 1) % cipherNames.length;
     updateAlphabetDisplay();
+    const text = document.getElementById('gematria-input')?.value || '';
+    showLetterBreakdown(text.toUpperCase());
 }
 
 function showLetterBreakdown(text) {
     const currentCipher = cipherNames[currentCipherIndex];
     const cipher = allCiphers[currentCipher];
+    const color = cipher.color;
     const breakdown = [];
     let total = 0;
     
     for (let char of text.toUpperCase()) {
-        if (cipher.values[char]) {
-            breakdown.push(`${char} = ${cipher.values[char]}`);
-            total += cipher.values[char];
-        } else if (char.match(/[A-Z]/)) {
-            breakdown.push(`${char} = 0`);
+        if (cipher.values[char] !== undefined && char.match(/[A-Z]/)) {
+            breakdown.push({ letter: char, value: cipher.values[char] || 0 });
+            total += cipher.values[char] || 0;
         }
     }
     
+    const lb = document.getElementById('letter-breakdown');
+    if (!lb) return;
+    
     if (breakdown.length > 0) {
-        document.getElementById('letter-breakdown').innerHTML = `
-            <div class="breakdown-title">Letter Breakdown (${currentCipher}):</div>
-            <div class="breakdown-content">${breakdown.join(' + ')} = ${total}</div>
+        const lettersHtml = breakdown.map(item => `
+            <span style="display:inline-block; text-align:center; margin:2px 4px;">
+                <div style="color:rgb(242,153,96); font-weight:bold; font-size:1em;">${item.letter}</div>
+                <div style="color:rgb(200,200,200); font-size:0.85em;">${item.value}</div>
+            </span>
+        `).join('<span style="color:#555; font-size:0.9em;"> + </span>');
+        
+        lb.innerHTML = `
+            <div style="font-size:0.8em; color:#aaa; margin-bottom:6px; text-transform:uppercase;">${currentCipher} — Letter Breakdown</div>
+            <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:2px;">
+                ${lettersHtml}
+                <span style="color:#aaa; margin-left:6px;">= <span style="color:${color}; font-size:1.4em; font-weight:bold;">${total}</span></span>
+            </div>
         `;
-        document.getElementById('letter-breakdown').style.display = 'block';
+        lb.style.display = 'block';
+    } else {
+        lb.style.display = 'none';
     }
 }
+
+// ==========================================================================
+// NUMBER PROPERTIES FUNCTION
+// ==========================================================================
+
+function isPrime(n) {
+    if (n < 2) return false;
+    if (n === 2) return true;
+    if (n % 2 === 0) return false;
+    for (let i = 3; i <= Math.sqrt(n); i += 2) {
+        if (n % i === 0) return false;
+    }
+    return true;
+}
+
+function getNumberPosition(n, sequenceGen) {
+    // Returns position of n in the given sequence (1-indexed), or null
+    let pos = 1;
+    let val;
+    while (true) {
+        val = sequenceGen(pos);
+        if (val === n) return pos;
+        if (val > n + 10000) return null; // safety stop for large numbers
+        if (pos > 100000) return null;
+        pos++;
+    }
+}
+
+function getNthPrime(n) {
+    let count = 0, num = 1;
+    while (count < n) { num++; if (isPrime(num)) count++; }
+    return num;
+}
+
+function getPrimeIndex(n) {
+    if (!isPrime(n)) return null;
+    let count = 0, i = 2;
+    while (i <= n) { if (isPrime(i)) count++; if (i === n) return count; i++; }
+    return null;
+}
+
+function getCompositeIndex(n) {
+    if (n < 4) return null;
+    if (isPrime(n)) return null;
+    let count = 0;
+    for (let i = 4; i <= n; i++) { if (!isPrime(i)) count++; if (i === n) return count; }
+    return null;
+}
+
+function getTriangularIndex(n) {
+    let k = 1;
+    while (true) {
+        const t = k * (k + 1) / 2;
+        if (t === n) return k;
+        if (t > n) return null;
+        k++;
+    }
+}
+
+function getSquareIndex(n) {
+    const sq = Math.sqrt(n);
+    if (Number.isInteger(sq) && sq * sq === n) return sq;
+    return null;
+}
+
+function getCubeIndex(n) {
+    const cb = Math.cbrt(n);
+    const cbRound = Math.round(cb);
+    if (cbRound * cbRound * cbRound === n) return cbRound;
+    return null;
+}
+
+function getTetrahedralIndex(n) {
+    // T(k) = k(k+1)(k+2)/6
+    for (let k = 1; k <= 1000; k++) {
+        const t = k * (k + 1) * (k + 2) / 6;
+        if (t === n) return k;
+        if (t > n) return null;
+    }
+    return null;
+}
+
+function getSquarePyramidalIndex(n) {
+    // SP(k) = k(k+1)(2k+1)/6
+    for (let k = 1; k <= 1000; k++) {
+        const sp = k * (k + 1) * (2 * k + 1) / 6;
+        if (sp === n) return k;
+        if (sp > n) return null;
+    }
+    return null;
+}
+
+function getStarIndex(n) {
+    // Star(k) = 6k(k-1)+1
+    for (let k = 1; k <= 1000; k++) {
+        const s = 6 * k * (k - 1) + 1;
+        if (s === n) return k;
+        if (s > n) return null;
+    }
+    return null;
+}
+
+function getPentagonalIndex(n) {
+    // P(k) = k(3k-1)/2
+    for (let k = 1; k <= 10000; k++) {
+        const p = k * (3 * k - 1) / 2;
+        if (p === n) return k;
+        if (p > n) return null;
+    }
+    return null;
+}
+
+function toOrdinalSuffix(n) {
+    if (n === null || n === undefined) return null;
+    const s = ['th','st','nd','rd'];
+    const v = n % 100;
+    return n + (s[(v-20)%10] || s[v] || s[0]);
+}
+
+function showNumberProperties(n, context) {
+    n = parseInt(n);
+    if (isNaN(n) || n < 0) return;
+    
+    const prime = isPrime(n);
+    const primeIdx = getPrimeIndex(n);
+    const compositeIdx = getCompositeIndex(n);
+    const triangularIdx = getTriangularIndex(n);
+    const squareIdx = getSquareIndex(n);
+    const cubeIdx = getCubeIndex(n);
+    const tetraIdx = getTetrahedralIndex(n);
+    const sqPyrIdx = getSquarePyramidalIndex(n);
+    const starIdx = getStarIndex(n);
+    const pentIdx = getPentagonalIndex(n);
+    
+    const oct = n.toString(8);
+    const duo = toDuodecimal(n);
+    const hex = n.toString(16).toUpperCase();
+    const bin = n.toString(2);
+    
+    const rowStyle = 'display:flex; justify-content:space-between; padding:4px 0; border-bottom:1px solid #1a2a3a;';
+    const labelStyle = 'color:#888; font-size:0.85em;';
+    const valueStyle = 'color:#00ced1; font-size:0.85em; cursor:pointer; text-decoration:underline;';
+    const nullStyle = 'color:#555; font-size:0.85em;';
+    
+    function propRow(label, val) {
+        if (val !== null && val !== undefined) {
+            return `<div style="${rowStyle}"><span style="${labelStyle}">${label}</span><span style="${valueStyle}" onclick="showNumberProperties(${n}, '${context}')">${val}</span></div>`;
+        }
+        return `<div style="${rowStyle}"><span style="${labelStyle}">${label}</span><span style="${nullStyle}">—</span></div>`;
+    }
+    
+    const html = `
+        <div style="background:#0a0f1a; border:2px solid #00ced1; border-radius:12px; padding:20px; max-width:480px; margin:10px auto; font-family:Arial,sans-serif;">
+            <div style="text-align:center; color:#00ced1; font-size:0.9em; font-weight:bold; text-transform:uppercase; letter-spacing:2px; margin-bottom:6px;">Number Properties of</div>
+            <div style="text-align:center; color:#ffffff; font-size:3.5em; font-weight:bold; line-height:1; margin-bottom:8px;">${n}</div>
+            <div style="text-align:center; margin-bottom:16px;">
+                <span style="color:${prime ? '#00ff80' : '#888'}; font-size:0.9em; font-weight:bold;">${prime ? '✓ Prime Number' : (n > 1 ? 'Composite Number' : 'Neither Prime nor Composite')}</span>
+            </div>
+            
+            <div style="margin-bottom:16px;">
+                <div style="color:#00ced1; font-size:0.75em; text-transform:uppercase; letter-spacing:1px; margin-bottom:6px; border-bottom:1px solid #1a2a3a; padding-bottom:4px;">Number Sequences</div>
+                ${propRow('Prime #', primeIdx ? toOrdinalSuffix(primeIdx) : null)}
+                ${propRow('Composite #', compositeIdx ? toOrdinalSuffix(compositeIdx) : null)}
+                ${propRow('Triangular #', triangularIdx ? toOrdinalSuffix(triangularIdx) : null)}
+                ${propRow('Square #', squareIdx ? toOrdinalSuffix(squareIdx) : null)}
+                ${propRow('Cube #', cubeIdx ? toOrdinalSuffix(cubeIdx) : null)}
+                ${propRow('Tetrahedral #', tetraIdx ? toOrdinalSuffix(tetraIdx) : null)}
+                ${propRow('Square Pyramidal #', sqPyrIdx ? toOrdinalSuffix(sqPyrIdx) : null)}
+                ${propRow('Star #', starIdx ? toOrdinalSuffix(starIdx) : null)}
+                ${propRow('Pentagonal #', pentIdx ? toOrdinalSuffix(pentIdx) : null)}
+            </div>
+            
+            <div style="margin-bottom:16px;">
+                <div style="color:#00ced1; font-size:0.75em; text-transform:uppercase; letter-spacing:1px; margin-bottom:6px; border-bottom:1px solid #1a2a3a; padding-bottom:4px;">Base Conversions</div>
+                ${propRow('Octal (base 8)', oct)}
+                ${propRow('Duodecimal (base 12)', duo)}
+                ${propRow('Hexadecimal (base 16)', hex)}
+                ${propRow('Binary (base 2)', bin)}
+            </div>
+            
+            <div style="display:flex; align-items:center; gap:8px; margin-top:10px;">
+                <input type="number" id="num-props-input-${context}" placeholder="Enter #" min="0"
+                       style="background:#111; color:#dedede; border:1px solid #444; border-radius:6px; padding:6px 10px; font-size:0.9em; flex:1; outline:none;" />
+                <button onclick="lookupNumProps('${context}')" style="background:#00ced1; color:#000; border:none; border-radius:6px; padding:7px 14px; font-size:0.85em; font-weight:bold; cursor:pointer; text-transform:uppercase;">Get Properties</button>
+                <button onclick="closeNumProps('${context}')" style="background:#333; color:#aaa; border:none; border-radius:6px; padding:7px 10px; font-size:0.85em; cursor:pointer;">✕</button>
+            </div>
+        </div>
+    `;
+    
+    let section;
+    if (context === 'gem') {
+        section = document.getElementById('num-props-section');
+        if (section) { section.innerHTML = html; section.style.display = 'block'; section.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }
+    } else {
+        section = document.getElementById('num-props-section-date');
+        if (section) { section.innerHTML = html; section.style.display = 'block'; section.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }
+    }
+}
+
+function toDuodecimal(n) {
+    if (n === 0) return '0';
+    const digits = '0123456789AB';
+    let result = '';
+    let num = n;
+    while (num > 0) {
+        result = digits[num % 12] + result;
+        num = Math.floor(num / 12);
+    }
+    return result;
+}
+
+function lookupNumProps(context) {
+    const input = document.getElementById(`num-props-input-${context}`);
+    if (!input) return;
+    const val = parseInt(input.value);
+    if (!isNaN(val) && val >= 0) showNumberProperties(val, context);
+}
+
+function closeNumProps(context) {
+    let section;
+    if (context === 'gem') { section = document.getElementById('num-props-section'); }
+    else { section = document.getElementById('num-props-section-date'); }
+    if (section) section.style.display = 'none';
+}
+
 
 // ==========================================================================
 // DATE CALCULATOR — Gematrinator-style
@@ -1761,94 +2109,8 @@ function calcNumerology(m, d, y) {
   return [r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13];
 }
 
-function numLink(n, sport) {
-  const cls = sport || 'num-link';
-  return `<span class="num-link" onclick="sendToGematria(${n})">${n}</span>`;
-}
-
-function sendToGematria(n) {
-  // Switch to gematria tab and pre-fill
-  switchSport('gematria');
-  setTimeout(() => {
-    const inp = document.getElementById('gematria-input');
-    if (inp) { inp.value = n; inp.dispatchEvent(new Event('keyup')); }
-  }, 100);
-}
-
-function updateDateCalc() {
-  const m1 = parseInt(document.getElementById('dc-m1').value)||1;
-  const d1 = parseInt(document.getElementById('dc-d1').value)||1;
-  const y1 = parseInt(document.getElementById('dc-y1').value)||2025;
-  const m2 = parseInt(document.getElementById('dc-m2').value)||1;
-  const d2 = parseInt(document.getElementById('dc-d2').value)||1;
-  const y2 = parseInt(document.getElementById('dc-y2').value)||2026;
-  const includeEnd = document.getElementById('dc-include-end') && document.getElementById('dc-include-end').checked;
-
-  // Clamp
-  const clamp = (v,lo,hi) => Math.min(Math.max(v,lo),hi);
-  const cm1=clamp(m1,1,12),cd1=clamp(d1,1,daysInMonth(cm1,y1)||28),cy1=clamp(y1,0,9999);
-  const cm2=clamp(m2,1,12),cd2=clamp(d2,1,daysInMonth(cm2,y2)||28),cy2=clamp(y2,0,9999);
-
-  // Headers
-  document.getElementById('dc-header1').textContent = dateLabel(cm1,cd1,cy1);
-  document.getElementById('dc-header2').textContent = dateLabel(cm2,cd2,cy2);
-
-  // Duration
-  const totalDays = dateDiff(cm1,cd1,cy1,cm2,cd2,cy2,includeEnd);
-  document.getElementById('dc-days-result').innerHTML = `From ${dateLabel(cm1,cd1,cy1)} to ${dateLabel(cm2,cd2,cy2)} is: ${numLink(totalDays)} Days`;
-
-  // Duration breakdowns
-  const bd = buildDurationBreakdown(totalDays,cm1,cd1,cy1,cm2,cd2,cy2);
-  const showYear = document.getElementById('dc-show-year')?.checked;
-  const showMonth = document.getElementById('dc-show-month')?.checked;
-  const showWeek = document.getElementById('dc-show-week')?.checked;
-  const showDay = document.getElementById('dc-show-day')?.checked !== false; // default true
-
-  let durHTML = '';
-  if(showYear)  durHTML += `<div class="dur-row">${numLink(bd.yrs)} Year, ${numLink(bd.yr_days)} Days</div>`;
-  if(showYear && showMonth) durHTML += `<div class="dur-row">${numLink(bd.yrs)} Year, ${numLink(Math.abs(bd.months % 12))} Months, ${numLink(Math.abs(bd.mo_days))} Days</div>`;
-  if(showYear && showWeek)  durHTML += `<div class="dur-row">${numLink(bd.yrs)} Year, ${numLink(Math.floor(bd.yr_days/7))} Weeks, ${numLink(bd.yr_days%7)} Days</div>`;
-  if(showMonth) durHTML += `<div class="dur-row">${numLink(bd.months)} Months, ${numLink(Math.abs(bd.mo_days))} Days</div>`;
-  if(showWeek)  durHTML += `<div class="dur-row">${numLink(bd.weeks)} Weeks, ${numLink(bd.wk_days)} ${bd.wk_days===1?'Day':'Days'}</div>`;
-  if(showDay)   durHTML += `<div class="dur-row">${numLink(totalDays)} Days</div>`;
-  if(!durHTML)  durHTML = '<div class="dur-row" style="color:#718096">Select a duration type to view</div>';
-  document.getElementById('dc-durations').innerHTML = durHTML;
-
-  // Numerology tables
-  const n1 = calcNumerology(cm1,cd1,cy1);
-  const n2 = calcNumerology(cm2,cd2,cy2);
-  const M1=cm1,D1=cd1,Y1=cy1,M2=cm2,D2=cd2,Y2=cy2;
-  const CC1=Math.floor(Y1/100),YY1=Y1%100,CC2=Math.floor(Y2/100),YY2=Y2%100;
-
-  const digStr = (n) => String(Math.abs(n)).split('').join('+');
-  const formulas = [
-    [`(${M1})+(${D1})+(${CC1})+(${YY1})`, `(${M2})+(${D2})+(${CC2})+(${YY2})`],
-    [`(${M1})+(${D1})+${digStr(Y1)}`,     `(${M2})+(${D2})+${digStr(Y2)}`],
-    [`${digStr(M1)}+${digStr(D1)}+${digStr(Y1)}`, `${digStr(M2)}+${digStr(D2)}+${digStr(Y2)}`],
-    [`(${M1})+(${D1})+(${YY1})`,          `(${M2})+(${D2})+(${YY2})`],
-    [`${digStr(M1)}+${digStr(D1)}+${digStr(YY1)}`, `${digStr(M2)}+${digStr(D2)}+${digStr(YY2)}`],
-    [`Day of Year: (${MONTHS_SHORT[M1-1]}-${D1})`, `Day of Year: (${MONTHS_SHORT[M2-1]}-${D2})`],
-    [`Days Left in Year: (${MONTHS_SHORT[M1-1]}-${D1})`, `Days Left in Year: (${MONTHS_SHORT[M2-1]}-${D2})`],
-    [`(${M1})+(${D1})`,                   `(${M2})+(${D2})`],
-    [`${digStr(M1)}+${digStr(D1)}+(${CC1})+(${YY1})`, `${digStr(M2)}+${digStr(D2)}+(${CC2})+(${YY2})`],
-    [`(${M1})+(${D1})+${digStr(YY1)}`,    `(${M2})+(${D2})+${digStr(YY2)}`],
-    [`${digStr(M1)}+${digStr(D1)}+(${YY1})`, `${digStr(M2)}+${digStr(D2)}+(${YY2})`],
-    [`Product (Full Year)`,               `Product (Full Year)`],
-    [`Product (Last 2 Yr)`,               `Product (Last 2 Yr)`]
-  ];
-
-  let t1='',t2='';
-  for(let i=0;i<13;i++){
-    t1 += `<tr><td class="dc-formula">${formulas[i][0]}</td><td class="dc-result">${numLink(n1[i])}</td></tr>`;
-    t2 += `<tr><td class="dc-formula">${formulas[i][1]}</td><td class="dc-result">${numLink(n2[i])}</td></tr>`;
-  }
-  document.getElementById('dc-table1').innerHTML = t1;
-  document.getElementById('dc-table2').innerHTML = t2;
-}
 
 function showNumerologyTools() {
-  // Don't hide the main content — date calc is a floating overlay
-  // Just activate the tab and show the floating panel
   document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
   document.querySelector('[data-sport="numerology"]').classList.add('active');
   openDateCalcPanel();
@@ -1867,10 +2129,9 @@ function openDateCalcPanel() {
 function closeDateCalcPanel() {
   const p = document.getElementById('date-calc-panel');
   if (p) p.style.display = 'none';
-  // Return nav to previously active sport if available
   document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
   const prevTab = document.querySelector('[data-sport="nfl"]');
-  if(prevTab) prevTab.classList.add('active');
+  if (prevTab) prevTab.classList.add('active');
 }
 
 function createDateCalcPanel() {
@@ -1880,95 +2141,131 @@ function createDateCalcPanel() {
   const panel = document.createElement('div');
   panel.id = 'date-calc-panel';
   panel.className = 'date-calc-panel';
+  
+  // Dark Gematrinator-style inline CSS
+  const panelStyle = `
+    position:fixed; right:20px; bottom:20px; width:680px; max-width:98vw;
+    background:linear-gradient(180deg,#111111,#1a1a1a);
+    border:2px solid #333; border-radius:14px; z-index:9999;
+    box-shadow:0 8px 40px rgba(0,0,0,0.8); display:flex; flex-direction:column;
+    font-family:Arial,sans-serif; overflow:hidden;
+  `;
+  panel.style.cssText = panelStyle;
+
   panel.innerHTML = `
-    <div class="dcp-header">
-      <span class="dcp-title">📅 Date Calculator</span>
-      <div class="dcp-header-actions">
-        <button class="dcp-minimize-btn" onclick="minimizeDateCalc()" title="Minimize">—</button>
-        <button class="dcp-close-btn" onclick="closeDateCalcPanel()" title="Close">✕</button>
+    <div id="dcp-header" style="background:#0d0d0d; padding:10px 16px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #333; cursor:move; user-select:none;">
+      <span style="color:#FFA500; font-size:1em; font-weight:bold; letter-spacing:1px;">&#128197; DATE CALCULATOR</span>
+      <div style="display:flex; gap:6px;">
+        <button onclick="minimizeDateCalc()" title="Minimize" style="background:#222; color:#aaa; border:1px solid #444; border-radius:4px; width:26px; height:26px; cursor:pointer; font-size:1em; line-height:1;">&#8212;</button>
+        <button onclick="closeDateCalcPanel()" title="Close" style="background:#222; color:#aaa; border:1px solid #444; border-radius:4px; width:26px; height:26px; cursor:pointer; font-size:1em; line-height:1;">&#10005;</button>
       </div>
     </div>
-    <div class="dcp-body" id="dcp-body">
+    
+    <div id="dcp-body" style="padding:16px; overflow-y:auto; max-height:85vh;">
+      
       <!-- Dual date inputs -->
-      <div class="dcp-dates-row">
-        <div class="dcp-date-box">
-          <div class="dcp-date-header" id="dc-header1">${dateLabel(lastYear.getMonth()+1, lastYear.getDate(), lastYear.getFullYear())}</div>
-          <div class="dcp-inputs">
-            <div class="dcp-input-group">
-              <label>Month</label>
-              <input type="number" id="dc-m1" class="dc-spin" value="${lastYear.getMonth()+1}" min="1" max="12" oninput="updateDateCalc()">
+      <div style="display:flex; gap:12px; align-items:flex-start; flex-wrap:wrap; margin-bottom:12px;">
+        <div style="flex:1; min-width:200px; background:rgba(0,0,0,0.35); border:1px solid #333; border-radius:10px; padding:12px;">
+          <div id="dc-header1" style="color:#FFA500; font-weight:bold; font-size:0.95em; margin-bottom:8px; text-align:center;">${dateLabel(lastYear.getMonth()+1, lastYear.getDate(), lastYear.getFullYear())}</div>
+          <div style="display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
+            <div style="display:flex; flex-direction:column; align-items:center; gap:3px;">
+              <label style="color:#888; font-size:0.75em; text-transform:uppercase;">Month</label>
+              <input type="number" id="dc-m1" value="${lastYear.getMonth()+1}" min="1" max="12" oninput="updateDateCalc()"
+                     style="background:#111; color:#dedede; border:1px solid #444; border-radius:5px; padding:4px 6px; width:56px; text-align:center; font-size:0.95em;" />
             </div>
-            <div class="dcp-input-group">
-              <label>Day</label>
-              <input type="number" id="dc-d1" class="dc-spin" value="${lastYear.getDate()}" min="1" max="31" oninput="updateDateCalc()">
+            <div style="display:flex; flex-direction:column; align-items:center; gap:3px;">
+              <label style="color:#888; font-size:0.75em; text-transform:uppercase;">Day</label>
+              <input type="number" id="dc-d1" value="${lastYear.getDate()}" min="1" max="31" oninput="updateDateCalc()"
+                     style="background:#111; color:#dedede; border:1px solid #444; border-radius:5px; padding:4px 6px; width:56px; text-align:center; font-size:0.95em;" />
             </div>
-            <div class="dcp-input-group">
-              <label>Year</label>
-              <input type="number" id="dc-y1" class="dc-spin" value="${lastYear.getFullYear()}" min="0" max="9999" oninput="updateDateCalc()">
-            </div>
-          </div>
-        </div>
-        <div class="dcp-arrow">→</div>
-        <div class="dcp-date-box">
-          <div class="dcp-date-header" id="dc-header2">${dateLabel(today.getMonth()+1, today.getDate(), today.getFullYear())}</div>
-          <div class="dcp-inputs">
-            <div class="dcp-input-group">
-              <label>Month</label>
-              <input type="number" id="dc-m2" class="dc-spin" value="${today.getMonth()+1}" min="1" max="12" oninput="updateDateCalc()">
-            </div>
-            <div class="dcp-input-group">
-              <label>Day</label>
-              <input type="number" id="dc-d2" class="dc-spin" value="${today.getDate()}" min="1" max="31" oninput="updateDateCalc()">
-            </div>
-            <div class="dcp-input-group">
-              <label>Year</label>
-              <input type="number" id="dc-y2" class="dc-spin" value="${today.getFullYear()}" min="0" max="9999" oninput="updateDateCalc()">
+            <div style="display:flex; flex-direction:column; align-items:center; gap:3px;">
+              <label style="color:#888; font-size:0.75em; text-transform:uppercase;">Year</label>
+              <input type="number" id="dc-y1" value="${lastYear.getFullYear()}" min="0" max="9999" oninput="updateDateCalc()"
+                     style="background:#111; color:#dedede; border:1px solid #444; border-radius:5px; padding:4px 6px; width:72px; text-align:center; font-size:0.95em;" />
             </div>
           </div>
         </div>
-      </div>
-
-      <!-- Include end date + result -->
-      <div class="dcp-duration-row">
-        <div class="dcp-include-end">
-          <label><input type="checkbox" id="dc-include-end" onchange="updateDateCalc()"> Include End Date?</label>
+        
+        <div style="display:flex; align-items:center; color:#FFA500; font-size:1.4em; padding-top:20px;">&#8594;</div>
+        
+        <div style="flex:1; min-width:200px; background:rgba(0,0,0,0.35); border:1px solid #333; border-radius:10px; padding:12px;">
+          <div id="dc-header2" style="color:#FFA500; font-weight:bold; font-size:0.95em; margin-bottom:8px; text-align:center;">${dateLabel(today.getMonth()+1, today.getDate(), today.getFullYear())}</div>
+          <div style="display:flex; gap:6px; justify-content:center; flex-wrap:wrap;">
+            <div style="display:flex; flex-direction:column; align-items:center; gap:3px;">
+              <label style="color:#888; font-size:0.75em; text-transform:uppercase;">Month</label>
+              <input type="number" id="dc-m2" value="${today.getMonth()+1}" min="1" max="12" oninput="updateDateCalc()"
+                     style="background:#111; color:#dedede; border:1px solid #444; border-radius:5px; padding:4px 6px; width:56px; text-align:center; font-size:0.95em;" />
+            </div>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:3px;">
+              <label style="color:#888; font-size:0.75em; text-transform:uppercase;">Day</label>
+              <input type="number" id="dc-d2" value="${today.getDate()}" min="1" max="31" oninput="updateDateCalc()"
+                     style="background:#111; color:#dedede; border:1px solid #444; border-radius:5px; padding:4px 6px; width:56px; text-align:center; font-size:0.95em;" />
+            </div>
+            <div style="display:flex; flex-direction:column; align-items:center; gap:3px;">
+              <label style="color:#888; font-size:0.75em; text-transform:uppercase;">Year</label>
+              <input type="number" id="dc-y2" value="${today.getFullYear()}" min="0" max="9999" oninput="updateDateCalc()"
+                     style="background:#111; color:#dedede; border:1px solid #444; border-radius:5px; padding:4px 6px; width:72px; text-align:center; font-size:0.95em;" />
+            </div>
+          </div>
         </div>
-        <div class="dcp-days-result" id="dc-days-result"></div>
       </div>
-
-      <!-- Duration checkboxes + breakdown -->
-      <div class="dcp-dur-section">
-        <div class="dcp-dur-checks">
-          <div class="dcp-dur-label">Show Durations:</div>
-          <label><input type="checkbox" id="dc-show-year" onchange="updateDateCalc()"> Year</label>
-          <label><input type="checkbox" id="dc-show-month" onchange="updateDateCalc()"> Month</label>
-          <label><input type="checkbox" id="dc-show-week" onchange="updateDateCalc()"> Week</label>
-          <label><input type="checkbox" id="dc-show-day" checked onchange="updateDateCalc()"> Day</label>
+      
+      <!-- Include end date + main days result -->
+      <div style="background:rgba(0,0,0,0.3); border:1px solid #333; border-radius:8px; padding:10px 14px; margin-bottom:10px;">
+        <label style="color:#888; font-size:0.8em; display:flex; align-items:center; gap:6px; margin-bottom:6px;">
+          <input type="checkbox" id="dc-include-end" onchange="updateDateCalc()" style="accent-color:#00ced1;" />
+          <span>Include End Date?</span>
+        </label>
+        <div id="dc-days-result" style="color:#00CED1; font-size:0.9em;"></div>
+      </div>
+      
+      <!-- SELECT DURATIONS section -->
+      <div style="background:rgba(0,0,0,0.3); border:1px solid #333; border-radius:8px; padding:10px 14px; margin-bottom:10px;">
+        <div style="color:#CC0000; font-size:0.75em; font-weight:bold; text-transform:uppercase; letter-spacing:1px; margin-bottom:8px;">&#9632; SELECT DURATIONS</div>
+        <div style="display:flex; gap:14px; flex-wrap:wrap; margin-bottom:8px;">
+          <label style="color:#aaa; font-size:0.85em; display:flex; align-items:center; gap:4px; cursor:pointer;">
+            <input type="checkbox" id="dc-show-year" onchange="updateDateCalc()" style="accent-color:#CC0000;" /> Year
+          </label>
+          <label style="color:#aaa; font-size:0.85em; display:flex; align-items:center; gap:4px; cursor:pointer;">
+            <input type="checkbox" id="dc-show-month" onchange="updateDateCalc()" style="accent-color:#CC0000;" /> Month
+          </label>
+          <label style="color:#aaa; font-size:0.85em; display:flex; align-items:center; gap:4px; cursor:pointer;">
+            <input type="checkbox" id="dc-show-week" onchange="updateDateCalc()" style="accent-color:#CC0000;" /> Week
+          </label>
+          <label style="color:#aaa; font-size:0.85em; display:flex; align-items:center; gap:4px; cursor:pointer;">
+            <input type="checkbox" id="dc-show-day" checked onchange="updateDateCalc()" style="accent-color:#CC0000;" /> Day
+          </label>
         </div>
-        <div class="dcp-durations" id="dc-durations"></div>
+        <div id="dc-durations" style="font-size:0.9em;"></div>
       </div>
-
+      
+      <!-- TIME BETWEEN DATES heading -->
+      <div style="color:#00CED1; font-size:0.85em; font-weight:bold; text-transform:uppercase; letter-spacing:1px; margin-bottom:8px;">&#9632; Time Between Dates:</div>
+      
       <!-- Numerology tables -->
-      <div class="dcp-tables-row">
-        <div class="dcp-table-wrap">
-          <div class="dcp-table-title" id="dc-header1-tbl">Date 1</div>
-          <table class="dc-num-table"><tbody id="dc-table1"></tbody></table>
+      <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:12px;">
+        <div style="flex:1; min-width:220px; background:rgba(0,0,0,0.25); border:1px solid #2a2a2a; border-radius:8px; overflow:hidden;">
+          <div id="dc-header1-tbl" style="color:#FFA500; font-weight:bold; font-size:0.85em; padding:6px 10px; background:rgba(0,0,0,0.4); border-bottom:1px solid #2a2a2a; text-align:center;"></div>
+          <table style="width:100%; border-collapse:collapse;"><tbody id="dc-table1"></tbody></table>
         </div>
-        <div class="dcp-table-wrap">
-          <div class="dcp-table-title" id="dc-header2-tbl">Date 2</div>
-          <table class="dc-num-table"><tbody id="dc-table2"></tbody></table>
+        <div style="flex:1; min-width:220px; background:rgba(0,0,0,0.25); border:1px solid #2a2a2a; border-radius:8px; overflow:hidden;">
+          <div id="dc-header2-tbl" style="color:#FFA500; font-weight:bold; font-size:0.85em; padding:6px 10px; background:rgba(0,0,0,0.4); border-bottom:1px solid #2a2a2a; text-align:center;"></div>
+          <table style="width:100%; border-collapse:collapse;"><tbody id="dc-table2"></tbody></table>
         </div>
       </div>
-
-      <div class="dcp-footer-note">Click any number to send it to the Gematria Calculator</div>
+      
+      <!-- Number Properties section (inline, pushed below content) -->
+      <div id="num-props-section-date" style="display:none;"></div>
+      
+      <div style="color:#555; font-size:0.75em; text-align:center; margin-top:8px;">Click any cyan number to explore its properties</div>
     </div>
   `;
 
-  // Make it draggable
+  // Make draggable
   let isDragging = false, dragOffX = 0, dragOffY = 0;
-  const header = panel.querySelector('.dcp-header');
+  const header = panel.querySelector('#dcp-header');
   header.addEventListener('mousedown', e => {
-    if(e.target.tagName === 'BUTTON') return;
+    if (e.target.tagName === 'BUTTON') return;
     isDragging = true;
     dragOffX = e.clientX - panel.getBoundingClientRect().left;
     dragOffY = e.clientY - panel.getBoundingClientRect().top;
@@ -1976,17 +2273,15 @@ function createDateCalcPanel() {
     e.preventDefault();
   });
   document.addEventListener('mousemove', e => {
-    if(!isDragging) return;
+    if (!isDragging) return;
     let x = e.clientX - dragOffX;
     let y = e.clientY - dragOffY;
     const maxX = window.innerWidth - panel.offsetWidth;
     const maxY = window.innerHeight - panel.offsetHeight;
     x = Math.max(0, Math.min(x, maxX));
     y = Math.max(0, Math.min(y, maxY));
-    panel.style.right = 'auto';
-    panel.style.bottom = 'auto';
-    panel.style.left = x + 'px';
-    panel.style.top = y + 'px';
+    panel.style.right = 'auto'; panel.style.bottom = 'auto';
+    panel.style.left = x + 'px'; panel.style.top = y + 'px';
   });
   document.addEventListener('mouseup', () => { isDragging = false; });
 
@@ -1996,13 +2291,104 @@ function createDateCalcPanel() {
 let dcMinimized = false;
 function minimizeDateCalc() {
   const body = document.getElementById('dcp-body');
-  const btn = document.querySelector('.dcp-minimize-btn');
+  const btn = document.querySelector('#dcp-header button');
   if (!body || !btn) return;
   dcMinimized = !dcMinimized;
   body.style.display = dcMinimized ? 'none' : 'block';
   btn.textContent = dcMinimized ? '□' : '—';
 }
 
+function updateDateCalc() {
+  const m1 = parseInt(document.getElementById('dc-m1').value)||1;
+  const d1 = parseInt(document.getElementById('dc-d1').value)||1;
+  const y1 = parseInt(document.getElementById('dc-y1').value)||2025;
+  const m2 = parseInt(document.getElementById('dc-m2').value)||1;
+  const d2 = parseInt(document.getElementById('dc-d2').value)||1;
+  const y2 = parseInt(document.getElementById('dc-y2').value)||2026;
+  const includeEnd = document.getElementById('dc-include-end') && document.getElementById('dc-include-end').checked;
+
+  const clamp = (v,lo,hi) => Math.min(Math.max(v,lo),hi);
+  const cm1=clamp(m1,1,12),cd1=clamp(d1,1,daysInMonth(cm1,y1)||28),cy1=clamp(y1,0,9999);
+  const cm2=clamp(m2,1,12),cd2=clamp(d2,1,daysInMonth(cm2,y2)||28),cy2=clamp(y2,0,9999);
+
+  // Date headers
+  const h1 = document.getElementById('dc-header1');
+  const h2 = document.getElementById('dc-header2');
+  if (h1) h1.textContent = dateLabel(cm1,cd1,cy1);
+  if (h2) h2.textContent = dateLabel(cm2,cd2,cy2);
+
+  // Duration
+  const totalDays = dateDiff(cm1,cd1,cy1,cm2,cd2,cy2,includeEnd);
+  const daysResultEl = document.getElementById('dc-days-result');
+  if (daysResultEl) {
+    daysResultEl.innerHTML = `From <span style="color:#FFA500;">${dateLabel(cm1,cd1,cy1)}</span> to <span style="color:#FFA500;">${dateLabel(cm2,cd2,cy2)}</span> is: <span style="color:#00CED1; font-size:2em; font-weight:bold; cursor:pointer; text-decoration:underline;" onclick="showNumberProperties(${totalDays},'date')">${totalDays}</span> <span style="color:#aaa;">Days</span>`;
+  }
+
+  // Duration breakdowns
+  const bd = buildDurationBreakdown(totalDays,cm1,cd1,cy1,cm2,cd2,cy2);
+  const showYear = document.getElementById('dc-show-year')?.checked;
+  const showMonth = document.getElementById('dc-show-month')?.checked;
+  const showWeek = document.getElementById('dc-show-week')?.checked;
+  const showDay = document.getElementById('dc-show-day')?.checked !== false;
+
+  function cyanLink(n) {
+    return `<span style="color:#00CED1; cursor:pointer; text-decoration:underline;" onclick="showNumberProperties(${n},'date')">${n}</span>`;
+  }
+  
+  let durHTML = '';
+  const rowStyle = 'padding:3px 0; color:#aaa; font-size:0.9em;';
+  if(showYear)  durHTML += `<div style="${rowStyle}">${cyanLink(bd.yrs)} Year, ${cyanLink(bd.yr_days)} Days</div>`;
+  if(showYear && showMonth) durHTML += `<div style="${rowStyle}">${cyanLink(bd.yrs)} Year, ${cyanLink(Math.abs(bd.months % 12))} Months, ${cyanLink(Math.abs(bd.mo_days))} Days</div>`;
+  if(showYear && showWeek)  durHTML += `<div style="${rowStyle}">${cyanLink(bd.yrs)} Year, ${cyanLink(Math.floor(bd.yr_days/7))} Weeks, ${cyanLink(bd.yr_days%7)} Days</div>`;
+  if(showMonth) durHTML += `<div style="${rowStyle}">${cyanLink(bd.months)} Months, ${cyanLink(Math.abs(bd.mo_days))} Days</div>`;
+  if(showWeek)  durHTML += `<div style="${rowStyle}">${cyanLink(bd.weeks)} Weeks, ${cyanLink(bd.wk_days)} ${bd.wk_days===1?'Day':'Days'}</div>`;
+  if(showDay)   durHTML += `<div style="${rowStyle}">${cyanLink(totalDays)} Days</div>`;
+  if(!durHTML)  durHTML = '<div style="color:#555; font-size:0.85em;">Select a duration type to view</div>';
+  
+  const durEl = document.getElementById('dc-durations');
+  if (durEl) durEl.innerHTML = durHTML;
+
+  // Numerology tables
+  const n1 = calcNumerology(cm1,cd1,cy1);
+  const n2 = calcNumerology(cm2,cd2,cy2);
+  const M1=cm1,D1=cd1,Y1=cy1,M2=cm2,D2=cd2,Y2=cy2;
+  const CC1=Math.floor(Y1/100),YY1=Y1%100,CC2=Math.floor(Y2/100),YY2=Y2%100;
+  const digStr = (n) => String(Math.abs(n)).split('').join('+');
+  const formulas = [
+    [`(${M1})+(${D1})+(${CC1})+(${YY1})`, `(${M2})+(${D2})+(${CC2})+(${YY2})`],
+    [`(${M1})+(${D1})+${digStr(Y1)}`,     `(${M2})+(${D2})+${digStr(Y2)}`],
+    [`${digStr(M1)}+${digStr(D1)}+${digStr(Y1)}`, `${digStr(M2)}+${digStr(D2)}+${digStr(Y2)}`],
+    [`(${M1})+(${D1})+(${YY1})`,          `(${M2})+(${D2})+(${YY2})`],
+    [`${digStr(M1)}+${digStr(D1)}+${digStr(YY1)}`, `${digStr(M2)}+${digStr(D2)}+${digStr(YY2)}`],
+    [`Day of Year: (${MONTHS_SHORT[M1-1]}-${D1})`, `Day of Year: (${MONTHS_SHORT[M2-1]}-${D2})`],
+    [`Days Left in Year: (${MONTHS_SHORT[M1-1]}-${D1})`, `Days Left in Year: (${MONTHS_SHORT[M2-1]}-${D2})`],
+    [`(${M1})+(${D1})`,                   `(${M2})+(${D2})`],
+    [`${digStr(M1)}+${digStr(D1)}+(${CC1})+(${YY1})`, `${digStr(M2)}+${digStr(D2)}+(${CC2})+(${YY2})`],
+    [`(${M1})+(${D1})+${digStr(YY1)}`,    `(${M2})+(${D2})+${digStr(YY2)}`],
+    [`${digStr(M1)}+${digStr(D1)}+(${YY1})`, `${digStr(M2)}+${digStr(D2)}+(${YY2})`],
+    [`Product (Full Year)`,               `Product (Full Year)`],
+    [`Product (Last 2 Yr)`,               `Product (Last 2 Yr)`]
+  ];
+
+  const trStyle = 'border-bottom:1px solid #1a1a1a;';
+  const tdFStyle = 'padding:3px 8px; color:#666; font-size:0.75em;';
+  const tdRStyle = 'padding:3px 8px; font-size:0.85em; text-align:right; cursor:pointer;';
+
+  let t1='',t2='';
+  for(let i=0;i<13;i++){
+    t1 += `<tr style="${trStyle}"><td style="${tdFStyle}">${formulas[i][0]}</td><td style="${tdRStyle} color:#00CED1;" onclick="showNumberProperties(${n1[i]},'date')">${n1[i]}</td></tr>`;
+    t2 += `<tr style="${trStyle}"><td style="${tdFStyle}">${formulas[i][1]}</td><td style="${tdRStyle} color:#00CED1;" onclick="showNumberProperties(${n2[i]},'date')">${n2[i]}</td></tr>`;
+  }
+  
+  const t1el = document.getElementById('dc-table1');
+  const t2el = document.getElementById('dc-table2');
+  const h1tbl = document.getElementById('dc-header1-tbl');
+  const h2tbl = document.getElementById('dc-header2-tbl');
+  if (t1el) t1el.innerHTML = t1;
+  if (t2el) t2el.innerHTML = t2;
+  if (h1tbl) h1tbl.textContent = dateLabel(cm1,cd1,cy1);
+  if (h2tbl) h2tbl.textContent = dateLabel(cm2,cd2,cy2);
+}
 
 // RENDER CARDS FUNCTION
 function renderCards() {
